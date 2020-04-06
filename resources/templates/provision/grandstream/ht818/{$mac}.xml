@@ -16,11 +16,11 @@
     <!-- # Admin password for web interface -->
     <!-- # String; between ascii values 33 and 126 -->
     <!-- # Mandatory -->
-    {if isset($admin_password)}
+{if isset($admin_password)}
     <P2>{$admin_password}</P2>
-    {else}
+{else}
     <P2>{$mac|replace:'-':''}</P2>
-    {/if}
+{/if}
 
 
     <!-- # Layer 2 QoS.  -->
@@ -94,6 +94,9 @@
 
     <!-- # Config Server Path -->
     <!-- # Server address;  -->
+<<<<<<< HEAD
+    <P237>{$domain_name}{$project_path}/app/provision</P237>
+=======
     {if $grandstream_config_server_path=="none"}
     <P237></P237>
     {elseif isset($grandstream_config_server_path)}
@@ -101,6 +104,7 @@
     {else}
     <P237>{$domain_name}{$project_path}/app/provision</P237>
     {/if}
+>>>>>>> 11770c555edd56a3e6fc3ddad89e7bc1a9c04f04
 
     <!-- # XML Config File Password -->
     <!-- # String; between ascii values 33 and 126 -->
@@ -541,7 +545,15 @@
     <!-- # Number: 0, 1, 2 -->
     <!-- # Mandatory -->
     {$tp=0}
+<<<<<<< HEAD
         {if $account.1.sip_transport == 'udp'}{$tp=0}{/if}
+=======
+<<<<<<< HEAD
+	{if $account.1.sip_transport == 'udp'}{$tp=0}{/if}
+=======
+    {if $account.1.sip_transport == 'udp'}{$tp=0}{/if}
+>>>>>>> 11770c555edd56a3e6fc3ddad89e7bc1a9c04f04
+>>>>>>> parent of ca101cff1... Update {$mac}.xml
 	{if $account.1.sip_transport == 'tcp'}{$tp=1}{/if}
 	{if $account.1.sip_transport == 'tls'}{$tp=2}{/if}
 	{if $account.1.sip_transport == 'dns srv'}{$tp=1}{/if}
@@ -563,19 +575,32 @@
     <!-- # Number: 0, 1, 2, 3 -->
     <!-- # Mandatory -->
     {if isset($grandstream_nat_traversal)}
+<<<<<<< HEAD
+<P52>{$grandstream_nat_traversal}</P52>
+{else}
+<P52>0</P52>
+{/if}
+=======
     <P52>{$grandstream_nat_traversal}</P52>
     {else}
     <P52>0</P52>
     {/if}
+>>>>>>> 11770c555edd56a3e6fc3ddad89e7bc1a9c04f04
 
 
     <!-- # DNS Mode. 0 - A Record, 1 - SRV, 2 - NAPTR/SRV. -->
     <!-- # Number: 0, 1, 2 -->
     <!-- # Mandatory -->
     {if isset($grandstream_dns_mode)}
+<<<<<<< HEAD
+<P103>{$grandstream_dns_mode}</P103>
+{else}
+<P103>0</P103>
+=======
     <P103>{$grandstream_dns_mode}</P103>
     {else}
     <P103>0</P103>
+>>>>>>> 11770c555edd56a3e6fc3ddad89e7bc1a9c04f04
     {/if}
 
 
@@ -891,7 +916,11 @@
     <!-- # Disable Call-Waiting Caller ID. 0 - No, 1 - Yes -->
     <!-- # Number: 0, 1 -->
     <!-- # Mandatory -->
+<<<<<<< HEAD
+    <P714>{$grandstream_call_waiting_caller_id}</P714>
+=======
     <P714>0</P714>
+>>>>>>> 11770c555edd56a3e6fc3ddad89e7bc1a9c04f04
 
     <!-- # Disable Call-Waiting Tone. 0 - No, 1 - Yes -->
     <!-- # Number: 0, 1 -->
