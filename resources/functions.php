@@ -103,6 +103,7 @@
 
 	if (!function_exists('uuid')) {
 		function uuid() {
+<<<<<<< HEAD
 			//uuid version 4
 			return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
 				// 32 bits for "time_low"
@@ -125,6 +126,28 @@
 			);
 		}
 		//echo uuid();
+=======
+			$uuid = null;
+			if (PHP_OS === 'FreeBSD') {
+				$uuid = trim(shell_exec("uuid -v 4"));
+				if (!is_uuid($uuid)) {
+					echo "Please install the following package.\n";
+					echo "pkg install ossp-uuid\n";
+					exit;
+				}
+			}
+			if (PHP_OS === 'Linux' && !is_uuid($uuid)) {
+				$uuid = trim(file_get_contents('/proc/sys/kernel/random/uuid'));
+			}
+			if (!is_uuid($uuid)) {
+				$uuid = trim(shell_exec("uuidgen"));
+			}
+			if (function_exists('com_create_guid') === true && PHP_OS === 'Windows') {
+				$uuid = trim(com_create_guid(), '{}');
+			}
+			return $uuid;
+		}
+>>>>>>> pr/2
 	}
 
 	if (!function_exists('is_uuid')) {
@@ -895,6 +918,7 @@ function format_string ($format, $data) {
 //generate a random password with upper, lowercase and symbols
 	function generate_password($length = 0, $strength = 0) {
 		$password = '';
+<<<<<<< HEAD
 		$charset = '';
 		if ($length === 0 && $strength === 0) { //set length and strenth if specified in default settings and strength isn't numeric-only
 			$length = (is_numeric($_SESSION["extension"]["password_length"]["numeric"])) ? $_SESSION["extension"]["password_length"]["numeric"] : 10;
@@ -908,6 +932,19 @@ function format_string ($format, $data) {
 		while ($length > 0) {
 				$password .= $charset[rand(0, strlen($charset)-1)];
 				$length--;
+=======
+		$chars = '';
+		if ($length === 0 && $strength === 0) { //set length and strenth if specified in default settings and strength isn't numeric-only
+			$length = (is_numeric($_SESSION["users"]["password_length"]["numeric"])) ? $_SESSION["users"]["password_length"]["numeric"] : 20;
+			$strength = (is_numeric($_SESSION["users"]["password_strength"]["numeric"])) ? $_SESSION["users"]["password_strength"]["numeric"] : 4;
+		}
+		if ($strength >= 1) { $chars .= "0123456789"; }
+		if ($strength >= 2) { $chars .= "abcdefghijkmnopqrstuvwxyz"; }
+		if ($strength >= 3) { $chars .= "ABCDEFGHIJKLMNPQRSTUVWXYZ"; }
+		if ($strength >= 4) { $chars .= "!^$%*?."; }
+		for ($i = 0; $i < $length; $i++) {
+			$password .= $chars[random_int(0, strlen($chars)-1)];
+>>>>>>> pr/2
 		}
 		return $password;
 	}
@@ -1949,8 +1986,19 @@ function number_pad($number,$n) {
 
 //output pre-formatted array keys and values
 	if (!function_exists('view_array')) {
+<<<<<<< HEAD
 		function view_array($array, $exit = true) {
 			echo "<br><pre style='text-align: left;'>".print_r($array, true).'</pre><br>';
+=======
+		function view_array($array, $exit = true, $return = false) {
+			$html = "<br><pre style='text-align: left;'>".print_r($array, true).'</pre><br>';
+			if ($return) {
+				return $html;
+			}
+			else {
+				echo $html;
+			}
+>>>>>>> pr/2
 			$exit and exit();
 		}
 	}
@@ -2079,6 +2127,7 @@ function number_pad($number,$n) {
 //add a random_bytes function when it doesn't exist for old versions of PHP
 	if (!function_exists('random_bytes')) {
 		function random_bytes($length) {
+<<<<<<< HEAD
 			$charset .= "0123456789";
 			$charset .= "abcdefghijkmnopqrstuvwxyz";
 			$charset .= "ABCDEFGHIJKLMNPQRSTUVWXYZ";
@@ -2086,6 +2135,13 @@ function number_pad($number,$n) {
 			while ($length > 0) {
 				$string .= $charset[rand(0, strlen($charset)-1)];
 				$length--;
+=======
+			$chars .= "0123456789";
+			$chars .= "abcdefghijkmnopqrstuvwxyz";
+			$chars .= "ABCDEFGHIJKLMNPQRSTUVWXYZ";
+			for ($i = 0; $i < $length; $i++) {
+				$string .= $chars[random_int(0, strlen($chars)-1)];
+>>>>>>> pr/2
 			}
 			return $string.' ';
 		}
@@ -2117,4 +2173,51 @@ function number_pad($number,$n) {
 		}
 	}
 
+<<<<<<< HEAD
 ?>
+=======
+//convert bytes to readable human format
+	if (!function_exists('random_int')) {
+		function random_int() {
+			return rand ();
+		}
+	}
+
+//manage submitted form values in a session array
+	if (!function_exists('persistent_form_values')) {
+		function persistent_form_values($action, $array = null) {
+			switch ($action) {
+				case 'store':
+					if (is_array($array) && @sizeof($array) != 0) {
+						$_SESSION[$_SERVER['PHP_SELF']] = $array;
+					}
+					break;
+				case 'exists':
+					return is_array($_SESSION[$_SERVER['PHP_SELF']]) && @sizeof($_SESSION[$_SERVER['PHP_SELF']]) != 0 ? true : false;
+					break;
+				case 'load':
+					if (is_array($_SESSION[$_SERVER['PHP_SELF']]) && @sizeof($_SESSION[$_SERVER['PHP_SELF']]) != 0) {
+						foreach ($_SESSION[$_SERVER['PHP_SELF']] as $key => $value) {
+							if ($key != 'XID' && $key != 'ACT' && $key != 'RET') {
+								global $$key;
+								$$key = $value;
+							}
+						}
+						global $unsaved;
+						$unsaved = true;
+					}
+					break;
+				case 'view':
+					if (is_array($_SESSION[$_SERVER['PHP_SELF']]) && @sizeof($_SESSION[$_SERVER['PHP_SELF']]) != 0) {
+						view_array($_SESSION[$_SERVER['PHP_SELF']], false);
+					}
+					break;
+				case 'clear':
+					unset($_SESSION[$_SERVER['PHP_SELF']]);
+					break;
+			}
+		}
+	}
+
+?>
+>>>>>>> pr/2

@@ -9,6 +9,10 @@
 		$apps[$x]['license'] = "Mozilla Public License 1.1";
 		$apps[$x]['url'] = "http://www.fusionpbx.com";
 		$apps[$x]['description']['en-us'] = "Conferences is used to setup conference rooms with a name, description, and optional pin number.";
+<<<<<<< HEAD
+=======
+		$apps[$x]['description']['en-gb'] = "Conferences is used to setup conference rooms with a name, description, and optional pin number.";
+>>>>>>> pr/2
 		$apps[$x]['description']['ar-eg'] = "";
 		$apps[$x]['description']['de-at'] = "Konferenzen wird verwendet, um Konferenzräume mit Namen, Beschreibung und optionaler PIN bereit zu stellen.";
 		$apps[$x]['description']['de-ch'] = "";
@@ -58,6 +62,7 @@
 		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
 		$apps[$x]['permissions'][$y]['groups'][] = "admin";
 		$apps[$x]['permissions'][$y]['groups'][] = "user";
+<<<<<<< HEAD
 		$y++;
 		$apps[$x]['permissions'][$y]['name'] = "conference_delete";
 		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
@@ -76,6 +81,30 @@
 		$apps[$x]['permissions'][$y]['groups'][] = "admin";
 		$y++;
 		$apps[$x]['permissions'][$y]['name'] = "conference_user_delete";
+=======
+		$y++;
+		$apps[$x]['permissions'][$y]['name'] = "conference_delete";
+		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+		$apps[$x]['permissions'][$y]['groups'][] = "admin";
+		$y++;
+		$apps[$x]['permissions'][$y]['name'] = "conference_user_view";
+		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+		$apps[$x]['permissions'][$y]['groups'][] = "admin";;
+		$y++;
+		$apps[$x]['permissions'][$y]['name'] = "conference_user_add";
+		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+		$apps[$x]['permissions'][$y]['groups'][] = "admin";
+		$y++;
+		$apps[$x]['permissions'][$y]['name'] = "conference_user_edit";
+		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+		$apps[$x]['permissions'][$y]['groups'][] = "admin";
+		$y++;
+		$apps[$x]['permissions'][$y]['name'] = "conference_user_delete";
+		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+		$apps[$x]['permissions'][$y]['groups'][] = "admin";
+		$y++;
+		$apps[$x]['permissions'][$y]['name'] = "conference_destinations";
+>>>>>>> pr/2
 		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
 		$apps[$x]['permissions'][$y]['groups'][] = "admin";
 

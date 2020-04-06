@@ -1,6 +1,10 @@
 <?php
 
 	//$apps[$x]['menu'][0]['title']['en-us'] = "Provision";
+<<<<<<< HEAD
+=======
+	//$apps[$x]['menu'][0]['title']['en-gb'] = "Provision";
+>>>>>>> pr/2
 	//$apps[$x]['menu'][0]['title']['fr-fr'] = "Provision";
 	//$apps[$x]['menu'][0]['title']['ru-ru'] = "Обеспечение";
 	//$apps[$x]['menu'][0]['title']['de-de'] = "Bereitstellung";

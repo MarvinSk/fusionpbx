@@ -2,6 +2,10 @@
 
 	$y=0;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Voicemail";
+<<<<<<< HEAD
+=======
+	$apps[$x]['menu'][$y]['title']['en-gb'] = "Voicemail";
+>>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Sprachnachrichten";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Sprachnachrichten";

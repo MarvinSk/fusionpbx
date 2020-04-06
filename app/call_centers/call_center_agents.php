@@ -126,7 +126,11 @@
 		echo button::create(['type'=>'button','label'=>$text['button-add'],'icon'=>$_SESSION['theme']['button_icon_add'],'id'=>'btn_add','link'=>'call_center_agent_edit.php']);
 	}
 	if (permission_exists('call_center_agent_delete') && $result) {
+<<<<<<< HEAD
 		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'id'=>'btn_delete','onclick'=>"if (confirm('".$text['confirm-delete']."')) { list_action_set('delete'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
+=======
+		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','onclick'=>"modal_open('modal-delete','btn_delete');"]);
+>>>>>>> pr/2
 	}
 	echo 		"<form id='form_search' class='inline' method='get'>";
 	echo 		"<input type='text' class='txt list-search' name='search' id='search' value=\"".escape($search)."\" placeholder=\"".$text['label-search']."\" onkeydown='list_search_reset();'>";
@@ -140,6 +144,13 @@
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
 
+<<<<<<< HEAD
+=======
+	if (permission_exists('call_center_agent_delete') && $result) {
+		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
+	}
+
+>>>>>>> pr/2
 	echo $text['description-call_center_agents']."\n";
 	echo "<br /><br />\n";
 

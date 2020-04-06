@@ -59,6 +59,7 @@ if ($domains_processed == 1) {
 	unset($sql, $result, $row);
 
 	//update http_auth_enabled set to true
+<<<<<<< HEAD
 	$sql = "select * from v_default_settings ";
 	$sql .= "where default_setting_subcategory = 'http_auth_disable' ";
 	$database = new database;
@@ -90,6 +91,33 @@ if ($domains_processed == 1) {
 
 	}
 	unset($sql, $result, $row);
+=======
+	$sql = "select count(*) from v_default_settings ";
+	$sql .= "where default_setting_subcategory = 'http_auth_disable' ";
+	if ($database->select($sql, null, 'column') > 0) {
+		//build update array
+			$array['default_settings'][$x]['default_setting_uuid'] = 'c998c762-6a43-4911-a465-a9653eeb793d';
+			$array['default_settings'][$x]['default_setting_subcategory'] = 'http_auth_enabled';
+			$array['default_settings'][$x]['default_setting_value'] = 'true';
+			$array['default_settings'][$x]['default_setting_enabled'] = 'true';
+
+		//grant temporary permissions
+			$p = new permissions;
+			$p->add('default_setting_edit', 'temp');
+
+		//execute update
+			$database = new database;
+			$database->app_name = 'provision';
+			$database->app_uuid = 'abf28ead-92ef-3de6-ebbb-023fbc2b6dd3';
+			$database->save($array);
+			unset($array);
+
+		//grant temporary permissions
+			$p = new permissions;
+			$p->delete('default_setting_edit', 'temp');
+	}
+	unset($sql);
+>>>>>>> pr/2
 
 	//update default settings
 	$sql = "update v_default_settings set ";

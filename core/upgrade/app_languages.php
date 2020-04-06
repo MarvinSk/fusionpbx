@@ -2,6 +2,10 @@
 #This file was last reorganized on 19th of September 2017 08:54:24 AM UTC
 
 $text['title-upgrade_schema']['en-us'] = "Upgrade Schema";
+<<<<<<< HEAD
+=======
+$text['title-upgrade_schema']['en-gb'] = "Upgrade Schema";
+>>>>>>> pr/2
 $text['title-upgrade_schema']['ar-eg'] = "";
 $text['title-upgrade_schema']['de-at'] = "Schema Aktualisieren"; //copied from de-de
 $text['title-upgrade_schema']['de-ch'] = "Schema Aktualisieren"; //copied from de-de
@@ -22,6 +26,10 @@ $text['title-upgrade_schema']['sv-se'] = "Uppgraderingsschema";
 $text['title-upgrade_schema']['uk-ua'] = "Схема оновлення";
 
 $text['title-upgrade']['en-us'] = "Upgrade";
+<<<<<<< HEAD
+=======
+$text['title-upgrade']['en-gb'] = "Upgrade";
+>>>>>>> pr/2
 $text['title-upgrade']['ar-eg'] = "";
 $text['title-upgrade']['de-at'] = "Aktualisierung"; //copied from de-de
 $text['title-upgrade']['de-ch'] = "Aktualisierung"; //copied from de-de
@@ -42,6 +50,10 @@ $text['title-upgrade']['sv-se'] = "Uppgradera";
 $text['title-upgrade']['uk-ua'] = "Оновлення";
 
 $text['option-true']['en-us'] = "True";
+<<<<<<< HEAD
+=======
+$text['option-true']['en-gb'] = "True";
+>>>>>>> pr/2
 $text['option-true']['ar-eg'] = "";
 $text['option-true']['de-at'] = "Ein"; //copied from de-de
 $text['option-true']['de-ch'] = "Ein"; //copied from de-de
@@ -62,6 +74,10 @@ $text['option-true']['sv-se'] = "Sann";
 $text['option-true']['uk-ua'] = "Так";
 
 $text['option-false']['en-us'] = "False";
+<<<<<<< HEAD
+=======
+$text['option-false']['en-gb'] = "False";
+>>>>>>> pr/2
 $text['option-false']['ar-eg'] = "";
 $text['option-false']['de-at'] = "Aus"; //copied from de-de
 $text['option-false']['de-ch'] = "Aus"; //copied from de-de
@@ -82,6 +98,10 @@ $text['option-false']['sv-se'] = "Falsk";
 $text['option-false']['uk-ua'] = "Ні";
 
 $text['message-upgrade_permissions']['en-us'] = "Permission Defaults Restored";
+<<<<<<< HEAD
+=======
+$text['message-upgrade_permissions']['en-gb'] = "Permission Defaults Restored";
+>>>>>>> pr/2
 $text['message-upgrade_permissions']['ar-eg'] = "";
 $text['message-upgrade_permissions']['de-at'] = "Standard Berechtigungen wiederhergestellt."; //copied from de-de
 $text['message-upgrade_permissions']['de-ch'] = "Standard Berechtigungen wiederhergestellt."; //copied from de-de
@@ -102,6 +122,10 @@ $text['message-upgrade_permissions']['sv-se'] = "";
 $text['message-upgrade_permissions']['uk-ua'] = "";
 
 $text['message-upgrade_source_scripts']['en-us'] = "Source Files and Scripts Updated";
+<<<<<<< HEAD
+=======
+$text['message-upgrade_source_scripts']['en-gb'] = "Source Files and Scripts Updated";
+>>>>>>> pr/2
 $text['message-upgrade_source_scripts']['ar-eg'] = "";
 $text['message-upgrade_source_scripts']['de-at'] = "Quellcode und Scripte aktualisieren"; //copied from de-de
 $text['message-upgrade_source_scripts']['de-ch'] = "Quellcode und Scripte aktualisieren"; //copied from de-de
@@ -122,6 +146,10 @@ $text['message-upgrade_source_scripts']['sv-se'] = "Källfiler Uppdaterade";
 $text['message-upgrade_source_scripts']['uk-ua'] = "Вихідні файли і сценарії оновлено";
 
 $text['message-upgrade_source_failed']['en-us'] = "Source Files Update Failed";
+<<<<<<< HEAD
+=======
+$text['message-upgrade_source_failed']['en-gb'] = "Source Files Update Failed";
+>>>>>>> pr/2
 $text['message-upgrade_source_failed']['ar-eg'] = "";
 $text['message-upgrade_source_failed']['de-at'] = "Quellcode Aktualisierung fehlgeschlagen"; //copied from de-de
 $text['message-upgrade_source_failed']['de-ch'] = "Quellcode Aktualisierung fehlgeschlagen"; //copied from de-de
@@ -142,6 +170,10 @@ $text['message-upgrade_source_failed']['sv-se'] = "Källfiler Uppdatering missly
 $text['message-upgrade_source_failed']['uk-ua'] = "Помилка оновлення вихідних файлів";
 
 $text['message-upgrade_source']['en-us'] = "Source Files Updated";
+<<<<<<< HEAD
+=======
+$text['message-upgrade_source']['en-gb'] = "Source Files Updated";
+>>>>>>> pr/2
 $text['message-upgrade_source']['ar-eg'] = "";
 $text['message-upgrade_source']['de-at'] = "Quellcode aktualisiert"; //copied from de-de
 $text['message-upgrade_source']['de-ch'] = "Quellcode aktualisiert"; //copied from de-de
@@ -162,6 +194,10 @@ $text['message-upgrade_source']['sv-se'] = "Källfiler Uppdaterade";
 $text['message-upgrade_source']['uk-ua'] = "Вихідні файли оновлено";
 
 $text['message-upgrade_schema']['en-us'] = "Schema Verified";
+<<<<<<< HEAD
+=======
+$text['message-upgrade_schema']['en-gb'] = "Schema Verified";
+>>>>>>> pr/2
 $text['message-upgrade_schema']['ar-eg'] = "";
 $text['message-upgrade_schema']['de-at'] = "Schema geprüft"; //copied from de-de
 $text['message-upgrade_schema']['de-ch'] = "Schema geprüft"; //copied from de-de
@@ -182,6 +218,10 @@ $text['message-upgrade_schema']['sv-se'] = "Schema Verifierat";
 $text['message-upgrade_schema']['uk-ua'] = "Схеми перевірено";
 
 $text['message-upgrade_menu']['en-us'] = "Menu Defaults Restored";
+<<<<<<< HEAD
+=======
+$text['message-upgrade_menu']['en-gb'] = "Menu Defaults Restored";
+>>>>>>> pr/2
 $text['message-upgrade_menu']['ar-eg'] = "";
 $text['message-upgrade_menu']['de-at'] = "Menüs zurückgesetzt"; //copied from de-de
 $text['message-upgrade_menu']['de-ch'] = "Menüs zurückgesetzt"; //copied from de-de
@@ -202,6 +242,10 @@ $text['message-upgrade_menu']['sv-se'] = "Standard Meny Återställd";
 $text['message-upgrade_menu']['uk-ua'] = "Відновлено типові елементи меню";
 
 $text['message-upgrade_apps']['en-us'] = "App Defaults Executed";
+<<<<<<< HEAD
+=======
+$text['message-upgrade_apps']['en-gb'] = "App Defaults Executed";
+>>>>>>> pr/2
 $text['message-upgrade_apps']['ar-eg'] = "";
 $text['message-upgrade_apps']['de-at'] = "Applikationen zurückgesetzt"; //copied from de-de
 $text['message-upgrade_apps']['de-ch'] = "Applikationen zurückgesetzt"; //copied from de-de
@@ -222,6 +266,10 @@ $text['message-upgrade_apps']['sv-se'] = "App Standardinställningar Utförd";
 $text['message-upgrade_apps']['uk-ua'] = "Встановлено типові налаштування додатків";
 
 $text['message-upgrade']['en-us'] = "Upgrade Completed";
+<<<<<<< HEAD
+=======
+$text['message-upgrade']['en-gb'] = "Upgrade Completed";
+>>>>>>> pr/2
 $text['message-upgrade']['ar-eg'] = "";
 $text['message-upgrade']['de-at'] = "Aktualisierung durchgeführt."; //copied from de-de
 $text['message-upgrade']['de-ch'] = "Aktualisierung durchgeführt."; //copied from de-de
@@ -242,6 +290,10 @@ $text['message-upgrade']['sv-se'] = "Uppgradering Klar";
 $text['message-upgrade']['uk-ua'] = "Оновлено";
 
 $text['login-message_text']['en-us'] = "Keep up with the FusionPBX project by configuring your preferences in the newly added <a href=''/core/notifications/notification_edit.php''>Notifications</a> section, under the System menu!";
+<<<<<<< HEAD
+=======
+$text['login-message_text']['en-gb'] = "Keep up with the FusionPBX project by configuring your preferences in the newly added <a href=''/core/notifications/notification_edit.php''>Notifications</a> section, under the System menu!";
+>>>>>>> pr/2
 $text['login-message_text']['ar-eg'] = "";
 $text['login-message_text']['de-at'] = "Halten Sie sich über FusionPBX auf dem Laufenden indem Sie die Benachrichtigungseinstellungen im System Menü setzen."; //copied from de-de
 $text['login-message_text']['de-ch'] = "Halten Sie sich über FusionPBX auf dem Laufenden indem Sie die Benachrichtigungseinstellungen im System Menü setzen."; //copied from de-de
@@ -262,6 +314,10 @@ $text['login-message_text']['sv-se'] = "Håll dig uppdaterad med de FusionPBX pr
 $text['login-message_text']['uk-ua'] = "Keep up with the FusionPBX project by configuring your preferences in the newly added Notifications section, under the System menu! ";
 
 $text['label-upgrade_source']['en-us'] = "Source Code";
+<<<<<<< HEAD
+=======
+$text['label-upgrade_source']['en-gb'] = "Source Code";
+>>>>>>> pr/2
 $text['label-upgrade_source']['ar-eg'] = "";
 $text['label-upgrade_source']['de-at'] = "Quellcode"; //copied from de-de
 $text['label-upgrade_source']['de-ch'] = "Quellcode"; //copied from de-de
@@ -282,6 +338,10 @@ $text['label-upgrade_source']['sv-se'] = "Källkod";
 $text['label-upgrade_source']['uk-ua'] = "Вихідний код";
 
 $text['label-upgrade_schema']['en-us'] = "Schema";
+<<<<<<< HEAD
+=======
+$text['label-upgrade_schema']['en-gb'] = "Schema";
+>>>>>>> pr/2
 $text['label-upgrade_schema']['ar-eg'] = "";
 $text['label-upgrade_schema']['de-at'] = "Schema"; //copied from de-de
 $text['label-upgrade_schema']['de-ch'] = "Schema"; //copied from de-de
@@ -302,6 +362,10 @@ $text['label-upgrade_schema']['sv-se'] = "Schema";
 $text['label-upgrade_schema']['uk-ua'] = "Схеми";
 
 $text['label-upgrade_permissions']['en-us'] = "Permission Defaults";
+<<<<<<< HEAD
+=======
+$text['label-upgrade_permissions']['en-gb'] = "Permission Defaults";
+>>>>>>> pr/2
 $text['label-upgrade_permissions']['ar-eg'] = "";
 $text['label-upgrade_permissions']['de-at'] = "Berechtigungen zurücksetzen"; //copied from de-de
 $text['label-upgrade_permissions']['de-ch'] = "Berechtigungen zurücksetzen"; //copied from de-de
@@ -322,6 +386,10 @@ $text['label-upgrade_permissions']['sv-se'] = "Standard Rättigheter";
 $text['label-upgrade_permissions']['uk-ua'] = "Типові привілеї";
 
 $text['label-upgrade_menu']['en-us'] = "Menu Defaults";
+<<<<<<< HEAD
+=======
+$text['label-upgrade_menu']['en-gb'] = "Menu Defaults";
+>>>>>>> pr/2
 $text['label-upgrade_menu']['ar-eg'] = "";
 $text['label-upgrade_menu']['de-at'] = "Menüs zurücksetzen"; //copied from de-de
 $text['label-upgrade_menu']['de-ch'] = "Menüs zurücksetzen"; //copied from de-de
@@ -342,6 +410,10 @@ $text['label-upgrade_menu']['sv-se'] = "Standard Menyer";
 $text['label-upgrade_menu']['uk-ua'] = "Типові елементи меню";
 
 $text['label-upgrade_data_types']['en-us'] = "Data Types";
+<<<<<<< HEAD
+=======
+$text['label-upgrade_data_types']['en-gb'] = "Data Types";
+>>>>>>> pr/2
 $text['label-upgrade_data_types']['ar-eg'] = "";
 $text['label-upgrade_data_types']['de-at'] = "Daten Typen"; //copied from de-de
 $text['label-upgrade_data_types']['de-ch'] = "Daten Typen"; //copied from de-de
@@ -362,6 +434,10 @@ $text['label-upgrade_data_types']['sv-se'] = "Datatyper";
 $text['label-upgrade_data_types']['uk-ua'] = "Типи даних";
 
 $text['label-upgrade_apps']['en-us'] = "App Defaults";
+<<<<<<< HEAD
+=======
+$text['label-upgrade_apps']['en-gb'] = "App Defaults";
+>>>>>>> pr/2
 $text['label-upgrade_apps']['ar-eg'] = "";
 $text['label-upgrade_apps']['de-at'] = "Applikationen zurücksetzen"; //copied from de-de
 $text['label-upgrade_apps']['de-ch'] = "Applikationen zurücksetzen"; //copied from de-de
@@ -382,6 +458,10 @@ $text['label-upgrade_apps']['sv-se'] = "App Standard";
 $text['label-upgrade_apps']['uk-ua'] = "Типові значення додатків";
 
 $text['label-upgrade_switch']['en-us'] = "Switch Upgrade";
+<<<<<<< HEAD
+=======
+$text['label-upgrade_switch']['en-gb'] = "Switch Upgrade";
+>>>>>>> pr/2
 $text['label-upgrade_switch']['ar-eg'] = "";
 $text['label-upgrade_switch']['de-at'] = "Switch aktualisieren"; //copied from de-de
 $text['label-upgrade_switch']['de-ch'] = "Switch aktualisieren"; //copied from de-de
@@ -402,6 +482,10 @@ $text['label-upgrade_switch']['sv-se'] = "Uppgradera Switch";
 $text['label-upgrade_switch']['uk-ua'] = "";
 
 $text['label-upgrade']['en-us'] = "Upgrade";
+<<<<<<< HEAD
+=======
+$text['label-upgrade']['en-gb'] = "Upgrade";
+>>>>>>> pr/2
 $text['label-upgrade']['ar-eg'] = "";
 $text['label-upgrade']['de-at'] = "Aktualisieren"; //copied from de-de
 $text['label-upgrade']['de-ch'] = "Aktualisieren"; //copied from de-de
@@ -422,6 +506,10 @@ $text['label-upgrade']['sv-se'] = "Uppgradera";
 $text['label-upgrade']['uk-ua'] = "Оновлення";
 
 $text['label-type']['en-us'] = "Type";
+<<<<<<< HEAD
+=======
+$text['label-type']['en-gb'] = "Type";
+>>>>>>> pr/2
 $text['label-type']['ar-eg'] = "";
 $text['label-type']['de-at'] = "Typ"; //copied from de-de
 $text['label-type']['de-ch'] = "Typ"; //copied from de-de
@@ -442,6 +530,10 @@ $text['label-type']['sv-se'] = "Typ";
 $text['label-type']['uk-ua'] = "Тип";
 
 $text['label-table']['en-us'] = "Table";
+<<<<<<< HEAD
+=======
+$text['label-table']['en-gb'] = "Table";
+>>>>>>> pr/2
 $text['label-table']['ar-eg'] = "";
 $text['label-table']['de-at'] = "Tabelle"; //copied from de-de
 $text['label-table']['de-ch'] = "Tabelle"; //copied from de-de
@@ -462,6 +554,10 @@ $text['label-table']['sv-se'] = "Tabell";
 $text['label-table']['uk-ua'] = "Таблиця";
 
 $text['label-sql_changes']['en-us'] = "SQL Changes";
+<<<<<<< HEAD
+=======
+$text['label-sql_changes']['en-gb'] = "SQL Changes";
+>>>>>>> pr/2
 $text['label-sql_changes']['ar-eg'] = "";
 $text['label-sql_changes']['de-at'] = "SQL Änderungen"; //copied from de-de
 $text['label-sql_changes']['de-ch'] = "SQL Änderungen"; //copied from de-de
@@ -482,6 +578,10 @@ $text['label-sql_changes']['sv-se'] = "SQL Ändringar";
 $text['label-sql_changes']['uk-ua'] = "Зміни SQL";
 
 $text['label-schema']['en-us'] = "Schema";
+<<<<<<< HEAD
+=======
+$text['label-schema']['en-gb'] = "Schema";
+>>>>>>> pr/2
 $text['label-schema']['ar-eg'] = "";
 $text['label-schema']['de-at'] = "Schema"; //copied from de-de
 $text['label-schema']['de-ch'] = "Schema"; //copied from de-de
@@ -502,6 +602,10 @@ $text['label-schema']['sv-se'] = "Schema";
 $text['label-schema']['uk-ua'] = "Схеми";
 
 $text['label-no_change']['en-us'] = "No Change";
+<<<<<<< HEAD
+=======
+$text['label-no_change']['en-gb'] = "No Change";
+>>>>>>> pr/2
 $text['label-no_change']['ar-eg'] = "";
 $text['label-no_change']['de-at'] = "Keine Änderungen"; //copied from de-de
 $text['label-no_change']['de-ch'] = "Keine Änderungen"; //copied from de-de
@@ -522,6 +626,10 @@ $text['label-no_change']['sv-se'] = "Ingen Ändring";
 $text['label-no_change']['uk-ua'] = "Без змін";
 
 $text['label-name']['en-us'] = "Name";
+<<<<<<< HEAD
+=======
+$text['label-name']['en-gb'] = "Name";
+>>>>>>> pr/2
 $text['label-name']['ar-eg'] = "";
 $text['label-name']['de-at'] = "Name"; //copied from de-de
 $text['label-name']['de-ch'] = "Name"; //copied from de-de
@@ -542,6 +650,10 @@ $text['label-name']['sv-se'] = "Namn";
 $text['label-name']['uk-ua'] = "Назва";
 
 $text['label-exists']['en-us'] = "Exists";
+<<<<<<< HEAD
+=======
+$text['label-exists']['en-gb'] = "Exists";
+>>>>>>> pr/2
 $text['label-exists']['ar-eg'] = "";
 $text['label-exists']['de-at'] = "Existiert"; //copied from de-de
 $text['label-exists']['de-ch'] = "Existiert"; //copied from de-de
@@ -562,6 +674,10 @@ $text['label-exists']['sv-se'] = "Existerar";
 $text['label-exists']['uk-ua'] = "Існує";
 
 $text['label-details']['en-us'] = "Details";
+<<<<<<< HEAD
+=======
+$text['label-details']['en-gb'] = "Details";
+>>>>>>> pr/2
 $text['label-details']['ar-eg'] = "";
 $text['label-details']['de-at'] = "Details"; //copied from de-de
 $text['label-details']['de-ch'] = "Details"; //copied from de-de
@@ -582,6 +698,10 @@ $text['label-details']['sv-se'] = "Detaljer";
 $text['label-details']['uk-ua'] = "Деталі";
 
 $text['label-database']['en-us'] = "Database";
+<<<<<<< HEAD
+=======
+$text['label-database']['en-gb'] = "Database";
+>>>>>>> pr/2
 $text['label-database']['ar-eg'] = "";
 $text['label-database']['de-at'] = "Datenbank"; //copied from de-de
 $text['label-database']['de-ch'] = "Datenbank"; //copied from de-de
@@ -602,6 +722,10 @@ $text['label-database']['sv-se'] = "Databas";
 $text['label-database']['uk-ua'] = "База даних";
 
 $text['label-results']['en-us'] = "Results";
+<<<<<<< HEAD
+=======
+$text['label-results']['en-gb'] = "Results";
+>>>>>>> pr/2
 $text['label-results']['ar-eg'] = "النتائج";
 $text['label-results']['de-at'] = "Ergebnisse"; //copied from de-de
 $text['label-results']['de-ch'] = "Ergebnisse"; //copied from de-de
@@ -622,6 +746,10 @@ $text['label-results']['sv-se'] = "Resultat";
 $text['label-results']['uk-ua'] = "результати";
 
 $text['header-upgrade']['en-us'] = "Upgrade";
+<<<<<<< HEAD
+=======
+$text['header-upgrade']['en-gb'] = "Upgrade";
+>>>>>>> pr/2
 $text['header-upgrade']['ar-eg'] = "";
 $text['header-upgrade']['de-at'] = "Aktualisieren"; //copied from de-de
 $text['header-upgrade']['de-ch'] = "Aktualisieren"; //copied from de-de
@@ -642,6 +770,10 @@ $text['header-upgrade']['sv-se'] = "Uppgradera";
 $text['header-upgrade']['uk-ua'] = "Оновлення";
 
 $text['header-database_type']['en-us'] = "Database Type";
+<<<<<<< HEAD
+=======
+$text['header-database_type']['en-gb'] = "Database Type";
+>>>>>>> pr/2
 $text['header-database_type']['ar-eg'] = "";
 $text['header-database_type']['de-at'] = "Datenbank Typ"; //copied from de-de
 $text['header-database_type']['de-ch'] = "Datenbank Typ"; //copied from de-de
@@ -662,6 +794,10 @@ $text['header-database_type']['sv-se'] = "Databas Typ";
 $text['header-database_type']['uk-ua'] = "Тип бази даних";
 
 $text['description-upgrade_source']['en-us'] = "Updates FusionPBX source files from the respository.";
+<<<<<<< HEAD
+=======
+$text['description-upgrade_source']['en-gb'] = "Updates FusionPBX source files from the respository.";
+>>>>>>> pr/2
 $text['description-upgrade_source']['ar-eg'] = "";
 $text['description-upgrade_source']['de-at'] = "Aktualisiert den FusionPBX Quellcode aus dem Repository"; //copied from de-de
 $text['description-upgrade_source']['de-ch'] = "Aktualisiert den FusionPBX Quellcode aus dem Repository"; //copied from de-de
@@ -682,6 +818,10 @@ $text['description-upgrade_source']['sv-se'] = "Uppdaterar FusionPBX källfiler 
 $text['description-upgrade_source']['uk-ua'] = "Оновлення вихідних файлів  FusionPBX з репозиторію Subversion .";
 
 $text['description-upgrade_schema']['en-us'] = "Checks to ensure table and field integrity in the database.";
+<<<<<<< HEAD
+=======
+$text['description-upgrade_schema']['en-gb'] = "Checks to ensure table and field integrity in the database.";
+>>>>>>> pr/2
 $text['description-upgrade_schema']['ar-eg'] = "";
 $text['description-upgrade_schema']['de-at'] = "Überprüft die Integrität der Tabellen und Felder in der Datenbank."; //copied from de-de
 $text['description-upgrade_schema']['de-ch'] = "Überprüft die Integrität der Tabellen und Felder in der Datenbank."; //copied from de-de
@@ -702,6 +842,10 @@ $text['description-upgrade_schema']['sv-se'] = "Kontroller för att säkerställ
 $text['description-upgrade_schema']['uk-ua'] = "Перевіряє цілісність таблиць і полів в базі даних.";
 
 $text['description-upgrade_permissions']['en-us'] = "Restores default group permissions.";
+<<<<<<< HEAD
+=======
+$text['description-upgrade_permissions']['en-gb'] = "Restores default group permissions.";
+>>>>>>> pr/2
 $text['description-upgrade_permissions']['ar-eg'] = "";
 $text['description-upgrade_permissions']['de-at'] = "Setzt die Standard Gruppen Berechtigungen zurück."; //copied from de-de
 $text['description-upgrade_permissions']['de-ch'] = "Setzt die Standard Gruppen Berechtigungen zurück."; //copied from de-de
@@ -722,6 +866,10 @@ $text['description-upgrade_permissions']['sv-se'] = "Återställ standardrättig
 $text['description-upgrade_permissions']['uk-ua'] = "Відновлює дозволи групи за замовчуванням.";
 
 $text['description-upgrade_menu']['en-us'] = "Restores the default items in the selected menu.";
+<<<<<<< HEAD
+=======
+$text['description-upgrade_menu']['en-gb'] = "Restores the default items in the selected menu.";
+>>>>>>> pr/2
 $text['description-upgrade_menu']['ar-eg'] = "";
 $text['description-upgrade_menu']['de-at'] = "Setzt die Menüpunkte im ausgewählten Menü auf den Standard zurück."; //copied from de-de
 $text['description-upgrade_menu']['de-ch'] = "Setzt die Menüpunkte im ausgewählten Menü auf den Standard zurück."; //copied from de-de
@@ -742,6 +890,10 @@ $text['description-upgrade_menu']['sv-se'] = "Återställer standard objekt i de
 $text['description-upgrade_menu']['uk-ua'] = "Відновлює типові елементи в обраному меню.";
 
 $text['description-upgrade_data_types']['en-us'] = "Detects and updates incorrect field data types.";
+<<<<<<< HEAD
+=======
+$text['description-upgrade_data_types']['en-gb'] = "Detects and updates incorrect field data types.";
+>>>>>>> pr/2
 $text['description-upgrade_data_types']['ar-eg'] = "";
 $text['description-upgrade_data_types']['de-at'] = "Ermittelt fehlerhafte Datentypen und korrigiert diese."; //copied from de-de
 $text['description-upgrade_data_types']['de-ch'] = "Ermittelt fehlerhafte Datentypen und korrigiert diese."; //copied from de-de
@@ -762,6 +914,10 @@ $text['description-upgrade_data_types']['sv-se'] = "Detekterar och uppdaterar in
 $text['description-upgrade_data_types']['uk-ua'] = "Виявляє  і оновлює невірні типи даних полів.";
 
 $text['description-upgrade_apps']['en-us'] = "Executes the default settings for each application.";
+<<<<<<< HEAD
+=======
+$text['description-upgrade_apps']['en-gb'] = "Executes the default settings for each application.";
+>>>>>>> pr/2
 $text['description-upgrade_apps']['ar-eg'] = "";
 $text['description-upgrade_apps']['de-at'] = "Setzt alle Applikationen auf die Standardeinstellungen zurück."; //copied from de-de
 $text['description-upgrade_apps']['de-ch'] = "Setzt alle Applikationen auf die Standardeinstellungen zurück."; //copied from de-de
@@ -782,6 +938,10 @@ $text['description-upgrade_apps']['sv-se'] = "Återställer standardinställning
 $text['description-upgrade_apps']['uk-ua'] = "Встановлює типові значення для додатків";
 
 $text['description-upgrade_switch']['en-us'] = "Runs the upgrade switch routine.";
+<<<<<<< HEAD
+=======
+$text['description-upgrade_switch']['en-gb'] = "Runs the upgrade switch routine.";
+>>>>>>> pr/2
 $text['description-upgrade_switch']['ar-eg'] = "";
 $text['description-upgrade_switch']['de-at'] = "Führt die Switch-Update Routine aus"; //copied from de-de
 $text['description-upgrade_switch']['de-ch'] = "Führt die Switch-Update Routine aus"; //copied from de-de
@@ -802,6 +962,10 @@ $text['description-upgrade_switch']['sv-se'] = "Kör rutinen för att uppgradera
 $text['description-upgrade_switch']['uk-ua'] = "";
 
 $text['description-upgrade']['en-us'] = "Select the actions below you wish to perform.";
+<<<<<<< HEAD
+=======
+$text['description-upgrade']['en-gb'] = "Select the actions below you wish to perform.";
+>>>>>>> pr/2
 $text['description-upgrade']['ar-eg'] = "";
 $text['description-upgrade']['de-at'] = "Wählen Sie die die gewünschten Aktionen unten aus."; //copied from de-de
 $text['description-upgrade']['de-ch'] = "Wählen Sie die die gewünschten Aktionen unten aus."; //copied from de-de
@@ -822,6 +986,10 @@ $text['description-upgrade']['sv-se'] = "Välj de åtgärder nedan som du vill u
 $text['description-upgrade']['uk-ua'] = "Виберіть об’єкти для оновлення";
 
 $text['button-upgrade_execute']['en-us'] = "Execute";
+<<<<<<< HEAD
+=======
+$text['button-upgrade_execute']['en-gb'] = "Execute";
+>>>>>>> pr/2
 $text['button-upgrade_execute']['ar-eg'] = "";
 $text['button-upgrade_execute']['de-at'] = "Ausführen"; //copied from de-de
 $text['button-upgrade_execute']['de-ch'] = "Ausführen"; //copied from de-de

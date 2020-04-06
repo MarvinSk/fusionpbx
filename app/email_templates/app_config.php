@@ -9,6 +9,10 @@
 		$apps[$x]['license'] = 'Mozilla Public License 1.1';
 		$apps[$x]['url'] = 'http://www.fusionpbx.com';
 		$apps[$x]['description']['en-us'] = '';
+<<<<<<< HEAD
+=======
+		$apps[$x]['description']['en-gb'] = '';
+>>>>>>> pr/2
 
 	//permission details
 		$y = 0;

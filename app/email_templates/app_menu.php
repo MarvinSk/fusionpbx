@@ -1,6 +1,10 @@
 <?php
 
 $apps[$x]['menu'][0]['title']['en-us'] = 'Email Templates';
+<<<<<<< HEAD
+=======
+$apps[$x]['menu'][0]['title']['en-gb'] = 'Email Templates';
+>>>>>>> pr/2
 $apps[$x]['menu'][0]['title']['es-cl'] = '';
 $apps[$x]['menu'][0]['title']['fr-fr'] = '';
 $apps[$x]['menu'][0]['title']['fr-ca'] = '';

@@ -2,6 +2,10 @@
 
 	$y=0;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Conferences";
+<<<<<<< HEAD
+=======
+	$apps[$x]['menu'][$y]['title']['en-gb'] = "Conferences";
+>>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Konferenzen";
 	$apps[$x]['menu'][$y]['title']['de-ch'] = "";

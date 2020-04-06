@@ -67,12 +67,24 @@
 //process the user data and save it to the database
 	if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
 		//get the list
+<<<<<<< HEAD
 			$sql = "select * from v_group_permissions ";
 			$sql .= "where group_uuid = :group_uuid ";
 			$parameters['group_uuid'] = $group_uuid;
 			$database = new database;
 			$group_permissions = $database->select($sql, $parameters, 'all');
 			unset($sql, $parameters);
+=======
+			$sql = "select p.*, ";
+			$sql .= "exists(select from v_group_permissions where permission_name = p.permission_name and group_name = :group_name) as permission_assigned ";
+			$sql .= "from v_permissions as p ";
+			$parameters['group_name'] = $group_name;
+			//$sql = "select * from v_group_permissions ";
+			//$sql .= "where group_uuid = :group_uuid ";
+			//$parameters['group_uuid'] = $group_uuid;
+			$database = new database;
+			$group_permissions = $database->select($sql, $parameters, 'all');
+>>>>>>> pr/2
 
 		//add or remove permissions from the group
 			$x = 0;
@@ -81,7 +93,11 @@
 					//check to see if the group has been assigned the permission
 					$in_database = false;
 					foreach($group_permissions as $field) {
+<<<<<<< HEAD
 						if ($field['permission_name'] === $row['permission']) {
+=======
+						if ($field['permission_name'] === $row['permission_name'] && $field['permission_assigned'] === true) {
+>>>>>>> pr/2
 							$in_database = true;
 							break;
 						}
@@ -90,9 +106,15 @@
 					//add - checked on html form and not in the database
 					if ($row['checked'] === 'true') {
 						if (!$in_database) {
+<<<<<<< HEAD
 							if (isset($row['permission']) && strlen($row['permission']) > 0) {
 								$array['add']['group_permissions'][$x]['group_permission_uuid'] = uuid();
 								$array['add']['group_permissions'][$x]['permission_name'] = $row['permission'];
+=======
+							if (isset($row['permission_name']) && strlen($row['permission_name']) > 0) {
+								$array['add']['group_permissions'][$x]['group_permission_uuid'] = uuid();
+								$array['add']['group_permissions'][$x]['permission_name'] = $row['permission_name'];
+>>>>>>> pr/2
 								$array['add']['group_permissions'][$x]['group_uuid'] = $group_uuid;
 								$array['add']['group_permissions'][$x]['group_name'] = $group_name;
 								//$array['add']['group_permissions'][$x]['permission_uuid'] = $row['uuid'];
@@ -104,10 +126,17 @@
 					//delete - unchecked on the form and in the database
 					if ($row['checked'] !== 'true') {
 						if ($in_database) {
+<<<<<<< HEAD
 							if (isset($row['permission']) && strlen($row['permission']) > 0) {
 								$array['delete']['group_permissions'][$x]['permission_name'] = $row['permission'];
 								$array['delete']['group_permissions'][$x]['group_uuid'] = $group_uuid;
 								//$array['delete']['group_permissions'][$x]['group_name'] = $group_name;
+=======
+							if (isset($row['permission_name']) && strlen($row['permission_name']) > 0) {
+								$array['delete']['group_permissions'][$x]['permission_name'] = $row['permission_name'];
+								$array['delete']['group_permissions'][$x]['group_uuid'] = $group_uuid;
+								$array['delete']['group_permissions'][$x]['group_name'] = $group_name;
+>>>>>>> pr/2
 								//$array['delete'][$x]['permission_uuid'] = $row['uuid'];
 							}
 							$x++;
@@ -230,7 +259,10 @@
 	if (is_array($group_permissions) && @sizeof($group_permissions) != 0) {
 		$x = 0;
 		foreach ($group_permissions as $row) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> pr/2
 			$checked = ($row['permission_assigned'] === true) ? " checked=\"checked\"" : $checked = '';
 			$application_name = strtolower($row['application_name']);
 			$label_application_name = ucwords(str_replace(['_','-'], " ", $row['application_name']));
@@ -261,8 +293,13 @@
 			if (permission_exists('group_permission_add') || permission_exists('group_permission_edit') || permission_exists('group_permission_delete')) {
 				echo "	<td class='checkbox'>\n";
 				echo "		<input type='checkbox' name='group_permissions[$x][checked]' id='checkbox_".$x."' class='checkbox_".$application_name."' value='true' ".$checked." onclick=\"if (!this.checked) { document.getElementById('checkbox_all_".$application_name."').checked = false; }\">\n";
+<<<<<<< HEAD
 				echo "		<input type='hidden' name='group_permissions[$x][uuid]' value='".escape($row['permission_uuid'])."' />\n";
 				echo "		<input type='hidden' name='group_permissions[$x][permission]' value='".escape($row['permission_name'])."' />\n";
+=======
+				echo "		<input type='hidden' name='group_permissions[$x][permission_uuid]' value='".escape($row['permission_uuid'])."' />\n";
+				echo "		<input type='hidden' name='group_permissions[$x][permission_name]' value='".escape($row['permission_name'])."' />\n";
+>>>>>>> pr/2
 				echo "	</td>\n";
 			}
 			echo "	<td  class='no-wrap' onclick=\"if (document.getElementById('checkbox_".$x."').checked) { document.getElementById('checkbox_".$x."').checked = false; document.getElementById('checkbox_all_".$application_name."').checked = false; } else { document.getElementById('checkbox_".$x."').checked = true; }\">".escape($row['permission_name'])."</td>\n";

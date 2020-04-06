@@ -9,6 +9,10 @@
 		$apps[$x]['license'] = "Mozilla Public License 1.1";
 		$apps[$x]['url'] = "http://www.fusionpbx.com";
 		$apps[$x]['description']['en-us'] = "Conferences Centers allows one or more audio and video conference rooms.";
+<<<<<<< HEAD
+=======
+		$apps[$x]['description']['en-gb'] = "Conferences Centers allows one or more audio and video conference rooms.";
+>>>>>>> pr/2
 		$apps[$x]['description']['ar-eg'] = "";
 		$apps[$x]['description']['de-at'] = "Konferenzzentralen stellen ein oder mehrere Audio- und Videokonferenzräume bereit.";
 		$apps[$x]['description']['de-ch'] = "";
@@ -122,7 +126,42 @@
 		$apps[$x]['permissions'][$y]['groups'][] = "admin";
 		$apps[$x]['permissions'][$y]['groups'][] = "user";
 		$y++;
+<<<<<<< HEAD
 		$apps[$x]['permissions'][$y]['name'] = "conference_room_announce";
+=======
+		$apps[$x]['permissions'][$y]['name'] = "conference_room_announce_name";
+>>>>>>> pr/2
+		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+		$apps[$x]['permissions'][$y]['groups'][] = "admin";
+		$apps[$x]['permissions'][$y]['groups'][] = "user";
+		$y++;
+<<<<<<< HEAD
+		$apps[$x]['permissions'][$y]['name'] = "conference_room_mute";
+		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+		$apps[$x]['permissions'][$y]['groups'][] = "admin";
+		$apps[$x]['permissions'][$y]['groups'][] = "user";
+		$y++;
+		$apps[$x]['permissions'][$y]['name'] = "conference_room_sounds";
+		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+		$apps[$x]['permissions'][$y]['groups'][] = "admin";
+		$apps[$x]['permissions'][$y]['groups'][] = "user";
+		$y++;
+		$apps[$x]['permissions'][$y]['name'] = "conference_room_enabled";
+		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+		$apps[$x]['permissions'][$y]['groups'][] = "admin";
+		$apps[$x]['permissions'][$y]['groups'][] = "user";
+		$y++;
+		$apps[$x]['permissions'][$y]['name'] = "conference_session_add";
+		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+		$apps[$x]['permissions'][$y]['groups'][] = "admin";
+		$y++;
+=======
+		$apps[$x]['permissions'][$y]['name'] = "conference_room_announce_count";
+		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+		$apps[$x]['permissions'][$y]['groups'][] = "admin";
+		$apps[$x]['permissions'][$y]['groups'][] = "user";
+		$y++;
+		$apps[$x]['permissions'][$y]['name'] = "conference_room_announce_recording";
 		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
 		$apps[$x]['permissions'][$y]['groups'][] = "admin";
 		$apps[$x]['permissions'][$y]['groups'][] = "user";
@@ -146,6 +185,7 @@
 		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
 		$apps[$x]['permissions'][$y]['groups'][] = "admin";
 		$y++;
+>>>>>>> pr/2
 		$apps[$x]['permissions'][$y]['name'] = "conference_session_edit";
 		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
 		$apps[$x]['permissions'][$y]['groups'][] = "admin";
@@ -299,10 +339,25 @@
 		$apps[$x]['db'][$y]['fields'][$z]['type'] = "text";
 		$apps[$x]['db'][$y]['fields'][$z]['description']['en-us'] = "Wait for the moderator to join before starting the conference.";
 		$z++;
+<<<<<<< HEAD
 		$apps[$x]['db'][$y]['fields'][$z]['name'] = "announce";
 		$apps[$x]['db'][$y]['fields'][$z]['type'] = "text";
 		$apps[$x]['db'][$y]['fields'][$z]['description']['en-us'] = "Introduce participants as they enter the conference.";
 		$z++;
+=======
+		$apps[$x]['db'][$y]['fields'][$z]['name'] = "announce_name";
+		$apps[$x]['db'][$y]['fields'][$z]['type'] = "text";
+		$apps[$x]['db'][$y]['fields'][$z]['description']['en-us'] = "Introduce participants as they enter the conference.";
+		$z++;
+		$apps[$x]['db'][$y]['fields'][$z]['name'] = "announce_count";
+		$apps[$x]['db'][$y]['fields'][$z]['type'] = "text";
+		$apps[$x]['db'][$y]['fields'][$z]['description']['en-us'] = "Announce number of participants when entering the conference.";
+		$z++;
+		$apps[$x]['db'][$y]['fields'][$z]['name'] = "announce_recording";
+		$apps[$x]['db'][$y]['fields'][$z]['type'] = "text";
+		$apps[$x]['db'][$y]['fields'][$z]['description']['en-us'] = "Announce to participants that conference is being recorded.";
+		$z++;
+>>>>>>> pr/2
 		$apps[$x]['db'][$y]['fields'][$z]['name'] = "sounds";
 		$apps[$x]['db'][$y]['fields'][$z]['type'] = "text";
 		$apps[$x]['db'][$y]['fields'][$z]['description']['en-us'] = "Play sound when someone enters or exists the conference.";

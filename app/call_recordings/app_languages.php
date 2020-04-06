@@ -1,6 +1,10 @@
 <?php
 
 $text['title-call_recordings']['en-us'] = "Call Recordings";
+<<<<<<< HEAD
+=======
+$text['title-call_recordings']['en-gb'] = "Call Recordings";
+>>>>>>> pr/2
 $text['title-call_recordings']['ar-eg'] = "";
 $text['title-call_recordings']['de-at'] = "";
 $text['title-call_recordings']['de-ch'] = "";
@@ -21,6 +25,10 @@ $text['title-call_recordings']['sv-se'] = "";
 $text['title-call_recordings']['uk-ua'] = "";
 
 $text['title-call_recording']['en-us'] = "Call Recording";
+<<<<<<< HEAD
+=======
+$text['title-call_recording']['en-gb'] = "Call Recording";
+>>>>>>> pr/2
 $text['title-call_recording']['ar-eg'] = "";
 $text['title-call_recording']['de-at'] = "";
 $text['title-call_recording']['de-ch'] = "";
@@ -41,6 +49,10 @@ $text['title-call_recording']['sv-se'] = "";
 $text['title-call_recording']['uk-ua'] = "";
 
 $text['title_description-call_recordings']['en-us'] = "Shows the call recordings with name, length, date and time, and call direction.";
+<<<<<<< HEAD
+=======
+$text['title_description-call_recordings']['en-gb'] = "Shows the call recordings with name, length, date and time, and call direction.";
+>>>>>>> pr/2
 $text['title_description-call_recordings']['ar-eg'] = "";
 $text['title_description-call_recordings']['de-at'] = "";
 $text['title_description-call_recordings']['de-ch'] = "";
@@ -61,6 +73,10 @@ $text['title_description-call_recordings']['sv-se'] = "";
 $text['title_description-call_recordings']['uk-ua'] = "";
 
 $text['label-call_recording_name']['en-us'] = "Name";
+<<<<<<< HEAD
+=======
+$text['label-call_recording_name']['en-gb'] = "Name";
+>>>>>>> pr/2
 $text['label-call_recording_name']['ar-eg'] = "";
 $text['label-call_recording_name']['de-at'] = "";
 $text['label-call_recording_name']['de-ch'] = "";
@@ -81,6 +97,10 @@ $text['label-call_recording_name']['sv-se'] = "";
 $text['label-call_recording_name']['uk-ua'] = "";
 
 $text['description-call_recording_name']['en-us'] = "";
+<<<<<<< HEAD
+=======
+$text['description-call_recording_name']['en-gb'] = "";
+>>>>>>> pr/2
 $text['description-call_recording_name']['ar-eg'] = "";
 $text['description-call_recording_name']['de-at'] = "";
 $text['description-call_recording_name']['de-ch'] = "";
@@ -101,6 +121,10 @@ $text['description-call_recording_name']['sv-se'] = "";
 $text['description-call_recording_name']['uk-ua'] = "";
 
 $text['label-call_recording_path']['en-us'] = "Path";
+<<<<<<< HEAD
+=======
+$text['label-call_recording_path']['en-gb'] = "Path";
+>>>>>>> pr/2
 $text['label-call_recording_path']['ar-eg'] = "";
 $text['label-call_recording_path']['de-at'] = "";
 $text['label-call_recording_path']['de-ch'] = "";
@@ -121,6 +145,10 @@ $text['label-call_recording_path']['sv-se'] = "";
 $text['label-call_recording_path']['uk-ua'] = "";
 
 $text['description-call_recording_path']['en-us'] = "";
+<<<<<<< HEAD
+=======
+$text['description-call_recording_path']['en-gb'] = "";
+>>>>>>> pr/2
 $text['description-call_recording_path']['ar-eg'] = "";
 $text['description-call_recording_path']['de-at'] = "";
 $text['description-call_recording_path']['de-ch'] = "";
@@ -141,6 +169,10 @@ $text['description-call_recording_path']['sv-se'] = "";
 $text['description-call_recording_path']['uk-ua'] = "";
 
 $text['label-call_recording_length']['en-us'] = "Length";
+<<<<<<< HEAD
+=======
+$text['label-call_recording_length']['en-gb'] = "Length";
+>>>>>>> pr/2
 $text['label-call_recording_length']['ar-eg'] = "";
 $text['label-call_recording_length']['de-at'] = "";
 $text['label-call_recording_length']['de-ch'] = "";
@@ -161,6 +193,10 @@ $text['label-call_recording_length']['sv-se'] = "";
 $text['label-call_recording_length']['uk-ua'] = "";
 
 $text['description-call_recording_length']['en-us'] = "";
+<<<<<<< HEAD
+=======
+$text['description-call_recording_length']['en-gb'] = "";
+>>>>>>> pr/2
 $text['description-call_recording_length']['ar-eg'] = "";
 $text['description-call_recording_length']['de-at'] = "";
 $text['description-call_recording_length']['de-ch'] = "";
@@ -181,6 +217,10 @@ $text['description-call_recording_length']['sv-se'] = "";
 $text['description-call_recording_length']['uk-ua'] = "";
 
 $text['label-call_recording_date']['en-us'] = "Date";
+<<<<<<< HEAD
+=======
+$text['label-call_recording_date']['en-gb'] = "Date";
+>>>>>>> pr/2
 $text['label-call_recording_date']['ar-eg'] = "";
 $text['label-call_recording_date']['de-at'] = "";
 $text['label-call_recording_date']['de-ch'] = "";
@@ -201,6 +241,10 @@ $text['label-call_recording_date']['sv-se'] = "";
 $text['label-call_recording_date']['uk-ua'] = "";
 
 $text['description-call_recording_date']['en-us'] = "";
+<<<<<<< HEAD
+=======
+$text['description-call_recording_date']['en-gb'] = "";
+>>>>>>> pr/2
 $text['description-call_recording_date']['ar-eg'] = "";
 $text['description-call_recording_date']['de-at'] = "";
 $text['description-call_recording_date']['de-ch'] = "";
@@ -221,6 +265,10 @@ $text['description-call_recording_date']['sv-se'] = "";
 $text['description-call_recording_date']['uk-ua'] = "";
 
 $text['label-call_direction']['en-us'] = "Direction";
+<<<<<<< HEAD
+=======
+$text['label-call_direction']['en-gb'] = "Direction";
+>>>>>>> pr/2
 $text['label-call_direction']['ar-eg'] = "";
 $text['label-call_direction']['de-at'] = "";
 $text['label-call_direction']['de-ch'] = "";
@@ -241,6 +289,10 @@ $text['label-call_direction']['sv-se'] = "";
 $text['label-call_direction']['uk-ua'] = "";
 
 $text['description-call_direction']['en-us'] = "";
+<<<<<<< HEAD
+=======
+$text['description-call_direction']['en-gb'] = "";
+>>>>>>> pr/2
 $text['description-call_direction']['ar-eg'] = "";
 $text['description-call_direction']['de-at'] = "";
 $text['description-call_direction']['de-ch'] = "";
@@ -261,6 +313,10 @@ $text['description-call_direction']['sv-se'] = "";
 $text['description-call_direction']['uk-ua'] = "";
 
 $text['label-call_recording_description']['en-us'] = "Description";
+<<<<<<< HEAD
+=======
+$text['label-call_recording_description']['en-gb'] = "Description";
+>>>>>>> pr/2
 $text['label-call_recording_description']['ar-eg'] = "";
 $text['label-call_recording_description']['de-at'] = "";
 $text['label-call_recording_description']['de-ch'] = "";
@@ -281,6 +337,10 @@ $text['label-call_recording_description']['sv-se'] = "";
 $text['label-call_recording_description']['uk-ua'] = "";
 
 $text['description-call_recording_description']['en-us'] = "";
+<<<<<<< HEAD
+=======
+$text['description-call_recording_description']['en-gb'] = "";
+>>>>>>> pr/2
 $text['description-call_recording_description']['ar-eg'] = "";
 $text['description-call_recording_description']['de-at'] = "";
 $text['description-call_recording_description']['de-ch'] = "";
@@ -301,6 +361,10 @@ $text['description-call_recording_description']['sv-se'] = "";
 $text['description-call_recording_description']['uk-ua'] = "";
 
 $text['label-call_recording_base64']['en-us'] = "Base64";
+<<<<<<< HEAD
+=======
+$text['label-call_recording_base64']['en-gb'] = "Base64";
+>>>>>>> pr/2
 $text['label-call_recording_base64']['ar-eg'] = "";
 $text['label-call_recording_base64']['de-at'] = "";
 $text['label-call_recording_base64']['de-ch'] = "";
@@ -321,6 +385,10 @@ $text['label-call_recording_base64']['sv-se'] = "";
 $text['label-call_recording_base64']['uk-ua'] = "";
 
 $text['description-call_recording_base64']['en-us'] = "";
+<<<<<<< HEAD
+=======
+$text['description-call_recording_base64']['en-gb'] = "";
+>>>>>>> pr/2
 $text['description-call_recording_base64']['ar-eg'] = "";
 $text['description-call_recording_base64']['de-at'] = "";
 $text['description-call_recording_base64']['de-ch'] = "";
@@ -341,6 +409,10 @@ $text['description-call_recording_base64']['sv-se'] = "";
 $text['description-call_recording_base64']['uk-ua'] = "";
 
 $text['label-inbound']['en-us'] = "Inbound";
+<<<<<<< HEAD
+=======
+$text['label-inbound']['en-gb'] = "Inbound";
+>>>>>>> pr/2
 $text['label-inbound']['ar-eg'] = "Inbound";
 $text['label-inbound']['de-at'] = "Inbound";
 $text['label-inbound']['de-ch'] = "Inbound";
@@ -361,6 +433,10 @@ $text['label-inbound']['sv-se'] = "Inbound";
 $text['label-inbound']['uk-ua'] = "Inbound";
 
 $text['label-outbound']['en-us'] = "Outbound";
+<<<<<<< HEAD
+=======
+$text['label-outbound']['en-gb'] = "Outbound";
+>>>>>>> pr/2
 $text['label-outbound']['ar-eg'] = "Outbound";
 $text['label-outbound']['de-at'] = "Outbound";
 $text['label-outbound']['de-ch'] = "Outbound";
@@ -381,6 +457,10 @@ $text['label-outbound']['sv-se'] = "Outbound";
 $text['label-outbound']['uk-ua'] = "Outbound";
 
 $text['label-local']['en-us'] = "Local";
+<<<<<<< HEAD
+=======
+$text['label-local']['en-gb'] = "Local";
+>>>>>>> pr/2
 $text['label-local']['ar-eg'] = "Local";
 $text['label-local']['de-at'] = "Local";
 $text['label-local']['de-ch'] = "Local";

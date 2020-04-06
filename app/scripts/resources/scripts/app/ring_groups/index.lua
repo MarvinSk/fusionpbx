@@ -388,8 +388,38 @@
 
 --process the ring group
 	if (ring_group_forward_enabled == "true" and string.len(ring_group_forward_destination) > 0) then
+<<<<<<< HEAD
 		--forward the ring group
 			session:setVariable("toll_allow", ring_group_forward_toll_allow);
+=======
+
+		--set the outbound caller id
+			if (caller_is_local == 'true' and outbound_caller_id_name ~= nil) then
+				caller_id_name = outbound_caller_id_name;
+			end
+			if (caller_is_local == 'true' and outbound_caller_id_number ~= nil) then
+				caller_id_number = outbound_caller_id_number;
+			end
+			if (ring_group_caller_id_name ~= nil and ring_group_caller_id_name ~= '') then
+				caller_id_name = ring_group_caller_id_name;
+			end
+			if (ring_group_caller_id_number ~= nil and ring_group_caller_id_number ~= '') then
+				caller_id_number = ring_group_caller_id_number;
+			end
+
+		--forward the ring group
+			if (caller_id_name) then
+				session:setVariable("effective_caller_id_name", caller_id_name);
+				session:setVariable("outbound_caller_id_name", caller_id_name);
+			end
+			if (caller_id_number) then
+				session:setVariable("effective_caller_id_number", caller_id_number);
+				session:setVariable("outbound_caller_id_number", caller_id_number);
+			end
+			if (ring_group_forward_toll_allow) then
+				session:setVariable("toll_allow", ring_group_forward_toll_allow);
+			end
+>>>>>>> pr/2
 			session:execute("transfer", ring_group_forward_destination.." XML "..context);
 	else
 		--get the strategy of the ring group, if random, we use random() to order the destinations
@@ -757,11 +787,19 @@
 							cmd = "user_data ".. destination_number .."@"..domain_name.." var extension_uuid";
 							extension_uuid = trim(api:executeString(cmd));
 							--send to user
+<<<<<<< HEAD
 							local dial_string_to_user = "[sip_invite_domain="..domain_name..",call_direction="..call_direction..","..group_confirm.."leg_timeout="..destination_timeout..","..delay_name.."="..destination_delay..",dialed_extension=" .. row.destination_number .. ",extension_uuid="..extension_uuid .. row.record_session .. "]user/" .. row.destination_number .. "@" .. domain_name;
 							dial_string = dial_string_to_user;
 						elseif (tonumber(destination_number) == nil) then
 							--sip uri
 							dial_string = "[sip_invite_domain="..domain_name..",call_direction="..call_direction..","..group_confirm.."leg_timeout="..destination_timeout..","..delay_name.."="..destination_delay.."]" .. row.destination_number;
+=======
+							local dial_string_to_user = "[sip_invite_domain="..domain_name..",domain_name="..domain_name..",call_direction="..call_direction..","..group_confirm.."leg_timeout="..destination_timeout..","..delay_name.."="..destination_delay..",dialed_extension=" .. row.destination_number .. ",extension_uuid="..extension_uuid .. row.record_session .. "]user/" .. row.destination_number .. "@" .. domain_name;
+							dial_string = dial_string_to_user;
+						elseif (tonumber(destination_number) == nil) then
+							--sip uri
+							dial_string = "[sip_invite_domain="..domain_name..",domain_name="..domain_name..",call_direction="..call_direction..","..group_confirm.."leg_timeout="..destination_timeout..","..delay_name.."="..destination_delay.."]" .. row.destination_number;
+>>>>>>> pr/2
 						else
 							--external number
 								-- have to double destination_delay here due a FS bug requiring a 50% delay value for internal externsions, but not external calls. 
@@ -801,7 +839,11 @@
 								end
 
 							--set the destination dial string
+<<<<<<< HEAD
 								dial_string = "[ignore_early_media=true,toll_allow=".. toll_allow ..",".. caller_id ..",sip_invite_domain="..domain_name..",call_direction="..call_direction..","..group_confirm.."leg_timeout="..destination_timeout..","..delay_name.."="..destination_delay.."]"..route_bridge
+=======
+								dial_string = "[ignore_early_media=true,toll_allow=".. toll_allow ..",".. caller_id ..",sip_invite_domain="..domain_name..",domain_name="..domain_name..",call_direction="..call_direction..","..group_confirm.."leg_timeout="..destination_timeout..","..delay_name.."="..destination_delay.."]"..route_bridge
+>>>>>>> pr/2
 						end
 
 					--add a delimiter between destinations

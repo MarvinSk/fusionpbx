@@ -2,6 +2,10 @@
 
 	$y=0;
 	$apps[$x]['menu'][$y]['title']['en-us'] = 'Conference Profiles';
+<<<<<<< HEAD
+=======
+	$apps[$x]['menu'][$y]['title']['en-gb'] = 'Conference Profiles';
+>>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = 'Konferenzprofile';
 	$apps[$x]['menu'][$y]['title']['de-ch'] = "";

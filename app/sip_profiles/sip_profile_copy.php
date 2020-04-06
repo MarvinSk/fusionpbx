@@ -17,7 +17,11 @@
 
 	The Initial Developer of the Original Code is
 	Mark J Crane <markjcrane@fusionpbx.com>
+<<<<<<< HEAD
 	Portions created by the Initial Developer are Copyright (C) 2008-2016
+=======
+	Portions created by the Initial Developer are Copyright (C) 2008-2020
+>>>>>>> pr/2
 	the Initial Developer. All Rights Reserved.
 
 	Contributor(s):
@@ -25,7 +29,11 @@
 */
 
 //includes
+<<<<<<< HEAD
 	include "root.php";
+=======
+	require_once "root.php";
+>>>>>>> pr/2
 	require_once "resources/require.php";
 	require_once "resources/check_auth.php";
 	require_once "resources/paging.php";
@@ -54,11 +62,22 @@ if (is_uuid($sip_profile_uuid) && $sip_profile_name != '') {
 
 	//get the sip profile data
 		if (count($_GET) > 0 && $_POST["persistformvar"] != "true") {
+<<<<<<< HEAD
 			$sql = "select sip_profile_description from v_sip_profiles ";
 			$sql .= "where sip_profile_uuid = :sip_profile_uuid ";
 			$parameters['sip_profile_uuid'] = $sip_profile_uuid;
 			$database = new database;
 			$sip_profile_description = $database->select($sql, $parameters, 'column');
+=======
+			$sql = "select sip_profile_hostname, sip_profile_enabled, sip_profile_description from v_sip_profiles ";
+			$sql .= "where sip_profile_uuid = :sip_profile_uuid ";
+			$parameters['sip_profile_uuid'] = $sip_profile_uuid;
+			$database = new database;
+			$row = $database->select($sql, $parameters, 'row');
+			$sip_profile_hostname = $row['sip_profile_hostname'];
+			$sip_profile_enabled = $row['sip_profile_enabled'];
+			$sip_profile_description = $row['sip_profile_description'];
+>>>>>>> pr/2
 			unset($sql, $parameters);
 		}
 
@@ -66,8 +85,14 @@ if (is_uuid($sip_profile_uuid) && $sip_profile_name != '') {
 		$sip_profile_uuid_new = uuid();
 		$array['sip_profiles'][0]['sip_profile_uuid'] = $sip_profile_uuid_new;
 		$array['sip_profiles'][0]['sip_profile_name'] = $sip_profile_name;
+<<<<<<< HEAD
 		$array['sip_profiles'][0]['sip_profile_enabled'] = 'true';
 		$array['sip_profiles'][0]['sip_profile_description'] = $sip_profile_description;
+=======
+		$array['sip_profiles'][0]['sip_profile_hostname'] = $sip_profile_hostname;
+		$array['sip_profiles'][0]['sip_profile_enabled'] = $sip_profile_enabled;
+		$array['sip_profiles'][0]['sip_profile_description'] = $sip_profile_description.' ('.$text['label-copy'].')';
+>>>>>>> pr/2
 
 	//get the the sip profile settings
 		$sql = "select * from v_sip_profile_domains ";

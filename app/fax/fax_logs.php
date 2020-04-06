@@ -126,7 +126,11 @@
 	echo "	<div class='actions'>\n";
 	echo button::create(['type'=>'button','label'=>$text['button-back'],'icon'=>$_SESSION['theme']['button_icon_back'],'id'=>'btn_back','link'=>'fax.php']);
 	if (permission_exists('fax_log_delete') && $fax_logs) {
+<<<<<<< HEAD
 		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'id'=>'btn_delete','style'=>'margin-left: 15px;','onclick'=>"if (confirm('".$text['confirm-delete']."')) { list_action_set('delete'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
+=======
+		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','style'=>'margin-left: 15px;','onclick'=>"modal_open('modal-delete','btn_delete');"]);
+>>>>>>> pr/2
 	}
 	echo button::create(['type'=>'button','label'=>$text['button-refresh'],'icon'=>$_SESSION['theme']['button_icon_refresh'],'style'=>'margin-left: 15px;','onclick'=>'document.location.reload(true);']);
 	echo 		"<form id='form_search' class='inline' method='get'>\n";
@@ -142,6 +146,13 @@
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
 
+<<<<<<< HEAD
+=======
+	if (permission_exists('fax_log_delete') && $fax_logs) {
+		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
+	}
+
+>>>>>>> pr/2
 	echo $text['description-fax_log']."\n";
 	echo "<br /><br />\n";
 

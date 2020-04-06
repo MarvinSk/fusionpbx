@@ -29,6 +29,14 @@ if (!class_exists('call_flows')) {
 	class call_flows {
 
 		/**
+<<<<<<< HEAD
+=======
+		 * declare public variables
+		 */
+		public $toggle_field;
+
+		/**
+>>>>>>> pr/2
 		 * declare private variables
 		 */
 		private $app_name;
@@ -37,7 +45,10 @@ if (!class_exists('call_flows')) {
 		private $list_page;
 		private $table;
 		private $uuid_prefix;
+<<<<<<< HEAD
 		private $toggle_field;
+=======
+>>>>>>> pr/2
 		private $toggle_values;
 
 		/**
@@ -52,7 +63,10 @@ if (!class_exists('call_flows')) {
 				$this->list_page = 'call_flows.php';
 				$this->table = 'call_flows';
 				$this->uuid_prefix = 'call_flow_';
+<<<<<<< HEAD
 				$this->toggle_field = 'call_flow_status';
+=======
+>>>>>>> pr/2
 				$this->toggle_values = ['true','false'];
 
 		}
@@ -171,7 +185,10 @@ if (!class_exists('call_flows')) {
 		 */
 		public function toggle($records) {
 			if (permission_exists($this->permission_prefix.'edit')) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> pr/2
 				//add multi-lingual support
 					$language = new text;
 					$text = $language->get();
@@ -385,4 +402,8 @@ if (!class_exists('call_flows')) {
 	} //class
 }
 
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> pr/2

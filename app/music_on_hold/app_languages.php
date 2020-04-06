@@ -2,6 +2,10 @@
 #This file was last reorganized on 19th of September 2017 08:54:24 AM UTC
 
 $text['title-music_on_hold_settings']['en-us'] = "Music on Hold Settings";
+<<<<<<< HEAD
+=======
+$text['title-music_on_hold_settings']['en-gb'] = "Music on Hold Settings";
+>>>>>>> pr/2
 $text['title-music_on_hold_settings']['ar-eg'] = "";
 $text['title-music_on_hold_settings']['de-at'] = "Wartemusik Einstellungen"; //copied from de-de
 $text['title-music_on_hold_settings']['de-ch'] = "Wartemusik Einstellungen"; //copied from de-de
@@ -22,6 +26,10 @@ $text['title-music_on_hold_settings']['sv-se'] = "Väntmusik inställningar";
 $text['title-music_on_hold_settings']['uk-ua'] = "Музика на утриманні настройки";
 
 $text['title-music_on_hold']['en-us'] = "Music on Hold";
+<<<<<<< HEAD
+=======
+$text['title-music_on_hold']['en-gb'] = "Music on Hold";
+>>>>>>> pr/2
 $text['title-music_on_hold']['ar-eg'] = "";
 $text['title-music_on_hold']['de-at'] = "Wartemusik"; //copied from de-de
 $text['title-music_on_hold']['de-ch'] = "Wartemusik"; //copied from de-de
@@ -42,6 +50,10 @@ $text['title-music_on_hold']['sv-se'] = "Väntmusik";
 $text['title-music_on_hold']['uk-ua'] = "Музика на утриманні";
 
 $text['label-others']['en-us'] = "Others";
+<<<<<<< HEAD
+=======
+$text['label-others']['en-gb'] = "Others";
+>>>>>>> pr/2
 $text['label-others']['ar-eg'] = "آخرون";
 $text['label-others']['de-at'] = "Andere"; //copied from de-de
 $text['label-others']['de-ch'] = "Andere"; //copied from de-de
@@ -62,6 +74,10 @@ $text['label-others']['sv-se'] = "Andra";
 $text['label-others']['uk-ua'] = "інші";
 
 $text['option-local']['en-us'] = "Local";
+<<<<<<< HEAD
+=======
+$text['option-local']['en-gb'] = "Local";
+>>>>>>> pr/2
 $text['option-local']['ar-eg'] = "";
 $text['option-local']['de-at'] = "lokal"; //copied from de-de
 $text['option-local']['de-ch'] = "lokal"; //copied from de-de
@@ -82,6 +98,10 @@ $text['option-local']['sv-se'] = "Lokal";
 $text['option-local']['uk-ua'] = "місцевий";
 
 $text['option-global']['en-us'] = "Global";
+<<<<<<< HEAD
+=======
+$text['option-global']['en-gb'] = "Global";
+>>>>>>> pr/2
 $text['option-global']['ar-eg'] = "";
 $text['option-global']['de-at'] = "Global"; //copied from de-de
 $text['option-global']['de-ch'] = "Global"; //copied from de-de
@@ -102,6 +122,10 @@ $text['option-global']['sv-se'] = "Global";
 $text['option-global']['uk-ua'] = "Глобальний";
 
 $text['option-default']['en-us'] = "Default";
+<<<<<<< HEAD
+=======
+$text['option-default']['en-gb'] = "Default";
+>>>>>>> pr/2
 $text['option-default']['ar-eg'] = "";
 $text['option-default']['de-at'] = "Standard"; //copied from de-de
 $text['option-default']['de-ch'] = "Standard"; //copied from de-de
@@ -122,6 +146,10 @@ $text['option-default']['sv-se'] = "Standard";
 $text['option-default']['uk-ua'] = "Типово";
 
 $text['message-upload_completed']['en-us'] = "Upload Completed";
+<<<<<<< HEAD
+=======
+$text['message-upload_completed']['en-gb'] = "Upload Completed";
+>>>>>>> pr/2
 $text['message-upload_completed']['ar-eg'] = "";
 $text['message-upload_completed']['de-at'] = "Erfolgreich hochgeladen"; //copied from de-de
 $text['message-upload_completed']['de-ch'] = "Erfolgreich hochgeladen"; //copied from de-de
@@ -142,6 +170,10 @@ $text['message-upload_completed']['sv-se'] = "Ladda Avslutat";
 $text['message-upload_completed']['uk-ua'] = "Завантажено";
 
 $text['message-nofiles']['en-us'] = "No files found.";
+<<<<<<< HEAD
+=======
+$text['message-nofiles']['en-gb'] = "No files found.";
+>>>>>>> pr/2
 $text['message-nofiles']['ar-eg'] = "";
 $text['message-nofiles']['de-at'] = "Es wurden keine Dateien gefunden."; //copied from de-de
 $text['message-nofiles']['de-ch'] = "Es wurden keine Dateien gefunden."; //copied from de-de
@@ -162,6 +194,10 @@ $text['message-nofiles']['sv-se'] = "Ingen ljudfil.";
 $text['message-nofiles']['uk-ua'] = "Файлів не знайдено";
 
 $text['message-missing_required_fields']['en-us'] = "Missing Required Fields";
+<<<<<<< HEAD
+=======
+$text['message-missing_required_fields']['en-gb'] = "Missing Required Fields";
+>>>>>>> pr/2
 $text['message-missing_required_fields']['ar-eg'] = "";
 $text['message-missing_required_fields']['de-at'] = "Fehlende Pflichtangaben "; //copied from de-de
 $text['message-missing_required_fields']['de-ch'] = "Fehlende Pflichtangaben "; //copied from de-de
@@ -182,6 +218,10 @@ $text['message-missing_required_fields']['sv-se'] = "Saknas Obligatoriska fält"
 $text['message-missing_required_fields']['uk-ua'] = "Відсутні поля обов'язкові для заповнення";
 
 $text['message-event-socket']['en-us'] = "Connection to Event Socket failed.";
+<<<<<<< HEAD
+=======
+$text['message-event-socket']['en-gb'] = "Connection to Event Socket failed.";
+>>>>>>> pr/2
 $text['message-event-socket']['ar-eg'] = "";
 $text['message-event-socket']['de-at'] = "Verbindung zum Event Socket unterbrochen."; //copied from de-de
 $text['message-event-socket']['de-ch'] = "Verbindung zum Event Socket unterbrochen."; //copied from de-de
@@ -202,6 +242,10 @@ $text['message-event-socket']['sv-se'] = "Kontakt till 'Event Socket' misslyckad
 $text['message-event-socket']['uk-ua'] = "Помилка підключення до сокета подій";
 
 $text['message-click-select']['en-us'] = "Double-Click to Select an Existing Category";
+<<<<<<< HEAD
+=======
+$text['message-click-select']['en-gb'] = "Double-Click to Select an Existing Category";
+>>>>>>> pr/2
 $text['message-click-select']['ar-eg'] = "";
 $text['message-click-select']['de-at'] = "Doppelklicken Sie um eine existierende Kategorie auszuwählen"; //copied from de-de
 $text['message-click-select']['de-ch'] = "Doppelklicken Sie um eine existierende Kategorie auszuwählen"; //copied from de-de
@@ -222,6 +266,10 @@ $text['message-click-select']['sv-se'] = "Dubbelklicka för att välja en existe
 $text['message-click-select']['uk-ua'] = "Двічі клацніть, щоб вибрати існуючу категорію";
 
 $text['label-upload-music_on_hold']['en-us'] = "Upload Music";
+<<<<<<< HEAD
+=======
+$text['label-upload-music_on_hold']['en-gb'] = "Upload Music";
+>>>>>>> pr/2
 $text['label-upload-music_on_hold']['ar-eg'] = "";
 $text['label-upload-music_on_hold']['de-at'] = "Musik hochladen"; //copied from de-de
 $text['label-upload-music_on_hold']['de-ch'] = "Musik hochladen"; //copied from de-de
@@ -242,6 +290,10 @@ $text['label-upload-music_on_hold']['sv-se'] = "Ladda Upp Musik";
 $text['label-upload-music_on_hold']['uk-ua'] = "Завантажити мелодію";
 
 $text['label-tools']['en-us'] = "Tools";
+<<<<<<< HEAD
+=======
+$text['label-tools']['en-gb'] = "Tools";
+>>>>>>> pr/2
 $text['label-tools']['ar-eg'] = "";
 $text['label-tools']['de-at'] = "Funktionen"; //copied from de-de
 $text['label-tools']['de-ch'] = "Funktionen"; //copied from de-de
@@ -262,6 +314,10 @@ $text['label-tools']['sv-se'] = "Verktyg";
 $text['label-tools']['uk-ua'] = "Інструменти";
 
 $text['label-stop']['en-us'] = "Stop";
+<<<<<<< HEAD
+=======
+$text['label-stop']['en-gb'] = "Stop";
+>>>>>>> pr/2
 $text['label-stop']['ar-eg'] = "";
 $text['label-stop']['de-at'] = "Halt"; //copied from de-de
 $text['label-stop']['de-ch'] = "Halt"; //copied from de-de
@@ -282,6 +338,10 @@ $text['label-stop']['sv-se'] = "Sluta";
 $text['label-stop']['uk-ua'] = "СТОП";
 
 $text['label-stereo']['en-us'] = "Stereo";
+<<<<<<< HEAD
+=======
+$text['label-stereo']['en-gb'] = "Stereo";
+>>>>>>> pr/2
 $text['label-stereo']['ar-eg'] = "";
 $text['label-stereo']['de-at'] = "Stereo"; //copied from de-de
 $text['label-stereo']['de-ch'] = "Stereo"; //copied from de-de
@@ -302,6 +362,10 @@ $text['label-stereo']['sv-se'] = "Stereo";
 $text['label-stereo']['uk-ua'] = "стерео";
 
 $text['label-shuffle']['en-us'] = "Shuffle";
+<<<<<<< HEAD
+=======
+$text['label-shuffle']['en-gb'] = "Shuffle";
+>>>>>>> pr/2
 $text['label-shuffle']['ar-eg'] = "";
 $text['label-shuffle']['de-at'] = "Shuffle"; //copied from de-de
 $text['label-shuffle']['de-ch'] = "Shuffle"; //copied from de-de
@@ -322,6 +386,10 @@ $text['label-shuffle']['sv-se'] = "Blanda";
 $text['label-shuffle']['uk-ua'] = "тасування";
 
 $text['label-select_a_file']['en-us'] = "Select a file...";
+<<<<<<< HEAD
+=======
+$text['label-select_a_file']['en-gb'] = "Select a file...";
+>>>>>>> pr/2
 $text['label-select_a_file']['ar-eg'] = "";
 $text['label-select_a_file']['de-at'] = "Wählen Sie eine Datei ..."; //copied from de-de
 $text['label-select_a_file']['de-ch'] = "Wählen Sie eine Datei ..."; //copied from de-de
@@ -342,6 +410,10 @@ $text['label-select_a_file']['sv-se'] = "Välj en fil ...";
 $text['label-select_a_file']['uk-ua'] = "Виберіть файл ...";
 
 $text['label-rate']['en-us'] = "Sampling";
+<<<<<<< HEAD
+=======
+$text['label-rate']['en-gb'] = "Sampling";
+>>>>>>> pr/2
 $text['label-rate']['ar-eg'] = "";
 $text['label-rate']['de-at'] = "Abtastrate"; //copied from de-de
 $text['label-rate']['de-ch'] = "Abtastrate"; //copied from de-de
@@ -362,6 +434,10 @@ $text['label-rate']['sv-se'] = "Sampling";
 $text['label-rate']['uk-ua'] = "Якість";
 
 $text['label-play']['en-us'] = "Play";
+<<<<<<< HEAD
+=======
+$text['label-play']['en-gb'] = "Play";
+>>>>>>> pr/2
 $text['label-play']['ar-eg'] = "";
 $text['label-play']['de-at'] = "Play"; //copied from de-de
 $text['label-play']['de-ch'] = "Play"; //copied from de-de
@@ -382,6 +458,10 @@ $text['label-play']['sv-se'] = "Spela Upp";
 $text['label-play']['uk-ua'] = "Відтворити";
 
 $text['label-path']['en-us'] = "Path";
+<<<<<<< HEAD
+=======
+$text['label-path']['en-gb'] = "Path";
+>>>>>>> pr/2
 $text['label-path']['ar-eg'] = "";
 $text['label-path']['de-at'] = "Pfad"; //copied from de-de
 $text['label-path']['de-ch'] = "Pfad"; //copied from de-de
@@ -402,6 +482,10 @@ $text['label-path']['sv-se'] = "Väg";
 $text['label-path']['uk-ua'] = "Path";
 
 $text['label-pause']['en-us'] = "Pause";
+<<<<<<< HEAD
+=======
+$text['label-pause']['en-gb'] = "Pause";
+>>>>>>> pr/2
 $text['label-pause']['ar-eg'] = "";
 $text['label-pause']['de-at'] = "Pause"; //copied from de-de
 $text['label-pause']['de-ch'] = "Pause"; //copied from de-de
@@ -422,6 +506,10 @@ $text['label-pause']['sv-se'] = "Paus";
 $text['label-pause']['uk-ua'] = "Призупинити";
 
 $text['label-mono']['en-us'] = "Mono";
+<<<<<<< HEAD
+=======
+$text['label-mono']['en-gb'] = "Mono";
+>>>>>>> pr/2
 $text['label-mono']['ar-eg'] = "";
 $text['label-mono']['de-at'] = "Mono"; //copied from de-de
 $text['label-mono']['de-ch'] = "Mono"; //copied from de-de
@@ -442,6 +530,10 @@ $text['label-mono']['sv-se'] = "sak";
 $text['label-mono']['uk-ua'] = "річ";
 
 $text['label-music_on_hold']['en-us'] = "Music on Hold";
+<<<<<<< HEAD
+=======
+$text['label-music_on_hold']['en-gb'] = "Music on Hold";
+>>>>>>> pr/2
 $text['label-music_on_hold']['ar-eg'] = "";
 $text['label-music_on_hold']['de-at'] = "Wartemusik"; //copied from de-de
 $text['label-music_on_hold']['de-ch'] = "Wartemusik"; //copied from de-de
@@ -462,6 +554,10 @@ $text['label-music_on_hold']['sv-se'] = "Väntmusik";
 $text['label-music_on_hold']['uk-ua'] = "Музика на утриманні";
 
 $text['label-location']['en-us'] = "Location";
+<<<<<<< HEAD
+=======
+$text['label-location']['en-gb'] = "Location";
+>>>>>>> pr/2
 $text['label-location']['ar-eg'] = "";
 $text['label-location']['de-at'] = "Standort"; //copied from de-de
 $text['label-location']['de-ch'] = "Standort"; //copied from de-de
@@ -482,6 +578,10 @@ $text['label-location']['sv-se'] = "Plats";
 $text['label-location']['uk-ua'] = "Розміщення";
 
 $text['label-interval']['en-us'] = "Interval";
+<<<<<<< HEAD
+=======
+$text['label-interval']['en-gb'] = "Interval";
+>>>>>>> pr/2
 $text['label-interval']['ar-eg'] = "";
 $text['label-interval']['de-at'] = "Intervall"; //copied from de-de
 $text['label-interval']['de-ch'] = "Intervall"; //copied from de-de
@@ -502,6 +602,10 @@ $text['label-interval']['sv-se'] = "Intervall";
 $text['label-interval']['uk-ua'] = "Інтервал";
 
 $text['label-timer_name']['en-us'] = "Timer Name";
+<<<<<<< HEAD
+=======
+$text['label-timer_name']['en-gb'] = "Timer Name";
+>>>>>>> pr/2
 $text['label-timer_name']['ar-eg'] = "";
 $text['label-timer_name']['de-at'] = "Timer Name"; //copied from de-de
 $text['label-timer_name']['de-ch'] = "Timer Name"; //copied from de-de
@@ -522,6 +626,10 @@ $text['label-timer_name']['sv-se'] = "Timer Namn";
 $text['label-timer_name']['uk-ua'] = "";
 
 $text['label-global']['en-us'] = "Global";
+<<<<<<< HEAD
+=======
+$text['label-global']['en-gb'] = "Global";
+>>>>>>> pr/2
 $text['label-global']['ar-eg'] = "";
 $text['label-global']['de-at'] = "Global"; //copied from de-de
 $text['label-global']['de-ch'] = "Global"; //copied from de-de
@@ -542,6 +650,10 @@ $text['label-global']['sv-se'] = "Global";
 $text['label-global']['uk-ua'] = "Глобальний";
 
 $text['label-file_name']['en-us'] = "File Name";
+<<<<<<< HEAD
+=======
+$text['label-file_name']['en-gb'] = "File Name";
+>>>>>>> pr/2
 $text['label-file_name']['ar-eg'] = "";
 $text['label-file_name']['de-at'] = "Dateiname"; //copied from de-de
 $text['label-file_name']['de-ch'] = "Dateiname"; //copied from de-de
@@ -562,6 +674,10 @@ $text['label-file_name']['sv-se'] = "Fil-namn";
 $text['label-file_name']['uk-ua'] = "Назва файлу";
 
 $text['label-file-size']['en-us'] = "File Size";
+<<<<<<< HEAD
+=======
+$text['label-file-size']['en-gb'] = "File Size";
+>>>>>>> pr/2
 $text['label-file-size']['ar-eg'] = "";
 $text['label-file-size']['de-at'] = "Dateigröße"; //copied from de-de
 $text['label-file-size']['de-ch'] = "Dateigröße"; //copied from de-de
@@ -582,6 +698,10 @@ $text['label-file-size']['sv-se'] = "Filstorlek";
 $text['label-file-size']['uk-ua'] = "Розмір файлу";
 
 $text['label-file-path']['en-us'] = "File Path";
+<<<<<<< HEAD
+=======
+$text['label-file-path']['en-gb'] = "File Path";
+>>>>>>> pr/2
 $text['label-file-path']['ar-eg'] = "";
 $text['label-file-path']['de-at'] = "Dateipfad"; //copied from de-de
 $text['label-file-path']['de-ch'] = "Dateipfad"; //copied from de-de
@@ -602,6 +722,10 @@ $text['label-file-path']['sv-se'] = "Sökväg till fil";
 $text['label-file-path']['uk-ua'] = "Шлях";
 
 $text['label-download']['en-us'] = "Download";
+<<<<<<< HEAD
+=======
+$text['label-download']['en-gb'] = "Download";
+>>>>>>> pr/2
 $text['label-download']['ar-eg'] = "";
 $text['label-download']['de-at'] = "Herunterladen"; //copied from de-de
 $text['label-download']['de-ch'] = "Herunterladen"; //copied from de-de
@@ -622,6 +746,10 @@ $text['label-download']['sv-se'] = "Ladda Ned";
 $text['label-download']['uk-ua'] = "Скачати";
 
 $text['label-domain']['en-us'] = "Domain";
+<<<<<<< HEAD
+=======
+$text['label-domain']['en-gb'] = "Domain";
+>>>>>>> pr/2
 $text['label-domain']['ar-eg'] = "النطاق";
 $text['label-domain']['de-at'] = "Domäne"; //copied from de-de
 $text['label-domain']['de-ch'] = "Domäne"; //copied from de-de
@@ -642,6 +770,10 @@ $text['label-domain']['sv-se'] = "Domän";
 $text['label-domain']['uk-ua'] = "Домен";
 
 $text['label-delete-category']['en-us'] = "Delete Category";
+<<<<<<< HEAD
+=======
+$text['label-delete-category']['en-gb'] = "Delete Category";
+>>>>>>> pr/2
 $text['label-delete-category']['ar-eg'] = "";
 $text['label-delete-category']['de-at'] = "Kategorie löschen"; //copied from de-de
 $text['label-delete-category']['de-ch'] = "Kategorie löschen"; //copied from de-de
@@ -662,6 +794,10 @@ $text['label-delete-category']['sv-se'] = "Ta Bort Kategori";
 $text['label-delete-category']['uk-ua'] = "Видалити категорію";
 
 $text['label-default']['en-us'] = "Default";
+<<<<<<< HEAD
+=======
+$text['label-default']['en-gb'] = "Default";
+>>>>>>> pr/2
 $text['label-default']['ar-eg'] = "";
 $text['label-default']['de-at'] = "Standard"; //copied from de-de
 $text['label-default']['de-ch'] = "Standard"; //copied from de-de
@@ -682,6 +818,10 @@ $text['label-default']['sv-se'] = "Standard";
 $text['label-default']['uk-ua'] = "Типово";
 
 $text['label-chime_maximum']['en-us'] = "Chime Maximum";
+<<<<<<< HEAD
+=======
+$text['label-chime_maximum']['en-gb'] = "Chime Maximum";
+>>>>>>> pr/2
 $text['label-chime_maximum']['ar-eg'] = "الحد الأقصى الدقات";
 $text['label-chime_maximum']['de-at'] = "Maximale Chimes"; //copied from de-de
 $text['label-chime_maximum']['de-ch'] = "Maximale Chimes"; //copied from de-de
@@ -702,6 +842,10 @@ $text['label-chime_maximum']['sv-se'] = "maximala Chimes";
 $text['label-chime_maximum']['uk-ua'] = "максимум куранти";
 
 $text['label-chime_list']['en-us'] = "Chime File";
+<<<<<<< HEAD
+=======
+$text['label-chime_list']['en-gb'] = "Chime File";
+>>>>>>> pr/2
 $text['label-chime_list']['ar-eg'] = "الملف تتناغم";
 $text['label-chime_list']['de-at'] = "Chime Datei"; //copied from de-de
 $text['label-chime_list']['de-ch'] = "Chime Datei"; //copied from de-de
@@ -722,6 +866,10 @@ $text['label-chime_list']['sv-se'] = "chime File";
 $text['label-chime_list']['uk-ua'] = "передзвін файлу";
 
 $text['label-chime_frequency']['en-us'] = "Chime Frequency";
+<<<<<<< HEAD
+=======
+$text['label-chime_frequency']['en-gb'] = "Chime Frequency";
+>>>>>>> pr/2
 $text['label-chime_frequency']['ar-eg'] = "تردد الرنين";
 $text['label-chime_frequency']['de-at'] = "Chime Frequenz"; //copied from de-de
 $text['label-chime_frequency']['de-ch'] = "Chime Frequenz"; //copied from de-de
@@ -742,6 +890,10 @@ $text['label-chime_frequency']['sv-se'] = "chime Frekvens";
 $text['label-chime_frequency']['uk-ua'] = "передзвін Частота";
 
 $text['label-channels']['en-us'] = "Channels";
+<<<<<<< HEAD
+=======
+$text['label-channels']['en-gb'] = "Channels";
+>>>>>>> pr/2
 $text['label-channels']['ar-eg'] = "قنوات";
 $text['label-channels']['de-at'] = "Kanäle"; //copied from de-de
 $text['label-channels']['de-ch'] = "Kanäle"; //copied from de-de
@@ -762,6 +914,10 @@ $text['label-channels']['sv-se'] = "Kanaler";
 $text['label-channels']['uk-ua'] = "Канали";
 
 $text['header-music_on_hold_settings']['en-us'] = "Music on Hold Settings";
+<<<<<<< HEAD
+=======
+$text['header-music_on_hold_settings']['en-gb'] = "Music on Hold Settings";
+>>>>>>> pr/2
 $text['header-music_on_hold_settings']['ar-eg'] = "";
 $text['header-music_on_hold_settings']['de-at'] = "Wartemusik Einstellungen"; //copied from de-de
 $text['header-music_on_hold_settings']['de-ch'] = "Wartemusik Einstellungen"; //copied from de-de
@@ -782,6 +938,10 @@ $text['header-music_on_hold_settings']['sv-se'] = "Väntmusik inställningar";
 $text['header-music_on_hold_settings']['uk-ua'] = "Музика на утриманні настройки";
 
 $text['title_description-music_on_hold']['en-us'] = "Music on hold can be in WAV or MP3 format. To play an MP3 file you must have mod_shout enabled on the 'Modules' tab. You can adjust the volume of the MP3 audio from the 'Settings' tab. For best performance upload 16 bit, 8/16/32/48 kHz <i>mono</i> WAV files.";
+<<<<<<< HEAD
+=======
+$text['title_description-music_on_hold']['en-gb'] = "Music on hold can be in WAV or MP3 format. To play an MP3 file you must have mod_shout enabled on the 'Modules' tab. You can adjust the volume of the MP3 audio from the 'Settings' tab. For best performance upload 16 bit, 8/16/32/48 kHz <i>mono</i> WAV files.";
+>>>>>>> pr/2
 $text['title_description-music_on_hold']['ar-eg'] = "";
 $text['title_description-music_on_hold']['de-at'] = "Haltemusik können Dateien im WAV oder MP3 Format sein. Um MP3 Dateien abzuspielen zu können, muss mod_shout installiert und aktiviert sein. Sie können die Lautstärke der MP3 Dateien in den Einstellungen verändern. Für beste Funktionalität laden Sie 16bit, 8/16/32/48 kHz mono WAV Dateien hoch."; //copied from de-de
 $text['title_description-music_on_hold']['de-ch'] = "Haltemusik können Dateien im WAV oder MP3 Format sein. Um MP3 Dateien abzuspielen zu können, muss mod_shout installiert und aktiviert sein. Sie können die Lautstärke der MP3 Dateien in den Einstellungen verändern. Für beste Funktionalität laden Sie 16bit, 8/16/32/48 kHz mono WAV Dateien hoch."; //copied from de-de
@@ -802,6 +962,10 @@ $text['title_description-music_on_hold']['sv-se'] = "Väntmusik kan vara i forma
 $text['title_description-music_on_hold']['uk-ua'] = "Музика на утриманні може бути в WAV або MP3 формат. Для відтворення файлів MP3 ви повинні включити mod_shout на вкладці 'модулі'. Ви можете налаштувати гучність MP3-аудіо на вкладці «Налаштування». Для кращої продуктивності завантаження 16 біт, моно 8/16/32/48 кГц WAV файлів.";
 
 $text['button-upload']['en-us'] = "Upload";
+<<<<<<< HEAD
+=======
+$text['button-upload']['en-gb'] = "Upload";
+>>>>>>> pr/2
 $text['button-upload']['ar-eg'] = "";
 $text['button-upload']['de-at'] = "Hochladen"; //copied from de-de
 $text['button-upload']['de-ch'] = "Hochladen"; //copied from de-de
@@ -822,6 +986,10 @@ $text['button-upload']['sv-se'] = "Ladda Upp";
 $text['button-upload']['uk-ua'] = "Завантажити";
 
 $text['button-clear']['en-us'] = "Clear";
+<<<<<<< HEAD
+=======
+$text['button-clear']['en-gb'] = "Clear";
+>>>>>>> pr/2
 $text['button-clear']['ar-eg'] = "";
 $text['button-clear']['de-at'] = "Zurücksetzen"; //copied from de-de
 $text['button-clear']['de-ch'] = "Zurücksetzen"; //copied from de-de

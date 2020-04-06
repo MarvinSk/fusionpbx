@@ -246,19 +246,34 @@
 		echo button::create(['type'=>'button','label'=>$text['button-add'],'icon'=>$_SESSION['theme']['button_icon_add'],'id'=>'btn_add','link'=>'conference_room_edit.php']);
 	}
 	if (permission_exists('conference_room_edit') && $result) {
+<<<<<<< HEAD
 		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'id'=>'btn_toggle','onclick'=>"toggle_select(); this.blur();"]);
 		echo 		"<select class='formfld' style='display: none; width: auto;' id='conference_room_feature' onchange=\"if (confirm('".$text['confirm-toggle']."')) { list_action_set('toggle'); document.getElementById('toggle_field').value = this.options[this.selectedIndex].value; list_form_submit('form_list'); } else { this.blur(); this.style.display = 'none'; return false; }\">";
 		echo "			<option value='' selected='selected'>".$text['label-select']."</option>";
 		echo "			<option value='record'>".$text['label-record']."</option>";
 		echo "			<option value='wait_mod'>".$text['label-wait_moderator']."</option>";
 		echo "			<option value='announce'>".$text['label-announce']."</option>";
+=======
+		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'name'=>'btn_toggle','onclick'=>"toggle_select(); this.blur();"]);
+		echo 		"<select class='formfld' style='display: none; width: auto;' id='conference_room_feature' onchange=\"if (this.selectedIndex != 0) { modal_open('modal-toggle','btn_toggle'); }\">";
+		echo "			<option value='' selected='selected'>".$text['label-select']."</option>";
+		echo "			<option value='record'>".$text['label-record']."</option>";
+		echo "			<option value='wait_mod'>".$text['label-wait_moderator']."</option>";
+		echo "			<option value='announce_name'>".$text['label-announce_name']."</option>";
+		echo "			<option value='announce_count'>".$text['label-announce_count']."</option>";
+		echo "			<option value='announce_recording'>".$text['label-announce_recording']."</option>";
+>>>>>>> pr/2
 		echo "			<option value='mute'>".$text['label-mute']."</option>";
 		echo "			<option value='sounds'>".$text['label-sounds']."</option>";
 		echo "			<option value='enabled'>".$text['label-enabled']."</option>";
 		echo "		</select>";
 	}
 	if (permission_exists('conference_room_delete') && $result) {
+<<<<<<< HEAD
 		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'id'=>'btn_delete','onclick'=>"if (confirm('".$text['confirm-delete']."')) { list_action_set('delete'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
+=======
+		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','onclick'=>"modal_open('modal-delete','btn_delete');"]);
+>>>>>>> pr/2
 	}
 	echo 		"<form id='form_search' class='inline' method='get'>\n";
 	echo 		"<input type='text' class='txt list-search' name='search' id='search' value=\"".escape($search)."\" placeholder=\"".$text['label-search']."\" onkeydown='list_search_reset();'>";
@@ -272,9 +287,22 @@
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
 
+<<<<<<< HEAD
 	echo $text['title_description-conference_rooms']."\n";
 	echo "<br /><br />\n";
 
+=======
+	if (permission_exists('conference_room_edit') && $result) {
+		echo modal::create(['id'=>'modal-toggle','type'=>'toggle','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_toggle','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); document.getElementById('toggle_field').value = document.getElementById('conference_room_feature').options[document.getElementById('conference_room_feature').selectedIndex].value; list_action_set('toggle'); list_form_submit('form_list');"])]);
+	}
+	if (permission_exists('conference_room_delete') && $result) {
+		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
+	}
+
+	echo $text['title_description-conference_rooms']."\n";
+	echo "<br /><br />\n";
+
+>>>>>>> pr/2
 	echo "<form id='form_list' method='post'>\n";
 	echo "<input type='hidden' id='action' name='action' value=''>\n";
 	echo "<input type='hidden' id='toggle_field' name='toggle_field' value=''>\n";
@@ -296,7 +324,13 @@
 	echo th_order_by('record', $text['label-record'], $order_by, $order, null, "class='center'");
 	//echo th_order_by('max_members', 'Max', $order_by, $order);
 	echo th_order_by('wait_mod', $text['label-wait_moderator'], $order_by, $order, null, "class='center'");
+<<<<<<< HEAD
 	echo th_order_by('announce', $text['label-announce'], $order_by, $order, null, "class='center'");
+=======
+	echo th_order_by('announce', $text['label-announce_name'], $order_by, $order, null, "class='center'");
+	echo th_order_by('announce', $text['label-announce_count'], $order_by, $order, null, "class='center'");
+	echo th_order_by('announce', $text['label-announce_recording'], $order_by, $order, null, "class='center'");
+>>>>>>> pr/2
 	//echo th_order_by('enter_sound', 'Enter Sound', $order_by, $order);
 	echo th_order_by('mute', $text['label-mute'], $order_by, $order, null, "class='center'");
 	echo th_order_by('sounds', $text['label-sounds'], $order_by, $order, null, "class='center'");
@@ -381,6 +415,7 @@
 // 			}
 // 			echo "	</td>\n";
 
+<<<<<<< HEAD
 			if (permission_exists('conference_room_edit')) {
 				echo "	<td class='no-link center'>\n";
 				echo button::create(['type'=>'submit','class'=>'link','label'=>$text['label-'.($row['announce'] == "true" ? 'true' : 'false')],'title'=>$text['button-toggle'],'onclick'=>"list_self_check('checkbox_".$x."'); list_action_set('toggle'); document.getElementById('toggle_field').value = 'announce'; list_form_submit('form_list')"]);
@@ -472,6 +507,117 @@
 				echo button::create(['type'=>'button','title'=>$text['button-edit'],'icon'=>$_SESSION['theme']['button_icon_edit'],'link'=>$list_row_url]);
 				echo "	</td>\n";
 			}
+=======
+			if (permission_exists('conference_room_edit') && permission_exists('conference_room_announce_name')) {
+				echo "	<td class='no-link center'>\n";
+				echo button::create(['type'=>'submit','class'=>'link','label'=>$text['label-'.($row['announce_name'] == "true" ? 'true' : 'false')],'title'=>$text['button-toggle'],'onclick'=>"list_self_check('checkbox_".$x."'); list_action_set('toggle'); document.getElementById('toggle_field').value = 'announce_name'; list_form_submit('form_list')"]);
+			}
+			else {
+				echo "	<td class='center'>\n";
+				echo $text['label-'.($row['announce_name'] == "true" ? 'true' : 'false')];
+			}
+			echo "	</td>\n";
+			if (permission_exists('conference_room_edit') && permission_exists('conference_room_announce_count')) {
+				echo "	<td class='no-link center'>\n";
+				echo button::create(['type'=>'submit','class'=>'link','label'=>$text['label-'.($row['announce_count'] == "true" ? 'true' : 'false')],'title'=>$text['button-toggle'],'onclick'=>"list_self_check('checkbox_".$x."'); list_action_set('toggle'); document.getElementById('toggle_field').value = 'announce_count'; list_form_submit('form_list')"]);
+			}
+			else {
+				echo "	<td class='center'>\n";
+				echo $text['label-'.($row['announce_count'] == "true" ? 'true' : 'false')];
+			}
+			echo "	</td>\n";
+			if (permission_exists('conference_room_edit') && permission_exists('conference_room_announce_recording')) {
+				echo "	<td class='no-link center'>\n";
+				echo button::create(['type'=>'submit','class'=>'link','label'=>$text['label-'.($row['announce_recording'] == "true" ? 'true' : 'false')],'title'=>$text['button-toggle'],'onclick'=>"list_self_check('checkbox_".$x."'); list_action_set('toggle'); document.getElementById('toggle_field').value = 'announce_recording'; list_form_submit('form_list')"]);
+			}
+			else {
+				echo "	<td class='center'>\n";
+				echo $text['label-'.($row['announce_recording'] == "true" ? 'true' : 'false')];
+			}
+			echo "	</td>\n";
+// 			echo "	<td>";
+// 			if ($row['announce'] == "true") {
+// 				echo "<a href='?conference_room_uuid=".escape($row['conference_room_uuid'])."&announce=false'>".$text['label-true']."</a>";
+// 			}
+// 			else {
+// 				echo "<a href='?conference_room_uuid=".escape($row['conference_room_uuid'])."&announce=true'>".$text['label-false']."</a>";
+// 			}
+// 			echo "	</td>\n";
+
+			if (permission_exists('conference_room_edit')) {
+				echo "	<td class='no-link center'>\n";
+				echo button::create(['type'=>'submit','class'=>'link','label'=>$text['label-'.($row['mute'] == "true" ? 'true' : 'false')],'title'=>$text['button-toggle'],'onclick'=>"list_self_check('checkbox_".$x."'); list_action_set('toggle'); document.getElementById('toggle_field').value = 'mute'; list_form_submit('form_list')"]);
+			}
+			else {
+				echo "	<td class='center'>\n";
+				echo $text['label-'.($row['mute'] == "true" ? 'true' : 'false')];
+			}
+			echo "	</td>\n";
+// 			echo "	<td>";
+// 			if ($row['mute'] == "true") {
+// 				echo "<a href='?conference_room_uuid=".escape($row['conference_room_uuid'])."&mute=false'>".$text['label-true']."</a>&nbsp;";
+// 			}
+// 			else {
+// 				echo "<a href='?conference_room_uuid=".escape($row['conference_room_uuid'])."&mute=true'>".$text['label-false']."</a>&nbsp;";
+// 			}
+// 			echo "	</td>\n";
+
+			if (permission_exists('conference_room_edit')) {
+				echo "	<td class='no-link center'>\n";
+				echo button::create(['type'=>'submit','class'=>'link','label'=>$text['label-'.($row['sounds'] == "true" ? 'true' : 'false')],'title'=>$text['button-toggle'],'onclick'=>"list_self_check('checkbox_".$x."'); list_action_set('toggle'); document.getElementById('toggle_field').value = 'sounds'; list_form_submit('form_list')"]);
+			}
+			else {
+				echo "	<td class='center'>\n";
+				echo $text['label-'.($row['sounds'] == "true" ? 'true' : 'false')];
+			}
+			echo "	</td>\n";
+// 			echo "	<td>";
+// 			if ($row['sounds'] == "true") {
+// 				echo "<a href='?conference_room_uuid=".escape($row['conference_room_uuid'])."&sounds=false'>".$text['label-true']."</a>";
+// 			}
+// 			else {
+// 				echo "<a href='?conference_room_uuid=".escape($row['conference_room_uuid'])."&sounds=true'>".$text['label-false']."</a>";
+// 			}
+// 			echo "	</td>\n";
+
+			if (strlen($conference[$meeting_uuid]["session_uuid"])) {
+				echo "	<td class='center'>".escape($conference[$meeting_uuid]["member_count"])."&nbsp;</td>\n";
+			}
+			else {
+				echo "	<td class='center'>0</td>\n";
+			}
+			echo "	<td class='no-link no-wrap'>\n";
+			echo "		<a href='".PROJECT_PATH."/app/conferences_active/conference_interactive.php?c=".urlencode($row['meeting_uuid'])."'>".$text['label-view']."</a>&nbsp;\n";
+			echo "		<a href='conference_sessions.php?id=".urlencode($row['meeting_uuid'])."'>".$text['label-sessions']."</a>\n";
+			echo "	</td>\n";
+
+			if (permission_exists('conference_room_enabled')) {
+				if (permission_exists('conference_room_edit')) {
+					echo "	<td class='no-link center'>\n";
+					echo button::create(['type'=>'submit','class'=>'link','label'=>$text['label-'.($row['enabled'] == "true" ? 'true' : 'false')],'title'=>$text['button-toggle'],'onclick'=>"list_self_check('checkbox_".$x."'); list_action_set('toggle'); document.getElementById('toggle_field').value = 'enabled'; list_form_submit('form_list')"]);
+				}
+				else {
+					echo "	<td class='center'>\n";
+					echo $text['label-'.($row['enabled'] == "true" ? 'true' : 'false')];
+				}
+				echo "	</td>\n";
+// 				echo "	<td>";
+// 				if ($row['enabled'] == "true") {
+// 					echo "<a href='?conference_room_uuid=".urlencode($row['conference_room_uuid'])."&enabled=false'>".$text['label-true']."</a>";
+// 				}
+// 				else {
+// 					echo "<a href='?conference_room_uuid=".urlencode($row['conference_room_uuid'])."&enabled=true'>".$text['label-false']."</a>";
+// 				}
+// 				echo "	</td>\n";
+			}
+
+			echo "	<td class='description overflow hide-sm-dn'>".escape($row['description'])."</td>\n";
+			if (permission_exists('conference_room_edit') && $_SESSION['theme']['list_row_edit_button']['boolean'] == 'true') {
+				echo "	<td class='action-button'>\n";
+				echo button::create(['type'=>'button','title'=>$text['button-edit'],'icon'=>$_SESSION['theme']['button_icon_edit'],'link'=>$list_row_url]);
+				echo "	</td>\n";
+			}
+>>>>>>> pr/2
 			echo "</tr>\n";
 			$x++;
 		}
@@ -487,4 +633,8 @@
 //include the footer
 	require_once "resources/footer.php";
 
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> pr/2

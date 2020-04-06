@@ -73,6 +73,10 @@
 			$call_flow_alternate_sound = $_POST["call_flow_alternate_sound"];
 			$call_flow_alternate_destination = $_POST["call_flow_alternate_destination"];
 			$call_flow_context = $_POST["call_flow_context"];
+<<<<<<< HEAD
+=======
+			$call_flow_enabled = $_POST["call_flow_enabled"];
+>>>>>>> pr/2
 			$call_flow_description = $_POST["call_flow_description"];
 
 		//seperate the action and the param
@@ -148,6 +152,7 @@
 		//set the default context
 			if (permission_exists("call_flow_context")) {
 				//allow a user assigned to super admin to change the call_flow_context
+<<<<<<< HEAD
 			}
 			else {
 				//if the call_flow_context was not set then set the default value
@@ -214,11 +219,83 @@
 				$array["call_flows"][$i]["call_flow_app"] = $call_flow_app;
 				$array["call_flows"][$i]["call_flow_data"] = $call_flow_data;
 			}
+=======
+			}
+			else {
+				//if the call_flow_context was not set then set the default value
+				$call_flow_context = $_SESSION['domain_name'];
+			}
+
+		//escape special characters
+			$destination_extension = $call_flow_extension;
+			$destination_extension = str_replace("*", "\*", $destination_extension);
+			$destination_extension = str_replace("+", "\+", $destination_extension);
+
+			$destination_feature = $call_flow_feature_code;
+			// Allows dial feature code as `flow+<feature_code>`
+			if (substr($destination_feature, 0, 5) != 'flow+') {
+				$destination_feature = '(?:flow+)?' . $destination_feature;
+			}
+			$destination_feature = str_replace("*", "\*", $destination_feature);
+			$destination_feature = str_replace("+", "\+", $destination_feature);
+
+		//build the xml dialplan
+			$dialplan_xml = "<extension name=\"".$call_flow_name."\" continue=\"\" uuid=\"".$dialplan_uuid."\">\n";
+			$dialplan_xml .= "	<condition field=\"destination_number\" expression=\"^".$destination_feature."$\" break=\"on-true\">\n";
+			$dialplan_xml .= "		<action application=\"answer\" data=\"\"/>\n";
+			$dialplan_xml .= "		<action application=\"sleep\" data=\"200\"/>\n";
+			$dialplan_xml .= "		<action application=\"set\" data=\"feature_code=true\"/>\n";
+			$dialplan_xml .= "		<action application=\"set\" data=\"call_flow_uuid=".$call_flow_uuid."\"/>\n";
+			$dialplan_xml .= "		<action application=\"lua\" data=\"call_flow.lua\"/>\n";
+			$dialplan_xml .= "	</condition>\n";
+			$dialplan_xml .= "	<condition field=\"destination_number\" expression=\"^".$destination_extension."$\">\n";
+			$dialplan_xml .= "		<action application=\"set\" data=\"call_flow_uuid=".$call_flow_uuid."\"/>\n";
+			$dialplan_xml .= "		<action application=\"lua\" data=\"call_flow.lua\"/>\n";
+			$dialplan_xml .= "	</condition>\n";
+			$dialplan_xml .= "</extension>\n";
+
+		//set the row id
+			$i = 0;
+
+		//build the dialplan array
+			$array["dialplans"][$i]["domain_uuid"] = $_SESSION['domain_uuid'];
+			$array["dialplans"][$i]["dialplan_uuid"] = $dialplan_uuid;
+			$array["dialplans"][$i]["dialplan_name"] = $call_flow_name;
+			$array["dialplans"][$i]["dialplan_number"] = $call_flow_extension;
+			$array["dialplans"][$i]["dialplan_context"] = $call_flow_context;
+			$array["dialplans"][$i]["dialplan_continue"] = "false";
+			$array["dialplans"][$i]["dialplan_xml"] = $dialplan_xml;
+			$array["dialplans"][$i]["dialplan_order"] = "333";
+			$array["dialplans"][$i]["dialplan_enabled"] = $call_flow_enabled;
+			$array["dialplans"][$i]["dialplan_description"] = $call_flow_description;
+			$array["dialplans"][$i]["app_uuid"] = "b1b70f85-6b42-429b-8c5a-60c8b02b7d14";
+
+			$array["call_flows"][$i]["call_flow_uuid"] =  $call_flow_uuid;
+			$array["call_flows"][$i]["domain_uuid"] = $_SESSION['domain_uuid'];
+			$array["call_flows"][$i]["dialplan_uuid"] = $dialplan_uuid;
+			$array["call_flows"][$i]["call_flow_name"] = $call_flow_name;
+			$array["call_flows"][$i]["call_flow_extension"] = $call_flow_extension;
+			$array["call_flows"][$i]["call_flow_feature_code"] = $call_flow_feature_code;
+			$array["call_flows"][$i]["call_flow_status"] = $call_flow_status;
+			$array["call_flows"][$i]["call_flow_pin_number"] = $call_flow_pin_number;
+			$array["call_flows"][$i]["call_flow_label"] = $call_flow_label;
+			$array["call_flows"][$i]["call_flow_sound"] = $call_flow_sound;
+			$array["call_flows"][$i]["call_flow_alternate_label"] = $call_flow_alternate_label;
+			$array["call_flows"][$i]["call_flow_alternate_sound"] = $call_flow_alternate_sound;
+			if ($destination->valid($call_flow_app.':'.$call_flow_data)) {
+				$array["call_flows"][$i]["call_flow_app"] = $call_flow_app;
+				$array["call_flows"][$i]["call_flow_data"] = $call_flow_data;
+			}
+>>>>>>> pr/2
 			if ($destination->valid($call_flow_alternate_app.':'.$call_flow_alternate_data)) {
 				$array["call_flows"][$i]["call_flow_alternate_app"] = $call_flow_alternate_app;
 				$array["call_flows"][$i]["call_flow_alternate_data"] = $call_flow_alternate_data;
 			}
 			$array["call_flows"][$i]["call_flow_context"] = $call_flow_context;
+<<<<<<< HEAD
+=======
+			$array["call_flows"][$i]["call_flow_enabled"] = $call_flow_enabled;
+>>>>>>> pr/2
 			$array["call_flows"][$i]["call_flow_description"] = $call_flow_description;
 
 		//add the dialplan permission
@@ -297,6 +374,10 @@
 				$call_flow_alternate_sound = $row["call_flow_alternate_sound"];
 				$call_flow_alternate_app = $row["call_flow_alternate_app"];
 				$call_flow_alternate_data = $row["call_flow_alternate_data"];
+<<<<<<< HEAD
+=======
+				$call_flow_enabled = $row["call_flow_enabled"];
+>>>>>>> pr/2
 				$call_flow_description = $row["call_flow_description"];
 
 			//if superadmin show both the app and data
@@ -566,6 +647,8 @@
 	echo "	</select>\n";
 	echo "<br />\n";
 	echo $text['description-call_flow_status']."\n";
+<<<<<<< HEAD
+=======
 	echo "</td>\n";
 	echo "</tr>\n";
 
@@ -577,17 +660,27 @@
 	echo "	<input class='formfld' type='text' name='call_flow_pin_number' maxlength='255' value=\"".escape($call_flow_pin_number)."\">\n";
 	echo "<br />\n";
 	echo $text['description-call_flow_pin_number']."\n";
+>>>>>>> pr/2
 	echo "</td>\n";
 	echo "</tr>\n";
 
 	echo "<tr>\n";
 	echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
+<<<<<<< HEAD
+	echo "	".$text['label-call_flow_pin_number']."\n";
+	echo "</td>\n";
+	echo "<td class='vtable' align='left'>\n";
+	echo "	<input class='formfld' type='text' name='call_flow_pin_number' maxlength='255' value=\"".escape($call_flow_pin_number)."\">\n";
+	echo "<br />\n";
+	echo $text['description-call_flow_pin_number']."\n";
+=======
 	echo "	".$text['label-call_flow_label']."\n";
 	echo "</td>\n";
 	echo "<td class='vtable' align='left'>\n";
 	echo "	<input class='formfld' type='text' name='call_flow_label' maxlength='255' value=\"".escape($call_flow_label)."\">\n";
 	echo "<br />\n";
 	echo $text['description-call_flow_label']."\n";
+>>>>>>> pr/2
 	echo "</td>\n";
 	echo "</tr>\n";
 
@@ -595,6 +688,31 @@
 
 	/*
 	echo "<tr>\n";
+	echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
+<<<<<<< HEAD
+	echo "	".$text['label-call_flow_label']."\n";
+	echo "</td>\n";
+	echo "<td class='vtable' align='left'>\n";
+	echo "	<input class='formfld' type='text' name='call_flow_label' maxlength='255' value=\"".escape($call_flow_label)."\">\n";
+	echo "<br />\n";
+	echo $text['description-call_flow_label']."\n";
+=======
+	echo "	".$text['label-call_flow_sound']."\n";
+	echo "</td>\n";
+	echo "<td class='vtable' align='left'>\n";
+	echo "	<input class='formfld' type='text' name='call_flow_sound' maxlength='255' value=\"".escape($call_flow_sound)."\">\n";
+	echo "<br />\n";
+	echo $text['description-call_flow_sound']."\n";
+>>>>>>> pr/2
+	echo "</td>\n";
+	echo "</tr>\n";
+	*/
+
+	sound_select_list($call_flow_sound, 'call_flow_sound', 'call_flow_sound', true);
+
+	/*
+	echo "<tr>\n";
+<<<<<<< HEAD
 	echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
 	echo "	".$text['label-call_flow_sound']."\n";
 	echo "</td>\n";
@@ -607,6 +725,8 @@
 	*/
 
 	echo "<tr>\n";
+=======
+>>>>>>> pr/2
 	echo "<td class='vncellreq' valign='top' align='left' nowrap='nowrap'>\n";
 	echo "	".$text['label-call_flow_destination']."\n";
 	echo "</td>\n";
@@ -679,6 +799,29 @@
 		echo "</tr>\n";
 	}
 
+<<<<<<< HEAD
+=======
+	echo "<tr>\n";
+	echo "<td width=\"30%\" class='vncellreq' valign='top' align='left' nowrap>\n";
+	echo "	".$text['label-enabled']."\n";
+	echo "</td>\n";
+	echo "<td width=\"70%\" class='vtable' align='left'>\n";
+	echo "	<select class='formfld' name='call_flow_enabled'>\n";
+	if ($call_flow_enabled == "true") {
+		echo "	<option value='true' selected='selected'>".$text['option-true']."</option>\n";
+	}
+	else {
+		echo "	<option value='true'>".$text['option-true']."</option>\n";
+	}
+	if ($call_flow_enabled == "false") {
+		echo "	<option value='false' selected='selected'>".$text['option-false']."</option>\n";
+	}
+	else {
+		echo "	<option value='false'>".$text['option-false']."</option>\n";
+	}
+	echo "	</select>\n";
+
+>>>>>>> pr/2
 	echo "<tr>\n";
 	echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
 	echo "	".$text['label-call_flow_description']."\n";

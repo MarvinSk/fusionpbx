@@ -78,7 +78,11 @@
 //add multi-lingual support
 	$language = new text;
 	$text_default = $language->get();
+<<<<<<< HEAD
 	$text_application = $language->get(null,'themes/default');
+=======
+	$text_application = $language->get(null,'themes/'.$_SESSION['domain']['template']['name']);
+>>>>>>> pr/2
 	$text = array_merge($text_default, $text_application);
 
 //set template variables
@@ -99,6 +103,10 @@
 					switch($subcategory) {
 						//exceptions
 							case 'favicon':
+<<<<<<< HEAD
+=======
+							case 'custom_css':
+>>>>>>> pr/2
 								if ($setting['text'] != '') {
 									$tmp_url = parse_url($setting['text']);
 									$tmp_path = pathinfo($setting['text']);
@@ -246,6 +254,11 @@
 		$view->assign('login_logo_source', $login_logo_source);
 		$view->assign('login_logo_width', $login_logo_width);
 		$view->assign('login_logo_height', $login_logo_height);
+<<<<<<< HEAD
+=======
+	//login page
+		$view->assign('login_page', $login_page);
+>>>>>>> pr/2
 	//messages
 		$view->assign('messages', message::html(true, '		'));
 

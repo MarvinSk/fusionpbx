@@ -9,6 +9,10 @@
 		$apps[$x]['license'] = "Mozilla Public License 1.1";
 		$apps[$x]['url'] = "http://www.fusionpbx.com";
 		$apps[$x]['description']['en-us'] = "User account settings can be changed by the user.";
+<<<<<<< HEAD
+=======
+		$apps[$x]['description']['en-gb'] = "User account settings can be changed by the user.";
+>>>>>>> pr/2
 		$apps[$x]['description']['ar-eg'] = "";
 		$apps[$x]['description']['de-at'] = "Einstellungen des Benutzerkontos können durch den Benutzer geändert werden.";
 		$apps[$x]['description']['de-ch'] = "";
@@ -48,6 +52,7 @@
 		$y++;
 		$apps[$x]['permissions'][$y]['name'] = "user_setting_category_edit";
 		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+<<<<<<< HEAD
 		$y++;
 		$apps[$x]['permissions'][$y]['name'] = "user_account_setting_view";
 		$apps[$x]['permissions'][$y]['menu']['uuid'] = "4d532f0b-c206-c39d-ff33-fc67d668fb69";
@@ -59,6 +64,8 @@
 		$apps[$x]['permissions'][$y]['groups'][] = "user";
 		$apps[$x]['permissions'][$y]['groups'][] = "admin";
 		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
+=======
+>>>>>>> pr/2
 
 	//schema details
 		$y=0;

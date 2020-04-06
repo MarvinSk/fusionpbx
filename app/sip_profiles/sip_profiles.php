@@ -123,10 +123,17 @@
 		echo button::create(['type'=>'button','label'=>$text['button-add'],'icon'=>$_SESSION['theme']['button_icon_add'],'id'=>'btn_add','link'=>'sip_profile_edit.php']);
 	}
 	if (permission_exists('sip_profile_edit') && $sip_profiles) {
+<<<<<<< HEAD
 		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'id'=>'btn_toggle','onclick'=>"if (confirm('".$text['confirm-toggle']."')) { list_action_set('toggle'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
 	}
 	if (permission_exists('sip_profile_delete') && $sip_profiles) {
 		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'id'=>'btn_delete','onclick'=>"if (confirm('".$text['confirm-delete']."')) { list_action_set('delete'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
+=======
+		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'name'=>'btn_toggle','onclick'=>"modal_open('modal-toggle','btn_toggle');"]);
+	}
+	if (permission_exists('sip_profile_delete') && $sip_profiles) {
+		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','onclick'=>"modal_open('modal-delete','btn_delete');"]);
+>>>>>>> pr/2
 	}
 	echo 		"<form id='form_search' class='inline' method='get'>\n";
 	echo 		"<input type='text' class='txt list-search' name='search' id='search' value=\"".escape($search)."\" placeholder=\"".$text['label-search']."\" onkeydown='list_search_reset();'>";
@@ -139,6 +146,38 @@
 	echo "	</div>\n";
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
+
+<<<<<<< HEAD
+	echo $text['description-sip_profiles']."\n";
+	echo "<br /><br />\n";
+
+	echo "<form id='form_list' method='post'>\n";
+	echo "<input type='hidden' id='action' name='action' value=''>\n";
+	echo "<input type='hidden' name='search' value=\"".escape($search)."\">\n";
+
+	echo "<table class='list'>\n";
+	echo "<tr class='list-header'>\n";
+	if (permission_exists('sip_profile_add') || permission_exists('sip_profile_edit') || permission_exists('sip_profile_delete')) {
+		echo "	<th class='checkbox'>\n";
+		echo "		<input type='checkbox' id='checkbox_all' name='checkbox_all' onclick='list_all_toggle();' ".($sip_profiles ?: "style='visibility: hidden;'").">\n";
+		echo "	</th>\n";
+	}
+	echo th_order_by('sip_profile_name', $text['label-sip_profile_name'], $order_by, $order);
+	echo th_order_by('sip_profile_hostname', $text['label-sip_profile_hostname'], $order_by, $order);
+	echo th_order_by('sip_profile_enabled', $text['label-sip_profile_enabled'], $order_by, $order, null, "class='center'");
+	echo th_order_by('sip_profile_description', $text['label-sip_profile_description'], $order_by, $order, null, "class='hide-sm-dn pct-70'");
+	if (permission_exists('sip_profile_edit') && $_SESSION['theme']['list_row_edit_button']['boolean'] == 'true') {
+		echo "	<td class='action-button'>&nbsp;</td>\n";
+	}
+	echo "</tr>\n";
+
+=======
+	if (permission_exists('sip_profile_edit') && $sip_profiles) {
+		echo modal::create(['id'=>'modal-toggle','type'=>'toggle','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_toggle','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('toggle'); list_form_submit('form_list');"])]);
+	}
+	if (permission_exists('sip_profile_delete') && $sip_profiles) {
+		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
+	}
 
 	echo $text['description-sip_profiles']."\n";
 	echo "<br /><br />\n";
@@ -163,6 +202,7 @@
 	}
 	echo "</tr>\n";
 
+>>>>>>> pr/2
 	if (is_array($sip_profiles) && @sizeof($sip_profiles) != 0) {
 		$x = 0;
 		foreach ($sip_profiles as $row) {

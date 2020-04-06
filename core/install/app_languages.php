@@ -2,6 +2,10 @@
 #This file was last reorganized on 19th of September 2017 08:54:24 AM UTC
 
 $text['title-install']['en-us'] = "Install";
+<<<<<<< HEAD
+=======
+$text['title-install']['en-gb'] = "Install";
+>>>>>>> pr/2
 $text['title-install']['ar-eg'] = "للمرة الأولى قم بتثبيت";
 $text['title-install']['de-at'] = "Erstinstallation"; //copied from de-de
 $text['title-install']['de-ch'] = "Erstinstallation"; //copied from de-de
@@ -22,6 +26,10 @@ $text['title-install']['sv-se'] = "Installera";
 $text['title-install']['uk-ua'] = "Перший раз Встановіть";
 
 $text['title-detected_configuration']['en-us'] = "Detected Configuration";
+<<<<<<< HEAD
+=======
+$text['title-detected_configuration']['en-gb'] = "Detected Configuration";
+>>>>>>> pr/2
 $text['title-detected_configuration']['ar-eg'] = "تكوين الكشف عن";
 $text['title-detected_configuration']['de-at'] = "Erkannte Konfiguration"; //copied from de-de
 $text['title-detected_configuration']['de-ch'] = "Erkannte Konfiguration"; //copied from de-de
@@ -42,6 +50,10 @@ $text['title-detected_configuration']['sv-se'] = "Detekterad Konfiguration";
 $text['title-detected_configuration']['uk-ua'] = "виявлено Конфігурація";
 
 $text['title-assumed_configuration']['en-us'] = "Assumed Configuration";
+<<<<<<< HEAD
+=======
+$text['title-assumed_configuration']['en-gb'] = "Assumed Configuration";
+>>>>>>> pr/2
 $text['title-assumed_configuration']['ar-eg'] = "تكوين المفترضة";
 $text['title-assumed_configuration']['de-at'] = "Angenommene Konfiguration"; //copied from de-de
 $text['title-assumed_configuration']['de-ch'] = "Angenommene Konfiguration"; //copied from de-de
@@ -62,6 +74,10 @@ $text['title-assumed_configuration']['sv-se'] = "Antagen Konfiguration";
 $text['title-assumed_configuration']['uk-ua'] = "передбачуваний Конфігурація";
 
 $text['label-ft-install']['en-us'] = "First Time Install";
+<<<<<<< HEAD
+=======
+$text['label-ft-install']['en-gb'] = "First Time Install";
+>>>>>>> pr/2
 $text['label-ft-install']['ar-eg'] = "للمرة الأولى قم بتثبيت";
 $text['label-ft-install']['de-at'] = "Erstinstallation"; //copied from de-de
 $text['label-ft-install']['de-ch'] = "Erstinstallation"; //copied from de-de
@@ -82,6 +98,10 @@ $text['label-ft-install']['sv-se'] = "Första gången Installera";
 $text['label-ft-install']['uk-ua'] = "Перший раз Встановіть";
 
 $text['description-ft-install']['en-us'] = "Perform all actions for a First Time Install";
+<<<<<<< HEAD
+=======
+$text['description-ft-install']['en-gb'] = "Perform all actions for a First Time Install";
+>>>>>>> pr/2
 $text['description-ft-install']['ar-eg'] = "تنفيذ كافة الإجراءات لأول مرة التثبيت";
 $text['description-ft-install']['de-at'] = "Führen Sie alle Scritte für eine Erstinstallation durch"; //copied from de-de
 $text['description-ft-install']['de-ch'] = "Führen Sie alle Scritte für eine Erstinstallation durch"; //copied from de-de
@@ -102,6 +122,10 @@ $text['description-ft-install']['sv-se'] = "Utföra alla åtgärder för första
 $text['description-ft-install']['uk-ua'] = "Виконайте всі дії для першого разу Встановіть";
 
 $text['label-add-switch']['en-us'] = "Add a new switch";
+<<<<<<< HEAD
+=======
+$text['label-add-switch']['en-gb'] = "Add a new switch";
+>>>>>>> pr/2
 $text['label-add-switch']['ar-eg'] = "إضافة مفتاح جديد";
 $text['label-add-switch']['de-at'] = "Fügen Sie einen neuen Schalter hinzu"; //copied from de-de
 $text['label-add-switch']['de-ch'] = "Fügen Sie einen neuen Schalter hinzu"; //copied from de-de
@@ -122,6 +146,10 @@ $text['label-add-switch']['sv-se'] = "Lägg till en ny switch";
 $text['label-add-switch']['uk-ua'] = "Додати новий перемикач";
 
 $text['label-select_language']['en-us'] = "Language";
+<<<<<<< HEAD
+=======
+$text['label-select_language']['en-gb'] = "Language";
+>>>>>>> pr/2
 $text['label-select_language']['ar-eg'] = "لغة";
 $text['label-select_language']['de-at'] = "Sprache"; //copied from de-de
 $text['label-select_language']['de-ch'] = "Sprache"; //copied from de-de
@@ -142,6 +170,10 @@ $text['label-select_language']['sv-se'] = "Språk";
 $text['label-select_language']['uk-ua'] = "Мова";
 
 $text['label-event_host']['en-us'] = "Host address";
+<<<<<<< HEAD
+=======
+$text['label-event_host']['en-gb'] = "Host address";
+>>>>>>> pr/2
 $text['label-event_host']['ar-eg'] = "عنوان المضيف";
 $text['label-event_host']['de-at'] = "Host-Adresse"; //copied from de-de
 $text['label-event_host']['de-ch'] = "Host-Adresse"; //copied from de-de
@@ -162,6 +194,10 @@ $text['label-event_host']['sv-se'] = "Host adress";
 $text['label-event_host']['uk-ua'] = "адреса хоста";
 
 $text['label-event_port']['en-us'] = "Port";
+<<<<<<< HEAD
+=======
+$text['label-event_port']['en-gb'] = "Port";
+>>>>>>> pr/2
 $text['label-event_port']['ar-eg'] = "منفذ";
 $text['label-event_port']['de-at'] = "Port"; //copied from de-de
 $text['label-event_port']['de-ch'] = "Port"; //copied from de-de
@@ -182,6 +218,10 @@ $text['label-event_port']['sv-se'] = "Port";
 $text['label-event_port']['uk-ua'] = "Порт";
 
 $text['label-event_password']['en-us'] = "Password";
+<<<<<<< HEAD
+=======
+$text['label-event_password']['en-gb'] = "Password";
+>>>>>>> pr/2
 $text['label-event_password']['ar-eg'] = "كلمة السر";
 $text['label-event_password']['de-at'] = "Passwort"; //copied from de-de
 $text['label-event_password']['de-ch'] = "Passwort"; //copied from de-de
@@ -202,6 +242,10 @@ $text['label-event_password']['sv-se'] = "Lösenord";
 $text['label-event_password']['uk-ua'] = "Пароль";
 
 $text['label-username']['en-us'] = "Username";
+<<<<<<< HEAD
+=======
+$text['label-username']['en-gb'] = "Username";
+>>>>>>> pr/2
 $text['label-username']['ar-eg'] = "اسم المستخدم";
 $text['label-username']['de-at'] = "Benutzername"; //copied from de-de
 $text['label-username']['de-ch'] = "Benutzername"; //copied from de-de
@@ -222,6 +266,10 @@ $text['label-username']['sv-se'] = "Användarnamn";
 $text['label-username']['uk-ua'] = "Ім’я користувача";
 
 $text['label-port']['en-us'] = "Port";
+<<<<<<< HEAD
+=======
+$text['label-port']['en-gb'] = "Port";
+>>>>>>> pr/2
 $text['label-port']['ar-eg'] = "منفذ";
 $text['label-port']['de-at'] = "Port"; //copied from de-de
 $text['label-port']['de-ch'] = "Port"; //copied from de-de
@@ -242,6 +290,10 @@ $text['label-port']['sv-se'] = "Port";
 $text['label-port']['uk-ua'] = "Порт";
 
 $text['label-path']['en-us'] = "Path";
+<<<<<<< HEAD
+=======
+$text['label-path']['en-gb'] = "Path";
+>>>>>>> pr/2
 $text['label-path']['ar-eg'] = "مسار";
 $text['label-path']['de-at'] = "Pfad"; //copied from de-de
 $text['label-path']['de-ch'] = "Pfad"; //copied from de-de
@@ -262,6 +314,10 @@ $text['label-path']['sv-se'] = "Sökväg";
 $text['label-path']['uk-ua'] = "Шлях";
 
 $text['label-host']['en-us'] = "Host";
+<<<<<<< HEAD
+=======
+$text['label-host']['en-gb'] = "Host";
+>>>>>>> pr/2
 $text['label-host']['ar-eg'] = "مضيف";
 $text['label-host']['de-at'] = "Host"; //copied from de-de
 $text['label-host']['de-ch'] = "Host"; //copied from de-de
@@ -282,6 +338,10 @@ $text['label-host']['sv-se'] = "Värd";
 $text['label-host']['uk-ua'] = "Хост";
 
 $text['label-driver']['en-us'] = "Driver";
+<<<<<<< HEAD
+=======
+$text['label-driver']['en-gb'] = "Driver";
+>>>>>>> pr/2
 $text['label-driver']['ar-eg'] = "سائق";
 $text['label-driver']['de-at'] = "Treiber"; //copied from de-de
 $text['label-driver']['de-ch'] = "Treiber"; //copied from de-de
@@ -302,6 +362,10 @@ $text['label-driver']['sv-se'] = "Drivrutin";
 $text['label-driver']['uk-ua'] = "Драйвер";
 
 $text['header-install']['en-us'] = "Install";
+<<<<<<< HEAD
+=======
+$text['header-install']['en-gb'] = "Install";
+>>>>>>> pr/2
 $text['header-install']['ar-eg'] = "تثبيت";
 $text['header-install']['de-at'] = "Installieren"; //copied from de-de
 $text['header-install']['de-ch'] = "Installieren"; //copied from de-de
@@ -322,6 +386,10 @@ $text['header-install']['sv-se'] = "Installera";
 $text['header-install']['uk-ua'] = "встановлювати";
 
 $text['header-select_language']['en-us'] = "Select Language";
+<<<<<<< HEAD
+=======
+$text['header-select_language']['en-gb'] = "Select Language";
+>>>>>>> pr/2
 $text['header-select_language']['ar-eg'] = "اختار اللغة";
 $text['header-select_language']['de-at'] = "Sprache auswählen"; //copied from de-de
 $text['header-select_language']['de-ch'] = "Sprache auswählen"; //copied from de-de
@@ -342,6 +410,10 @@ $text['header-select_language']['sv-se'] = "Välj språk";
 $text['header-select_language']['uk-ua'] = "вибір мови";
 
 $text['header-event_socket']['en-us'] = "Event Socket Configuration";
+<<<<<<< HEAD
+=======
+$text['header-event_socket']['en-gb'] = "Event Socket Configuration";
+>>>>>>> pr/2
 $text['header-event_socket']['ar-eg'] = "تكوين المقبس الحدث";
 $text['header-event_socket']['de-at'] = "Event-Socket Konfigurieren"; //copied from de-de
 $text['header-event_socket']['de-ch'] = "Event-Socket Konfigurieren"; //copied from de-de
@@ -362,6 +434,10 @@ $text['header-event_socket']['sv-se'] = "Händelse Socket Konfiguration";
 $text['header-event_socket']['uk-ua'] = "Конфігурація гніздо Подія";
 
 $text['header-config_detail']['en-us'] = "Admin Configuration";
+<<<<<<< HEAD
+=======
+$text['header-config_detail']['en-gb'] = "Admin Configuration";
+>>>>>>> pr/2
 $text['header-config_detail']['ar-eg'] = "تكوين المشرف";
 $text['header-config_detail']['de-at'] = "Admin-Konfiguration"; //copied from de-de
 $text['header-config_detail']['de-ch'] = "Admin-Konfiguration"; //copied from de-de
@@ -382,6 +458,10 @@ $text['header-config_detail']['sv-se'] = "Admin Konfiguration";
 $text['header-config_detail']['uk-ua'] = "конфігурація Адмін";
 
 $text['header-config_database']['en-us'] = "Database Configuration";
+<<<<<<< HEAD
+=======
+$text['header-config_database']['en-gb'] = "Database Configuration";
+>>>>>>> pr/2
 $text['header-config_database']['ar-eg'] = "تكوين قاعدة بيانات";
 $text['header-config_database']['de-at'] = "Datenbankkonfiguration "; //copied from de-de
 $text['header-config_database']['de-ch'] = "Datenbankkonfiguration "; //copied from de-de
@@ -402,6 +482,10 @@ $text['header-config_database']['sv-se'] = "Databaskonfiguration ";
 $text['header-config_database']['uk-ua'] = "конфігурація бази даних";
 
 $text['header-installing']['en-us'] = "Executing Install";
+<<<<<<< HEAD
+=======
+$text['header-installing']['en-gb'] = "Executing Install";
+>>>>>>> pr/2
 $text['header-installing']['ar-eg'] = "تنفيذ التثبيت";
 $text['header-installing']['de-at'] = "Installation ausführen"; //copied from de-de
 $text['header-installing']['de-ch'] = "Installation ausführen"; //copied from de-de
@@ -422,6 +506,10 @@ $text['header-installing']['sv-se'] = "Exekvera Installera";
 $text['header-installing']['uk-ua'] = "виконання Встановіть";
 
 $text['description-event_host']['en-us'] = "Enter the event socket host name or IP address.";
+<<<<<<< HEAD
+=======
+$text['description-event_host']['en-gb'] = "Enter the event socket host name or IP address.";
+>>>>>>> pr/2
 $text['description-event_host']['ar-eg'] = "أدخل اسم المضيف مأخذ الحدث.";
 $text['description-event_host']['de-at'] = "Geben Sie die Hostnamen oder die IP-Adresse  für den Event-Socket an."; //copied from de-de
 $text['description-event_host']['de-ch'] = "Geben Sie die Hostnamen oder die IP-Adresse  für den Event-Socket an."; //copied from de-de
@@ -442,6 +530,10 @@ $text['description-event_host']['sv-se'] = "Ange händelsen uttag värdnamn elle
 $text['description-event_host']['uk-ua'] = "Введіть проведення сокета ім'я хоста або IP-адресу.";
 
 $text['description-event_port']['en-us'] = "Enter the event socket port number.";
+<<<<<<< HEAD
+=======
+$text['description-event_port']['en-gb'] = "Enter the event socket port number.";
+>>>>>>> pr/2
 $text['description-event_port']['ar-eg'] = "أدخل رقم الحدث ميناء المقبس.";
 $text['description-event_port']['de-at'] = "Geben Sie die Portnummer des Event-Sockets an"; //copied from de-de
 $text['description-event_port']['de-ch'] = "Geben Sie die Portnummer des Event-Sockets an"; //copied from de-de
@@ -462,6 +554,10 @@ $text['description-event_port']['sv-se'] = "Ange händelsen socket portnummer.";
 $text['description-event_port']['uk-ua'] = "Введіть номер подія гніздо порту.";
 
 $text['description-event_password']['en-us'] = "Enter the event socket password.";
+<<<<<<< HEAD
+=======
+$text['description-event_password']['en-gb'] = "Enter the event socket password.";
+>>>>>>> pr/2
 $text['description-event_password']['ar-eg'] = "أدخل كلمة المرور مأخذ الحدث.";
 $text['description-event_password']['de-at'] = "Geben Sie das Passwort für den Event-Socket an."; //copied from de-de
 $text['description-event_password']['de-ch'] = "Geben Sie das Passwort für den Event-Socket an."; //copied from de-de
@@ -482,6 +578,10 @@ $text['description-event_password']['sv-se'] = "Ange händelsen uttag lösenord.
 $text['description-event_password']['uk-ua'] = "Введіть гніздо пароль подією.";
 
 $text['description-username']['en-us'] = "Enter the database username.";
+<<<<<<< HEAD
+=======
+$text['description-username']['en-gb'] = "Enter the database username.";
+>>>>>>> pr/2
 $text['description-username']['ar-eg'] = "أدخل اسم المستخدم هنا";
 $text['description-username']['de-at'] = "Geben Sie den Benutzernamen für die Datenbank an."; //copied from de-de
 $text['description-username']['de-ch'] = "Geben Sie den Benutzernamen für die Datenbank an."; //copied from de-de
@@ -502,6 +602,10 @@ $text['description-username']['sv-se'] = "Ange databasen användarnamn här.";
 $text['description-username']['uk-ua'] = "Введіть ім’я користувача бази даних";
 
 $text['description-type']['en-us'] = "Select the database type.";
+<<<<<<< HEAD
+=======
+$text['description-type']['en-gb'] = "Select the database type.";
+>>>>>>> pr/2
 $text['description-type']['ar-eg'] = "إختر نوع قاعدة البيانات";
 $text['description-type']['de-at'] = "Wählen Sie den Datenbank Typ."; //copied from de-de
 $text['description-type']['de-ch'] = "Wählen Sie den Datenbank Typ."; //copied from de-de
@@ -522,6 +626,10 @@ $text['description-type']['sv-se'] = "Välj databastyp";
 $text['description-type']['uk-ua'] = "Виберіть тип бази даних";
 
 $text['description-port']['en-us'] = "Enter the port number.";
+<<<<<<< HEAD
+=======
+$text['description-port']['en-gb'] = "Enter the port number.";
+>>>>>>> pr/2
 $text['description-port']['ar-eg'] = "أدخل رقم المنفذ";
 $text['description-port']['de-at'] = "Geben Sie die Portnummer an."; //copied from de-de
 $text['description-port']['de-ch'] = "Geben Sie die Portnummer an."; //copied from de-de
@@ -542,6 +650,10 @@ $text['description-port']['sv-se'] = "Ange portnummer";
 $text['description-port']['uk-ua'] = "Введіть номер порта";
 
 $text['description-path']['en-us'] = "Enter the database file path (SQLite only).";
+<<<<<<< HEAD
+=======
+$text['description-path']['en-gb'] = "Enter the database file path (SQLite only).";
+>>>>>>> pr/2
 $text['description-path']['ar-eg'] = "أدخل مسار ملف قاعدة البيانات (سكليتي فقط).";
 $text['description-path']['de-at'] = "Geben Sie den Datenbank Pfad an (nur für SQLite)."; //copied from de-de
 $text['description-path']['de-ch'] = "Geben Sie den Datenbank Pfad an (nur für SQLite)."; //copied from de-de
@@ -562,6 +674,10 @@ $text['description-path']['sv-se'] = "Ange databasens sökväg (gäller endast S
 $text['description-path']['uk-ua'] = "Вкажіть шлях до файлу бази даних (тільки SQLite).";
 
 $text['description-password']['en-us'] = "Enter the database password.";
+<<<<<<< HEAD
+=======
+$text['description-password']['en-gb'] = "Enter the database password.";
+>>>>>>> pr/2
 $text['description-password']['ar-eg'] = "أدخل الرقم السري الخاص بقاعدة البيانات";
 $text['description-password']['de-at'] = "Geben Sie das Password für die Datenbank ein."; //copied from de-de
 $text['description-password']['de-ch'] = "Geben Sie das Password für die Datenbank ein."; //copied from de-de
@@ -582,6 +698,10 @@ $text['description-password']['sv-se'] = "Ange databasens lösenord.";
 $text['description-password']['uk-ua'] = "Введіть пароль бази даних.";
 
 $text['description-name']['en-us'] = "Enter the database name.";
+<<<<<<< HEAD
+=======
+$text['description-name']['en-gb'] = "Enter the database name.";
+>>>>>>> pr/2
 $text['description-name']['ar-eg'] = "أدخل إسم قاعدة البيانات";
 $text['description-name']['de-at'] = "Geben Sie den Namen der Datenbank an"; //copied from de-de
 $text['description-name']['de-ch'] = "Geben Sie den Namen der Datenbank an"; //copied from de-de
@@ -602,6 +722,10 @@ $text['description-name']['sv-se'] = "Ange databasens namn.";
 $text['description-name']['uk-ua'] = "Введіть ім'я бази даних.";
 
 $text['description-host']['en-us'] = "Enter the host name.";
+<<<<<<< HEAD
+=======
+$text['description-host']['en-gb'] = "Enter the host name.";
+>>>>>>> pr/2
 $text['description-host']['ar-eg'] = "أدخل إسم المضيف";
 $text['description-host']['de-at'] = "Geben Sie den Hostnamen ein."; //copied from de-de
 $text['description-host']['de-ch'] = "Geben Sie den Hostnamen ein."; //copied from de-de
@@ -622,6 +746,10 @@ $text['description-host']['sv-se'] = "Ange värdnamnet";
 $text['description-host']['uk-ua'] = "Введіть ім'я хоста.";
 
 $text['description-driver']['en-us'] = "Select the database driver.";
+<<<<<<< HEAD
+=======
+$text['description-driver']['en-gb'] = "Select the database driver.";
+>>>>>>> pr/2
 $text['description-driver']['ar-eg'] = "حدد برنامج تشغيل قاعدة البيانات.";
 $text['description-driver']['de-at'] = "Wählen Sie den Datenbank Treiber."; //copied from de-de
 $text['description-driver']['de-ch'] = "Wählen Sie den Datenbank Treiber."; //copied from de-de
@@ -642,6 +770,10 @@ $text['description-driver']['sv-se'] = "Välj databas drivrutin.";
 $text['description-driver']['uk-ua'] = "Виберіть драйвер бази даних.";
 
 $text['description-install']['en-us'] = "Select the action below you wish to perform.";
+<<<<<<< HEAD
+=======
+$text['description-install']['en-gb'] = "Select the action below you wish to perform.";
+>>>>>>> pr/2
 $text['description-install']['ar-eg'] = "حدد الإجراء أدناه كنت ترغب في القيام بها.";
 $text['description-install']['de-at'] = "Wählen Sie eine Aktion."; //copied from de-de
 $text['description-install']['de-ch'] = "Wählen Sie eine Aktion."; //copied from de-de
@@ -662,6 +794,10 @@ $text['description-install']['sv-se'] = "Välj de åtgärder nedan som du vill u
 $text['description-install']['uk-ua'] = "Виберіть об’єкти для оновлення";
 
 $text['description-database-edit']['en-us'] = "Database connection information.";
+<<<<<<< HEAD
+=======
+$text['description-database-edit']['en-gb'] = "Database connection information.";
+>>>>>>> pr/2
 $text['description-database-edit']['ar-eg'] = "بيانات الإتصال الخاص بقاعدة البيانات";
 $text['description-database-edit']['de-at'] = "Datenbank Verbindungsinformation."; //copied from de-de
 $text['description-database-edit']['de-ch'] = "Datenbank Verbindungsinformation."; //copied from de-de
@@ -682,6 +818,10 @@ $text['description-database-edit']['sv-se'] = "Information om Databasanslutning"
 $text['description-database-edit']['uk-ua'] = "інформація про підключення до бази даних.";
 
 $text['description-database-add']['en-us'] = "Database connection information.";
+<<<<<<< HEAD
+=======
+$text['description-database-add']['en-gb'] = "Database connection information.";
+>>>>>>> pr/2
 $text['description-database-add']['ar-eg'] = "بيانات الإتصال الخاص بقاعدة البيانات";
 $text['description-database-add']['de-at'] = "Datenbank Verbindungsinformation."; //copied from de-de
 $text['description-database-add']['de-ch'] = "Datenbank Verbindungsinformation."; //copied from de-de
@@ -702,6 +842,10 @@ $text['description-database-add']['sv-se'] = "Information om Databasanslutning";
 $text['description-database-add']['uk-ua'] = "інформація про підключення до бази даних.";
 
 $text['description-select_language']['en-us'] = "Please select the language you want to use";
+<<<<<<< HEAD
+=======
+$text['description-select_language']['en-gb'] = "Please select the language you want to use";
+>>>>>>> pr/2
 $text['description-select_language']['ar-eg'] = "يرجى اختيار اللغة التي تريد استخدامها";
 $text['description-select_language']['de-at'] = "Bitte wählen Sie die zu verwendende Sprache aus"; //copied from de-de
 $text['description-select_language']['de-ch'] = "Bitte wählen Sie die zu verwendende Sprache aus"; //copied from de-de
@@ -722,6 +866,10 @@ $text['description-select_language']['sv-se'] = "Välj det språk du vill använ
 $text['description-select_language']['uk-ua'] = "Виберіть мову, який ви хочете використовувати";
 
 $text['button-detect']['en-us'] = "Detect Configuration";
+<<<<<<< HEAD
+=======
+$text['button-detect']['en-gb'] = "Detect Configuration";
+>>>>>>> pr/2
 $text['button-detect']['ar-eg'] = "كشف تكوين";
 $text['button-detect']['de-at'] = "Konfiguration ermitteln"; //copied from de-de
 $text['button-detect']['de-ch'] = "Konfiguration ermitteln"; //copied from de-de
@@ -742,6 +890,10 @@ $text['button-detect']['sv-se'] = "Detektera Konfiguration";
 $text['button-detect']['uk-ua'] = "виявлення Конфігурація";
 
 $text['button-select']['en-us'] = "Select";
+<<<<<<< HEAD
+=======
+$text['button-select']['en-gb'] = "Select";
+>>>>>>> pr/2
 $text['button-select']['ar-eg'] = "اختار";
 $text['button-select']['de-at'] = "Auswählen"; //copied from de-de
 $text['button-select']['de-ch'] = "Auswählen"; //copied from de-de

@@ -1,6 +1,10 @@
 <?php
 
 $apps[$x]['menu'][0]['title']['en-us'] = 'Transactions';
+<<<<<<< HEAD
+=======
+$apps[$x]['menu'][0]['title']['en-gb'] = 'Transactions';
+>>>>>>> pr/2
 $apps[$x]['menu'][0]['title']['es-cl'] = '';
 $apps[$x]['menu'][0]['title']['fr-fr'] = '';
 $apps[$x]['menu'][0]['title']['fr-ca'] = '';

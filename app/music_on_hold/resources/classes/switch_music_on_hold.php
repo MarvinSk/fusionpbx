@@ -263,6 +263,7 @@ if (!class_exists('switch_music_on_hold')) {
 							foreach ($records as $music_on_hold_uuid => $record) {
 								if (is_uuid($music_on_hold_uuid)) {
 									if ($record['checked'] == 'true') {
+<<<<<<< HEAD
 										foreach ($record as $key => $array) {
 											if (is_numeric($key) && is_array($array) && @sizeof($array) != 0) {
 												$moh[$music_on_hold_uuid][] = $array['file_name'];
@@ -270,6 +271,9 @@ if (!class_exists('switch_music_on_hold')) {
 										}
 										$moh[$music_on_hold_uuid]['delete'] = true;
 										continue;
+=======
+										$moh[$music_on_hold_uuid]['delete'] = true;
+>>>>>>> pr/2
 									}
 									foreach ($record as $key => $array) {
 										if (is_numeric($key) && is_array($array) && @sizeof($array) != 0 && $array['checked'] == 'true') {

@@ -2,6 +2,10 @@
 #This file was last reorganized on 19th of September 2017 08:54:24 AM UTC
 
 $text['title-log_viewer']['en-us'] = "Log Viewer";
+<<<<<<< HEAD
+=======
+$text['title-log_viewer']['en-gb'] = "Log Viewer";
+>>>>>>> pr/2
 $text['title-log_viewer']['ar-eg'] = "";
 $text['title-log_viewer']['de-at'] = "Log Datei"; //copied from de-de
 $text['title-log_viewer']['de-ch'] = "Log Datei"; //copied from de-de
@@ -22,6 +26,10 @@ $text['title-log_viewer']['sv-se'] = "Log Viewer";
 $text['title-log_viewer']['uk-ua'] = "Логи";
 
 $text['label-syntax']['en-us'] = "Syntax Highlighted";
+<<<<<<< HEAD
+=======
+$text['label-syntax']['en-gb'] = "Syntax Highlighted";
+>>>>>>> pr/2
 $text['label-syntax']['ar-eg'] = "";
 $text['label-syntax']['de-at'] = "Syntax Highlighted"; //copied from de-de
 $text['label-syntax']['de-ch'] = "Syntax Highlighted"; //copied from de-de
@@ -42,6 +50,10 @@ $text['label-syntax']['sv-se'] = "Syntax Markerad";
 $text['label-syntax']['uk-ua'] = "Підсвічування синтаксису";
 
 $text['label-sort']['en-us'] = "Sort Descending";
+<<<<<<< HEAD
+=======
+$text['label-sort']['en-gb'] = "Sort Descending";
+>>>>>>> pr/2
 $text['label-sort']['ar-eg'] = "";
 $text['label-sort']['de-at'] = "Absteigend sortiert"; //copied from de-de
 $text['label-sort']['de-ch'] = "Absteigend sortiert"; //copied from de-de
@@ -62,6 +74,10 @@ $text['label-sort']['sv-se'] = "Sortera Fallande";
 $text['label-sort']['uk-ua'] = "Сортувати за спаданням";
 
 $text['label-open_file']['en-us'] = "opening entire file";
+<<<<<<< HEAD
+=======
+$text['label-open_file']['en-gb'] = "opening entire file";
+>>>>>>> pr/2
 $text['label-open_file']['ar-eg'] = "";
 $text['label-open_file']['de-at'] = "gesamte Datei öffnen"; //copied from de-de
 $text['label-open_file']['de-ch'] = "gesamte Datei öffnen"; //copied from de-de
@@ -82,6 +98,10 @@ $text['label-open_file']['sv-se'] = "Öppnar hela filen";
 $text['label-open_file']['uk-ua'] = "відкрито весь файл";
 
 $text['label-open_at']['en-us'] = "opening at";
+<<<<<<< HEAD
+=======
+$text['label-open_at']['en-gb'] = "opening at";
+>>>>>>> pr/2
 $text['label-open_at']['ar-eg'] = "";
 $text['label-open_at']['de-at'] = "öffnen"; //copied from de-de
 $text['label-open_at']['de-ch'] = "öffnen"; //copied from de-de
@@ -102,6 +122,10 @@ $text['label-open_at']['sv-se'] = "Öppnar vid";
 $text['label-open_at']['uk-ua'] = "відкрито о";
 
 $text['label-line_number']['en-us'] = "Show Line Numbers";
+<<<<<<< HEAD
+=======
+$text['label-line_number']['en-gb'] = "Show Line Numbers";
+>>>>>>> pr/2
 $text['label-line_number']['ar-eg'] = "";
 $text['label-line_number']['de-at'] = "Zeilennummern anzeigen"; //copied from de-de
 $text['label-line_number']['de-ch'] = "Zeilennummern anzeigen"; //copied from de-de
@@ -122,6 +146,10 @@ $text['label-line_number']['sv-se'] = "Visa Linje Nummer";
 $text['label-line_number']['uk-ua'] = "Нумерація рядків";
 
 $text['label-size']['en-us'] = "KB";
+<<<<<<< HEAD
+=======
+$text['label-size']['en-gb'] = "KB";
+>>>>>>> pr/2
 $text['label-size']['ar-eg'] = "";
 $text['label-size']['de-at'] = "KB"; //copied from de-de
 $text['label-size']['de-ch'] = "KB"; //copied from de-de
@@ -142,6 +170,10 @@ $text['label-size']['sv-se'] = "KB";
 $text['label-size']['uk-ua'] = "КБ";
 
 $text['label-filter']['en-us'] = "Filter";
+<<<<<<< HEAD
+=======
+$text['label-filter']['en-gb'] = "Filter";
+>>>>>>> pr/2
 $text['label-filter']['ar-eg'] = "";
 $text['label-filter']['de-at'] = "Filter"; //copied from de-de
 $text['label-filter']['de-ch'] = "Filter"; //copied from de-de
@@ -162,6 +194,10 @@ $text['label-filter']['sv-se'] = "Filter";
 $text['label-filter']['uk-ua'] = "Фільтр";
 
 $text['label-displaying']['en-us'] = "Displaying the last";
+<<<<<<< HEAD
+=======
+$text['label-displaying']['en-gb'] = "Displaying the last";
+>>>>>>> pr/2
 $text['label-displaying']['ar-eg'] = "";
 $text['label-displaying']['de-at'] = "letztes anzeigen"; //copied from de-de
 $text['label-displaying']['de-ch'] = "letztes anzeigen"; //copied from de-de
@@ -182,6 +218,10 @@ $text['label-displaying']['sv-se'] = "Visar den sista";
 $text['label-displaying']['uk-ua'] = "Показувати останні";
 
 $text['label-bytes']['en-us'] = "bytes";
+<<<<<<< HEAD
+=======
+$text['label-bytes']['en-gb'] = "bytes";
+>>>>>>> pr/2
 $text['label-bytes']['ar-eg'] = "";
 $text['label-bytes']['de-at'] = "bytes"; //copied from de-de
 $text['label-bytes']['de-ch'] = "bytes"; //copied from de-de
@@ -202,6 +242,10 @@ $text['label-bytes']['sv-se'] = "bytes";
 $text['label-bytes']['uk-ua'] = "байти";
 
 $text['error-open_file']['en-us'] = "Unable to open file!";
+<<<<<<< HEAD
+=======
+$text['error-open_file']['en-gb'] = "Unable to open file!";
+>>>>>>> pr/2
 $text['error-open_file']['ar-eg'] = "";
 $text['error-open_file']['de-at'] = "Datei kann nicht geöffnet werden!"; //copied from de-de
 $text['error-open_file']['de-ch'] = "Datei kann nicht geöffnet werden!"; //copied from de-de
@@ -222,6 +266,10 @@ $text['error-open_file']['sv-se'] = "Kan inte öppna fil!";
 $text['error-open_file']['uk-ua'] = "Неможливо відкрити файл!";
 
 $text['description-filter']['en-us'] = "Filtering the log with the text:";
+<<<<<<< HEAD
+=======
+$text['description-filter']['en-gb'] = "Filtering the log with the text:";
+>>>>>>> pr/2
 $text['description-filter']['ar-eg'] = "";
 $text['description-filter']['de-at'] = "Log Datei nach Text filtern:"; //copied from de-de
 $text['description-filter']['de-ch'] = "Log Datei nach Text filtern:"; //copied from de-de
@@ -242,6 +290,10 @@ $text['description-filter']['sv-se'] = "Filtrerar loggen med texten:";
 $text['description-filter']['uk-ua'] = "Фільтрування логів по тексту";
 
 $text['label-display']['en-us'] = "Display";
+<<<<<<< HEAD
+=======
+$text['label-display']['en-gb'] = "Display";
+>>>>>>> pr/2
 $text['label-display']['ar-eg'] = "Display";
 $text['label-display']['de-at'] = "Display";
 $text['label-display']['de-ch'] = "Display";

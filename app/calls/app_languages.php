@@ -2,6 +2,10 @@
 #This file was last reorganized on 19th of September 2017 08:54:24 AM UTC
 
 $text['title-call_routing']['en-us'] = "Call Routing";
+<<<<<<< HEAD
+=======
+$text['title-call_routing']['en-gb'] = "Call Routing";
+>>>>>>> pr/2
 $text['title-call_routing']['ar-eg'] = "توجيه الدعوة";
 $text['title-call_routing']['de-at'] = "Call Routing"; //copied from de-de
 $text['title-call_routing']['de-ch'] = "Call Routing"; //copied from de-de
@@ -22,6 +26,10 @@ $text['title-call_routing']['sv-se'] = "Call Routing";
 $text['title-call_routing']['uk-ua'] = "маршрутизація викликів";
 
 $text['table-tools']['en-us'] = "Tools";
+<<<<<<< HEAD
+=======
+$text['table-tools']['en-gb'] = "Tools";
+>>>>>>> pr/2
 $text['table-tools']['ar-eg'] = "";
 $text['table-tools']['de-at'] = "Funktionen"; //copied from de-de
 $text['table-tools']['de-ch'] = "Funktionen"; //copied from de-de
@@ -42,6 +50,10 @@ $text['table-tools']['sv-se'] = "Verktyg";
 $text['table-tools']['uk-ua'] = "Інструменти";
 
 $text['table-extension']['en-us'] = "Extension";
+<<<<<<< HEAD
+=======
+$text['table-extension']['en-gb'] = "Extension";
+>>>>>>> pr/2
 $text['table-extension']['ar-eg'] = "";
 $text['table-extension']['de-at'] = "Nebenstelle"; //copied from de-de
 $text['table-extension']['de-ch'] = "Nebenstelle"; //copied from de-de
@@ -62,6 +74,10 @@ $text['table-extension']['sv-se'] = "Anknytning";
 $text['table-extension']['uk-ua'] = "Розширення (Extention)";
 
 $text['table-description']['en-us'] = "Description";
+<<<<<<< HEAD
+=======
+$text['table-description']['en-gb'] = "Description";
+>>>>>>> pr/2
 $text['table-description']['ar-eg'] = "";
 $text['table-description']['de-at'] = "Beschreibung"; //copied from de-de
 $text['table-description']['de-ch'] = "Beschreibung"; //copied from de-de
@@ -82,6 +98,10 @@ $text['table-description']['sv-se'] = "Beskrivning";
 $text['table-description']['uk-ua'] = "Опис";
 
 $text['label-ring-timeout']['en-us'] = "Timeout";
+<<<<<<< HEAD
+=======
+$text['label-ring-timeout']['en-gb'] = "Timeout";
+>>>>>>> pr/2
 $text['label-ring-timeout']['ar-eg'] = "";
 $text['label-ring-timeout']['de-at'] = "Abwurfzeit"; //copied from de-de
 $text['label-ring-timeout']['de-ch'] = "Abwurfzeit"; //copied from de-de
@@ -102,6 +122,10 @@ $text['label-ring-timeout']['sv-se'] = "Tidsgräns";
 $text['label-ring-timeout']['uk-ua'] = "Таймаут";
 
 $text['label-ring-order']['en-us'] = "Ring Order";
+<<<<<<< HEAD
+=======
+$text['label-ring-order']['en-gb'] = "Ring Order";
+>>>>>>> pr/2
 $text['label-ring-order']['ar-eg'] = "";
 $text['label-ring-order']['de-at'] = "Ruf Reihenfolge"; //copied from de-de
 $text['label-ring-order']['de-ch'] = "Ruf Reihenfolge"; //copied from de-de
@@ -122,6 +146,10 @@ $text['label-ring-order']['sv-se'] = "Ring Ordning";
 $text['label-ring-order']['uk-ua'] = "Послідовність набору";
 
 $text['label-ring-delay']['en-us'] = "Delay";
+<<<<<<< HEAD
+=======
+$text['label-ring-delay']['en-gb'] = "Delay";
+>>>>>>> pr/2
 $text['label-ring-delay']['ar-eg'] = "";
 $text['label-ring-delay']['de-at'] = "Verzögerung"; //copied from de-de
 $text['label-ring-delay']['de-ch'] = "Verzögerung"; //copied from de-de
@@ -142,6 +170,10 @@ $text['label-ring-delay']['sv-se'] = "Fördröjning";
 $text['label-ring-delay']['uk-ua'] = "Затримка";
 
 $text['label-prompt']['en-us'] = "Prompt to accept the call";
+<<<<<<< HEAD
+=======
+$text['label-prompt']['en-gb'] = "Prompt to accept the call";
+>>>>>>> pr/2
 $text['label-prompt']['ar-eg'] = "";
 $text['label-prompt']['de-at'] = "Ansage um den Anruf anzunehmen"; //copied from de-de
 $text['label-prompt']['de-ch'] = "Ansage um den Anruf anzunehmen"; //copied from de-de
@@ -162,6 +194,10 @@ $text['label-prompt']['sv-se'] = "Kräv verifiering för att ta emot samtal.";
 $text['label-prompt']['uk-ua'] = "";
 
 $text['label-on-busy']['en-us'] = "On Busy";
+<<<<<<< HEAD
+=======
+$text['label-on-busy']['en-gb'] = "On Busy";
+>>>>>>> pr/2
 $text['label-on-busy']['ar-eg'] = "";
 $text['label-on-busy']['de-at'] = "Bei Besetzt"; //copied from de-de
 $text['label-on-busy']['de-ch'] = "Bei Besetzt"; //copied from de-de
@@ -182,6 +218,10 @@ $text['label-on-busy']['sv-se'] = "Vid Upptaget";
 $text['label-on-busy']['uk-ua'] = "Якщо зайнято";
 
 $text['label-number']['en-us'] = "Number";
+<<<<<<< HEAD
+=======
+$text['label-number']['en-gb'] = "Number";
+>>>>>>> pr/2
 $text['label-number']['ar-eg'] = "";
 $text['label-number']['de-at'] = "Nummer"; //copied from de-de
 $text['label-number']['de-ch'] = "Nummer"; //copied from de-de
@@ -202,6 +242,10 @@ $text['label-number']['sv-se'] = "Nummer";
 $text['label-number']['uk-ua'] = "Номер";
 
 $text['label-no_answer']['en-us'] = "No Answer";
+<<<<<<< HEAD
+=======
+$text['label-no_answer']['en-gb'] = "No Answer";
+>>>>>>> pr/2
 $text['label-no_answer']['ar-eg'] = "";
 $text['label-no_answer']['de-at'] = "Keine Antwort"; //copied from de-de
 $text['label-no_answer']['de-ch'] = "Keine Antwort"; //copied from de-de
@@ -222,6 +266,10 @@ $text['label-no_answer']['sv-se'] = "Inget Svar";
 $text['label-no_answer']['uk-ua'] = "Без відповіді";
 
 $text['label-not_registered']['en-us'] = "Not Registered";
+<<<<<<< HEAD
+=======
+$text['label-not_registered']['en-gb'] = "Not Registered";
+>>>>>>> pr/2
 $text['label-not_registered']['ar-eg'] = "";
 $text['label-not_registered']['de-at'] = "Nicht registriert"; //copied from de-de
 $text['label-not_registered']['de-ch'] = "Nicht registriert"; //copied from de-de
@@ -242,6 +290,10 @@ $text['label-not_registered']['sv-se'] = "Ej Registrerad";
 $text['label-not_registered']['uk-ua'] = "";
 
 $text['label-ignore_busy']['en-us'] = "Ignore Busy";
+<<<<<<< HEAD
+=======
+$text['label-ignore_busy']['en-gb'] = "Ignore Busy";
+>>>>>>> pr/2
 $text['label-ignore_busy']['ar-eg'] = "";
 $text['label-ignore_busy']['de-at'] = "Besetzt ignorieren"; //copied from de-de
 $text['label-ignore_busy']['de-ch'] = "Besetzt ignorieren"; //copied from de-de
@@ -262,6 +314,10 @@ $text['label-ignore_busy']['sv-se'] = "Ignorera Upptaget";
 $text['label-ignore_busy']['uk-ua'] = "";
 
 $text['label-follow-me']['en-us'] = "Follow Me";
+<<<<<<< HEAD
+=======
+$text['label-follow-me']['en-gb'] = "Follow Me";
+>>>>>>> pr/2
 $text['label-follow-me']['ar-eg'] = "";
 $text['label-follow-me']['de-at'] = "Anrufweiterschaltung"; //copied from de-de
 $text['label-follow-me']['de-ch'] = "Anrufweiterschaltung"; //copied from de-de
@@ -282,6 +338,10 @@ $text['label-follow-me']['sv-se'] = "Följ Mig";
 $text['label-follow-me']['uk-ua'] = "";
 
 $text['label-dnd']['en-us'] = "Do Not Disturb";
+<<<<<<< HEAD
+=======
+$text['label-dnd']['en-gb'] = "Do Not Disturb";
+>>>>>>> pr/2
 $text['label-dnd']['ar-eg'] = "";
 $text['label-dnd']['de-at'] = "Bitte nicht stören"; //copied from de-de
 $text['label-dnd']['de-ch'] = "Bitte nicht stören"; //copied from de-de
@@ -302,6 +362,10 @@ $text['label-dnd']['sv-se'] = "Stör Ej";
 $text['label-dnd']['uk-ua'] = "Не турбувати";
 
 $text['label-destinations']['en-us'] = "Destinations";
+<<<<<<< HEAD
+=======
+$text['label-destinations']['en-gb'] = "Destinations";
+>>>>>>> pr/2
 $text['label-destinations']['ar-eg'] = "";
 $text['label-destinations']['de-at'] = "Ziele"; //copied from de-de
 $text['label-destinations']['de-ch'] = "Ziele"; //copied from de-de
@@ -322,6 +386,10 @@ $text['label-destinations']['sv-se'] = "Destinationer";
 $text['label-destinations']['uk-ua'] = "Номери";
 
 $text['label-destination_timeout']['en-us'] = "Timeout";
+<<<<<<< HEAD
+=======
+$text['label-destination_timeout']['en-gb'] = "Timeout";
+>>>>>>> pr/2
 $text['label-destination_timeout']['ar-eg'] = "";
 $text['label-destination_timeout']['de-at'] = "Abwurfzeit"; //copied from de-de
 $text['label-destination_timeout']['de-ch'] = "Abwurfzeit"; //copied from de-de
@@ -342,6 +410,10 @@ $text['label-destination_timeout']['sv-se'] = "Tidsgräns";
 $text['label-destination_timeout']['uk-ua'] = "Таймаут";
 
 $text['label-destination_prompt_confirm']['en-us'] = "Confirm";
+<<<<<<< HEAD
+=======
+$text['label-destination_prompt_confirm']['en-gb'] = "Confirm";
+>>>>>>> pr/2
 $text['label-destination_prompt_confirm']['ar-eg'] = "";
 $text['label-destination_prompt_confirm']['de-at'] = "Bestätigen"; //copied from de-de
 $text['label-destination_prompt_confirm']['de-ch'] = "Bestätigen"; //copied from de-de
@@ -362,6 +434,10 @@ $text['label-destination_prompt_confirm']['sv-se'] = "Bekräfta";
 $text['label-destination_prompt_confirm']['uk-ua'] = "Підтвердити";
 
 $text['label-destination_prompt_announce']['en-us'] = "Announce";
+<<<<<<< HEAD
+=======
+$text['label-destination_prompt_announce']['en-gb'] = "Announce";
+>>>>>>> pr/2
 $text['label-destination_prompt_announce']['ar-eg'] = "";
 $text['label-destination_prompt_announce']['de-at'] = "Ankündigen"; //copied from de-de
 $text['label-destination_prompt_announce']['de-ch'] = "Ankündigen"; //copied from de-de
@@ -382,6 +458,10 @@ $text['label-destination_prompt_announce']['sv-se'] = "Meddela";
 $text['label-destination_prompt_announce']['uk-ua'] = "";
 
 $text['label-destination_prompt']['en-us'] = "Prompt";
+<<<<<<< HEAD
+=======
+$text['label-destination_prompt']['en-gb'] = "Prompt";
+>>>>>>> pr/2
 $text['label-destination_prompt']['ar-eg'] = "";
 $text['label-destination_prompt']['de-at'] = "Nachfragen"; //copied from de-de
 $text['label-destination_prompt']['de-ch'] = "Nachfragen"; //copied from de-de
@@ -402,6 +482,10 @@ $text['label-destination_prompt']['sv-se'] = "Verifiering";
 $text['label-destination_prompt']['uk-ua'] = "";
 
 $text['label-destination_number']['en-us'] = "Destination";
+<<<<<<< HEAD
+=======
+$text['label-destination_number']['en-gb'] = "Destination";
+>>>>>>> pr/2
 $text['label-destination_number']['ar-eg'] = "";
 $text['label-destination_number']['de-at'] = "Ziel"; //copied from de-de
 $text['label-destination_number']['de-ch'] = "Ziel"; //copied from de-de
@@ -422,6 +506,10 @@ $text['label-destination_number']['sv-se'] = "Destination Nummer";
 $text['label-destination_number']['uk-ua'] = "Номер";
 
 $text['label-destination_delay']['en-us'] = "Delay";
+<<<<<<< HEAD
+=======
+$text['label-destination_delay']['en-gb'] = "Delay";
+>>>>>>> pr/2
 $text['label-destination_delay']['ar-eg'] = "";
 $text['label-destination_delay']['de-at'] = "Verzögerung"; //copied from de-de
 $text['label-destination_delay']['de-ch'] = "Verzögerung"; //copied from de-de
@@ -442,6 +530,10 @@ $text['label-destination_delay']['sv-se'] = "Fördröjning";
 $text['label-destination_delay']['uk-ua'] = "Затримка";
 
 $text['label-destination']['en-us'] = "Destination";
+<<<<<<< HEAD
+=======
+$text['label-destination']['en-gb'] = "Destination";
+>>>>>>> pr/2
 $text['label-destination']['ar-eg'] = "";
 $text['label-destination']['de-at'] = "Ziel"; //copied from de-de
 $text['label-destination']['de-ch'] = "Ziel"; //copied from de-de
@@ -462,6 +554,10 @@ $text['label-destination']['sv-se'] = "Destination";
 $text['label-destination']['uk-ua'] = "Номер";
 
 $text['label-cid-number-prefix']['en-us'] = "Number Prefix";
+<<<<<<< HEAD
+=======
+$text['label-cid-number-prefix']['en-gb'] = "Number Prefix";
+>>>>>>> pr/2
 $text['label-cid-number-prefix']['ar-eg'] = "";
 $text['label-cid-number-prefix']['de-at'] = "Anruferkennung (Nummer)"; //copied from de-de
 $text['label-cid-number-prefix']['de-ch'] = "Anruferkennung (Nummer)"; //copied from de-de
@@ -482,6 +578,10 @@ $text['label-cid-number-prefix']['sv-se'] = "Nummerpresentation";
 $text['label-cid-number-prefix']['uk-ua'] = "Caller ID Номер";
 
 $text['label-cid-number']['en-us'] = "Caller ID Number";
+<<<<<<< HEAD
+=======
+$text['label-cid-number']['en-gb'] = "Caller ID Number";
+>>>>>>> pr/2
 $text['label-cid-number']['ar-eg'] = "";
 $text['label-cid-number']['de-at'] = "Anruferkennung (Nummer)"; //copied from de-de
 $text['label-cid-number']['de-ch'] = "Anruferkennung (Nummer)"; //copied from de-de
@@ -502,6 +602,10 @@ $text['label-cid-number']['sv-se'] = "Nummerpresentation";
 $text['label-cid-number']['uk-ua'] = "Caller ID Номер";
 
 $text['label-cid-name-prefix']['en-us'] = "Name Prefix";
+<<<<<<< HEAD
+=======
+$text['label-cid-name-prefix']['en-gb'] = "Name Prefix";
+>>>>>>> pr/2
 $text['label-cid-name-prefix']['ar-eg'] = "";
 $text['label-cid-name-prefix']['de-at'] = "Anruferkennung (Name)"; //copied from de-de
 $text['label-cid-name-prefix']['de-ch'] = "Anruferkennung (Name)"; //copied from de-de
@@ -522,6 +626,10 @@ $text['label-cid-name-prefix']['sv-se'] = "Namnpresentation";
 $text['label-cid-name-prefix']['uk-ua'] = "Caller ID Ім’я";
 
 $text['label-call-prompt']['en-us'] = "Call Prompt";
+<<<<<<< HEAD
+=======
+$text['label-call-prompt']['en-gb'] = "Call Prompt";
+>>>>>>> pr/2
 $text['label-call-prompt']['ar-eg'] = "";
 $text['label-call-prompt']['de-at'] = "Nachfragen"; //copied from de-de
 $text['label-call-prompt']['de-ch'] = "Nachfragen"; //copied from de-de
@@ -542,6 +650,10 @@ $text['label-call-prompt']['sv-se'] = "Samtals Verifiering";
 $text['label-call-prompt']['uk-ua'] = "";
 
 $text['label-call-forward']['en-us'] = "Call Forward";
+<<<<<<< HEAD
+=======
+$text['label-call-forward']['en-gb'] = "Call Forward";
+>>>>>>> pr/2
 $text['label-call-forward']['ar-eg'] = "";
 $text['label-call-forward']['de-at'] = "Rufumleitung"; //copied from de-de
 $text['label-call-forward']['de-ch'] = "Rufumleitung"; //copied from de-de
@@ -562,6 +674,10 @@ $text['label-call-forward']['sv-se'] = "Vidarekoppling";
 $text['label-call-forward']['uk-ua'] = "Переадресація";
 
 $text['header-call_routing']['en-us'] = "Call Routing";
+<<<<<<< HEAD
+=======
+$text['header-call_routing']['en-gb'] = "Call Routing";
+>>>>>>> pr/2
 $text['header-call_routing']['ar-eg'] = "توجيه الدعوة";
 $text['header-call_routing']['de-at'] = "Anrufweiterleitung"; //copied from de-de
 $text['header-call_routing']['de-ch'] = "Anrufweiterleitung"; //copied from de-de
@@ -582,6 +698,10 @@ $text['header-call_routing']['sv-se'] = "Samtals Styrning";
 $text['header-call_routing']['uk-ua'] = "маршрутизація викликів";
 
 $text['description-on-busy']['en-us'] = "If enabled, it overrides the value of voicemail enabling in extension.";
+<<<<<<< HEAD
+=======
+$text['description-on-busy']['en-gb'] = "If enabled, it overrides the value of voicemail enabling in extension.";
+>>>>>>> pr/2
 $text['description-on-busy']['ar-eg'] = "";
 $text['description-on-busy']['de-at'] = "Falls aktiviert, wird die aktive Mailbox der Nebenstelle überschrieben."; //copied from de-de
 $text['description-on-busy']['de-ch'] = "Falls aktiviert, wird die aktive Mailbox der Nebenstelle überschrieben."; //copied from de-de
@@ -602,6 +722,10 @@ $text['description-on-busy']['sv-se'] = "Om aktiverad, så tar den överhand fra
 $text['description-on-busy']['uk-ua'] = "Якщо цей параметр включений, то вона перекриває значення голосової пошти, що дозволяє в розширенні.";
 
 $text['description-no_answer']['en-us'] = "If enabled, it overrides the value of voicemail enabling in extension.";
+<<<<<<< HEAD
+=======
+$text['description-no_answer']['en-gb'] = "If enabled, it overrides the value of voicemail enabling in extension.";
+>>>>>>> pr/2
 $text['description-no_answer']['ar-eg'] = "";
 $text['description-no_answer']['de-at'] = "Falls aktiviert, wird die aktive Mailbox der Nebenstelle überschrieben."; //copied from de-de
 $text['description-no_answer']['de-ch'] = "Falls aktiviert, wird die aktive Mailbox der Nebenstelle überschrieben."; //copied from de-de
@@ -622,6 +746,10 @@ $text['description-no_answer']['sv-se'] = "Om aktiverad, så tar den överhand f
 $text['description-no_answer']['uk-ua'] = "Якщо цей параметр включений, то вона перекриває значення голосової пошти, що дозволяє в розширенні.";
 
 $text['description-not_registered']['en-us'] = "If endpoint is not reachable, forward to this destination before going to voicemail.";
+<<<<<<< HEAD
+=======
+$text['description-not_registered']['en-gb'] = "If endpoint is not reachable, forward to this destination before going to voicemail.";
+>>>>>>> pr/2
 $text['description-not_registered']['ar-eg'] = "";
 $text['description-not_registered']['de-at'] = "Rufweiterleitung an neues Ziel, wenn ursprüngliches Ziel nicht erreichbar ist, bevor die Mailbox aktiviert wird."; //copied from de-de
 $text['description-not_registered']['de-ch'] = "Rufweiterleitung an neues Ziel, wenn ursprüngliches Ziel nicht erreichbar ist, bevor die Mailbox aktiviert wird."; //copied from de-de
@@ -642,6 +770,10 @@ $text['description-not_registered']['sv-se'] = "Om endpoint är inte nås, vidar
 $text['description-not_registered']['uk-ua'] = "Якщо кінцева точка не можна досягти, вперед до цієї мети, перш ніж йти на голосову пошту.";
 
 $text['description-ignore_busy']['en-us'] = "Interrupt the call if a destination is busy.";
+<<<<<<< HEAD
+=======
+$text['description-ignore_busy']['en-gb'] = "Interrupt the call if a destination is busy.";
+>>>>>>> pr/2
 $text['description-ignore_busy']['ar-eg'] = "";
 $text['description-ignore_busy']['de-at'] = "Anruf unterbrechen wenn ein Ziel besetzt ist."; //copied from de-de
 $text['description-ignore_busy']['de-ch'] = "Anruf unterbrechen wenn ein Ziel besetzt ist."; //copied from de-de
@@ -662,6 +794,10 @@ $text['description-ignore_busy']['sv-se'] = "Avbryt samtal om en destination är
 $text['description-ignore_busy']['uk-ua'] = "Переривання виклику, якщо абонент зайнятий.";
 
 $text['description-cid-number-prefix']['en-us'] = "Set the caller ID number prefix.";
+<<<<<<< HEAD
+=======
+$text['description-cid-number-prefix']['en-gb'] = "Set the caller ID number prefix.";
+>>>>>>> pr/2
 $text['description-cid-number-prefix']['ar-eg'] = "";
 $text['description-cid-number-prefix']['de-at'] = "Setzen Sie ein Präfix für die Anruferkennung (Nummer)"; //copied from de-de
 $text['description-cid-number-prefix']['de-ch'] = "Setzen Sie ein Präfix für die Anruferkennung (Nummer)"; //copied from de-de
@@ -682,6 +818,10 @@ $text['description-cid-number-prefix']['sv-se'] = "Ange nummerpresentation prefi
 $text['description-cid-number-prefix']['uk-ua'] = "Задайте номер префікса ідентифікації абонента.";
 
 $text['description-cid-number']['en-us'] = "Select a number to override the original caller ID number.";
+<<<<<<< HEAD
+=======
+$text['description-cid-number']['en-gb'] = "Select a number to override the original caller ID number.";
+>>>>>>> pr/2
 $text['description-cid-number']['ar-eg'] = "";
 $text['description-cid-number']['de-at'] = "Wählen Sie eine Nummer mit der die  ursprüngliche Anrufer-ID-Nummer überschreiben werden soll."; //copied from de-de
 $text['description-cid-number']['de-ch'] = "Wählen Sie eine Nummer mit der die  ursprüngliche Anrufer-ID-Nummer überschreiben werden soll."; //copied from de-de
@@ -702,6 +842,10 @@ $text['description-cid-number']['sv-se'] = "Välj ett nummer för att åsidosät
 $text['description-cid-number']['uk-ua'] = "Виберіть номер, щоб перевизначити вихідний ідентифікаційний номер абонента.";
 
 $text['description-cid-name-prefix']['en-us'] = "Set the caller ID name prefix.";
+<<<<<<< HEAD
+=======
+$text['description-cid-name-prefix']['en-gb'] = "Set the caller ID name prefix.";
+>>>>>>> pr/2
 $text['description-cid-name-prefix']['ar-eg'] = "";
 $text['description-cid-name-prefix']['de-at'] = "Setzen Sie ein Präfix für die Anruferkennung (Name)"; //copied from de-de
 $text['description-cid-name-prefix']['de-ch'] = "Setzen Sie ein Präfix für die Anruferkennung (Name)"; //copied from de-de
@@ -722,6 +866,10 @@ $text['description-cid-name-prefix']['sv-se'] = "Ange namnpresentation prefix.";
 $text['description-cid-name-prefix']['uk-ua'] = "Встановіть префікс ідентифікаційного імені абонента.";
 
 $text['description-call-prompt']['en-us'] = "Prompt to accept the call for external destinations.";
+<<<<<<< HEAD
+=======
+$text['description-call-prompt']['en-gb'] = "Prompt to accept the call for external destinations.";
+>>>>>>> pr/2
 $text['description-call-prompt']['ar-eg'] = "";
 $text['description-call-prompt']['de-at'] = "Nachfragen, ob der Anruf auch wirklich durchgestellt werden soll."; //copied from de-de
 $text['description-call-prompt']['de-ch'] = "Nachfragen, ob der Anruf auch wirklich durchgestellt werden soll."; //copied from de-de
@@ -742,6 +890,10 @@ $text['description-call-prompt']['sv-se'] = "Kräv verifiering för att ta emot 
 $text['description-call-prompt']['uk-ua'] = "";
 
 $text['description-call_routing']['en-us'] = "Define alternate inbound call handling for the following extensions.";
+<<<<<<< HEAD
+=======
+$text['description-call_routing']['en-gb'] = "Define alternate inbound call handling for the following extensions.";
+>>>>>>> pr/2
 $text['description-call_routing']['ar-eg'] = "";
 $text['description-call_routing']['de-at'] = "Definieren Sie eine alternative Handhabung von eingehenden Anrufen für nachfolgende Nebenstellen."; //copied from de-de
 $text['description-call_routing']['de-ch'] = "Definieren Sie eine alternative Handhabung von eingehenden Anrufen für nachfolgende Nebenstellen."; //copied from de-de
@@ -762,6 +914,10 @@ $text['description-call_routing']['sv-se'] = "Definiera alternativa inkommande s
 $text['description-call_routing']['uk-ua'] = "Визначити обробку для наступних розширень альтернативного вхідного дзвінка.";
 
 $text['description-call_forward']['en-us'] = "Forward all calls to the specified destination.";
+<<<<<<< HEAD
+=======
+$text['description-call_forward']['en-gb'] = "Forward all calls to the specified destination.";
+>>>>>>> pr/2
 $text['description-call_forward']['ar-eg'] = "";
 $text['description-call_forward']['de-at'] = "Leiten Sie alle Anrufe an das angegebene Ziel."; //copied from de-de
 $text['description-call_forward']['de-ch'] = "Leiten Sie alle Anrufe an das angegebene Ziel."; //copied from de-de
@@ -782,6 +938,10 @@ $text['description-call_forward']['sv-se'] = "Vidarekoppla alla samtal till den 
 $text['description-call_forward']['uk-ua'] = "Усі дзвінки скеровуються на вказане місце призначення.";
 
 $text['description']['en-us'] = "Directs incoming calls for extension:";
+<<<<<<< HEAD
+=======
+$text['description']['en-gb'] = "Directs incoming calls for extension:";
+>>>>>>> pr/2
 $text['description']['ar-eg'] = "";
 $text['description']['de-at'] = "Leitet eingehende Gespräche für die Nebenstelle:"; //copied from de-de
 $text['description']['de-ch'] = "Leitet eingehende Gespräche für die Nebenstelle:"; //copied from de-de
@@ -802,6 +962,10 @@ $text['description']['sv-se'] = "Styr inkommande samtal för anknytning:";
 $text['description']['uk-ua'] = "Керування вхідними дзвінками для розширення";
 
 $text['confirm-update']['en-us'] = "Update Complete";
+<<<<<<< HEAD
+=======
+$text['confirm-update']['en-gb'] = "Update Complete";
+>>>>>>> pr/2
 $text['confirm-update']['ar-eg'] = "";
 $text['confirm-update']['de-at'] = "Aktualisierung durchgeführt"; //copied from de-de
 $text['confirm-update']['de-ch'] = "Aktualisierung durchgeführt"; //copied from de-de
@@ -822,6 +986,10 @@ $text['confirm-update']['sv-se'] = "Uppdatering Klar";
 $text['confirm-update']['uk-ua'] = "Оновлено";
 
 $text['check-true']['en-us'] = "True";
+<<<<<<< HEAD
+=======
+$text['check-true']['en-gb'] = "True";
+>>>>>>> pr/2
 $text['check-true']['ar-eg'] = "";
 $text['check-true']['de-at'] = "An"; //copied from de-de
 $text['check-true']['de-ch'] = "An"; //copied from de-de
@@ -842,6 +1010,10 @@ $text['check-true']['sv-se'] = "Sann";
 $text['check-true']['uk-ua'] = "Так";
 
 $text['check-simultaneous']['en-us'] = "simultaneous";
+<<<<<<< HEAD
+=======
+$text['check-simultaneous']['en-gb'] = "simultaneous";
+>>>>>>> pr/2
 $text['check-simultaneous']['ar-eg'] = "";
 $text['check-simultaneous']['de-at'] = "gleichzeitig"; //copied from de-de
 $text['check-simultaneous']['de-ch'] = "gleichzeitig"; //copied from de-de
@@ -862,6 +1034,10 @@ $text['check-simultaneous']['sv-se'] = "Samtidig";
 $text['check-simultaneous']['uk-ua'] = "одночасно";
 
 $text['check-sequence']['en-us'] = "sequence";
+<<<<<<< HEAD
+=======
+$text['check-sequence']['en-gb'] = "sequence";
+>>>>>>> pr/2
 $text['check-sequence']['ar-eg'] = "";
 $text['check-sequence']['de-at'] = "sequenziell"; //copied from de-de
 $text['check-sequence']['de-ch'] = "sequenziell"; //copied from de-de
@@ -882,6 +1058,10 @@ $text['check-sequence']['sv-se'] = "sekvens";
 $text['check-sequence']['uk-ua'] = "послідовно";
 
 $text['check-false']['en-us'] = "False";
+<<<<<<< HEAD
+=======
+$text['check-false']['en-gb'] = "False";
+>>>>>>> pr/2
 $text['check-false']['ar-eg'] = "";
 $text['check-false']['de-at'] = "Aus"; //copied from de-de
 $text['check-false']['de-ch'] = "Aus"; //copied from de-de
@@ -902,6 +1082,10 @@ $text['check-false']['sv-se'] = "Falsk";
 $text['check-false']['uk-ua'] = "Ні";
 
 $text['button-view_all']['en-us'] = "View All";
+<<<<<<< HEAD
+=======
+$text['button-view_all']['en-gb'] = "View All";
+>>>>>>> pr/2
 $text['button-view_all']['ar-eg'] = "";
 $text['button-view_all']['de-at'] = "Alle anzeigen"; //copied from de-de
 $text['button-view_all']['de-ch'] = "Alle anzeigen"; //copied from de-de

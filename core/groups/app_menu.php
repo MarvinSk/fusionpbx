@@ -1,6 +1,10 @@
 <?php
 
 $apps[$x]['menu'][3]['title']['en-us'] = "Group Manager";
+<<<<<<< HEAD
+=======
+$apps[$x]['menu'][3]['title']['en-gb'] = "Group Manager";
+>>>>>>> pr/2
 $apps[$x]['menu'][3]['title']['es-cl'] = "Administración de Grupos";
 $apps[$x]['menu'][3]['title']['fr-fr'] = "Gestion des groupes";
 $apps[$x]['menu'][3]['title']['pt-pt'] = "'Gestão de Grupos";

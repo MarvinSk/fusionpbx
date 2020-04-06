@@ -232,6 +232,7 @@
 //includes and title
 	$document['title'] = $text['title-contacts'];
 	require_once "resources/header.php";
+<<<<<<< HEAD
 
 //contact attachment layer
 	echo "<style>\n";
@@ -281,6 +282,60 @@
 	echo "<input type='hidden' id='action' name='action' value=''>\n";
 	echo "<input type='hidden' name='search' value=\"".escape($search)."\">\n";
 
+=======
+
+//contact attachment layer
+	echo "<style>\n";
+	echo "	#contact_attachment_layer {\n";
+	echo "		z-index: 999999;\n";
+	echo "		position: absolute;\n";
+	echo "		left: 0px;\n";
+	echo "		top: 0px;\n";
+	echo "		right: 0px;\n";
+	echo "		bottom: 0px;\n";
+	echo "		text-align: center;\n";
+	echo "		vertical-align: middle;\n";
+	echo "	}\n";
+	echo "</style>\n";
+	echo "<div id='contact_attachment_layer' style='display: none;'></div>\n";
+
+//show the content
+	echo "<div class='action_bar' id='action_bar'>\n";
+	echo "	<div class='heading'><b>".$text['header-contacts']." (".$num_rows.")</b></div>\n";
+	echo "	<div class='actions'>\n";
+	if (permission_exists('contact_add')) {
+		echo button::create(['type'=>'button','label'=>$text['button-import'],'icon'=>$_SESSION['theme']['button_icon_import'],'collapse'=>'hide-sm-dn','style'=>'margin-right: 15px;','link'=>'contact_import.php']);
+	}
+	if (permission_exists('contact_add')) {
+		echo button::create(['type'=>'button','label'=>$text['button-add'],'icon'=>$_SESSION['theme']['button_icon_add'],'id'=>'btn_add','collapse'=>'hide-sm-dn','link'=>'contact_edit.php']);
+	}
+	if (permission_exists('contact_delete') && $contacts) {
+		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','collapse'=>'hide-sm-dn','onclick'=>"modal_open('modal-delete','btn_delete');"]);
+	}
+	echo 		"<form id='form_search' class='inline' method='get'>\n";
+	echo 		"<input type='text' class='txt list-search' name='search' id='search' value=\"".escape($search)."\" placeholder=\"".$text['label-search']."\" onkeydown='list_search_reset();'>";
+	echo button::create(['label'=>$text['button-search'],'icon'=>$_SESSION['theme']['button_icon_search'],'type'=>'submit','id'=>'btn_search','collapse'=>'hide-sm-dn','style'=>($search != '' ? 'display: none;' : null)]);
+	echo button::create(['label'=>$text['button-reset'],'icon'=>$_SESSION['theme']['button_icon_reset'],'type'=>'button','id'=>'btn_reset','collapse'=>'hide-sm-dn','link'=>'contacts.php','style'=>($search == '' ? 'display: none;' : null)]);
+	if ($paging_controls_mini != '') {
+		echo 	"<span style='margin-left: 15px;'>".$paging_controls_mini."</span>";
+	}
+	echo "		</form>\n";
+	echo "	</div>\n";
+	echo "	<div style='clear: both;'></div>\n";
+	echo "</div>\n";
+
+	if (permission_exists('contact_delete') && $contacts) {
+		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
+	}
+
+	echo $text['description-contacts']."\n";
+	echo "<br /><br />\n";
+
+	echo "<form id='form_list' method='post'>\n";
+	echo "<input type='hidden' id='action' name='action' value=''>\n";
+	echo "<input type='hidden' name='search' value=\"".escape($search)."\">\n";
+
+>>>>>>> pr/2
 	echo "<table class='list'>\n";
 	echo "<tr class='list-header'>\n";
 	if (permission_exists('contact_delete')) {
@@ -297,7 +352,11 @@
 	echo th_order_by('contact_title', $text['label-contact_title'], $order_by, $order, null, "class='hide-sm-dn'");
 	echo th_order_by('contact_role', $text['label-contact_role'], $order_by, $order, null, "class='hide-sm-dn'");
 	echo "<th class='shrink hide-sm-dn'>&nbsp;</th>\n";
+<<<<<<< HEAD
 	if (permission_exists('contact_edit') && $_SESSION['theme']['list_row_edit_button']['boolean'] == 'true') {
+=======
+	if ($_SESSION['theme']['list_row_edit_button']['boolean'] == 'true') {
+>>>>>>> pr/2
 		echo "	<td class='action-button'>&nbsp;</td>\n";
 	}
 	echo "</tr>\n";
@@ -305,9 +364,13 @@
 	if (is_array($contacts) && @sizeof($contacts) != 0) {
 		$x = 0;
 		foreach($contacts as $row) {
+<<<<<<< HEAD
 			if (permission_exists('contact_edit') || permission_exists('contact_view')) {
 				$list_row_url = "contact_edit.php?id=".urlencode($row['contact_uuid'])."&query_string=".urlencode($_SERVER["QUERY_STRING"]);
 			}
+=======
+			$list_row_url = "contact_view.php?id=".urlencode($row['contact_uuid'])."&query_string=".urlencode($_SERVER["QUERY_STRING"]);
+>>>>>>> pr/2
 			echo "<tr class='list-row' href='".$list_row_url."'>\n";
 			if (permission_exists('contact_delete')) {
 				echo "	<td class='checkbox'>\n";
@@ -339,9 +402,15 @@
 				echo "&nbsp;";
 			}
 			echo "	</td>\n";
+<<<<<<< HEAD
 			if (permission_exists('contact_edit') && $_SESSION['theme']['list_row_edit_button']['boolean'] == 'true') {
 				echo "	<td class='action-button'>";
 				echo button::create(['type'=>'button','title'=>$text['button-edit'],'icon'=>$_SESSION['theme']['button_icon_edit'],'link'=>$list_row_url]);
+=======
+			if ($_SESSION['theme']['list_row_edit_button']['boolean'] == 'true') {
+				echo "	<td class='action-button'>";
+				echo button::create(['type'=>'button','title'=>$text['button-view'],'icon'=>$_SESSION['theme']['button_icon_view'],'link'=>$list_row_url]);
+>>>>>>> pr/2
 				echo "	</td>\n";
 			}
 			echo "</tr>\n";
@@ -370,4 +439,8 @@
 //include the footer
 	require_once "resources/footer.php";
 
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> pr/2

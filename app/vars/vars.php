@@ -39,6 +39,7 @@
 		echo "access denied";
 		exit;
 	}
+<<<<<<< HEAD
 
 //add multi-lingual support
 	$language = new text;
@@ -78,6 +79,47 @@
 		exit;
 	}
 
+=======
+
+//add multi-lingual support
+	$language = new text;
+	$text = $language->get();
+
+//get posted data
+	if (is_array($_POST['vars'])) {
+		$action = $_POST['action'];
+		$search = $_POST['search'];
+		$vars = $_POST['vars'];
+	}
+
+//process the http post data by action
+	if ($action != '' && is_array($vars) && @sizeof($vars) != 0) {
+		switch ($action) {
+			case 'copy':
+				if (permission_exists('var_add')) {
+					$obj = new vars;
+					$obj->copy($vars);
+				}
+				break;
+			case 'toggle':
+				if (permission_exists('var_edit')) {
+					$obj = new vars;
+					$obj->toggle($vars);
+				}
+				break;
+			case 'delete':
+				if (permission_exists('var_delete')) {
+					$obj = new vars;
+					$obj->delete($vars);
+				}
+				break;
+		}
+
+		header('Location: vars.php'.($search != '' ? '?search='.urlencode($search) : null));
+		exit;
+	}
+
+>>>>>>> pr/2
 //get order and order by
 	$order_by = $_GET["order_by"];
 	$order = $_GET["order"];
@@ -118,6 +160,7 @@
 	$database = new database;
 	$vars = $database->select($sql, $parameters, 'all');
 	unset($sql);
+<<<<<<< HEAD
 
 //create token
 	$object = new token;
@@ -187,6 +230,87 @@
 		}
 		echo "</tr>\n";
 	}
+=======
+
+//create token
+	$object = new token;
+	$token = $object->create($_SERVER['PHP_SELF']);
+
+//include the header
+	$document['title'] = $text['title-variables'];
+	require_once "resources/header.php";
+
+//show the content
+	echo "<div class='action_bar' id='action_bar'>\n";
+	echo "	<div class='heading'><b>".$text['header-variables']." (".$num_rows.")</b></div>\n";
+	echo "	<div class='actions'>\n";
+	if (permission_exists('var_add')) {
+		echo button::create(['type'=>'button','label'=>$text['button-add'],'icon'=>$_SESSION['theme']['button_icon_add'],'id'=>'btn_add','link'=>'var_edit.php']);
+	}
+	if (permission_exists('var_add') && $vars) {
+		echo button::create(['type'=>'button','label'=>$text['button-copy'],'icon'=>$_SESSION['theme']['button_icon_copy'],'name'=>'btn_copy','onclick'=>"modal_open('modal-copy','btn_copy');"]);
+	}
+	if (permission_exists('var_edit') && $vars) {
+		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'name'=>'btn_toggle','onclick'=>"modal_open('modal-toggle','btn_toggle');"]);
+	}
+	if (permission_exists('var_delete') && $vars) {
+		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','onclick'=>"modal_open('modal-delete','btn_delete');"]);
+	}
+	echo 		"<form id='form_search' class='inline' method='get'>\n";
+	echo 		"<input type='text' class='txt list-search' name='search' id='search' value=\"".escape($search)."\" placeholder=\"".$text['label-search']."\" onkeydown='list_search_reset();'>";
+	echo button::create(['label'=>$text['button-search'],'icon'=>$_SESSION['theme']['button_icon_search'],'type'=>'submit','id'=>'btn_search','style'=>($search != '' ? 'display: none;' : null)]);
+	echo button::create(['label'=>$text['button-reset'],'icon'=>$_SESSION['theme']['button_icon_reset'],'type'=>'button','id'=>'btn_reset','link'=>'vars.php','style'=>($search == '' ? 'display: none;' : null)]);
+	if ($paging_controls_mini != '') {
+		echo 	"<span style='margin-left: 15px;'>".$paging_controls_mini."</span>\n";
+	}
+	echo "		</form>\n";
+	echo "	</div>\n";
+	echo "	<div style='clear: both;'></div>\n";
+	echo "</div>\n";
+
+	if (permission_exists('var_add') && $vars) {
+		echo modal::create(['id'=>'modal-copy','type'=>'copy','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_copy','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('copy'); list_form_submit('form_list');"])]);
+	}
+	if (permission_exists('var_edit') && $vars) {
+		echo modal::create(['id'=>'modal-toggle','type'=>'toggle','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_toggle','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('toggle'); list_form_submit('form_list');"])]);
+	}
+	if (permission_exists('var_delete') && $vars) {
+		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
+	}
+
+	echo $text['description-variables']."\n";
+	echo "<br /><br />\n";
+
+	echo "<form id='form_list' method='post'>\n";
+	echo "<input type='hidden' id='action' name='action' value=''>\n";
+	echo "<input type='hidden' name='search' value=\"".escape($search)."\">\n";
+
+	echo "<table class='list'>\n";
+	function write_header($modifier) {
+		global $text, $order_by, $order, $vars;
+		$modifier = str_replace('/', '', $modifier);
+		$modifier = str_replace('  ', ' ', $modifier);
+		$modifier = str_replace(' ', '_', $modifier);
+		$modifier = str_replace(':', '', $modifier);
+		$modifier = strtolower(trim($modifier));
+		echo "\n";
+		echo "<tr class='list-header'>\n";
+		if (permission_exists('var_edit') || permission_exists('var_delete')) {
+			echo "	<th class='checkbox'>\n";
+			echo "		<input type='checkbox' id='checkbox_all_".$modifier."' name='checkbox_all' onclick=\"list_all_toggle('".$modifier."');\" ".($vars ?: "style='visibility: hidden;'").">\n";
+			echo "	</th>\n";
+		}
+		echo th_order_by('var_name', $text['label-name'], $order_by, $order, null, "class='pct-30'");
+		echo th_order_by('var_value', $text['label-value'], $order_by, $order, null, "class='pct-40'");
+		echo th_order_by('var_hostname', $text['label-hostname'], $order_by, $order, null, "class='hide-sm-dn'");
+		echo th_order_by('var_enabled', $text['label-enabled'], $order_by, $order, null, "class='center'");
+		echo "<th class='hide-sm-dn'>".$text['label-description']."</th>\n";
+		if (permission_exists('var_edit') && $_SESSION['theme']['list_row_edit_button']['boolean'] == 'true') {
+			echo "<td class='action-button'>&nbsp;</td>\n";
+		}
+		echo "</tr>\n";
+	}
+>>>>>>> pr/2
 	if (is_array($vars) && @sizeof($vars) != 0) {
 		$previous_category = '';
 		foreach ($vars as $x => $row) {

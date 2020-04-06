@@ -2,6 +2,10 @@
 
 	$y = 0;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Dashboard";
+<<<<<<< HEAD
+=======
+	$apps[$x]['menu'][$y]['title']['en-gb'] = "Dashboard";
+>>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "الصفحه الرئيسيه للمستخدم";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Benutzerübersicht";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Benutzerübersicht";

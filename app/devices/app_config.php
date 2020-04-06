@@ -9,6 +9,10 @@
 		$apps[$x]['license'] = "Mozilla Public License 1.1";
 		$apps[$x]['url'] = "http://www.fusionpbx.com";
 		$apps[$x]['description']['en-us'] = "Devices for provisioning.";
+<<<<<<< HEAD
+=======
+		$apps[$x]['description']['en-gb'] = "Devices for provisioning.";
+>>>>>>> pr/2
 		$apps[$x]['description']['ar-eg'] = "";
 		$apps[$x]['description']['de-at'] = "Geräte die verwaltet werden sollen.";
 		$apps[$x]['description']['de-ch'] = "";
@@ -257,9 +261,12 @@
 		$apps[$x]['permissions'][$y]['name'] = "device_vendor_function_group_delete";
 		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
 		$y++;
+<<<<<<< HEAD
 		$apps[$x]['permissions'][$y]['name'] = "device_export";
 		$apps[$x]['permissions'][$y]['groups'][] = "superadmin";
 		$y++;
+=======
+>>>>>>> pr/2
 		$apps[$x]['permissions'][$y]['name'] = 'device_profile_view';
 		$apps[$x]['permissions'][$y]['groups'][] = 'superadmin';
 		//$apps[$x]['permissions'][$y]['groups'][] = 'admin';
