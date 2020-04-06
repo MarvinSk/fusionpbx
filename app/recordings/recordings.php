@@ -40,10 +40,7 @@
 
 //download the recording
 	if ($_GET['a'] == "download" && (permission_exists('recording_play') || permission_exists('recording_download'))) {
-<<<<<<< HEAD
 		//session_cache_limiter('public');
-=======
->>>>>>> pr/2
 		if ($_GET['type'] = "rec") {
 			//set the path for the directory
 				$path = $_SESSION['switch']['recordings']['dir']."/".$_SESSION['domain_name'];
@@ -80,11 +77,7 @@
 			//send the headers and then the data stream
 				if (file_exists($full_recording_path)) {
 					//content-range
-<<<<<<< HEAD
 					if (isset($_SERVER['HTTP_RANGE']))  {
-=======
-					if (isset($_SERVER['HTTP_RANGE']) && $_GET['t'] != "bin")  {
->>>>>>> pr/2
 						range_download($full_recording_path);
 					}
 
@@ -94,7 +87,6 @@
 						header("Content-Type: application/octet-stream");
 						header("Content-Type: application/download");
 						header("Content-Description: File Transfer");
-<<<<<<< HEAD
 					}
 					else {
 						$file_ext = substr($recording_filename, -3);
@@ -109,23 +101,6 @@
 					header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 					header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 					// header("Content-Length: ".filesize($full_recording_path));
-=======
-					}
-					else {
-						$file_ext = pathinfo($recording_filename, PATHINFO_EXTENSION);
-						switch ($file_ext) {
-							case "wav" : header("Content-Type: audio/x-wav"); break;
-							case "mp3" : header("Content-Type: audio/mpeg"); break;
-							case "ogg" : header("Content-Type: audio/ogg"); break;
-						}
-					}
-					header('Content-Disposition: attachment; filename="'.$recording_filename.'"');
-					header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-					header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-					if ($_GET['t'] == "bin") {
-						header("Content-Length: ".filesize($full_recording_path));
-					}
->>>>>>> pr/2
 					ob_clean();
 					fpassthru($fd);
 				}
@@ -248,7 +223,6 @@
 					}
 					else {
 						//file found in db, check if base64 present
-<<<<<<< HEAD
 						if ($_SESSION['recordings']['storage_type']['text'] == 'base64') {
 							$found_recording_uuid = array_search($recording_filename, $array_recordings);
 							if (!$array_base64_exists[$found_recording_uuid]) {
@@ -276,46 +250,11 @@
 					if ($_SESSION['recordings']['storage_type']['text'] == 'base64' && file_exists($_SESSION['switch']['recordings']['dir'].'/'.$_SESSION['domain_name'].'/'.$recording_filename)) {
 						@unlink($_SESSION['switch']['recordings']['dir'].'/'.$_SESSION['domain_name'].'/'.$recording_filename);
 					}
-=======
-							if ($_SESSION['recordings']['storage_type']['text'] == 'base64') {
-								$found_recording_uuid = array_search($recording_filename, $array_recordings);
-								if (!$array_base64_exists[$found_recording_uuid]) {
-									$recording_base64 = base64_encode(file_get_contents($_SESSION['switch']['recordings']['dir'].'/'.$_SESSION['domain_name'].'/'.$recording_filename));
-									//build array
-										$array['recordings'][0]['domain_uuid'] = $domain_uuid;
-										$array['recordings'][0]['recording_uuid'] = $found_recording_uuid;
-										$array['recordings'][0]['recording_base64'] = $recording_base64;
-									//set temporary permissions
-										$p = new permissions;
-										$p->add('recording_edit', 'temp');
-									//execute update
-										$database = new database;
-										$database->app_name = 'recordings';
-										$database->app_uuid = '83913217-c7a2-9e90-925d-a866eb40b60e';
-										$database->save($array);
-										unset($array);
-									//remove temporary permissions
-										$p->delete('recording_edit', 'temp');
-								}
-							}
-					}
-
-					//if base64, remove local file
-						if ($_SESSION['recordings']['storage_type']['text'] == 'base64' && file_exists($_SESSION['switch']['recordings']['dir'].'/'.$_SESSION['domain_name'].'/'.$recording_filename)) {
-							@unlink($_SESSION['switch']['recordings']['dir'].'/'.$_SESSION['domain_name'].'/'.$recording_filename);
-						}
->>>>>>> pr/2
 
 				}
 			}
 			closedir($dh);
 		}
-
-		//redirect
-			if ($_GET['rd'] != '') {
-				header("Location: recordings.php");
-				exit;
-			}
 	}
 
 //get posted data
@@ -340,31 +279,6 @@
 		exit;
 	}
 
-<<<<<<< HEAD
-//get posted data
-	if (is_array($_POST['recordings'])) {
-		$action = $_POST['action'];
-		$search = $_POST['search'];
-		$recordings = $_POST['recordings'];
-	}
-
-//process the http post data by action
-	if ($action != '' && is_array($recordings) && @sizeof($recordings) != 0) {
-		switch ($action) {
-			case 'delete':
-				if (permission_exists('recording_delete')) {
-					$obj = new switch_recordings;
-					$obj->delete($recordings);
-				}
-				break;
-		}
-
-		header('Location: recordings.php'.($search != '' ? '?search='.urlencode($search) : null));
-		exit;
-	}
-
-=======
->>>>>>> pr/2
 //get order and order by
 	$order_by = $_GET["order_by"];
 	$order = $_GET["order"];
@@ -448,11 +362,7 @@
 		echo 	"</form>";
 	}
 	if (permission_exists('recording_delete') && $recordings) {
-<<<<<<< HEAD
 		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'id'=>'btn_delete','onclick'=>"if (confirm('".$text['confirm-delete']."')) { list_action_set('delete'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
-=======
-		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','onclick'=>"modal_open('modal-delete','btn_delete');"]);
->>>>>>> pr/2
 	}
 	echo 		"<form id='form_search' class='inline' method='get'>\n";
 	echo 		"<input type='text' class='txt list-search' name='search' id='search' value=\"".escape($search)."\" placeholder=\"".$text['label-search']."\" onkeydown='list_search_reset();'>";
@@ -465,13 +375,6 @@
 	echo "	</div>\n";
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
-<<<<<<< HEAD
-=======
-
-	if (permission_exists('recording_delete') && $recordings) {
-		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
-	}
->>>>>>> pr/2
 
 	echo $text['description']."\n";
 	echo "<br /><br />\n";
@@ -494,7 +397,6 @@
 	if ($_SESSION['recordings']['storage_type']['text'] != 'base64') {
 		echo th_order_by('recording_filename', $text['label-file_name'], $order_by, $order, null, "class='hide-md-dn'");
 		$col_count++;
-<<<<<<< HEAD
 	}
 	if (permission_exists('recording_play') || permission_exists('recording_download')) {
 		echo "<th class='center shrink'>".$text['label-tools']."</th>\n";
@@ -506,19 +408,6 @@
 		echo "<th class='center hide-md-dn'>".$text['label-uploaded']."</th>\n";
 		$col_count++;
 	}
-=======
-	}
-	if (permission_exists('recording_play') || permission_exists('recording_download')) {
-		echo "<th class='center shrink'>".$text['label-tools']."</th>\n";
-		$col_count++;
-	}
-	echo "<th class='center'>".($_SESSION['recordings']['storage_type']['text'] == 'base64' ? $text['label-size'] : $text['label-file_size'])."</th>\n";
-	$col_count++;
-	if ($_SESSION['recordings']['storage_type']['text'] != 'base64') {
-		echo "<th class='center hide-md-dn'>".$text['label-uploaded']."</th>\n";
-		$col_count++;
-	}
->>>>>>> pr/2
 	echo th_order_by('recording_description', $text['label-description'], $order_by, $order, null, "class='hide-sm-dn pct-25'");
 	if (permission_exists('recording_edit') && $_SESSION['theme']['list_row_edit_button']['boolean'] == 'true') {
 		echo "	<td class='action-button'>&nbsp;</td>\n";
@@ -542,19 +431,11 @@
 				echo "		<input type='checkbox' name='recordings[$x][checked]' id='checkbox_".$x."' value='true' onclick=\"if (!this.checked) { document.getElementById('checkbox_all').checked = false; }\">\n";
 				echo "		<input type='hidden' name='recordings[$x][uuid]' value='".escape($row['recording_uuid'])."' />\n";
 				echo "	</td>\n";
-<<<<<<< HEAD
 			}
 			echo "	<td>";
 			if (permission_exists('recording_edit')) {
 				echo "<a href='".$list_row_url."' title=\"".$text['button-edit']."\">".escape($row['recording_name'])."</a>";
 			}
-=======
-			}
-			echo "	<td>";
-			if (permission_exists('recording_edit')) {
-				echo "<a href='".$list_row_url."' title=\"".$text['button-edit']."\">".escape($row['recording_name'])."</a>";
-			}
->>>>>>> pr/2
 			else {
 				echo escape($row['recording_name']);
 			}
@@ -621,11 +502,7 @@
 //include the footer
 	require_once "resources/footer.php";
 
-<<<<<<< HEAD
 //define the download function
-=======
-//define the download function (helps safari play audio sources)
->>>>>>> pr/2
 	function range_download($file) {
 		$fp = @fopen($file, 'rb');
 
@@ -635,7 +512,6 @@
 		$end    = $size - 1;       // End byte
 		// Now that we've gotten so far without errors we send the accept range header
 		/* At the moment we only support single ranges.
-<<<<<<< HEAD
 		 * Multiple ranges requires some more work to ensure it works correctly
 		 * and comply with the spesifications: http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.2
 		 *
@@ -646,18 +522,6 @@
 		 * (mediatype = mimetype)
 		 * as well as a boundry header to indicate the various chunks of data.
 		 */
-=======
-		* Multiple ranges requires some more work to ensure it works correctly
-		* and comply with the spesifications: http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.2
-		*
-		* Multirange support annouces itself with:
-		* header('Accept-Ranges: bytes');
-		*
-		* Multirange content must be sent with multipart/byteranges mediatype,
-		* (mediatype = mimetype)
-		* as well as a boundry header to indicate the various chunks of data.
-		*/
->>>>>>> pr/2
 		header("Accept-Ranges: 0-$length");
 		// header('Accept-Ranges: bytes');
 		// multipart/byteranges
@@ -691,13 +555,8 @@
 				$c_end   = (isset($range[1]) && is_numeric($range[1])) ? $range[1] : $size;
 			}
 			/* Check the range and make sure it's treated according to the specs.
-<<<<<<< HEAD
 			 * http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
 			 */
-=======
-			* http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-			*/
->>>>>>> pr/2
 			// End bytes can not be larger than $end.
 			$c_end = ($c_end > $end) ? $end : $c_end;
 			// Validate the requested range and return an error if it's not correct.

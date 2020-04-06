@@ -235,12 +235,7 @@
 				--Please enter the extension to forward this message to followed by #
 					if (name == "forward_enter_extension") then
 						table.insert(actions, {app="streamFile",data="voicemail/vm-forward_enter_ext.wav"});
-<<<<<<< HEAD
 						table.insert(actions, {app="streamFile",data="voicemail/vm-followed_by_pound.wav"});
-=======
-						table.insert(actions, {app="streamFile",data="voicemail/vm-followed_by.wav"});
-						table.insert(actions, {app="streamFile",data="ascii/35.wav"});
->>>>>>> pr/2
 					end
 				--To forward this recording to your email press 9
 					if (name == "forward_to_email") then

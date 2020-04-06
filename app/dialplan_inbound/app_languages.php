@@ -2,10 +2,6 @@
 #This file was last reorganized on 19th of September 2017 08:54:24 AM UTC
 
 $text['title-dialplan-inbound-add']['en-us'] = "Inbound Call Routing";
-<<<<<<< HEAD
-=======
-$text['title-dialplan-inbound-add']['en-gb'] = "Inbound Call Routing";
->>>>>>> pr/2
 $text['title-dialplan-inbound-add']['ar-eg'] = "";
 $text['title-dialplan-inbound-add']['de-at'] = "Routing eingehender Anrufe"; //copied from de-de
 $text['title-dialplan-inbound-add']['de-ch'] = "Routing eingehender Anrufe"; //copied from de-de
@@ -26,10 +22,6 @@ $text['title-dialplan-inbound-add']['sv-se'] = "Inkommande Call Routing";
 $text['title-dialplan-inbound-add']['uk-ua'] = "Маршрутизація вхідних дзвінків";
 
 $text['option-uuid']['en-us'] = "UUID";
-<<<<<<< HEAD
-=======
-$text['option-uuid']['en-gb'] = "UUID";
->>>>>>> pr/2
 $text['option-uuid']['ar-eg'] = "";
 $text['option-uuid']['de-at'] = "UUID"; //copied from de-de
 $text['option-uuid']['de-ch'] = "UUID"; //copied from de-de
@@ -50,10 +42,6 @@ $text['option-uuid']['sv-se'] = "UUID";
 $text['option-uuid']['uk-ua'] = "UUID";
 
 $text['option-username']['en-us'] = "Username";
-<<<<<<< HEAD
-=======
-$text['option-username']['en-gb'] = "Username";
->>>>>>> pr/2
 $text['option-username']['ar-eg'] = "";
 $text['option-username']['de-at'] = "Benutzername"; //copied from de-de
 $text['option-username']['de-ch'] = "Benutzername"; //copied from de-de
@@ -74,10 +62,6 @@ $text['option-username']['sv-se'] = "Användarnamn";
 $text['option-username']['uk-ua'] = "Користувач";
 
 $text['option-source']['en-us'] = "Source";
-<<<<<<< HEAD
-=======
-$text['option-source']['en-gb'] = "Source";
->>>>>>> pr/2
 $text['option-source']['ar-eg'] = "";
 $text['option-source']['de-at'] = "Quelle"; //copied from de-de
 $text['option-source']['de-ch'] = "Quelle"; //copied from de-de
@@ -98,10 +82,6 @@ $text['option-source']['sv-se'] = "Källa";
 $text['option-source']['uk-ua'] = "Джерело";
 
 $text['option-rdnis']['en-us'] = "RDNIS";
-<<<<<<< HEAD
-=======
-$text['option-rdnis']['en-gb'] = "RDNIS";
->>>>>>> pr/2
 $text['option-rdnis']['ar-eg'] = "";
 $text['option-rdnis']['de-at'] = "RDNIS"; //copied from de-de
 $text['option-rdnis']['de-ch'] = "RDNIS"; //copied from de-de
@@ -122,10 +102,6 @@ $text['option-rdnis']['sv-se'] = "RDNIS";
 $text['option-rdnis']['uk-ua'] = "RDNIS";
 
 $text['option-public']['en-us'] = "Public";
-<<<<<<< HEAD
-=======
-$text['option-public']['en-gb'] = "Public";
->>>>>>> pr/2
 $text['option-public']['ar-eg'] = "";
 $text['option-public']['de-at'] = "Öffentlich"; //copied from de-de
 $text['option-public']['de-ch'] = "Öffentlich"; //copied from de-de
@@ -146,10 +122,6 @@ $text['option-public']['sv-se'] = "Publik";
 $text['option-public']['uk-ua'] = "Публічний";
 
 $text['option-network_addr']['en-us'] = "Network Address";
-<<<<<<< HEAD
-=======
-$text['option-network_addr']['en-gb'] = "Network Address";
->>>>>>> pr/2
 $text['option-network_addr']['ar-eg'] = "";
 $text['option-network_addr']['de-at'] = "Netzwerk Adresse"; //copied from de-de
 $text['option-network_addr']['de-ch'] = "Netzwerk Adresse"; //copied from de-de
@@ -170,10 +142,6 @@ $text['option-network_addr']['sv-se'] = "Nätverk Address";
 $text['option-network_addr']['uk-ua'] = "Адреси мережі";
 
 $text['option-destination_number']['en-us'] = "Destination Number";
-<<<<<<< HEAD
-=======
-$text['option-destination_number']['en-gb'] = "Destination Number";
->>>>>>> pr/2
 $text['option-destination_number']['ar-eg'] = "";
 $text['option-destination_number']['de-at'] = "Ziel Rufnummer"; //copied from de-de
 $text['option-destination_number']['de-ch'] = "Ziel Rufnummer"; //copied from de-de
@@ -194,10 +162,6 @@ $text['option-destination_number']['sv-se'] = "Destination Nummer";
 $text['option-destination_number']['uk-ua'] = "Номер призначення";
 
 $text['option-context']['en-us'] = "Context";
-<<<<<<< HEAD
-=======
-$text['option-context']['en-gb'] = "Context";
->>>>>>> pr/2
 $text['option-context']['ar-eg'] = "";
 $text['option-context']['de-at'] = "Kontext"; //copied from de-de
 $text['option-context']['de-ch'] = "Kontext"; //copied from de-de
@@ -218,10 +182,6 @@ $text['option-context']['sv-se'] = "Context";
 $text['option-context']['uk-ua'] = "Контекст";
 
 $text['option-chan_name']['en-us'] = "Channel Name";
-<<<<<<< HEAD
-=======
-$text['option-chan_name']['en-gb'] = "Channel Name";
->>>>>>> pr/2
 $text['option-chan_name']['ar-eg'] = "";
 $text['option-chan_name']['de-at'] = "Kanal Name"; //copied from de-de
 $text['option-chan_name']['de-ch'] = "Kanal Name"; //copied from de-de
@@ -242,10 +202,6 @@ $text['option-chan_name']['sv-se'] = "Kanal Namn";
 $text['option-chan_name']['uk-ua'] = "Назва каналу";
 
 $text['option-caller_id_number']['en-us'] = "Caller ID Number";
-<<<<<<< HEAD
-=======
-$text['option-caller_id_number']['en-gb'] = "Caller ID Number";
->>>>>>> pr/2
 $text['option-caller_id_number']['ar-eg'] = "";
 $text['option-caller_id_number']['de-at'] = "Anruferkennung (Nummer)"; //copied from de-de
 $text['option-caller_id_number']['de-ch'] = "Anruferkennung (Nummer)"; //copied from de-de
@@ -266,10 +222,6 @@ $text['option-caller_id_number']['sv-se'] = "Caller ID Nummer";
 $text['option-caller_id_number']['uk-ua'] = "Caller ID Номер";
 
 $text['option-caller_id_name']['en-us'] = "Caller ID Name";
-<<<<<<< HEAD
-=======
-$text['option-caller_id_name']['en-gb'] = "Caller ID Name";
->>>>>>> pr/2
 $text['option-caller_id_name']['ar-eg'] = "";
 $text['option-caller_id_name']['de-at'] = "Anruferkennung (Name)"; //copied from de-de
 $text['option-caller_id_name']['de-ch'] = "Anruferkennung (Name)"; //copied from de-de
@@ -290,10 +242,6 @@ $text['option-caller_id_name']['sv-se'] = "Caller ID Namn";
 $text['option-caller_id_name']['uk-ua'] = "Caller ID Назва";
 
 $text['option-ani2']['en-us'] = "ANI2";
-<<<<<<< HEAD
-=======
-$text['option-ani2']['en-gb'] = "ANI2";
->>>>>>> pr/2
 $text['option-ani2']['ar-eg'] = "";
 $text['option-ani2']['de-at'] = "ANI2"; //copied from de-de
 $text['option-ani2']['de-ch'] = "ANI2"; //copied from de-de
@@ -314,10 +262,6 @@ $text['option-ani2']['sv-se'] = "ANI2";
 $text['option-ani2']['uk-ua'] = "ANI2";
 
 $text['option-ani']['en-us'] = "ANI";
-<<<<<<< HEAD
-=======
-$text['option-ani']['en-gb'] = "ANI";
->>>>>>> pr/2
 $text['option-ani']['ar-eg'] = "";
 $text['option-ani']['de-at'] = "ANI"; //copied from de-de
 $text['option-ani']['de-ch'] = "ANI"; //copied from de-de
@@ -338,10 +282,6 @@ $text['option-ani']['sv-se'] = "ANI";
 $text['option-ani']['uk-ua'] = "ANI";
 
 $text['label-select-inbound-destination-number']['en-us'] = "Select the inbound destination number.";
-<<<<<<< HEAD
-=======
-$text['label-select-inbound-destination-number']['en-gb'] = "Select the inbound destination number.";
->>>>>>> pr/2
 $text['label-select-inbound-destination-number']['ar-eg'] = "";
 $text['label-select-inbound-destination-number']['de-at'] = "Wählen Sie die Zielnummer für eingehende Anrufe."; //copied from de-de
 $text['label-select-inbound-destination-number']['de-ch'] = "Wählen Sie die Zielnummer für eingehende Anrufe."; //copied from de-de
@@ -362,10 +302,6 @@ $text['label-select-inbound-destination-number']['sv-se'] = "Välj inkommande de
 $text['label-select-inbound-destination-number']['uk-ua'] = "Виберіть вхідний номер";
 
 $text['label-required-domain_uuid']['en-us'] = "Please provide: domain_uuid";
-<<<<<<< HEAD
-=======
-$text['label-required-domain_uuid']['en-gb'] = "Please provide: domain_uuid";
->>>>>>> pr/2
 $text['label-required-domain_uuid']['ar-eg'] = "";
 $text['label-required-domain_uuid']['de-at'] = "Bitte angeben: domain_uuid"; //copied from de-de
 $text['label-required-domain_uuid']['de-ch'] = "Bitte angeben: domain_uuid"; //copied from de-de
@@ -386,10 +322,6 @@ $text['label-required-domain_uuid']['sv-se'] = "Var god ange: domain_uuid";
 $text['label-required-domain_uuid']['uk-ua'] = "Будь ласка, надайте: UUID домену";
 
 $text['label-required-dialplan_name']['en-us'] = "Please provide: Extension Name";
-<<<<<<< HEAD
-=======
-$text['label-required-dialplan_name']['en-gb'] = "Please provide: Extension Name";
->>>>>>> pr/2
 $text['label-required-dialplan_name']['ar-eg'] = "";
 $text['label-required-dialplan_name']['de-at'] = "Bitte angeben: Namen der Nebenstelle"; //copied from de-de
 $text['label-required-dialplan_name']['de-ch'] = "Bitte angeben: Namen der Nebenstelle"; //copied from de-de
@@ -410,10 +342,6 @@ $text['label-required-dialplan_name']['sv-se'] = "Var god ange: Anknytning Namn"
 $text['label-required-dialplan_name']['uk-ua'] = "Будь ласка, надайте назву розширення";
 
 $text['label-required-condition_field_1']['en-us'] = "Please provide: Condition Field";
-<<<<<<< HEAD
-=======
-$text['label-required-condition_field_1']['en-gb'] = "Please provide: Condition Field";
->>>>>>> pr/2
 $text['label-required-condition_field_1']['ar-eg'] = "";
 $text['label-required-condition_field_1']['de-at'] = "Bitte angeben: Feld für Bedingung"; //copied from de-de
 $text['label-required-condition_field_1']['de-ch'] = "Bitte angeben: Feld für Bedingung"; //copied from de-de
@@ -434,10 +362,6 @@ $text['label-required-condition_field_1']['sv-se'] = "Var god ange:  Villkor Fä
 $text['label-required-condition_field_1']['uk-ua'] = "Будь ласка, надайте поле умови";
 
 $text['label-required-condition_expression_1']['en-us'] = "Please provide: Condition Expression";
-<<<<<<< HEAD
-=======
-$text['label-required-condition_expression_1']['en-gb'] = "Please provide: Condition Expression";
->>>>>>> pr/2
 $text['label-required-condition_expression_1']['ar-eg'] = "";
 $text['label-required-condition_expression_1']['de-at'] = "Bitte angeben: Ausdruck für Bedingung"; //copied from de-de
 $text['label-required-condition_expression_1']['de-ch'] = "Bitte angeben: Ausdruck für Bedingung"; //copied from de-de
@@ -458,10 +382,6 @@ $text['label-required-condition_expression_1']['sv-se'] = "Var god ange: Villkor
 $text['label-required-condition_expression_1']['uk-ua'] = "Будь ласка, надайте  вираз умови";
 
 $text['label-required-action_application_1']['en-us'] = "Please provide: Action Application";
-<<<<<<< HEAD
-=======
-$text['label-required-action_application_1']['en-gb'] = "Please provide: Action Application";
->>>>>>> pr/2
 $text['label-required-action_application_1']['ar-eg'] = "";
 $text['label-required-action_application_1']['de-at'] = "Bitte angeben: Anwendung für Aktion"; //copied from de-de
 $text['label-required-action_application_1']['de-ch'] = "Bitte angeben: Anwendung für Aktion"; //copied from de-de
@@ -482,10 +402,6 @@ $text['label-required-action_application_1']['sv-se'] = "Var god ange:  Action A
 $text['label-required-action_application_1']['uk-ua'] = "Будь ласка, надайте додаток для дії";
 
 $text['label-caller-id-number-prefix']['en-us'] = "Caller ID Number Prefix";
-<<<<<<< HEAD
-=======
-$text['label-caller-id-number-prefix']['en-gb'] = "Caller ID Number Prefix";
->>>>>>> pr/2
 $text['label-caller-id-number-prefix']['ar-eg'] = "";
 $text['label-caller-id-number-prefix']['de-at'] = "Präfix für Anruferkennung"; //copied from de-de
 $text['label-caller-id-number-prefix']['de-ch'] = "Präfix für Anruferkennung"; //copied from de-de
@@ -506,10 +422,6 @@ $text['label-caller-id-number-prefix']['sv-se'] = "Caller ID Nummer Prefix";
 $text['label-caller-id-number-prefix']['uk-ua'] = "Префікс для повторного набору вихідного дзвінка";
 
 $text['label-limit']['en-us'] = "Limit";
-<<<<<<< HEAD
-=======
-$text['label-limit']['en-gb'] = "Limit";
->>>>>>> pr/2
 $text['label-limit']['ar-eg'] = "";
 $text['label-limit']['de-at'] = "Obergrenze"; //copied from de-de
 $text['label-limit']['de-ch'] = "Obergrenze"; //copied from de-de
@@ -530,10 +442,6 @@ $text['label-limit']['sv-se'] = "Begränsning";
 $text['label-limit']['uk-ua'] = "Обмеження";
 
 $text['label-field']['en-us'] = "Field";
-<<<<<<< HEAD
-=======
-$text['label-field']['en-gb'] = "Field";
->>>>>>> pr/2
 $text['label-field']['ar-eg'] = "";
 $text['label-field']['de-at'] = "Feld"; //copied from de-de
 $text['label-field']['de-ch'] = "Feld"; //copied from de-de
@@ -554,10 +462,6 @@ $text['label-field']['sv-se'] = "Fält";
 $text['label-field']['uk-ua'] = "Поле";
 
 $text['label-expression']['en-us'] = "Expression";
-<<<<<<< HEAD
-=======
-$text['label-expression']['en-gb'] = "Expression";
->>>>>>> pr/2
 $text['label-expression']['ar-eg'] = "";
 $text['label-expression']['de-at'] = "Ausdruck"; //copied from de-de
 $text['label-expression']['de-ch'] = "Ausdruck"; //copied from de-de
@@ -578,10 +482,6 @@ $text['label-expression']['sv-se'] = "Uttryck";
 $text['label-expression']['uk-ua'] = "Вираз";
 
 $text['label-destination-number']['en-us'] = "Destination Number";
-<<<<<<< HEAD
-=======
-$text['label-destination-number']['en-gb'] = "Destination Number";
->>>>>>> pr/2
 $text['label-destination-number']['ar-eg'] = "";
 $text['label-destination-number']['de-at'] = "Zielrufnummer"; //copied from de-de
 $text['label-destination-number']['de-ch'] = "Zielrufnummer"; //copied from de-de
@@ -602,10 +502,6 @@ $text['label-destination-number']['sv-se'] = "Destination Nummer";
 $text['label-destination-number']['uk-ua'] = "Номер";
 
 $text['label-condition_2']['en-us'] = "Condition 2";
-<<<<<<< HEAD
-=======
-$text['label-condition_2']['en-gb'] = "Condition 2";
->>>>>>> pr/2
 $text['label-condition_2']['ar-eg'] = "";
 $text['label-condition_2']['de-at'] = "Bedingung 2"; //copied from de-de
 $text['label-condition_2']['de-ch'] = "Bedingung 2"; //copied from de-de
@@ -626,10 +522,6 @@ $text['label-condition_2']['sv-se'] = "Villkor 2";
 $text['label-condition_2']['uk-ua'] = "Умова 2";
 
 $text['label-condition_1']['en-us'] = "Condition 1";
-<<<<<<< HEAD
-=======
-$text['label-condition_1']['en-gb'] = "Condition 1";
->>>>>>> pr/2
 $text['label-condition_1']['ar-eg'] = "";
 $text['label-condition_1']['de-at'] = "Bedingung 1"; //copied from de-de
 $text['label-condition_1']['de-ch'] = "Bedingung 1"; //copied from de-de
@@ -650,10 +542,6 @@ $text['label-condition_1']['sv-se'] = "Villkor 1";
 $text['label-condition_1']['uk-ua'] = "Умова 1";
 
 $text['label-action_2']['en-us'] = "Action 2";
-<<<<<<< HEAD
-=======
-$text['label-action_2']['en-gb'] = "Action 2";
->>>>>>> pr/2
 $text['label-action_2']['ar-eg'] = "";
 $text['label-action_2']['de-at'] = "Aktion 2"; //copied from de-de
 $text['label-action_2']['de-ch'] = "Aktion 2"; //copied from de-de
@@ -674,10 +562,6 @@ $text['label-action_2']['sv-se'] = "Action 2";
 $text['label-action_2']['uk-ua'] = "Дія 2";
 
 $text['label-action_1']['en-us'] = "Action 1";
-<<<<<<< HEAD
-=======
-$text['label-action_1']['en-gb'] = "Action 1";
->>>>>>> pr/2
 $text['label-action_1']['ar-eg'] = "";
 $text['label-action_1']['de-at'] = "Aktion 1"; //copied from de-de
 $text['label-action_1']['de-ch'] = "Aktion 1"; //copied from de-de
@@ -698,10 +582,6 @@ $text['label-action_1']['sv-se'] = "Action 1";
 $text['label-action_1']['uk-ua'] = "Дія 1";
 
 $text['label-action']['en-us'] = "Action";
-<<<<<<< HEAD
-=======
-$text['label-action']['en-gb'] = "Action";
->>>>>>> pr/2
 $text['label-action']['ar-eg'] = "";
 $text['label-action']['de-at'] = "Aktion"; //copied from de-de
 $text['label-action']['de-ch'] = "Aktion"; //copied from de-de
@@ -722,10 +602,6 @@ $text['label-action']['sv-se'] = "Action";
 $text['label-action']['uk-ua'] = "Дія";
 
 $text['label-access-denied']['en-us'] = "access denied";
-<<<<<<< HEAD
-=======
-$text['label-access-denied']['en-gb'] = "access denied";
->>>>>>> pr/2
 $text['label-access-denied']['ar-eg'] = "";
 $text['label-access-denied']['de-at'] = "Zugriff verweigert"; //copied from de-de
 $text['label-access-denied']['de-ch'] = "Zugriff verweigert"; //copied from de-de
@@ -746,10 +622,6 @@ $text['label-access-denied']['sv-se'] = "tillträde beviljas ej";
 $text['label-access-denied']['uk-ua'] = "в доступі відмовлено";
 
 $text['description-caller-id-number-prefix']['en-us'] = "Set a prefix on the caller ID number.";
-<<<<<<< HEAD
-=======
-$text['description-caller-id-number-prefix']['en-gb'] = "Set a prefix on the caller ID number.";
->>>>>>> pr/2
 $text['description-caller-id-number-prefix']['ar-eg'] = "";
 $text['description-caller-id-number-prefix']['de-at'] = "Präfix für Anruferkennung (Nummer) setzen."; //copied from de-de
 $text['description-caller-id-number-prefix']['de-ch'] = "Präfix für Anruferkennung (Nummer) setzen."; //copied from de-de
@@ -770,10 +642,6 @@ $text['description-caller-id-number-prefix']['sv-se'] = "Ange ett prefix för ca
 $text['description-caller-id-number-prefix']['uk-ua'] = "";
 
 $text['description-name']['en-us'] = "Please enter an inbound route name.";
-<<<<<<< HEAD
-=======
-$text['description-name']['en-gb'] = "Please enter an inbound route name.";
->>>>>>> pr/2
 $text['description-name']['ar-eg'] = "";
 $text['description-name']['de-at'] = "Bitte geben Sie einen Namen für die eingehende Route an."; //copied from de-de
 $text['description-name']['de-ch'] = "Bitte geben Sie einen Namen für die eingehende Route an."; //copied from de-de
@@ -794,10 +662,6 @@ $text['description-name']['sv-se'] = "Var god ange ett namn för inkommande rout
 $text['description-name']['uk-ua'] = "Введіть назву меню";
 
 $text['description-dialplan-inbound-add']['en-us'] = "The public dialplan is used to route incoming calls to destinations based on one or more conditions and context. It can send incoming calls to an auto attendant, huntgroup, extension, external number, or a script.";
-<<<<<<< HEAD
-=======
-$text['description-dialplan-inbound-add']['en-gb'] = "The public dialplan is used to route incoming calls to destinations based on one or more conditions and context. It can send incoming calls to an auto attendant, huntgroup, extension, external number, or a script.";
->>>>>>> pr/2
 $text['description-dialplan-inbound-add']['ar-eg'] = "";
 $text['description-dialplan-inbound-add']['de-at'] = "Der öffentliche Wählplan wird verwendet, um eingehende Anrufe anhand von einem oder mehrere Bedingungen an bestimmte Ziele weiter zu leiten."; //copied from de-de
 $text['description-dialplan-inbound-add']['de-ch'] = "Der öffentliche Wählplan wird verwendet, um eingehende Anrufe anhand von einem oder mehrere Bedingungen an bestimmte Ziele weiter zu leiten."; //copied from de-de
@@ -818,10 +682,6 @@ $text['description-dialplan-inbound-add']['sv-se'] = "";
 $text['description-dialplan-inbound-add']['uk-ua'] = "Маршрутизація спрямовує вхідні дзвінки в напрямку відповідно до умов і контексту. Можна спрямувати вхідні виклики на групи, автоматичне обслуговування, зовнішні номери, сценарії або інші напрямки. ";
 
 $text['confirm-update-complete']['en-us'] = "Update Complete";
-<<<<<<< HEAD
-=======
-$text['confirm-update-complete']['en-gb'] = "Update Complete";
->>>>>>> pr/2
 $text['confirm-update-complete']['ar-eg'] = "";
 $text['confirm-update-complete']['de-at'] = "Aktualisierung abgeschlossen"; //copied from de-de
 $text['confirm-update-complete']['de-ch'] = "Aktualisierung abgeschlossen"; //copied from de-de

@@ -3,14 +3,7 @@
 require_once "root.php";
 require_once "resources/require.php";
 
-<<<<<<< HEAD
 header("Content-type: text/css; charset: UTF-8");
-=======
-ob_start('ob_gzhandler');
-header('Content-type: text/css; charset: UTF-8');
-header('Cache-Control: must-revalidate');
-header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
->>>>>>> pr/2
 
 //parse fonts (add surrounding single quotes to each font name)
 	if (is_array($_SESSION['theme']) && sizeof($_SESSION['theme']) > 0) {
@@ -41,22 +34,7 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 //determine which background image/color settings to use (login or standard)
 	$background_images_enabled = false;
 	if (isset($_SESSION['username']) && $_SESSION['username'] != '') {
-<<<<<<< HEAD
 		//try using login background images/colors
-=======
-		//logged in - use standard background images/colors
-		if (isset($_SESSION['theme']) && isset($_SESSION['theme']['background_image_enabled']) && $_SESSION['theme']['background_image_enabled']['boolean'] == 'true' && is_array($_SESSION['theme']['background_image'])) {
-			$background_images_enabled = true;
-			$background_images = $_SESSION['theme']['background_image'];
-		}
-		else {
-			$background_colors[0] = $_SESSION['theme']['background_color'][0];
-			$background_colors[1] = $_SESSION['theme']['background_color'][1];
-		}
-	}
-	else {
-		//not logged in - try using login background images/colors
->>>>>>> pr/2
 		if (isset($_SESSION['theme']) && $_SESSION['theme']['login_background_image_enabled']['boolean'] == 'true' && is_array($_SESSION['theme']['login_background_image'])) {
 			$background_images_enabled = true;
 			$background_images = $_SESSION['theme']['login_background_image'];
@@ -77,7 +55,6 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 			}
 		}
 	}
-<<<<<<< HEAD
 	else {
 		//use standard background images/colors
 		if (isset($_SESSION['theme']) && isset($_SESSION['theme']['background_image_enabled']) && $_SESSION['theme']['background_image_enabled']['boolean'] == 'true' && is_array($_SESSION['theme']['background_image'])) {
@@ -93,12 +70,6 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 //check for background image
 	if ($background_images_enabled) {
 		// background image is enabled
-=======
-
-//check for background image
-	if ($background_images_enabled) {
-		//background image is enabled
->>>>>>> pr/2
 		$image_extensions = array('jpg','jpeg','png','gif');
 
 		if (count($background_images) > 0) {
@@ -108,11 +79,7 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 				$background_image = $_SESSION['background_image'];
 			}
 
-<<<<<<< HEAD
 			// background image(s) specified, check if source is file or folder
-=======
-			//background image(s) specified, check if source is file or folder
->>>>>>> pr/2
 			if (in_array(strtolower(pathinfo($background_image, PATHINFO_EXTENSION)), $image_extensions)) {
 				$image_source = 'file';
 			}
@@ -120,49 +87,29 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 				$image_source = 'folder';
 			}
 
-<<<<<<< HEAD
 			// is source (file/folder) local or remote
-=======
-			//is source (file/folder) local or remote
->>>>>>> pr/2
 			if (substr($background_image, 0, 4) == 'http') {
 				$source_path = $background_image;
 			}
 			else if (substr($background_image, 0, 1) == '/') { //
-<<<<<<< HEAD
 				// use project path as root
 				$source_path = PROJECT_PATH.$background_image;
 			}
 			else {
 				// use theme images/backgrounds folder as root
-=======
-				//use project path as root
-				$source_path = PROJECT_PATH.$background_image;
-			}
-			else {
-				//use theme images/backgrounds folder as root
->>>>>>> pr/2
 				$source_path = PROJECT_PATH.'/themes/default/images/backgrounds/'.$background_image;
 			}
 
 		}
 		else {
-<<<<<<< HEAD
 			// not set, so use default backgrounds folder and images
-=======
-			//not set, so use default backgrounds folder and images
->>>>>>> pr/2
 			$image_source = 'folder';
 			$source_path = PROJECT_PATH.'/themes/default/images/backgrounds';
 		}
 
 		if ($image_source == 'folder') {
 			if (file_exists($_SERVER["DOCUMENT_ROOT"].$source_path)) {
-<<<<<<< HEAD
 				// retrieve a random background image
-=======
-				//retrieve a random background image
->>>>>>> pr/2
 				$dir_list = opendir($_SERVER["DOCUMENT_ROOT"].$source_path);
 				$v_background_array = array();
 				$x = 0;
@@ -191,19 +138,11 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 		}
 	}
 
-<<<<<<< HEAD
 // check for background color
 	else if (
 		$background_colors[0] != '' ||
 		$background_colors[1] != ''
 		) { // background color 1 or 2 is enabled
-=======
-//check for background color
-	else if (
-		$background_colors[0] != '' ||
-		$background_colors[1] != ''
-		) { //background color 1 or 2 is enabled
->>>>>>> pr/2
 
 		if ($background_colors[0] != '' && $background_colors[1] == '') { // use color 1
 			$background_color = "background: ".$background_colors[0].";";
@@ -226,11 +165,7 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 			$background_color .= "background: linear-gradient(to bottom, ".$background_colors[0]." 0%, ".$background_colors[1]." 100%);\n";
 		}
 	}
-<<<<<<< HEAD
 	else { // default: white
-=======
-	else { //default: white
->>>>>>> pr/2
 		$background_color = "background: #ffffff;\n";
 	}
 ?>
@@ -1155,15 +1090,10 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 		display: inline-block;
 		width: 100%;
 		<?php
-<<<<<<< HEAD
 		if (
 			isset($_SESSION['username']) && $_SESSION['username'] != '' &&
 			(isset($background_images) || $background_colors[0] != '' || $background_colors[1] != '')
 			) { ?>
-=======
-		if (isset($background_images) || $background_colors[0] != '' || $background_colors[1] != '') {
-			?>
->>>>>>> pr/2
 			background: <?php echo ($_SESSION['theme']['body_color']['text'] != '') ? $_SESSION['theme']['body_color']['text'] : "#ffffff"; ?>;
 			background-attachment: fixed;
 			<?php $br = format_border_radius($_SESSION['theme']['body_border_radius']['text'], '4px'); ?>
@@ -2299,38 +2229,6 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 
 /* CSS GRID ********************************************************************/
 
-<<<<<<< HEAD
-=======
-	div.grid {
-		width: 100%;
-		display: grid;
-		grid-gap: 0;
-		}
-
-	div.grid > div.box.contact-details {
-		padding: 15px;
-		border: 1px solid <?php echo ($_SESSION['theme']['table_row_border_color']['text'] != '') ? $_SESSION['theme']['table_row_border_color']['text'] : '#c5d1e5'; ?>;
-		border-radius: 5px;
-		background: <?php echo ($_SESSION['theme']['table_row_background_color_dark']['text'] != '') ? $_SESSION['theme']['table_row_background_color_dark']['text'] : '#e5e9f0'; ?>;
-		}
-
-	div.grid.contact-details {
-		grid-template-columns: 50px auto;
-		}
-
-	div.grid > div.box {
-		padding: 0;
-		padding-bottom: 5px;
-		}
-
-	div.grid > div.box.contact-details-label {
-		font-size: 87%;
-		letter-spacing: -0.03em;
-		vertical-align: middle;
-		white-space: nowrap;
-		}
-
->>>>>>> pr/2
 	div.form_grid {
 		width: 100%;
 		display: grid;
@@ -2465,15 +2363,6 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 		white-space: nowrap;
 		}
 
-<<<<<<< HEAD
-=======
-	div.action_bar > div.actions > div.unsaved {
-		display: inline-block;
-		margin-right: 30px;
-		color: #b00;
-		}
-
->>>>>>> pr/2
 	/* used primarily in contacts */
 	div.action_bar.shrink {
 		margin-bottom: 0;
@@ -2713,7 +2602,6 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 		left: 0;
 		opacity: 0;
 		pointer-events: none;
-<<<<<<< HEAD
 		-webkit-transition: all 0.3s;
 		-moz-transition: all 0.3s;
 		transition: all 0.3s;
@@ -2723,25 +2611,14 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 	.modal-window:target {
 		opacity: 1;
 		pointer-events: auto;
-=======
-		-webkit-transition: all <?php echo $_SESSION['theme']['modal_transition_seconds']['text'] != '' ? $_SESSION['theme']['modal_transition_seconds']['text'] : '0.3'; ?>s;
-		-moz-transition: all <?php echo $_SESSION['theme']['modal_transition_seconds']['text'] != '' ? $_SESSION['theme']['modal_transition_seconds']['text'] : '0.3'; ?>s;
-		transition: all <?php echo $_SESSION['theme']['modal_transition_seconds']['text'] != '' ? $_SESSION['theme']['modal_transition_seconds']['text'] : '0.3'; ?>s;
-		background: <?php echo $_SESSION['theme']['modal_shade_color']['text'] != '' ? $_SESSION['theme']['modal_shade_color']['text'] : 'rgba(0, 0, 0, 0.3)'; ?>;
->>>>>>> pr/2
 		}
 
 	.modal-window > div {
 		position: relative;
-<<<<<<< HEAD
 		padding: 15px 20px 20px 20px;
 		text-align: left;
 		color: #444;
 		background: #fff;
-=======
-		padding: <?php echo $_SESSION['theme']['modal_padding']['text'] != '' ? $_SESSION['theme']['modal_padding']['text'] : '15px 20px 20px 20px'; ?>;
-		background: <?php echo $_SESSION['theme']['modal_background_color']['text'] != '' ? $_SESSION['theme']['modal_background_color']['text'] : '#fff'; ?>;
->>>>>>> pr/2
 		overflow: auto;
 		}
 
@@ -2756,16 +2633,9 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 
 	@media(min-width: 700px) {
 		.modal-window > div {
-<<<<<<< HEAD
 			width: 500px;
 			margin: 10% auto;
 			border-radius: 5px;
-=======
-			width: <?php echo $_SESSION['theme']['modal_width']['text'] != '' ? $_SESSION['theme']['modal_width']['text'] : '500px'; ?>;
-			margin: 10% auto;
-			border-radius: <?php echo $_SESSION['theme']['modal_corner_radius']['text'] != '' ? $_SESSION['theme']['modal_corner_radius']['text'] : '5px'; ?>;
-			box-shadow: <?php echo $_SESSION['theme']['modal_shadow']['text'] != '' ? $_SESSION['theme']['modal_shadow']['text'] : '0 0 40px rgba(0,0,0,0.25)'; ?>;
->>>>>>> pr/2
 			}
 		}
 
@@ -2773,22 +2643,11 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 		display: block;
 		font-weight: bold;
 		font-size: 120%;
-<<<<<<< HEAD
 		margin-bottom: 15px;
 		}
 
 	.modal-close {
 		color: #aaa;
-=======
-		font-family: <?php echo $_SESSION['theme']['modal_title_font']['text'] != '' ? $_SESSION['theme']['modal_title_font']['text'] : ($_SESSION['theme']['heading_text_font']['text'] != '' ? $_SESSION['theme']['heading_text_font']['text'] : 'arial'); ?>;
-		color: <?php echo $_SESSION['theme']['modal_title_color']['text'] != '' ? $_SESSION['theme']['modal_title_color']['text'] : ($_SESSION['theme']['heading_text_color']['text'] != '' ? $_SESSION['theme']['heading_text_color']['text'] : '#952424'); ?>;
-		text-align: <?php echo $_SESSION['theme']['modal_title_alignment']['text'] != '' ? $_SESSION['theme']['modal_title_alignment']['text'] : 'left'; ?>;
-		margin: <?php echo $_SESSION['theme']['modal_title_margin']['text'] != '' ? $_SESSION['theme']['modal_title_margin']['text'] : '0 0 15px 0'; ?>;
-		}
-
-	.modal-close {
-		color: <?php echo $_SESSION['theme']['modal_close_color']['text'] != '' ? $_SESSION['theme']['modal_close_color']['text'] : '#aaa'; ?>;
->>>>>>> pr/2
 		line-height: 50px;
 		font-size: 150%;
 		position: absolute;
@@ -2797,46 +2656,14 @@ header('Expires: '.gmdate('D, d M Y H:i:s',time()+3600).' GMT');
 		width: 50px;
 		text-align: center;
 		text-decoration: none !important;
-<<<<<<< HEAD
 		}
 
 	.modal-close:hover {
 		color: #000;
-=======
-		cursor: pointer;
-		border-radius: <?php echo $_SESSION['theme']['modal_close_corner_radius']['text'] != '' ? $_SESSION['theme']['modal_close_corner_radius']['text'] : '0 0 0 5px'; ?>;
-		background: <?php echo $_SESSION['theme']['modal_close_background_color']['text'] != '' ? $_SESSION['theme']['modal_close_background_color']['text'] : '#fff'; ?>;
-		}
-
-	.modal-close:hover {
-		color: <?php echo $_SESSION['theme']['modal_close_color_hover']['text'] != '' ? $_SESSION['theme']['modal_close_color_hover']['text'] : '#000'; ?>;
-		background: <?php echo $_SESSION['theme']['modal_close_background_color_hover']['text'] != '' ? $_SESSION['theme']['modal_close_background_color_hover']['text'] : '#fff'; ?>;
->>>>>>> pr/2
 		}
 
 	.modal-window .modal-message {
 		display: block;
-<<<<<<< HEAD
 		text-align: left;
 		margin-bottom: 20px;
 		}
-=======
-		color: <?php echo $_SESSION['theme']['modal_message_color']['text'] != '' ? $_SESSION['theme']['modal_message_color']['text'] : '#444'; ?>;
-		text-align: <?php echo $_SESSION['theme']['modal_message_alignment']['text'] != '' ? $_SESSION['theme']['modal_message_alignment']['text'] : 'left'; ?>;
-		margin: <?php echo $_SESSION['theme']['modal_message_margin']['text'] != '' ? $_SESSION['theme']['modal_message_margin']['text'] : '0 0 20px 0'; ?>;
-		}
-
-	.modal-actions {
-		display: block;
-		text-align: left;
-		}
-
-<?php
-
-//output custom css
-	if ($_SESSION['theme']['custom_css_code']['text'] != '') {
-		echo $_SESSION['theme']['custom_css_code']['text'];
-	}
-
-?>
->>>>>>> pr/2

@@ -17,14 +17,13 @@
 
 	The Initial Developer of the Original Code is
 	Mark J Crane <markjcrane@fusionpbx.com>
-	Portions created by the Initial Developer are Copyright (C) 2008-2020
+	Portions created by the Initial Developer are Copyright (C) 2008-2012
 	the Initial Developer. All Rights Reserved.
 
 	Contributor(s):
 	Mark J Crane <markjcrane@fusionpbx.com>
 	Luis Daniel Lucio Quiroz <dlucio@okay.com.mx>
 */
-<<<<<<< HEAD
 include "root.php";
 require_once "resources/require.php";
 require_once "resources/check_auth.php";
@@ -39,31 +38,10 @@ else {
 //add multi-lingual support
 	$language = new text;
 	$text = $language->get();
-=======
-
-//includes
-	include "root.php";
-	require_once "resources/require.php";
-	require_once "resources/check_auth.php";
-
-//chec permissions
-	if (permission_exists('call_broadcast_send')) {
-		//access granted
-	}
-	else {
-		echo "access denied";
-		exit;
-	}
->>>>>>> pr/2
-
-//add multi-lingual support
-	$language = new text;
-	$text = $language->get();
 
 //set the max execution time to 1 hour
 	ini_set(max_execution_time,3600);
 
-<<<<<<< HEAD
 function cmd_async($cmd) {
 	//windows
 	if (stristr(PHP_OS, 'WIN')) {
@@ -78,25 +56,8 @@ function cmd_async($cmd) {
 	}
 	else { //posix
 		exec ($cmd ." /dev/null 2>&1 &");
-=======
-//define the asynchronous command function
-	function cmd_async($cmd) {
-		//windows
-		if (stristr(PHP_OS, 'WIN')) {
-			$descriptorspec = array(
-				0 => array("pipe", "r"),  // stdin
-				1 => array("pipe", "w"),  // stdout
-				2 => array("pipe", "w")   // stderr
-			);
-			$process = proc_open("start ".$cmd, $descriptorspec, $pipes);
-			//sleep(1);
-			proc_close($process);
-		}
-		else { //posix
-			exec ($cmd ." /dev/null 2>&1 &");
-		}
->>>>>>> pr/2
 	}
+}
 
 //get the http get values and set as php variables
 	$group_name = $_GET["group_name"];
@@ -116,7 +77,7 @@ function cmd_async($cmd) {
 	$row = $database->select($sql, $parameters, 'row');
 	if (is_array($row) && sizeof($row) != 0) {
 		$broadcast_name = $row["broadcast_name"];
-		$broadcast_start_time = $row["broadcast_start_time"];
+		$broadcast_description = $row["broadcast_description"];
 		$broadcast_timeout = $row["broadcast_timeout"];
 		$broadcast_concurrent_limit = $row["broadcast_concurrent_limit"];
 		$recordingid = $row["recordingid"];
@@ -127,10 +88,6 @@ function cmd_async($cmd) {
 		$broadcast_destination_data = $row["broadcast_destination_data"];
 		$broadcast_avmd = $row["broadcast_avmd"];
 		$broadcast_accountcode = $row["broadcast_accountcode"];
-<<<<<<< HEAD
-=======
-		$broadcast_description = $row["broadcast_description"];
->>>>>>> pr/2
 		//if (strlen($row["broadcast_destination_data"]) == 0) {
 		//	$broadcast_destination_application = '';
 		//	$broadcast_destination_data = '';
@@ -143,7 +100,6 @@ function cmd_async($cmd) {
 	}
 	unset($sql, $parameters, $row);
 
-//set the defaults
 	if (strlen($broadcast_caller_id_name) == 0) {
 		$broadcast_caller_id_name = "anonymous";
 	}
@@ -153,18 +109,9 @@ function cmd_async($cmd) {
 	if (strlen($broadcast_accountcode) == 0) {
 		$broadcast_accountcode = $_SESSION['domain_name'];;
 	}
-<<<<<<< HEAD
-=======
-	if (isset($broadcast_start_time) && is_numeric($broadcast_start_time)) {
-		$sched_seconds = $broadcast_start_time;
-	}
-	else {
-		$sched_seconds = '3';
-	}
->>>>>>> pr/2
 
-//get the recording name
-	//$recording_filename = get_recording_filename($recordingid);
+	//get the recording name
+		//$recording_filename = get_recording_filename($recordingid);
 
 //remove unsafe characters from the name
 	$broadcast_name = str_replace(" ", "", $broadcast_name);
@@ -197,6 +144,7 @@ function cmd_async($cmd) {
 			if (strlen($broadcast_phone_numbers) > 0) {
 				$broadcast_phone_number_array = explode ("\n", $broadcast_phone_numbers);
 				$count = 1;
+				$sched_seconds = '3';
 				foreach ($broadcast_phone_number_array as $tmp_value) {
 					//set the variables
 						$tmp_value = str_replace(";", "|", $tmp_value);
@@ -212,11 +160,8 @@ function cmd_async($cmd) {
 							$dialplan->outbound_routes($phone_1);
 							$dialplan_variables = $dialplan->variables;
 							$bridge_array[0] = $dialplan->bridges;
-<<<<<<< HEAD
 							//echo "var: ".$variables."\n";
 							//echo "bridges: ".$bridges."\n";
-=======
->>>>>>> pr/2
 
 						//prepare the string
 							$channel_variables = $dialplan_variables."ignore_early_media=true";
@@ -241,7 +186,6 @@ function cmd_async($cmd) {
 						//if the event socket connection is lost then re-connect
 							if (!$fp) {
 								$fp = eventsocket_create($_SESSION['event_socket_ip_address'], $_SESSION['event_socket_port'], $_SESSION['event_socket_password']);
-<<<<<<< HEAD
 							}
 
 						//method 1
@@ -258,24 +202,6 @@ function cmd_async($cmd) {
 								}
 							}
 
-=======
-							}
-
-						//method 1
-							$response = trim(event_socket_request($fp, 'api '.$cmd));
-
-						//method 2
-							//cmd_async($_SESSION['switch']['bin']['dir']."/fs_cli -x \"".$cmd."\";");
-
-						//spread the calls out so that they are scheduled with different times
-							if (strlen($broadcast_concurrent_limit) > 0 && strlen($broadcast_timeout) > 0) {
-								if ($broadcast_concurrent_limit == $count) {
-									$sched_seconds = $sched_seconds + $broadcast_timeout;
-									$count=0;
-								}
-							}
-
->>>>>>> pr/2
 						$count++;
 					}
 				}
@@ -304,7 +230,6 @@ function cmd_async($cmd) {
 				echo "</tr>\n";
 				echo "</table>\n";
 				echo "</div>\n";
-<<<<<<< HEAD
 
 			}
 
@@ -456,13 +381,4 @@ unset ($val);
 unset ($c);
 */
 
-=======
-
-			}
-
-		//show the footer
-			require_once "resources/footer.php";
-	}
-
->>>>>>> pr/2
 ?>

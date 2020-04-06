@@ -2,10 +2,6 @@
 
 	$y=0;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Active Call Center";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Active Call Center";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Aktive Callcenter";
 	$apps[$x]['menu'][$y]['title']['de-ch'] = "";

@@ -9,10 +9,6 @@
 		$apps[$x]['license'] = "Mozilla Public License 1.1";
 		$apps[$x]['url'] = "http://www.fusionpbx.com";
 		$apps[$x]['description']['en-us'] = "Schedule to immediately make multiple calls to the extension, an IVR Menu, Conference Room, or any other number.";
-<<<<<<< HEAD
-=======
-		$apps[$x]['description']['en-gb'] = "Schedule to immediately make multiple calls to the extension, an IVR Menu, Conference Room, or any other number.";
->>>>>>> pr/2
 		$apps[$x]['description']['ar-eg'] = "";
 		$apps[$x]['description']['de-at'] = "Methode um sofort mehrere parallele Anrufe an Nebenstellen, Automatische Zentralen, Conferenzräume oder andere Rufnummern zu leiten.";
 		$apps[$x]['description']['de-ch'] = "";
@@ -102,13 +98,6 @@
 		$apps[$x]['db'][$y]['fields'][$z]['search'] = 'true';
 		$apps[$x]['db'][$y]['fields'][$z]['description']['en-us'] = "";
 		$z++;
-<<<<<<< HEAD
-=======
-		$apps[$x]['db'][$y]['fields'][$z]['name'] = "broadcast_start_time";
-		$apps[$x]['db'][$y]['fields'][$z]['type'] = "numeric";
-		$apps[$x]['db'][$y]['fields'][$z]['description']['en-us'] = "";
-		$z++;
->>>>>>> pr/2
 		$apps[$x]['db'][$y]['fields'][$z]['name'] = "broadcast_timeout";
 		$apps[$x]['db'][$y]['fields'][$z]['type'] = "numeric";
 		$apps[$x]['db'][$y]['fields'][$z]['description']['en-us'] = "";

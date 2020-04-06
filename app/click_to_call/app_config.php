@@ -9,10 +9,6 @@
 		$apps[$x]['license'] = "Mozilla Public License 1.1";
 		$apps[$x]['url'] = "http://www.fusionpbx.com";
 		$apps[$x]['description']['en-us'] = "Originate calls with a URL.";
-<<<<<<< HEAD
-=======
-		$apps[$x]['description']['en-gb'] = "Originate calls with a URL.";
->>>>>>> pr/2
 		$apps[$x]['description']['ar-eg'] = "";
 		$apps[$x]['description']['de-at'] = "Anrufe über eine URL erzeugen.";
 		$apps[$x]['description']['de-ch'] = "";

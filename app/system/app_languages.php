@@ -2,10 +2,6 @@
 #This file was last reorganized on 19th of September 2017 08:54:24 AM UTC
 
 $text['title-sys-status']['en-us'] = "System Status";
-<<<<<<< HEAD
-=======
-$text['title-sys-status']['en-gb'] = "System Status";
->>>>>>> pr/2
 $text['title-sys-status']['ar-eg'] = "";
 $text['title-sys-status']['de-at'] = "System Status"; //copied from de-de
 $text['title-sys-status']['de-ch'] = "System Status"; //copied from de-de
@@ -26,10 +22,6 @@ $text['title-sys-status']['sv-se'] = "System Status";
 $text['title-sys-status']['uk-ua'] = "Стан системи ";
 
 $text['title-sys-info']['en-us'] = "System Information";
-<<<<<<< HEAD
-=======
-$text['title-sys-info']['en-gb'] = "System Information";
->>>>>>> pr/2
 $text['title-sys-info']['ar-eg'] = "";
 $text['title-sys-info']['de-at'] = "System Information"; //copied from de-de
 $text['title-sys-info']['de-ch'] = "System Information"; //copied from de-de
@@ -50,10 +42,6 @@ $text['title-sys-info']['sv-se'] = "System Information";
 $text['title-sys-info']['uk-ua'] = "Інформація про систему";
 
 $text['title-os-info']['en-us'] = "Operating System Information";
-<<<<<<< HEAD
-=======
-$text['title-os-info']['en-gb'] = "Operating System Information";
->>>>>>> pr/2
 $text['title-os-info']['ar-eg'] = "";
 $text['title-os-info']['de-at'] = "Informationen zum Betriebssystem"; //copied from de-de
 $text['title-os-info']['de-ch'] = "Informationen zum Betriebssystem"; //copied from de-de
@@ -74,10 +62,6 @@ $text['title-os-info']['sv-se'] = "Operativsystem Systeminformation";
 $text['title-os-info']['uk-ua'] = "Інформація про Операційна система ";
 
 $text['title-memcache']['en-us'] = "Memcache Information";
-<<<<<<< HEAD
-=======
-$text['title-memcache']['en-gb'] = "Memcache Information";
->>>>>>> pr/2
 $text['title-memcache']['ar-eg'] = "";
 $text['title-memcache']['de-at'] = "Memcache Information"; //copied from de-de
 $text['title-memcache']['de-ch'] = "Memcache Information"; //copied from de-de
@@ -98,10 +82,6 @@ $text['title-memcache']['sv-se'] = "Memcache Information ";
 $text['title-memcache']['uk-ua'] = "Інформація про кеш-пам'ять ";
 
 $text['title-mem']['en-us'] = "Memory Information";
-<<<<<<< HEAD
-=======
-$text['title-mem']['en-gb'] = "Memory Information";
->>>>>>> pr/2
 $text['title-mem']['ar-eg'] = "";
 $text['title-mem']['de-at'] = "Speicher Information"; //copied from de-de
 $text['title-mem']['de-ch'] = "Speicher Information"; //copied from de-de
@@ -122,10 +102,6 @@ $text['title-mem']['sv-se'] = "Minnes Information";
 $text['title-mem']['uk-ua'] = "Інформація про пам'ять ";
 
 $text['title-drive']['en-us'] = "Drive Information";
-<<<<<<< HEAD
-=======
-$text['title-drive']['en-gb'] = "Drive Information";
->>>>>>> pr/2
 $text['title-drive']['ar-eg'] = "";
 $text['title-drive']['de-at'] = "Festplatten Information"; //copied from de-de
 $text['title-drive']['de-ch'] = "Festplatten Information"; //copied from de-de
@@ -146,10 +122,6 @@ $text['title-drive']['sv-se'] = "Enhetsinformation";
 $text['title-drive']['uk-ua'] = "Інформація про привід ";
 
 $text['title-cpu']['en-us'] = "CPU Information";
-<<<<<<< HEAD
-=======
-$text['title-cpu']['en-gb'] = "CPU Information";
->>>>>>> pr/2
 $text['title-cpu']['ar-eg'] = "";
 $text['title-cpu']['de-at'] = "CPU Information"; //copied from de-de
 $text['title-cpu']['de-ch'] = "CPU Information"; //copied from de-de
@@ -170,10 +142,6 @@ $text['title-cpu']['sv-se'] = "CPU Information";
 $text['title-cpu']['uk-ua'] = "Інформація про процесор";
 
 $text['message-unavailable']['en-us'] = "Unavailable";
-<<<<<<< HEAD
-=======
-$text['message-unavailable']['en-gb'] = "Unavailable";
->>>>>>> pr/2
 $text['message-unavailable']['ar-eg'] = "";
 $text['message-unavailable']['de-at'] = "Nicht verfügbar"; //copied from de-de
 $text['message-unavailable']['de-ch'] = "Nicht verfügbar"; //copied from de-de
@@ -194,10 +162,6 @@ $text['message-unavailable']['sv-se'] = "Otillgänglig";
 $text['message-unavailable']['uk-ua'] = "Недоступний ";
 
 $text['label-os']['en-us'] = "Operating System";
-<<<<<<< HEAD
-=======
-$text['label-os']['en-gb'] = "Operating System";
->>>>>>> pr/2
 $text['label-os']['ar-eg'] = "";
 $text['label-os']['de-at'] = "Betriebssystem"; //copied from de-de
 $text['label-os']['de-ch'] = "Betriebssystem"; //copied from de-de
@@ -218,10 +182,6 @@ $text['label-os']['sv-se'] = "Operativsystem";
 $text['label-os']['uk-ua'] = "Операційна система";
 
 $text['label-kernel']['en-us'] = "Kernel";
-<<<<<<< HEAD
-=======
-$text['label-kernel']['en-gb'] = "Kernel";
->>>>>>> pr/2
 $text['label-kernel']['ar-eg'] = "";
 $text['label-kernel']['de-at'] = "Kernel"; //copied from de-de
 $text['label-kernel']['de-ch'] = "Kernel"; //copied from de-de
@@ -242,10 +202,6 @@ $text['label-kernel']['sv-se'] = "";
 $text['label-kernel']['uk-ua'] = "";
 
 $text['label-version']['en-us'] = "Version";
-<<<<<<< HEAD
-=======
-$text['label-version']['en-gb'] = "Version";
->>>>>>> pr/2
 $text['label-version']['ar-eg'] = "";
 $text['label-version']['de-at'] = "Version"; //copied from de-de
 $text['label-version']['de-ch'] = "Version"; //copied from de-de
@@ -266,10 +222,6 @@ $text['label-version']['sv-se'] = "Version";
 $text['label-version']['uk-ua'] = "версія";
 
 $text['label-path']['en-us'] = "Project Path";
-<<<<<<< HEAD
-=======
-$text['label-path']['en-gb'] = "Project Path";
->>>>>>> pr/2
 $text['label-path']['ar-eg'] = "";
 $text['label-path']['de-at'] = "Projektpfad"; //copied from de-de
 $text['label-path']['de-ch'] = "Projektpfad"; //copied from de-de
@@ -290,10 +242,6 @@ $text['label-path']['sv-se'] = "Projekt Path";
 $text['label-path']['uk-ua'] = "шлях проекту";
 
 $text['label-git_info']['en-us'] = "Git Information";
-<<<<<<< HEAD
-=======
-$text['label-git_info']['en-gb'] = "Git Information";
->>>>>>> pr/2
 $text['label-git_info']['ar-eg'] = "";
 $text['label-git_info']['de-at'] = "Git Informationen"; //copied from de-de
 $text['label-git_info']['de-ch'] = "Git Informationen"; //copied from de-de
@@ -314,10 +262,6 @@ $text['label-git_info']['sv-se'] = "Git Information";
 $text['label-git_info']['uk-ua'] = "Гіт інформація";
 
 $text['label-git_corrupted']['en-us'] = "Git data is corrupt";
-<<<<<<< HEAD
-=======
-$text['label-git_corrupted']['en-gb'] = "Git data is corrupt";
->>>>>>> pr/2
 $text['label-git_corrupted']['ar-eg'] = "";
 $text['label-git_corrupted']['de-at'] = "Git Daten sind korrupt"; //copied from de-de
 $text['label-git_corrupted']['de-ch'] = "Git Daten sind korrupt"; //copied from de-de
@@ -338,10 +282,6 @@ $text['label-git_corrupted']['sv-se'] = "Git data är korrupt";
 $text['label-git_corrupted']['uk-ua'] = "Гіт дані пошкоджені";
 
 $text['label-switch']['en-us'] = "Switch";
-<<<<<<< HEAD
-=======
-$text['label-switch']['en-gb'] = "Switch";
->>>>>>> pr/2
 $text['label-switch']['ar-eg'] = "";
 $text['label-switch']['de-at'] = "Switch"; //copied from de-de
 $text['label-switch']['de-ch'] = "Switch"; //copied from de-de
@@ -362,10 +302,6 @@ $text['label-switch']['sv-se'] = "Switch";
 $text['label-switch']['uk-ua'] = "перемикач";
 
 $text['label-git_branch']['en-us'] = "Branch";
-<<<<<<< HEAD
-=======
-$text['label-git_branch']['en-gb'] = "Branch";
->>>>>>> pr/2
 $text['label-git_branch']['ar-eg'] = "";
 $text['label-git_branch']['de-at'] = "Zweig"; //copied from de-de
 $text['label-git_branch']['de-ch'] = "Zweig"; //copied from de-de
@@ -386,10 +322,6 @@ $text['label-git_branch']['sv-se'] = "Branch";
 $text['label-git_branch']['uk-ua'] = "філія";
 
 $text['label-php']['en-us'] = "PHP";
-<<<<<<< HEAD
-=======
-$text['label-php']['en-gb'] = "PHP";
->>>>>>> pr/2
 $text['label-php']['ar-eg'] = "PHP";
 $text['label-php']['de-at'] = "PHP";
 $text['label-php']['de-ch'] = "PHP";
@@ -410,10 +342,6 @@ $text['label-php']['sv-se'] = "PHP";
 $text['label-php']['uk-ua'] = "PHP";
 
 $text['label-git_commit']['en-us'] = "Commit";
-<<<<<<< HEAD
-=======
-$text['label-git_commit']['en-gb'] = "Commit";
->>>>>>> pr/2
 $text['label-git_commit']['ar-eg'] = "";
 $text['label-git_commit']['de-at'] = "Übergeben"; //copied from de-de
 $text['label-git_commit']['de-ch'] = "Übergeben"; //copied from de-de
@@ -434,10 +362,6 @@ $text['label-git_commit']['sv-se'] = "Commit";
 $text['label-git_commit']['uk-ua'] = "здійснити";
 
 $text['label-git_origin']['en-us'] = "Origin";
-<<<<<<< HEAD
-=======
-$text['label-git_origin']['en-gb'] = "Origin";
->>>>>>> pr/2
 $text['label-git_origin']['ar-eg'] = "";
 $text['label-git_origin']['de-at'] = "Quelle"; //copied from de-de
 $text['label-git_origin']['de-ch'] = "Quelle"; //copied from de-de
@@ -458,10 +382,6 @@ $text['label-git_origin']['sv-se'] = "Ursprung";
 $text['label-git_origin']['uk-ua'] = "походження";
 
 $text['label-git_status']['en-us'] = "Status";
-<<<<<<< HEAD
-=======
-$text['label-git_status']['en-gb'] = "Status";
->>>>>>> pr/2
 $text['label-git_status']['ar-eg'] = "";
 $text['label-git_status']['de-at'] = "Status"; //copied from de-de
 $text['label-git_status']['de-ch'] = "Status"; //copied from de-de
@@ -482,10 +402,6 @@ $text['label-git_status']['sv-se'] = "Status";
 $text['label-git_status']['uk-ua'] = "Статус";
 
 $text['label-memcache_status']['en-us'] = "Memcache Status";
-<<<<<<< HEAD
-=======
-$text['label-memcache_status']['en-gb'] = "Memcache Status";
->>>>>>> pr/2
 $text['label-memcache_status']['ar-eg'] = "";
 $text['label-memcache_status']['de-at'] = "Memcache Status"; //copied from de-de
 $text['label-memcache_status']['de-ch'] = "Memcache Status"; //copied from de-de
@@ -506,10 +422,6 @@ $text['label-memcache_status']['sv-se'] = "Memcache Status ";
 $text['label-memcache_status']['uk-ua'] = "Стан кеш-пам'яті";
 
 $text['label-mem']['en-us'] = "Memory Status";
-<<<<<<< HEAD
-=======
-$text['label-mem']['en-gb'] = "Memory Status";
->>>>>>> pr/2
 $text['label-mem']['ar-eg'] = "";
 $text['label-mem']['de-at'] = "Speicher Status"; //copied from de-de
 $text['label-mem']['de-ch'] = "Speicher Status"; //copied from de-de
@@ -530,10 +442,6 @@ $text['label-mem']['sv-se'] = "Minnesstatus";
 $text['label-mem']['uk-ua'] = "Стан пам'яті ";
 
 $text['label-drive-percent']['en-us'] = "Percent Free";
-<<<<<<< HEAD
-=======
-$text['label-drive-percent']['en-gb'] = "Percent Free";
->>>>>>> pr/2
 $text['label-drive-percent']['ar-eg'] = "";
 $text['label-drive-percent']['de-at'] = "Prozent Frei"; //copied from de-de
 $text['label-drive-percent']['de-ch'] = "Prozent Frei"; //copied from de-de
@@ -554,10 +462,6 @@ $text['label-drive-percent']['sv-se'] = "Procent Ledigt";
 $text['label-drive-percent']['uk-ua'] = "Відсоток вільного";
 
 $text['label-drive-free']['en-us'] = "Free Space";
-<<<<<<< HEAD
-=======
-$text['label-drive-free']['en-gb'] = "Free Space";
->>>>>>> pr/2
 $text['label-drive-free']['ar-eg'] = "";
 $text['label-drive-free']['de-at'] = "Freier Speicherplatz"; //copied from de-de
 $text['label-drive-free']['de-ch'] = "Freier Speicherplatz"; //copied from de-de
@@ -578,10 +482,6 @@ $text['label-drive-free']['sv-se'] = "Ledigt Utrymme";
 $text['label-drive-free']['uk-ua'] = "Вільно";
 
 $text['label-drive-capacity']['en-us'] = "Capacity";
-<<<<<<< HEAD
-=======
-$text['label-drive-capacity']['en-gb'] = "Capacity";
->>>>>>> pr/2
 $text['label-drive-capacity']['ar-eg'] = "";
 $text['label-drive-capacity']['de-at'] = "Kapazität"; //copied from de-de
 $text['label-drive-capacity']['de-ch'] = "Kapazität"; //copied from de-de
@@ -602,10 +502,6 @@ $text['label-drive-capacity']['sv-se'] = "Kapacitet";
 $text['label-drive-capacity']['uk-ua'] = "Емність";
 
 $text['label-drive']['en-us'] = "Drive Space";
-<<<<<<< HEAD
-=======
-$text['label-drive']['en-gb'] = "Drive Space";
->>>>>>> pr/2
 $text['label-drive']['ar-eg'] = "";
 $text['label-drive']['de-at'] = "Festplatten Speicher"; //copied from de-de
 $text['label-drive']['de-ch'] = "Festplatten Speicher"; //copied from de-de
@@ -626,10 +522,6 @@ $text['label-drive']['sv-se'] = "Enhetsutrymme";
 $text['label-drive']['uk-ua'] = "Диски";
 
 $text['label-cpu']['en-us'] = "CPU Status";
-<<<<<<< HEAD
-=======
-$text['label-cpu']['en-gb'] = "CPU Status";
->>>>>>> pr/2
 $text['label-cpu']['ar-eg'] = "";
 $text['label-cpu']['de-at'] = "CPU Status"; //copied from de-de
 $text['label-cpu']['de-ch'] = "CPU Status"; //copied from de-de
@@ -650,10 +542,6 @@ $text['label-cpu']['sv-se'] = "CPU Status";
 $text['label-cpu']['uk-ua'] = "Стан процесора ";
 
 $text['header-sys-status']['en-us'] = "System Status";
-<<<<<<< HEAD
-=======
-$text['header-sys-status']['en-gb'] = "System Status";
->>>>>>> pr/2
 $text['header-sys-status']['ar-eg'] = "";
 $text['header-sys-status']['de-at'] = "System Status"; //copied from de-de
 $text['header-sys-status']['de-ch'] = "System Status"; //copied from de-de

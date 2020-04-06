@@ -2,10 +2,6 @@
 #This file was last reorganized on 19th of September 2017 08:54:24 AM UTC
 
 $text['title-modules']['en-us'] = "Modules";
-<<<<<<< HEAD
-=======
-$text['title-modules']['en-gb'] = "Modules";
->>>>>>> pr/2
 $text['title-modules']['ar-eg'] = "";
 $text['title-modules']['de-at'] = "Module"; //copied from de-de
 $text['title-modules']['de-ch'] = "Module"; //copied from de-de
@@ -27,10 +23,6 @@ $text['title-modules']['sv-se'] = "Moduler";
 $text['title-modules']['uk-ua'] = "Модулі";
 
 $text['title-module_edit']['en-us'] = "Module Edit";
-<<<<<<< HEAD
-=======
-$text['title-module_edit']['en-gb'] = "Module Edit";
->>>>>>> pr/2
 $text['title-module_edit']['ar-eg'] = "";
 $text['title-module_edit']['de-at'] = "Module bearbeiten"; //copied from de-de
 $text['title-module_edit']['de-ch'] = "Module bearbeiten"; //copied from de-de
@@ -52,10 +44,6 @@ $text['title-module_edit']['sv-se'] = "Editera Modul";
 $text['title-module_edit']['uk-ua'] = "Редагування модуля";
 
 $text['title-module_add']['en-us'] = "Module Add";
-<<<<<<< HEAD
-=======
-$text['title-module_add']['en-gb'] = "Module Add";
->>>>>>> pr/2
 $text['title-module_add']['ar-eg'] = "";
 $text['title-module_add']['de-at'] = "Module hinzufügen"; //copied from de-de
 $text['title-module_add']['de-ch'] = "Module hinzufügen"; //copied from de-de
@@ -77,10 +65,6 @@ $text['title-module_add']['sv-se'] = "Lägg Till Modul";
 $text['title-module_add']['uk-ua'] = "Додавання модуля";
 
 $text['label-unknown']['en-us'] = "Unknown";
-<<<<<<< HEAD
-=======
-$text['label-unknown']['en-gb'] = "Unknown";
->>>>>>> pr/2
 $text['label-unknown']['ar-eg'] = "";
 $text['label-unknown']['de-at'] = "Unbekannt"; //copied from de-de
 $text['label-unknown']['de-ch'] = "Unbekannt"; //copied from de-de
@@ -102,10 +86,6 @@ $text['label-unknown']['sv-se'] = "Okänd";
 $text['label-unknown']['uk-ua'] = "";
 
 $text['label-none']['en-us'] = "None";
-<<<<<<< HEAD
-=======
-$text['label-none']['en-gb'] = "None";
->>>>>>> pr/2
 $text['label-none']['ar-eg'] = "";
 $text['label-none']['de-at'] = "Keine"; //copied from de-de
 $text['label-none']['de-ch'] = "Keine"; //copied from de-de
@@ -127,10 +107,6 @@ $text['label-none']['sv-se'] = "Ingen";
 $text['label-none']['uk-ua'] = "";
 
 $text['label-stopped']['en-us'] = "Stopped";
-<<<<<<< HEAD
-=======
-$text['label-stopped']['en-gb'] = "Stopped";
->>>>>>> pr/2
 $text['label-stopped']['ar-eg'] = "";
 $text['label-stopped']['de-at'] = "beendet"; //copied from de-de
 $text['label-stopped']['de-ch'] = "beendet"; //copied from de-de
@@ -152,10 +128,6 @@ $text['label-stopped']['sv-se'] = "Stoppad";
 $text['label-stopped']['uk-ua'] = "Зупинено";
 
 $text['label-stop']['en-us'] = "Stop";
-<<<<<<< HEAD
-=======
-$text['label-stop']['en-gb'] = "Stop";
->>>>>>> pr/2
 $text['label-stop']['ar-eg'] = "";
 $text['label-stop']['de-at'] = "Beenden"; //copied from de-de
 $text['label-stop']['de-ch'] = "Beenden"; //copied from de-de
@@ -177,10 +149,6 @@ $text['label-stop']['sv-se'] = "Stoppa";
 $text['label-stop']['uk-ua'] = "Зупинити";
 
 $text['label-status']['en-us'] = "Status";
-<<<<<<< HEAD
-=======
-$text['label-status']['en-gb'] = "Status";
->>>>>>> pr/2
 $text['label-status']['ar-eg'] = "";
 $text['label-status']['de-at'] = "Status"; //copied from de-de
 $text['label-status']['de-ch'] = "Status"; //copied from de-de
@@ -202,10 +170,6 @@ $text['label-status']['sv-se'] = "Status";
 $text['label-status']['uk-ua'] = "Стан";
 
 $text['label-start']['en-us'] = "Start";
-<<<<<<< HEAD
-=======
-$text['label-start']['en-gb'] = "Start";
->>>>>>> pr/2
 $text['label-start']['ar-eg'] = "";
 $text['label-start']['de-at'] = "Start"; //copied from de-de
 $text['label-start']['de-ch'] = "Start"; //copied from de-de
@@ -227,10 +191,6 @@ $text['label-start']['sv-se'] = "Starta";
 $text['label-start']['uk-ua'] = "Запустити";
 
 $text['label-running']['en-us'] = "Running";
-<<<<<<< HEAD
-=======
-$text['label-running']['en-gb'] = "Running";
->>>>>>> pr/2
 $text['label-running']['ar-eg'] = "";
 $text['label-running']['de-at'] = "läuft"; //copied from de-de
 $text['label-running']['de-ch'] = "läuft"; //copied from de-de
@@ -252,10 +212,6 @@ $text['label-running']['sv-se'] = "I Drift";
 $text['label-running']['uk-ua'] = "Запущено";
 
 $text['label-module_name']['en-us'] = "Module Name";
-<<<<<<< HEAD
-=======
-$text['label-module_name']['en-gb'] = "Module Name";
->>>>>>> pr/2
 $text['label-module_name']['ar-eg'] = "";
 $text['label-module_name']['de-at'] = "Modul Name"; //copied from de-de
 $text['label-module_name']['de-ch'] = "Modul Name"; //copied from de-de
@@ -277,10 +233,6 @@ $text['label-module_name']['sv-se'] = "Modul Namn";
 $text['label-module_name']['uk-ua'] = "Назва модуля";
 
 $text['label-module_category']['en-us'] = "Module Category";
-<<<<<<< HEAD
-=======
-$text['label-module_category']['en-gb'] = "Module Category";
->>>>>>> pr/2
 $text['label-module_category']['ar-eg'] = "";
 $text['label-module_category']['de-at'] = "Modul Kategorie"; //copied from de-de
 $text['label-module_category']['de-ch'] = "Modul Kategorie"; //copied from de-de
@@ -302,10 +254,6 @@ $text['label-module_category']['sv-se'] = "Modul Kategori";
 $text['label-module_category']['uk-ua'] = "Категорія модуля";
 
 $text['label-message']['en-us'] = "Message";
-<<<<<<< HEAD
-=======
-$text['label-message']['en-gb'] = "Message";
->>>>>>> pr/2
 $text['label-message']['ar-eg'] = "";
 $text['label-message']['de-at'] = "Nachricht"; //copied from de-de
 $text['label-message']['de-ch'] = "Nachricht"; //copied from de-de
@@ -327,10 +275,6 @@ $text['label-message']['sv-se'] = "Meddelande";
 $text['label-message']['uk-ua'] = "Повідомлення";
 
 $text['label-label']['en-us'] = "Label";
-<<<<<<< HEAD
-=======
-$text['label-label']['en-gb'] = "Label";
->>>>>>> pr/2
 $text['label-label']['ar-eg'] = "";
 $text['label-label']['de-at'] = "Kennzeichnung"; //copied from de-de
 $text['label-label']['de-ch'] = "Kennzeichnung"; //copied from de-de
@@ -352,10 +296,6 @@ $text['label-label']['sv-se'] = "Etikett";
 $text['label-label']['uk-ua'] = "Назва";
 
 $text['label-default_enabled']['en-us'] = "Default Enabled";
-<<<<<<< HEAD
-=======
-$text['label-default_enabled']['en-gb'] = "Default Enabled";
->>>>>>> pr/2
 $text['label-default_enabled']['ar-eg'] = "";
 $text['label-default_enabled']['de-at'] = "Standard aktiv"; //copied from de-de
 $text['label-default_enabled']['de-ch'] = "Standard aktiv"; //copied from de-de
@@ -377,10 +317,6 @@ $text['label-default_enabled']['sv-se'] = "Aktiverad som Standard";
 $text['label-default_enabled']['uk-ua'] = "Включено типові значення";
 
 $text['label-action']['en-us'] = "Action";
-<<<<<<< HEAD
-=======
-$text['label-action']['en-gb'] = "Action";
->>>>>>> pr/2
 $text['label-action']['ar-eg'] = "";
 $text['label-action']['de-at'] = "Aktion"; //copied from de-de
 $text['label-action']['de-ch'] = "Aktion"; //copied from de-de
@@ -402,10 +338,6 @@ $text['label-action']['sv-se'] = "Åtgärd";
 $text['label-action']['uk-ua'] = "Дія";
 
 $text['header-modules']['en-us'] = "Modules";
-<<<<<<< HEAD
-=======
-$text['header-modules']['en-gb'] = "Modules";
->>>>>>> pr/2
 $text['header-modules']['ar-eg'] = "";
 $text['header-modules']['de-at'] = "Module"; //copied from de-de
 $text['header-modules']['de-ch'] = "Module"; //copied from de-de
@@ -427,10 +359,6 @@ $text['header-modules']['sv-se'] = "Moduler";
 $text['header-modules']['uk-ua'] = "Модулі";
 
 $text['header-module_edit']['en-us'] = "Module Edit";
-<<<<<<< HEAD
-=======
-$text['header-module_edit']['en-gb'] = "Module Edit";
->>>>>>> pr/2
 $text['header-module_edit']['ar-eg'] = "";
 $text['header-module_edit']['de-at'] = "Module bearbeiten"; //copied from de-de
 $text['header-module_edit']['de-ch'] = "Module bearbeiten"; //copied from de-de
@@ -452,10 +380,6 @@ $text['header-module_edit']['sv-se'] = "Editera Modul";
 $text['header-module_edit']['uk-ua'] = "Редагування модуля";
 
 $text['header-module_add']['en-us'] = "Module Add";
-<<<<<<< HEAD
-=======
-$text['header-module_add']['en-gb'] = "Module Add";
->>>>>>> pr/2
 $text['header-module_add']['ar-eg'] = "";
 $text['header-module_add']['de-at'] = "Module hinzufügen"; //copied from de-de
 $text['header-module_add']['de-ch'] = "Module hinzufügen"; //copied from de-de
@@ -477,10 +401,6 @@ $text['header-module_add']['sv-se'] = "Lägg Till Modul";
 $text['header-module_add']['uk-ua'] = "Додавання модуля";
 
 $text['description-modules']['en-us'] = "Modules extend the features of the system. Use this page to enable or disable modules.";
-<<<<<<< HEAD
-=======
-$text['description-modules']['en-gb'] = "Modules extend the features of the system. Use this page to enable or disable modules.";
->>>>>>> pr/2
 $text['description-modules']['ar-eg'] = "";
 $text['description-modules']['de-at'] = "Module erweitern die Funktionalität des Systems. Benutzen Sie diese Seite um Module zu aktivieren oder zu deaktivieren."; //copied from de-de
 $text['description-modules']['de-ch'] = "Module erweitern die Funktionalität des Systems. Benutzen Sie diese Seite um Module zu aktivieren oder zu deaktivieren."; //copied from de-de
@@ -502,10 +422,6 @@ $text['description-modules']['sv-se'] = "Moduler utökar funktionerna i systemet
 $text['description-modules']['uk-ua'] = "Модулі розширюють можливості системи. Використовуйте цю сторінку, щоб включити або відключити модулі.";
 
 $text['error-event-socket']['en-us'] = "Connection to Event Socket failed.";
-<<<<<<< HEAD
-=======
-$text['error-event-socket']['en-gb'] = "Connection to Event Socket failed.";
->>>>>>> pr/2
 $text['error-event-socket']['ar-eg'] = "";
 $text['error-event-socket']['de-at'] = "Verbindung zum Event Socket fehlgeschlagen."; //copied from de-de
 $text['error-event-socket']['de-ch'] = "Verbindung zum Event Socket fehlgeschlagen."; //copied from de-de
@@ -527,10 +443,6 @@ $text['error-event-socket']['sv-se'] = "Kontakten till 'Event Socket' misslyckad
 $text['error-event-socket']['uk-ua'] = "Помилка підключення до сокета подій";
 
 $text['message-module_started']['en-us'] = "Module(s) Started";
-<<<<<<< HEAD
-=======
-$text['message-module_started']['en-gb'] = "Module(s) Started";
->>>>>>> pr/2
 $text['message-module_started']['ar-eg'] = "";
 $text['message-module_started']['de-at'] = "Modul laden"; //copied from de-de
 $text['message-module_started']['de-ch'] = "Modul laden"; //copied from de-de
@@ -552,10 +464,6 @@ $text['message-module_started']['sv-se'] = "Ladda Modul";
 $text['message-module_started']['uk-ua'] = "Завантажити модуль";
 
 $text['message-module_stopped']['en-us'] = "Module(s) Stopped";
-<<<<<<< HEAD
-=======
-$text['message-module_stopped']['en-gb'] = "Module(s) Stopped";
->>>>>>> pr/2
 $text['message-module_stopped']['ar-eg'] = "";
 $text['message-module_stopped']['de-at'] = "Modul deaktivieren"; //copied from de-de
 $text['message-module_stopped']['de-ch'] = "Modul deaktivieren"; //copied from de-de
@@ -577,10 +485,6 @@ $text['message-module_stopped']['sv-se'] = "Ladda av Modul";
 $text['message-module_stopped']['uk-ua'] = "Вивантажити модуль";
 
 $text['confirm-start_modules']['en-us'] = "Are you sure you wish to START these modules?";
-<<<<<<< HEAD
-=======
-$text['confirm-start_modules']['en-gb'] = "Are you sure you wish to START these modules?";
->>>>>>> pr/2
 $text['confirm-start_modules']['ar-eg'] = "Are you sure you wish to START these modules?";
 $text['confirm-start_modules']['de-at'] = "Are you sure you wish to START these modules?";
 $text['confirm-start_modules']['de-ch'] = "Are you sure you wish to START these modules?";
@@ -602,10 +506,6 @@ $text['confirm-start_modules']['sv-se'] = "Are you sure you wish to START these 
 $text['confirm-start_modules']['uk-ua'] = "Are you sure you wish to START these modules?";
 
 $text['confirm-stop_modules']['en-us'] = "Are you sure you wish to STOP these modules?";
-<<<<<<< HEAD
-=======
-$text['confirm-stop_modules']['en-gb'] = "Are you sure you wish to STOP these modules?";
->>>>>>> pr/2
 $text['confirm-stop_modules']['ar-eg'] = "Are you sure you wish to STOP these modules?";
 $text['confirm-stop_modules']['de-at'] = "Are you sure you wish to STOP these modules?";
 $text['confirm-stop_modules']['de-ch'] = "Are you sure you wish to STOP these modules?";

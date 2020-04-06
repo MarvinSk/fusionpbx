@@ -197,19 +197,11 @@
 	}
 	$button_margin = 'margin-left: 15px;';
 	if ($action == 'update' && permission_exists('group_add')) {
-<<<<<<< HEAD
 		echo button::create(['type'=>'submit','label'=>$text['button-copy'],'icon'=>$_SESSION['theme']['button_icon_copy'],'id'=>'btn_copy','name'=>'action','value'=>'copy','style'=>$button_margin,'onclick'=>"if (confirm('".$text['confirm-copy']."')) { document.getElementById('frm').submit(); } else { this.blur(); return false; }"]);
 		unset($button_margin);
 	}
 	if ($action == 'update' && permission_exists('group_delete')) {
 		echo button::create(['type'=>'submit','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'id'=>'btn_delete','name'=>'action','value'=>'delete','style'=>$button_margin,'onclick'=>"if (confirm('".$text['confirm-delete']."')) { document.getElementById('frm').submit(); } else { this.blur(); return false; }"]);
-=======
-		echo button::create(['type'=>'button','label'=>$text['button-copy'],'icon'=>$_SESSION['theme']['button_icon_copy'],'name'=>'btn_copy','style'=>$button_margin,'onclick'=>"modal_open('modal-copy','btn_copy');"]);
-		unset($button_margin);
-	}
-	if ($action == 'update' && permission_exists('group_delete')) {
-		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','style'=>$button_margin,'onclick'=>"modal_open('modal-delete','btn_delete');"]);
->>>>>>> pr/2
 		unset($button_margin);
 	}
 	echo button::create(['type'=>'submit','label'=>$text['button-save'],'icon'=>$_SESSION['theme']['button_icon_save'],'id'=>'btn_save','style'=>'margin-left: 15px;']);
@@ -217,16 +209,6 @@
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
 
-<<<<<<< HEAD
-=======
-	if ($action == 'update' && permission_exists('group_add')) {
-		echo modal::create(['id'=>'modal-copy','type'=>'copy','actions'=>button::create(['type'=>'submit','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_copy','style'=>'float: right; margin-left: 15px;','collapse'=>'never','name'=>'action','value'=>'copy','onclick'=>"modal_close();"])]);
-	}
-	if ($action == 'update' && permission_exists('group_delete')) {
-		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'submit','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','name'=>'action','value'=>'delete','onclick'=>"modal_close();"])]);
-	}
-
->>>>>>> pr/2
 	echo $text['description-groups']."\n";
 	echo "<br /><br />\n";
 

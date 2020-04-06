@@ -183,17 +183,10 @@
 		}
 	}
 	if (permission_exists('default_setting_edit') && $default_settings) {
-<<<<<<< HEAD
 		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'id'=>'btn_toggle','onclick'=>"if (confirm('".$text['confirm-toggle']."')) { list_action_set('toggle'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
 	}
 	if (permission_exists('default_setting_delete') && $default_settings) {
 		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'id'=>'btn_delete','onclick'=>"if (confirm('".$text['confirm-delete']."')) { list_action_set('delete'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
-=======
-		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'name'=>'btn_toggle','onclick'=>"modal_open('modal-toggle','btn_toggle');"]);
-	}
-	if (permission_exists('default_setting_delete') && $default_settings) {
-		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','onclick'=>"modal_open('modal-delete','btn_delete');"]);
->>>>>>> pr/2
 	}
 	echo 		"<form id='form_search' class='inline' method='get'>\n";
 	if (is_array($categories) && @sizeof($categories) != 0) {
@@ -218,16 +211,6 @@
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
 
-<<<<<<< HEAD
-=======
-	if (permission_exists('default_setting_edit') && $default_settings) {
-		echo modal::create(['id'=>'modal-toggle','type'=>'toggle','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_toggle','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('toggle'); list_form_submit('form_list');"])]);
-	}
-	if (permission_exists('default_setting_delete') && $default_settings) {
-		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
-	}
-
->>>>>>> pr/2
 	echo $text['description-default_settings']."\n";
 	echo "<br /><br />\n";
 
@@ -258,7 +241,6 @@
 					echo "</table>\n";
 					echo "<br />\n";
 					echo "</div>\n";
-<<<<<<< HEAD
 				}
 				echo "<div class='category' id='category_".$default_setting_category."'>\n";
 				echo "<b>".escape($label_default_setting_category)."</b><br>\n";
@@ -270,19 +252,6 @@
 					echo "		<input type='checkbox' id='checkbox_all_".$default_setting_category."' name='checkbox_all' onclick=\"list_all_toggle('".$default_setting_category."');\">\n";
 					echo "	</th>\n";
 				}
-=======
-				}
-				echo "<div class='category' id='category_".$default_setting_category."'>\n";
-				echo "<b>".escape($label_default_setting_category)."</b><br>\n";
-
-				echo "<table class='list'>\n";
-				echo "<tr class='list-header'>\n";
-				if (permission_exists('default_setting_add') || permission_exists('default_setting_edit') || permission_exists('default_setting_delete')) {
-					echo "	<th class='checkbox'>\n";
-					echo "		<input type='checkbox' id='checkbox_all_".$default_setting_category."' name='checkbox_all' onclick=\"list_all_toggle('".$default_setting_category."');\">\n";
-					echo "	</th>\n";
-				}
->>>>>>> pr/2
 				if ($_GET['show'] == 'all' && permission_exists('default_setting_all')) {
 					echo th_order_by('domain_name', $text['label-domain'], $order_by, $order);
 				}
@@ -332,7 +301,6 @@
 					echo $sub_row["menu_language"]." - ".$sub_row["menu_name"]."\n";
 				}
 				unset($sql, $sub_result, $sub_row);
-<<<<<<< HEAD
 			}
 			else if ($category == "domain" && $subcategory == "template" && $name == "name" ) {
 				echo "		".ucwords($row['default_setting_value']);
@@ -356,31 +324,6 @@
 			else if ($category == 'theme' && $subcategory == 'custom_css_code' && $name == 'text') {
 				echo "		[...]\n";
 			}
-=======
-			}
-			else if ($category == "domain" && $subcategory == "template" && $name == "name" ) {
-				echo "		".ucwords($row['default_setting_value']);
-			}
-			else if ($category == "domain" && $subcategory == "time_format" && $name == "text" ) {
-				switch ($row['default_setting_value']) {
-					case '12h': echo $text['label-12-hour']; break;
-					case '24h': echo $text['label-24-hour']; break;
-				}
-			}
-			else if (
-				( $category == "theme" && $subcategory == "menu_main_icons" && $name == "boolean" ) ||
-				( $category == "theme" && $subcategory == "menu_sub_icons" && $name == "boolean" ) ||
-				( $category == "theme" && $subcategory == "menu_brand_type" && $name == "text" ) ||
-				( $category == "theme" && $subcategory == "menu_style" && $name == "text" ) ||
-				( $category == "theme" && $subcategory == "menu_position" && $name == "text" ) ||
-				( $category == "theme" && $subcategory == "logo_align" && $name == "text" )
-				) {
-				echo "		".$text['label-'.$row['default_setting_value']];
-			}
-			else if ($category == 'theme' && $subcategory == 'custom_css_code' && $name == 'text') {
-				echo "		[...]\n";
-			}
->>>>>>> pr/2
 			else if ($subcategory == 'password' || substr_count($subcategory, '_password') > 0 || $category == "login" && $subcategory == "password_reset_key" && $name == "text" || substr_count($subcategory, '_secret') > 0) {
 				echo "		".str_repeat('*', strlen($row['default_setting_value']));
 			}

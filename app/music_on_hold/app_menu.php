@@ -2,10 +2,6 @@
 
 	$y=0;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Music on Hold";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Music on Hold";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Wartemusik";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Wartemusik";

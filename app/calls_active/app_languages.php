@@ -2,10 +2,6 @@
 #This file was last reorganized on 19th of September 2017 08:54:24 AM UTC
 
 $text['title-2']['en-us'] = "Active Extensions";
-<<<<<<< HEAD
-=======
-$text['title-2']['en-gb'] = "Active Extensions";
->>>>>>> pr/2
 $text['title-2']['ar-eg'] = "";
 $text['title-2']['de-at'] = "Aktive Nebenstellen"; //copied from de-de
 $text['title-2']['de-ch'] = "Aktive Nebenstellen"; //copied from de-de
@@ -26,10 +22,6 @@ $text['title-2']['sv-se'] = "Aktiva anknytningar";
 $text['title-2']['uk-ua'] = "Активні розширення";
 
 $text['title']['en-us'] = "Active Calls";
-<<<<<<< HEAD
-=======
-$text['title']['en-gb'] = "Active Calls";
->>>>>>> pr/2
 $text['title']['ar-eg'] = "";
 $text['title']['de-at'] = "Aktive Gespräche"; //copied from de-de
 $text['title']['de-ch'] = "Aktive Gespräche"; //copied from de-de
@@ -50,10 +42,6 @@ $text['title']['sv-se'] = "Aktiva Samtal";
 $text['title']['uk-ua'] = "Активні дзвінки";
 
 $text['label-time']['en-us'] = "Time";
-<<<<<<< HEAD
-=======
-$text['label-time']['en-gb'] = "Time";
->>>>>>> pr/2
 $text['label-time']['ar-eg'] = "";
 $text['label-time']['de-at'] = "Zeit"; //copied from de-de
 $text['label-time']['de-ch'] = "Zeit"; //copied from de-de
@@ -74,10 +62,6 @@ $text['label-time']['sv-se'] = "Tid";
 $text['label-time']['uk-ua'] = "Час";
 
 $text['label-stop']['en-us'] = "stop record";
-<<<<<<< HEAD
-=======
-$text['label-stop']['en-gb'] = "stop record";
->>>>>>> pr/2
 $text['label-stop']['ar-eg'] = "";
 $text['label-stop']['de-at'] = "Stoppe Aufnahme"; //copied from de-de
 $text['label-stop']['de-ch'] = "Stoppe Aufnahme"; //copied from de-de
@@ -98,10 +82,6 @@ $text['label-stop']['sv-se'] = "Stoppa inspelning";
 $text['label-stop']['uk-ua'] = "Зупинити запис";
 
 $text['label-status']['en-us'] = "Status";
-<<<<<<< HEAD
-=======
-$text['label-status']['en-gb'] = "Status";
->>>>>>> pr/2
 $text['label-status']['ar-eg'] = "";
 $text['label-status']['de-at'] = "Status"; //copied from de-de
 $text['label-status']['de-ch'] = "Status"; //copied from de-de
@@ -122,10 +102,6 @@ $text['label-status']['sv-se'] = "Status";
 $text['label-status']['uk-ua'] = "Статус";
 
 $text['label-start']['en-us'] = "start record";
-<<<<<<< HEAD
-=======
-$text['label-start']['en-gb'] = "start record";
->>>>>>> pr/2
 $text['label-start']['ar-eg'] = "";
 $text['label-start']['de-at'] = "Starte Aufnahme"; //copied from de-de
 $text['label-start']['de-ch'] = "Starte Aufnahme"; //copied from de-de
@@ -146,10 +122,6 @@ $text['label-start']['sv-se'] = "Starta inspelning";
 $text['label-start']['uk-ua'] = "Запустити запис";
 
 $text['label-secure']['en-us'] = "Secure";
-<<<<<<< HEAD
-=======
-$text['label-secure']['en-gb'] = "Secure";
->>>>>>> pr/2
 $text['label-secure']['ar-eg'] = "";
 $text['label-secure']['de-at'] = "Sicher"; //copied from de-de
 $text['label-secure']['de-ch'] = "Sicher"; //copied from de-de
@@ -170,10 +142,6 @@ $text['label-secure']['sv-se'] = "Skydda";
 $text['label-secure']['uk-ua'] = "Захищено";
 
 $text['label-refresh_pause']['en-us'] = "Pause Refresh";
-<<<<<<< HEAD
-=======
-$text['label-refresh_pause']['en-gb'] = "Pause Refresh";
->>>>>>> pr/2
 $text['label-refresh_pause']['ar-eg'] = "";
 $text['label-refresh_pause']['de-at'] = "Seite neu laden deaktivieren"; //copied from de-de
 $text['label-refresh_pause']['de-ch'] = "Seite neu laden deaktivieren"; //copied from de-de
@@ -194,10 +162,6 @@ $text['label-refresh_pause']['sv-se'] = "Paus Uppdatera";
 $text['label-refresh_pause']['uk-ua'] = "пауза Оновити";
 
 $text['label-refresh_enable']['en-us'] = "Enable Refresh";
-<<<<<<< HEAD
-=======
-$text['label-refresh_enable']['en-gb'] = "Enable Refresh";
->>>>>>> pr/2
 $text['label-refresh_enable']['ar-eg'] = "";
 $text['label-refresh_enable']['de-at'] = "Seite neu laden aktivieren"; //copied from de-de
 $text['label-refresh_enable']['de-ch'] = "Seite neu laden aktivieren"; //copied from de-de
@@ -218,10 +182,6 @@ $text['label-refresh_enable']['sv-se'] = "Aktivera Uppdatering";
 $text['label-refresh_enable']['uk-ua'] = "включити Оновити";
 
 $text['label-profile']['en-us'] = "Profile";
-<<<<<<< HEAD
-=======
-$text['label-profile']['en-gb'] = "Profile";
->>>>>>> pr/2
 $text['label-profile']['ar-eg'] = "";
 $text['label-profile']['de-at'] = "Profil"; //copied from de-de
 $text['label-profile']['de-ch'] = "Profil"; //copied from de-de
@@ -242,10 +202,6 @@ $text['label-profile']['sv-se'] = "Profil";
 $text['label-profile']['uk-ua'] = "Профіль";
 
 $text['label-park-extension']['en-us'] = "Park";
-<<<<<<< HEAD
-=======
-$text['label-park-extension']['en-gb'] = "Park";
->>>>>>> pr/2
 $text['label-park-extension']['ar-eg'] = "";
 $text['label-park-extension']['de-at'] = "Parken"; //copied from de-de
 $text['label-park-extension']['de-ch'] = "Parken"; //copied from de-de
@@ -266,10 +222,6 @@ $text['label-park-extension']['sv-se'] = "Parkera";
 $text['label-park-extension']['uk-ua'] = "Паркувати";
 
 $text['label-park']['en-us'] = "park";
-<<<<<<< HEAD
-=======
-$text['label-park']['en-gb'] = "park";
->>>>>>> pr/2
 $text['label-park']['ar-eg'] = "";
 $text['label-park']['de-at'] = "parken"; //copied from de-de
 $text['label-park']['de-ch'] = "parken"; //copied from de-de
@@ -290,10 +242,6 @@ $text['label-park']['sv-se'] = "parkera";
 $text['label-park']['uk-ua'] = "паркувати";
 
 $text['label-opt']['en-us'] = "Options";
-<<<<<<< HEAD
-=======
-$text['label-opt']['en-gb'] = "Options";
->>>>>>> pr/2
 $text['label-opt']['ar-eg'] = "";
 $text['label-opt']['de-at'] = "Optionen"; //copied from de-de
 $text['label-opt']['de-ch'] = "Optionen"; //copied from de-de
@@ -314,10 +262,6 @@ $text['label-opt']['sv-se'] = "Alternativ";
 $text['label-opt']['uk-ua'] = "Опції";
 
 $text['label-number']['en-us'] = "Number";
-<<<<<<< HEAD
-=======
-$text['label-number']['en-gb'] = "Number";
->>>>>>> pr/2
 $text['label-number']['ar-eg'] = "";
 $text['label-number']['de-at'] = "Nummer"; //copied from de-de
 $text['label-number']['de-ch'] = "Nummer"; //copied from de-de
@@ -338,10 +282,6 @@ $text['label-number']['sv-se'] = "Nummer";
 $text['label-number']['uk-ua'] = "Номер";
 
 $text['label-message']['en-us'] = "Message";
-<<<<<<< HEAD
-=======
-$text['label-message']['en-gb'] = "Message";
->>>>>>> pr/2
 $text['label-message']['ar-eg'] = "";
 $text['label-message']['de-at'] = "Nachricht"; //copied from de-de
 $text['label-message']['de-ch'] = "Nachricht"; //copied from de-de
@@ -362,10 +302,6 @@ $text['label-message']['sv-se'] = "Meddelande";
 $text['label-message']['uk-ua'] = "Повідомлення";
 
 $text['label-hangup']['en-us'] = "Hangup";
-<<<<<<< HEAD
-=======
-$text['label-hangup']['en-gb'] = "Hangup";
->>>>>>> pr/2
 $text['label-hangup']['ar-eg'] = "";
 $text['label-hangup']['de-at'] = "Auflegen"; //copied from de-de
 $text['label-hangup']['de-ch'] = "Auflegen"; //copied from de-de
@@ -386,10 +322,6 @@ $text['label-hangup']['sv-se'] = "Avsluta";
 $text['label-hangup']['uk-ua'] = "Розірвати";
 
 $text['label-ext']['en-us'] = "Ext";
-<<<<<<< HEAD
-=======
-$text['label-ext']['en-gb'] = "Ext";
->>>>>>> pr/2
 $text['label-ext']['ar-eg'] = "";
 $text['label-ext']['de-at'] = "Nst"; //copied from de-de
 $text['label-ext']['de-ch'] = "Nst"; //copied from de-de
@@ -410,10 +342,6 @@ $text['label-ext']['sv-se'] = "Ank";
 $text['label-ext']['uk-ua'] = "Ext ";
 
 $text['label-domain']['en-us'] = "Domain";
-<<<<<<< HEAD
-=======
-$text['label-domain']['en-gb'] = "Domain";
->>>>>>> pr/2
 $text['label-domain']['ar-eg'] = "";
 $text['label-domain']['de-at'] = "Domäne"; //copied from de-de
 $text['label-domain']['de-ch'] = "Domäne"; //copied from de-de
@@ -434,10 +362,6 @@ $text['label-domain']['sv-se'] = "Domän";
 $text['label-domain']['uk-ua'] = "Домен";
 
 $text['label-destination']['en-us'] = "Dest";
-<<<<<<< HEAD
-=======
-$text['label-destination']['en-gb'] = "Dest";
->>>>>>> pr/2
 $text['label-destination']['ar-eg'] = "";
 $text['label-destination']['de-at'] = "Ziel"; //copied from de-de
 $text['label-destination']['de-ch'] = "Ziel"; //copied from de-de
@@ -458,10 +382,6 @@ $text['label-destination']['sv-se'] = "Dest";
 $text['label-destination']['uk-ua'] = "Номер";
 
 $text['label-created']['en-us'] = "Created";
-<<<<<<< HEAD
-=======
-$text['label-created']['en-gb'] = "Created";
->>>>>>> pr/2
 $text['label-created']['ar-eg'] = "";
 $text['label-created']['de-at'] = "Erstellt"; //copied from de-de
 $text['label-created']['de-ch'] = "Erstellt"; //copied from de-de
@@ -482,10 +402,6 @@ $text['label-created']['sv-se'] = "Skapad";
 $text['label-created']['uk-ua'] = "Створено";
 
 $text['label-codec']['en-us'] = "Read / Write Codec";
-<<<<<<< HEAD
-=======
-$text['label-codec']['en-gb'] = "Read / Write Codec";
->>>>>>> pr/2
 $text['label-codec']['ar-eg'] = "";
 $text['label-codec']['de-at'] = "Lese / Schreib Codec"; //copied from de-de
 $text['label-codec']['de-ch'] = "Lese / Schreib Codec"; //copied from de-de
@@ -506,10 +422,6 @@ $text['label-codec']['sv-se'] = "Läs/Skriv Codec";
 $text['label-codec']['uk-ua'] = "Кодеки читання/запису";
 
 $text['label-cid-number']['en-us'] = "CID Number";
-<<<<<<< HEAD
-=======
-$text['label-cid-number']['en-gb'] = "CID Number";
->>>>>>> pr/2
 $text['label-cid-number']['ar-eg'] = "";
 $text['label-cid-number']['de-at'] = "Anrufer Nummer"; //copied from de-de
 $text['label-cid-number']['de-ch'] = "Anrufer Nummer"; //copied from de-de
@@ -530,10 +442,6 @@ $text['label-cid-number']['sv-se'] = "CID, nummerspresentation";
 $text['label-cid-number']['uk-ua'] = "CID Номер";
 
 $text['label-cid-name']['en-us'] = "CID Name";
-<<<<<<< HEAD
-=======
-$text['label-cid-name']['en-gb'] = "CID Name";
->>>>>>> pr/2
 $text['label-cid-name']['ar-eg'] = "";
 $text['label-cid-name']['de-at'] = "Anrufer Name"; //copied from de-de
 $text['label-cid-name']['de-ch'] = "Anrufer Name"; //copied from de-de
@@ -554,10 +462,6 @@ $text['label-cid-name']['sv-se'] = "CID namnpresentation";
 $text['label-cid-name']['uk-ua'] = "CID Ім’я";
 
 $text['label-app']['en-us'] = "Application";
-<<<<<<< HEAD
-=======
-$text['label-app']['en-gb'] = "Application";
->>>>>>> pr/2
 $text['label-app']['ar-eg'] = "";
 $text['label-app']['de-at'] = "Anwendung"; //copied from de-de
 $text['label-app']['de-ch'] = "Anwendung"; //copied from de-de
@@ -578,10 +482,6 @@ $text['label-app']['sv-se'] = "Ansökan";
 $text['label-app']['uk-ua'] = "Додаток";
 
 $text['description-2']['en-us'] = "Use this to view all extensions and monitor and interact with active calls.";
-<<<<<<< HEAD
-=======
-$text['description-2']['en-gb'] = "Use this to view all extensions and monitor and interact with active calls.";
->>>>>>> pr/2
 $text['description-2']['ar-eg'] = "";
 $text['description-2']['de-at'] = "Benutzen Sie die Funktionen um alle Nebenstellen anzuzeigen, zu überwachen und aktive Gespräche zu steuern."; //copied from de-de
 $text['description-2']['de-ch'] = "Benutzen Sie die Funktionen um alle Nebenstellen anzuzeigen, zu überwachen und aktive Gespräche zu steuern."; //copied from de-de
@@ -602,10 +502,6 @@ $text['description-2']['sv-se'] = "Använd detta för att se alla anknytningar o
 $text['description-2']['uk-ua'] = "Використовуйте це, щоб переглянути всі розширення, контролювати і взаємодіяти з активними викликами.";
 
 $text['description']['en-us'] = "Use this to monitor and interact with the active calls.";
-<<<<<<< HEAD
-=======
-$text['description']['en-gb'] = "Use this to monitor and interact with the active calls.";
->>>>>>> pr/2
 $text['description']['ar-eg'] = "";
 $text['description']['de-at'] = "Benutzen Sie die Funktionen um aktive Gespräche zu steuern."; //copied from de-de
 $text['description']['de-ch'] = "Benutzen Sie die Funktionen um aktive Gespräche zu steuern."; //copied from de-de
@@ -626,10 +522,6 @@ $text['description']['sv-se'] = "Använd detta för att monitorera och hantera a
 $text['description']['uk-ua'] = "Використовуйте це, щоб контролювати і взаємодіяти з активними викликами.";
 
 $text['confirm-socket']['en-us'] = "Connection to Event Socket failed.";
-<<<<<<< HEAD
-=======
-$text['confirm-socket']['en-gb'] = "Connection to Event Socket failed.";
->>>>>>> pr/2
 $text['confirm-socket']['ar-eg'] = "";
 $text['confirm-socket']['de-at'] = "Verbindung zum Event-Socket fehlgeschlagen."; //copied from de-de
 $text['confirm-socket']['de-ch'] = "Verbindung zum Event-Socket fehlgeschlagen."; //copied from de-de
@@ -650,10 +542,6 @@ $text['confirm-socket']['sv-se'] = "Anslutning till 'Event Socket' misslyckades"
 $text['confirm-socket']['uk-ua'] = "Помилка підключення до сокета подій";
 
 $text['confirm-hangup']['en-us'] = "Do you really want to hangup this call?";
-<<<<<<< HEAD
-=======
-$text['confirm-hangup']['en-gb'] = "Do you really want to hangup this call?";
->>>>>>> pr/2
 $text['confirm-hangup']['ar-eg'] = "";
 $text['confirm-hangup']['de-at'] = "Wollen Sie dieses Gespräch wirklich beenden?"; //copied from de-de
 $text['confirm-hangup']['de-ch'] = "Wollen Sie dieses Gespräch wirklich beenden?"; //copied from de-de
@@ -674,10 +562,6 @@ $text['confirm-hangup']['sv-se'] = "Vill du verkligen avsluta detta samtal";
 $text['confirm-hangup']['uk-ua'] = "Ви дійсно бажаєте розірвати дзвінок?";
 
 $text['confirm-hangups']['en-us'] = "Do you really want to hangup these calls?";
-<<<<<<< HEAD
-=======
-$text['confirm-hangups']['en-gb'] = "Do you really want to hangup these calls?";
->>>>>>> pr/2
 $text['confirm-hangups']['ar-eg'] = "";
 $text['confirm-hangups']['de-at'] = "Wollen Sie dieses Gespräch wirklich beenden?"; //copied from de-de
 $text['confirm-hangups']['de-ch'] = "Wollen Sie dieses Gespräch wirklich beenden?"; //copied from de-de
@@ -698,10 +582,6 @@ $text['confirm-hangups']['sv-se'] = "Vill du verkligen avsluta detta samtal";
 $text['confirm-hangups']['uk-ua'] = "Ви дійсно бажаєте розірвати дзвінок?";
 
 $text['check-onbreak-status']['en-us'] = "On Break";
-<<<<<<< HEAD
-=======
-$text['check-onbreak-status']['en-gb'] = "On Break";
->>>>>>> pr/2
 $text['check-onbreak-status']['ar-eg'] = "";
 $text['check-onbreak-status']['de-at'] = "Auf Pause"; //copied from de-de
 $text['check-onbreak-status']['de-ch'] = "Auf Pause"; //copied from de-de
@@ -722,10 +602,6 @@ $text['check-onbreak-status']['sv-se'] = "På Rast";
 $text['check-onbreak-status']['uk-ua'] = "На перерві";
 
 $text['check-loggedout-status']['en-us'] = "Logged Out";
-<<<<<<< HEAD
-=======
-$text['check-loggedout-status']['en-gb'] = "Logged Out";
->>>>>>> pr/2
 $text['check-loggedout-status']['ar-eg'] = "";
 $text['check-loggedout-status']['de-at'] = "Abgemeldet"; //copied from de-de
 $text['check-loggedout-status']['de-ch'] = "Abgemeldet"; //copied from de-de
@@ -746,10 +622,6 @@ $text['check-loggedout-status']['sv-se'] = "Utloggad";
 $text['check-loggedout-status']['uk-ua'] = "Вийшов";
 
 $text['check-do-not-disturb-status']['en-us'] = "Do Not Disturb";
-<<<<<<< HEAD
-=======
-$text['check-do-not-disturb-status']['en-gb'] = "Do Not Disturb";
->>>>>>> pr/2
 $text['check-do-not-disturb-status']['ar-eg'] = "";
 $text['check-do-not-disturb-status']['de-at'] = "Bitte nicht Stören"; //copied from de-de
 $text['check-do-not-disturb-status']['de-ch'] = "Bitte nicht Stören"; //copied from de-de
@@ -770,10 +642,6 @@ $text['check-do-not-disturb-status']['sv-se'] = "Stör Ej";
 $text['check-do-not-disturb-status']['uk-ua'] = "Не турбувати";
 
 $text['check-available-status']['en-us'] = "Available";
-<<<<<<< HEAD
-=======
-$text['check-available-status']['en-gb'] = "Available";
->>>>>>> pr/2
 $text['check-available-status']['ar-eg'] = "";
 $text['check-available-status']['de-at'] = "Erreichbar"; //copied from de-de
 $text['check-available-status']['de-ch'] = "Erreichbar"; //copied from de-de
@@ -794,10 +662,6 @@ $text['check-available-status']['sv-se'] = "Anträffbar";
 $text['check-available-status']['uk-ua'] = "Доступний";
 
 $text['check-available-on-demand-status']['en-us'] = "Available (On Demand)";
-<<<<<<< HEAD
-=======
-$text['check-available-on-demand-status']['en-gb'] = "Available (On Demand)";
->>>>>>> pr/2
 $text['check-available-on-demand-status']['ar-eg'] = "";
 $text['check-available-on-demand-status']['de-at'] = "Erreichbar (Auf Anfrage)"; //copied from de-de
 $text['check-available-on-demand-status']['de-ch'] = "Erreichbar (Auf Anfrage)"; //copied from de-de
@@ -818,10 +682,6 @@ $text['check-available-on-demand-status']['sv-se'] = "Anträffbar (På Begäran)
 $text['check-available-on-demand-status']['uk-ua'] = "Доступний (на вимогу)";
 
 $text['button-show_all']['en-us'] = "Show All";
-<<<<<<< HEAD
-=======
-$text['button-show_all']['en-gb'] = "Show All";
->>>>>>> pr/2
 $text['button-show_all']['ar-eg'] = "";
 $text['button-show_all']['de-at'] = "Alle anzeigen"; //copied from de-de
 $text['button-show_all']['de-ch'] = "Alle anzeigen"; //copied from de-de
@@ -842,10 +702,6 @@ $text['button-show_all']['sv-se'] = "Visa Allt";
 $text['button-show_all']['uk-ua'] = "Показати всі";
 
 $text['message-calls_ended']['en-us'] = "Calls Ended";
-<<<<<<< HEAD
-=======
-$text['message-calls_ended']['en-gb'] = "Calls Ended";
->>>>>>> pr/2
 $text['message-calls_ended']['ar-eg'] = "";
 $text['message-calls_ended']['de-at'] = "";
 $text['message-calls_ended']['de-ch'] = "";

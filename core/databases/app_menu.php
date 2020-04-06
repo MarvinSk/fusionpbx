@@ -2,10 +2,6 @@
 
 	$y=0;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Databases";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Databases";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "قواعد البيانات";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Datenbanken";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Datenbanken";

@@ -2,10 +2,6 @@
 
 	$y=0;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Destinations";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Destinations";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "جهات الأتصال";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Ziele";
 	$apps[$x]['menu'][$y]['title']['de-ch'] = "";

@@ -9,10 +9,6 @@
 		$apps[$x]['license'] = "Mozilla Public License 1.1";
 		$apps[$x]['url'] = "http://www.fusionpbx.com";
 		$apps[$x]['description']['en-us'] = "Manage failed email messages.";
-<<<<<<< HEAD
-=======
-		$apps[$x]['description']['en-gb'] = "Manage failed email messages.";
->>>>>>> pr/2
 		$apps[$x]['description']['ar-eg'] = "";
 		$apps[$x]['description']['de-at'] = "Fehlgeschlagene Email Benachrichtigungen verwalten.";
 		$apps[$x]['description']['de-ch'] = "";

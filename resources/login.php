@@ -376,10 +376,6 @@
 	}
 
 //add the footer
-<<<<<<< HEAD
-=======
-	$login_page = true;
->>>>>>> pr/2
 	include "resources/footer.php";
 
 ?>

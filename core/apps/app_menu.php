@@ -2,10 +2,6 @@
 
 	$y=0;	
 	$apps[$x]['menu'][$y]['title']['en-us'] = "App Manager";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "App Manager";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Applikation Verwalten";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Applikation Verwalten";

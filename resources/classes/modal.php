@@ -18,11 +18,7 @@
 
 	The Initial Developer of the Original Code is
 	Mark J Crane <markjcrane@fusionpbx.com>
-<<<<<<< HEAD
 	Copyright (C) 2010 - 2019
-=======
-	Copyright (C) 2010 - 2020
->>>>>>> pr/2
 	All Rights Reserved.
 
 	Contributor(s):
@@ -36,11 +32,7 @@ if (!class_exists('modal')) {
 
 			$modal = "<div id='".($array['id'] ? $array['id'] : 'modal')."' class='modal-window'>\n";
 			$modal .= "	<div>\n";
-<<<<<<< HEAD
 			$modal .= "		<a href='#' title=\"".$text['button-close']."\" class='modal-close'>".($array['close'] ? $array['close'] : '&times;')."</a>\n";
-=======
-			$modal .= "		<span title=\"".$text['button-close']."\" class='modal-close' onclick=\"modal_close(); ".$array['onclose']."\">&times</span>\n";
->>>>>>> pr/2
 			if ($array['type'] != '') {
 				//add multi-lingual support
 					$language = new text;
@@ -59,17 +51,9 @@ if (!class_exists('modal')) {
 							$array['title'] = $text['modal_title-confirmation'];
 							$array['message'] = $text['confirm-delete'];
 							break;
-<<<<<<< HEAD
 					}
 				//prefix cancel button to action
 					$array['actions'] = button::create(['type'=>'button','label'=>$text['button-cancel'],'icon'=>$_SESSION['theme']['button_icon_cancel'],'collapse'=>'never','onclick'=>'modal_close();']).$array['actions'];
-=======
-						default: //general
-							$array['title'] = $array['title'] ? $array['title'] : $text['modal_title-confirmation'];
-					}
-				//prefix cancel button to action
-					$array['actions'] = button::create(['type'=>'button','label'=>$text['button-cancel'],'icon'=>$_SESSION['theme']['button_icon_cancel'],'collapse'=>'never','onclick'=>'modal_close(); '.$array['onclose']]).$array['actions'];
->>>>>>> pr/2
 			}
 			$modal .= $array['title'] ? "<span class='modal-title'>".$array['title']."</span>\n" : null;
 			$modal .= $array['message'] ? "<span class='modal-message'>".$array['message']."</span>\n" : null;
@@ -85,8 +69,4 @@ if (!class_exists('modal')) {
 	}
 }
 
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> pr/2

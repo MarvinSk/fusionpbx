@@ -137,7 +137,6 @@
 			}
 		}
 		echo button::create(['type'=>'button','label'=>$text['label-end-conference'],'icon'=>'stop','collapse'=>'hide-xs','onclick'=>"send_cmd('conference_exec.php?cmd=conference&name=".urlencode($conference_name)."&data=kick+all');"]);
-<<<<<<< HEAD
 
 		echo "</div>\n";
 		echo "<strong>".$text['label-members'].": ".escape($member_count)."</strong>\n";
@@ -181,52 +180,6 @@
 				$caller_id_name = urldecode($caller_id_name);
 				$caller_id_number = $row->caller_id_number;
 
-=======
-
-		echo "</div>\n";
-		echo "<strong>".$text['label-members'].": ".escape($member_count)."</strong>\n";
-		echo "<br /><br />\n";
-
-		echo "<table class='list'>\n";
-		echo "<tr class='list-header'>\n";
-		echo "<th width='1px'>&nbsp;</th>\n";
-		echo "<th class='no-wrap'>".$text['label-cid-name']."</th>\n";
-		echo "<th class='no-wrap'>".$text['label-cid-num']."</th>\n";
-		echo "<th class='hide-sm-dn'>".$text['label-joined']."</th>\n";
-		echo "<th class='hide-xs'>".$text['label-quiet']."</th>\n";
-		echo "<th class='hide-sm-dn'>".$text['label-floor']."</th>\n";
-		echo "<th class='hide-sm-dn'>".$text['label-hand_raised']."</th>\n";
-		echo "<th class='center'>".$text['label-capabilities']."</th>\n";
-		if (permission_exists('conference_interactive_energy')) {
-			echo "<th class='center'>".$text['label-energy']."</th>\n";
-		}
-		if (permission_exists('conference_interactive_volume')) {
-			echo "<th class='center'>".$text['label-volume']."</th>\n";
-		}
-		if (permission_exists('conference_interactive_gain')) {
-			echo "<th class='center'>".$text['label-gain']."</th>\n";
-		}
-		echo "<th>&nbsp;</th>\n";
-		echo "</tr>\n";
-		if ($valid_xml && isset($xml->conference->members->member)) {
-			foreach ($xml->conference->members->member as $row) {
-				$id = $row->id;
-				$record_path = $row->record_path;
-				$flag_can_hear = $row->flags->can_hear;
-				$flag_can_speak = $row->flags->can_speak;
-				$flag_talking = $row->flags->talking;
-				$last_talking = $row->last_talking;
-				$join_time = $row->join_time;
-				$flag_has_video = $row->flags->has_video;
-				$flag_has_floor = $row->flags->has_floor;
-				$is_moderator = $row->flags->is_moderator;
-				$uuid = $row->uuid;
-				$caller_id_name = $row->caller_id_name;
-				$caller_id_name = urldecode($caller_id_name);
-				$caller_id_number = $row->caller_id_number;
-				$switch_cmd = "uuid_getvar ".$uuid. " hand_raised";
-				$hand_raised = (trim(event_socket_request($fp, 'api '.$switch_cmd)) == "true") ? "true" : "false";
->>>>>>> pr/2
 				//format seconds
 				$join_time_formatted = sprintf('%02d:%02d:%02d', ($join_time/3600), ($join_time/60%60), $join_time%60);
 				$last_talking_formatted = sprintf('%02d:%02d:%02d', ($last_talking/3600), ($last_talking/60%60), $last_talking%60);
@@ -236,7 +189,6 @@
 						$action_mute = ($flag_can_speak == "true") ? 'mute' : 'unmute';
 						$list_row_onclick = "onclick=\"send_cmd('conference_exec.php?cmd=conference&name=".urlencode($conference_name)."&data=".$action_mute."&id=".urlencode($id)."');\"";
 						$list_row_title = "title=\"".$text['message-click_to_'.$action_mute]."\"";
-<<<<<<< HEAD
 					}
 					echo "<tr class='list-row'>\n";
 					echo "<td ".$list_row_onclick." ".$list_row_title.">";
@@ -249,30 +201,11 @@
 					}
 					echo "</td>\n";
 					$talking_icon = "<img src='resources/images/talking.png' style='width: 16px; height: 16px; border: none; margin: -2px 10px -2px 15px; visibility: ".($flag_talking == "true" ? 'visible' : 'hidden').";' align='absmiddle' title=\"".$text['label-talking']."\">";
-=======
-					}
-					echo "<tr class='list-row'>\n";
-					echo "<td ".$list_row_onclick." ".$list_row_title.">";
-					if ($is_moderator == 'true') {
-						echo "<i class='fas fa-user-tie fa-fw' title=\"".$text['label-moderator']."\"></i>";
-					}
-					else {
-						echo "<i class='fas fa-user fa-fw' title=\"".$text['label-participant']."\"></i>";
-
-					}
-					echo "</td>\n";
-					$talking_icon = "<span class='far fa-comment' style='font-size: 14px; margin: -2px 10px -2px 15px; visibility: ".($flag_talking == "true" ? 'visible' : 'hidden').";' align='absmiddle' title=\"".$text['label-talking']."\">";
->>>>>>> pr/2
 					echo "<td ".$list_row_onclick." ".$list_row_title." class='no-wrap'>".escape($caller_id_name).$talking_icon."</td>\n";
 					echo "<td ".$list_row_onclick." ".$list_row_title.">".escape($caller_id_number)."</td>\n";
 					echo "<td ".$list_row_onclick." ".$list_row_title." class='hide-sm-dn'>".escape($join_time_formatted)."</td>\n";
 					echo "<td ".$list_row_onclick." ".$list_row_title." class='hide-xs'>".escape($last_talking_formatted)."</td>\n";
 					echo "<td ".$list_row_onclick." ".$list_row_title." class='hide-sm-dn'>".$text['label-'.(($flag_has_floor == "true") ? 'yes' : 'no')]."</td>\n";
-<<<<<<< HEAD
-=======
-					$hand_raise_icon = "<i class='fas fa-hand-paper' style='font-size: 14px; margin: -2px 10px -2px 15px; visibility: ".($hand_raised == "true" ? 'visible' : 'hidden').";' align='absmiddle' title=\"".$text['label-hand_raised']."\">";
-					echo "<td ".$list_row_onclick." ".$list_row_title." class='hide-sm-dn'>".$text['label-'.(($hand_raised == "true") ? 'yes' : 'no')]." ".$hand_raise_icon."</td>\n";
->>>>>>> pr/2
 					echo "<td ".$list_row_onclick." ".$list_row_title." class='center'>";
 					echo 	($flag_can_speak == "true") ? "<i class='fas fa-microphone fa-fw' title=\"".$text['label-speak']."\"></i>" : "<i class='fas fa-microphone-slash fa-fw' title=\"".$text['label-speak']."\"></i>";
 					echo 	($flag_can_hear == "true") ? "<i class='fas fa-headphones fa-fw' title=\"".$text['label-speak']."\" style='margin-left: 10px;'></i>" : "<i class='fas fa-deaf fa-fw' title=\"".$text['label-hear']."\" style='margin-left: 10px;'></i>";
@@ -308,11 +241,7 @@
 								echo button::create(['type'=>'button','label'=>$text['label-mute'],'icon'=>'microphone-slash','onclick'=>"send_cmd('conference_exec.php?cmd=conference&name=".urlencode($conference_name)."&data=mute&id=".urlencode($id)."');"]);
 							}
 							else { //unmute
-<<<<<<< HEAD
 								echo button::create(['type'=>'button','label'=>$text['label-unmute'],'icon'=>'microphone','onclick'=>"send_cmd('conference_exec.php?cmd=conference&name=".urlencode($conference_name)."&data=unmute&id=".urlencode($id)."');"]);
-=======
-								echo button::create(['type'=>'button','label'=>$text['label-unmute'],'icon'=>'microphone','onclick'=>"send_cmd('conference_exec.php?cmd=conference&name=".urlencode($conference_name)."&data=unmute&id=".urlencode($id)."&uuid=".escape($uuid)."');"]);
->>>>>>> pr/2
 							}
 						}
 					//deaf and undeaf
@@ -337,8 +266,4 @@
 		echo "<br /><br />";
 	}
 
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> pr/2

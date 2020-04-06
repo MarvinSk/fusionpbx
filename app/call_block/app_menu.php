@@ -2,10 +2,6 @@
 
 	$y=0;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Call Block";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Call Block";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "حظر المكالمات";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Sperrlisten";
 	$apps[$x]['menu'][$y]['title']['de-ch'] = "";

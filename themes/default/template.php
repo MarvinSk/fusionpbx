@@ -15,22 +15,14 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 
 {*//external css files *}
-<<<<<<< HEAD
 	<link rel='stylesheet' type='text/css' href='{$project_path}/resources/bootstrap/css/bootstrap.min.css'>
 	<link rel='stylesheet' type='text/css' href='{$project_path}/resources/bootstrap/css/bootstrap-tempusdominus.css'>
 	<link rel='stylesheet' type='text/css' href='{$project_path}/resources/bootstrap/css/bootstrap-colorpicker.min.css'>
 	<link rel='stylesheet' type='text/css' href='{$project_path}/resources/fontawesome/css/all.css'>
-=======
-	<link rel='stylesheet' type='text/css' href='{$project_path}/resources/bootstrap/css/bootstrap.min.css.php'>
-	<link rel='stylesheet' type='text/css' href='{$project_path}/resources/bootstrap/css/bootstrap-tempusdominus.min.css.php'>
-	<link rel='stylesheet' type='text/css' href='{$project_path}/resources/bootstrap/css/bootstrap-colorpicker.min.css.php'>
-	<link rel='stylesheet' type='text/css' href='{$project_path}/resources/fontawesome/css/all.min.css.php'>
->>>>>>> pr/2
 	<link rel='stylesheet' type='text/css' href='{$project_path}/themes/default/css.php'>
 
 {*//link to custom css file *}
 	{if $settings.theme.custom_css}
-<<<<<<< HEAD
 		<link rel='stylesheet' type='text/css' href='$settings.theme.custom_css'>
 	{/if}
 
@@ -39,9 +31,6 @@
 		<style>
 		$settings.theme.custom_css_code
 		</style>
-=======
-		<link rel='stylesheet' type='text/css' href='{$settings.theme.custom_css}'>
->>>>>>> pr/2
 	{/if}
 
 {*//set favorite icon *}
@@ -51,7 +40,6 @@
 	<title>{$document_title}</title>
 
 {*//remote javascript *}
-<<<<<<< HEAD
 	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/jquery/jquery-3.4.1.min.js'></script>
 	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/jquery/jquery.autosize.input.js'></script>
 	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/momentjs/moment-with-locales.min.js'></script>
@@ -61,17 +49,6 @@
 	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/bootstrap/js/bootstrap-pwstrength.min.js'></script>
 	<script language='JavaScript' type='text/javascript'>{literal}window.FontAwesomeConfig = { autoReplaceSvg: false }{/literal}</script>
 	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/fontawesome/js/all.js' defer></script>
-=======
-	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/jquery/jquery.min.js.php'></script>
-	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/jquery/jquery.autosize.input.js.php'></script>
-	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/momentjs/moment-with-locales.min.js.php'></script>
-	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/bootstrap/js/bootstrap.min.js.php'></script>
-	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/bootstrap/js/bootstrap-tempusdominus.min.js.php'></script>
-	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/bootstrap/js/bootstrap-colorpicker.min.js.php'></script>
-	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/bootstrap/js/bootstrap-pwstrength.min.js.php'></script>
-	<script language='JavaScript' type='text/javascript'>{literal}window.FontAwesomeConfig = { autoReplaceSvg: false }{/literal}</script>
-	<script language='JavaScript' type='text/javascript' src='{$project_path}/resources/fontawesome/js/solid.min.js.php' defer></script>
->>>>>>> pr/2
 
 {*//web font loader *}
 	{if $settings.theme.font_loader == 'true'}
@@ -87,13 +64,8 @@
 		//message bar display
 			{literal}
 			function display_message(msg, mood, delay) {
-<<<<<<< HEAD
 				mood = typeof mood !== 'undefined' ? mood : 'default';
 				delay = typeof delay !== 'undefined' ? delay : {/literal}{$settings.theme.message_delay}{literal};
-=======
-				mood = mood !== undefined ? mood : 'default';
-				delay = delay !== undefined ? delay : {/literal}{$settings.theme.message_delay}{literal};
->>>>>>> pr/2
 				if (msg !== '') {
 					var message_text = $(document.createElement('div'));
 					message_text.addClass('message_text message_mood_'+mood);
@@ -240,7 +212,6 @@
 							document.activeElement.blur();
 						});
 					});
-<<<<<<< HEAD
 				}
 				{/literal}
 			{/if}
@@ -540,310 +511,6 @@
 						progress: '#pwstrength_progress'
 					}
 				}
-=======
-				}
-				{/literal}
-			{/if}
-
-		//keyboard shortcut scripts
-
-		//key: [enter] - retain default behavior to submit form, when present - note: safari does not honor the first submit element when hiding it using 'display: none;' in the setAttribute method
-			{if $settings.theme.keyboard_shortcut_submit_enabled}
-				{literal}
-				var action_bar_actions, first_form, first_submit, modal_input_class, modal_continue_button;
-				action_bar_actions = document.querySelector('div#action_bar.action_bar > div.actions');
-				first_form = document.querySelector('form#frm');
-
-				if (action_bar_actions !== null) {
-					if (first_form !== null) {
-						first_submit = document.createElement('input');
-						first_submit.type = 'submit';
-						first_submit.id = 'default_submit';
-						first_submit.setAttribute('style','position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;');
-						first_form.prepend(first_submit);
-						window.addEventListener('keydown',function(e){
-							modal_input_class = e.target.className;
-							if (e.which == 13 && (e.target.tagName == 'INPUT' || e.target.tagName == 'SELECT')) {
-								if (modal_input_class.includes('modal-input')) {
-									e.preventDefault();
-									modal_continue_button = document.getElementById(e.target.dataset.continue);
-									if (modal_continue_button) { modal_continue_button.click(); }
-								}
-								else {
-									if (typeof window.submit_form === 'function') { submit_form(); }
-									else { document.getElementById('frm').submit(); }
-								}
-							}
-						});
-					}
-				}
-				{/literal}
-			{/if}
-
-		//common (used by delete and toggle)
-			{if $settings.theme.keyboard_shortcut_delete_enabled || $settings.theme.keyboard_shortcut_toggle_enabled}
-				var list_checkboxes;
-				list_checkboxes = document.querySelectorAll('table.list tr.list-row td.checkbox input[type=checkbox]');
-			{/if}
-
-		//keyup event listener
-			{literal}
-			window.addEventListener('keyup', function(e) {
-				{/literal}
-
-				//key: [escape] - close modal window, if open, or toggle domain selector
-					{literal}
-					if (e.which == 27) {
-						e.preventDefault();
-						var modals, modal_visible, modal;
-						modal_visible = false;
-						modals = document.querySelectorAll('div.modal-window');
-						if (modals.length !== 0) {
-							for (var x = 0, max = modals.length; x < max; x++) {
-								modal = document.getElementById(modals[x].id);
-								if (window.getComputedStyle(modal).getPropertyValue('opacity') == 1) {
-									modal_visible = true;
-								}
-							}
-						}
-						if (modal_visible) {
-							modal_close();
-						}
-						{/literal}
-						{if $domain_selector_enabled}
-							{literal}
-							else {
-								if (document.getElementById('domains_visible').value == 0) {
-									show_domains();
-								}
-								else {
-									hide_domains();
-								}
-							}
-							{/literal}
-						{/if}
-						{literal}
-					}
-					{/literal}
-
-				//key: [insert], list: to add
-					{if $settings.theme.keyboard_shortcut_add_enabled}
-						{literal}
-						if (e.which == 45 && !(e.target.tagName == 'INPUT' && e.target.type == 'text') && e.target.tagName != 'TEXTAREA') {
-							e.preventDefault();
-							var add_button;
-							add_button = document.getElementById('btn_add');
-							if (add_button === null || add_button === undefined) {
-								add_button = document.querySelector('button[name=btn_add]');
-							}
-							if (add_button !== null) { add_button.click(); }
-						}
-						{/literal}
-					{/if}
-
-				//key: [delete], list: to delete checked, edit: to delete
-					{if $settings.theme.keyboard_shortcut_delete_enabled}
-						{literal}
-						if (e.which == 46 && !(e.target.tagName == 'INPUT' && e.target.type == 'text') && e.target.tagName != 'TEXTAREA') {
-							e.preventDefault();
-							var delete_button;
-							delete_button = document.querySelector('button[name=btn_delete]');
-							if (delete_button === null || delete_button === undefined) {
-								delete_button = document.getElementById('btn_delete');
-							}
-							if (delete_button !== null) { delete_button.click(); }
-						}
-						{/literal}
-					{/if}
-
-				//key: [space], list,edit:prevent default space key behavior when opening toggle confirmation (which would automatically *click* the focused continue button on key-up)
-					{if $settings.theme.keyboard_shortcut_toggle_enabled}
-						{literal}
-						if (e.which == 32 && e.target.id == 'btn_toggle') {
-							e.preventDefault();
-						}
-						{/literal}
-					{/if}
-
-		//keyup end
-			{literal}
-			});
-			{/literal}
-
-		//keydown event listener
-			{literal}
-			window.addEventListener('keydown', function(e) {
-				{/literal}
-
-				//key: [space], list: to toggle checked - note: for default [space] checkbox behavior (ie. toggle focused checkbox) include in the if statement: && !(e.target.tagName == 'INPUT' && e.target.type == 'checkbox')
-					{if $settings.theme.keyboard_shortcut_toggle_enabled}
-						{literal}
-						if (e.which == 32 && !(e.target.tagName == 'INPUT' && e.target.type == 'text') && e.target.tagName != 'BUTTON' && !(e.target.tagName == 'INPUT' && e.target.type == 'button') && !(e.target.tagName == 'INPUT' && e.target.type == 'submit') && e.target.tagName != 'TEXTAREA' && list_checkboxes.length !== 0) {
-							e.preventDefault();
-							var toggle_button;
-							toggle_button = document.querySelector('button[name=btn_toggle]');
-							if (toggle_button === null || toggle_button === undefined) {
-								toggle_button = document.getElementById('btn_toggle');
-							}
-							if (toggle_button !== null) { toggle_button.click(); }
-						}
-						{/literal}
-					{/if}
-
-				//key: [ctrl]+[a], list,edit: to check all
-					{if $settings.theme.keyboard_shortcut_check_all_enabled}
-						{literal}
-						if ((((e.which == 97 || e.which == 65) && (e.ctrlKey || e.metaKey) && !e.shiftKey) || e.which == 19) && !(e.target.tagName == 'INPUT' && e.target.type == 'text') && e.target.tagName != 'TEXTAREA') {
-							var all_checkboxes;
-							all_checkboxes = document.querySelectorAll('table.list tr.list-header th.checkbox input[name=checkbox_all]');
-							if (typeof all_checkboxes != 'object' || all_checkboxes.length == 0) {
-								all_checkboxes = document.querySelectorAll('td.edit_delete_checkbox_all > span > input[name=checkbox_all]');
-							}
-							if (typeof all_checkboxes == 'object' && all_checkboxes.length > 0) {
-								e.preventDefault();
-								for (var x = 0, max = all_checkboxes.length; x < max; x++) {
-									all_checkboxes[x].click();
-								}
-							}
-						}
-						{/literal}
-
-					{/if}
-
-				//key: [ctrl]+[s], edit: to save
-					{if $settings.theme.keyboard_shortcut_save_enabled}
-						{literal}
-						if (((e.which == 115 || e.which == 83) && (e.ctrlKey || e.metaKey) && !e.shiftKey) || (e.which == 19)) {
-							e.preventDefault();
-							var save_button;
-							save_button = document.getElementById('btn_save');
-							if (save_button === null || save_button === undefined) {
-								save_button = document.querySelector('button[name=btn_save]');
-							}
-							if (save_button !== null) { save_button.click(); }
-						}
-						{/literal}
-					{/if}
-
-				//key: [ctrl]+[c], list,edit: to copy
-					{if $settings.theme.keyboard_shortcut_copy_enabled}
-						{if $browser_name_short == 'Safari'} //emulate with detecting [c] only, as [command] and [control] keys are ignored when captured
-							{literal}
-							if ((e.which == 99 || e.which == 67) && !(e.target.tagName == 'INPUT' && e.target.type == 'text') && e.target.tagName != 'TEXTAREA') {
-							{/literal}
-						{else}
-							{literal}
-							if ((((e.which == 99 || e.which == 67) && (e.ctrlKey || e.metaKey) && !e.shiftKey) || (e.which == 19)) && !(e.target.tagName == 'INPUT' && e.target.type == 'text') && e.target.tagName != 'TEXTAREA') {
-							{/literal}
-						{/if}
-						{literal}
-							var current_selection, copy_button;
-							current_selection = window.getSelection();
-							if (current_selection === null || current_selection === undefined || current_selection.toString() == '') {
-								e.preventDefault();
-								copy_button = document.querySelector('button[name=btn_copy]');
-								if (copy_button === null || copy_button === undefined) {
-									copy_button = document.getElementById('btn_copy');
-								}
-								if (copy_button !== null) { copy_button.click(); }
-							}
-						}
-						{/literal}
-					{/if}
-
-		//keydown end
-			{literal}
-			});
-			{/literal}
-
-
-		//link list rows
-			{literal}
-			$('.tr_hover tr,.list tr').each(function(i,e) {
-				$(e).children('td:not(.list_control_icon,.list_control_icons,.tr_link_void,.list-row > .no-link,.list-row > .checkbox,.list-row > .button,.list-row > .action-button)').on('click', function() {
-					var href = $(this).closest('tr').attr('href');
-					var target = $(this).closest('tr').attr('target');
-					if (href) {
-						if (target) { window.open(href, target); }
-						else { window.location = href; }
-					}
-				});
-			});
-			{/literal}
-
-		//autosize jquery autosize plugin on applicable input fields
-			{literal}
-			$('input[type=text].txt.auto-size,input[type=number].txt.auto-size,input[type=password].txt.auto-size,input[type=text].formfld.auto-size,input[type=number].formfld.auto-size,input[type=password].formfld.auto-size').autosizeInput();
-			{/literal}
-
-		//initialize bootstrap tempusdominus (calendar/datetime picker) plugin
-			{literal}
-			$(function() {
-				//set defaults
-					$.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
-						buttons: {
-							showToday: true,
-							showClear: true,
-							showClose: true,
-						},
-						icons: {
-							time: 'fas fa-clock',
-							date: 'fas fa-calendar-alt',
-							up: 'fas fa-arrow-up',
-							down: 'fas fa-arrow-down',
-							previous: 'fas fa-chevron-left',
-							next: 'fas fa-chevron-right',
-							today: 'fas fa-calendar-check',
-							clear: 'fas fa-trash',
-							close: 'fas fa-times',
-						}
-					});
-				//define formatting of individual classes
-					$('.datepicker').datetimepicker({ format: 'YYYY-MM-DD', });
-					$('.datetimepicker').datetimepicker({ format: 'YYYY-MM-DD HH:mm', });
-					$('.datetimesecpicker').datetimepicker({ format: 'YYYY-MM-DD HH:mm:ss', });
-			});
-			{/literal}
-
-		//apply bootstrap colorpicker plugin
-			{literal}
-			$(function(){
-				$('.colorpicker').colorpicker({
-					align: 'left',
-					customClass: 'colorpicker-2x',
-					sliders: {
-						saturation: {
-							maxLeft: 200,
-							maxTop: 200
-						},
-						hue: {
-							maxTop: 200
-						},
-						alpha: {
-							maxTop: 200
-						}
-					}
-				});
-			});
-			{/literal}
-
-		//apply bootstrap password strength plugin
-			{literal}
-			$('#password').pwstrength({
-				common: {
-					minChar: 8,
-					usernameField: '#username',
-				},
-				//rules: { },
-				ui: {
-					colorClasses: ['danger', 'warning', 'warning', 'warning', 'success', 'success'], //weak,poor,normal,medium,good,strong
-					progressBarMinPercentage: 15,
-					showVerdicts: false,
-					viewports: {
-						progress: '#pwstrength_progress'
-					}
-				}
->>>>>>> pr/2
 			});
 			{/literal}
 
@@ -1084,34 +751,7 @@
 				}
 				document.getElementById('btn_delete').value = checkbox_checked ? '' : 'delete';
 			}
-<<<<<<< HEAD
 		}
-=======
-		}
-		{/literal}
-
-	//modal functions
-		{literal}
-		function modal_open(modal_id, focus_id) {
-			var modal = document.getElementById(modal_id);
-			modal.style.opacity = '1';
-			modal.style.pointerEvents = 'auto';
-			if (focus_id !== undefined) {
-				document.getElementById(focus_id).focus();
-			}
-		}
-
-		function modal_close() {
-			var modals = document.getElementsByClassName('modal-window');
-			if (modals.length > 0) {
-				for (var m = 0; m < modals.length; ++m) {
-					modals[m].style.opacity = '0';
-					modals[m].style.pointerEvents = 'none';
-				}
-			}
-			document.activeElement.blur();
-		}
->>>>>>> pr/2
 		{/literal}
 
 	//misc functions
@@ -1130,14 +770,11 @@
 			}
 		}
 
-<<<<<<< HEAD
 		function modal_close() {
 			document.location.href='#';
 			document.activeElement.blur();
 		}
 
-=======
->>>>>>> pr/2
 		function hide_password_fields() {
 			var password_fields = document.querySelectorAll("input[type='password']");
 			for (var p = 0, max = password_fields.length; p < max; p++) {
@@ -1241,29 +878,11 @@
 			</td></tr></table>
 		</div>
 
-<<<<<<< HEAD
 	{*//logged in *}
 		{if $authenticated}
 			{if $settings.theme.menu_style == 'side' || $settings.theme.menu_style == 'inline' || $settings.theme.menu_style == 'static'}
 				{if $settings.theme.menu_style == 'inline'}{$logo}{/if}
 				{$container_open}
-=======
-	{*//login page *}
-		{if $login_page}
-			<div id='default_login'>
-				<a href='{$project_path}/'><img id='login_logo' style='width: {$login_logo_width}; height: {$login_logo_height};' src='{$login_logo_source}'></a><br />
-				{$document_body}
-			</div>
-			<div id='footer_login'>
-				<span class='footer'>{$settings.theme.footer}</span>
-			</div>
-
-	{*//other pages *}
-		{else}
-			{if $settings.theme.menu_style == 'side' || $settings.theme.menu_style == 'inline' || $settings.theme.menu_style == 'static'}
-				{$container_open}
-				{if $settings.theme.menu_style == 'inline'}{$logo}{/if}
->>>>>>> pr/2
 				{$menu}
 				{if $settings.theme.menu_style == 'inline' || $settings.theme.menu_style == 'static'}<br />{/if}
 			{else} {*//default: fixed *}
@@ -1277,7 +896,6 @@
 				<span class='footer'>{$settings.theme.footer}</span>
 			</div>
 			{$container_close}
-<<<<<<< HEAD
 
 	{*//not logged in *}
 		{else}
@@ -1288,8 +906,6 @@
 			<div id='footer_login'>
 				<span class='footer'>{$settings.theme.footer}</span>
 			</div>
-=======
->>>>>>> pr/2
 		{/if}
 
 </body>

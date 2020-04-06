@@ -2,10 +2,6 @@
 
 //Number Translations
 $text['title-number_translations']['en-us'] = 'Number Translations';
-<<<<<<< HEAD
-=======
-$text['title-number_translations']['en-gb'] = 'Number Translations';
->>>>>>> pr/2
 $text['title-number_translations']['ar-eg'] = '';
 $text['title-number_translations']['de-at'] = '';
 $text['title-number_translations']['de-ch'] = '';
@@ -26,10 +22,6 @@ $text['title-number_translations']['sv-se'] = '';
 $text['title-number_translations']['uk-ua'] = '';
 
 $text['title-number_translation']['en-us'] = 'Number Translation';
-<<<<<<< HEAD
-=======
-$text['title-number_translation']['en-gb'] = 'Number Translation';
->>>>>>> pr/2
 $text['title-number_translation']['ar-eg'] = '';
 $text['title-number_translation']['de-at'] = '';
 $text['title-number_translation']['de-ch'] = '';
@@ -50,10 +42,6 @@ $text['title-number_translation']['sv-se'] = '';
 $text['title-number_translation']['uk-ua'] = '';
 
 $text['title_description-number_translation']['en-us'] = 'Use this to translate numbers from the original number to a new number using regular expressions.';
-<<<<<<< HEAD
-=======
-$text['title_description-number_translation']['en-gb'] = 'Use this to translate numbers from the original number to a new number using regular expressions.';
->>>>>>> pr/2
 $text['title_description-number_translation']['ar-eg'] = '';
 $text['title_description-number_translation']['de-at'] = '';
 $text['title_description-number_translation']['de-ch'] = '';
@@ -74,10 +62,6 @@ $text['title_description-number_translation']['sv-se'] = '';
 $text['title_description-number_translation']['uk-ua'] = '';
 
 $text['label-number_translation_detail_regex']['en-us'] = 'Regular Expression';
-<<<<<<< HEAD
-=======
-$text['label-number_translation_detail_regex']['en-gb'] = 'Regular Expression';
->>>>>>> pr/2
 $text['label-number_translation_detail_regex']['ar-eg'] = "تعبير عادي";
 $text['label-number_translation_detail_regex']['de-at'] = "Regulärer Ausdruck"; //copied from de-de
 $text['label-number_translation_detail_regex']['de-ch'] = "Regulärer Ausdruck"; //copied from de-de
@@ -98,10 +82,6 @@ $text['label-number_translation_detail_regex']['sv-se'] = "Vanligt uttryck";
 $text['label-number_translation_detail_regex']['uk-ua'] = "Регулярний вираз";
 
 $text['description-number_translation_detail_regex']['en-us'] = 'Enter the regular expression that identifies the number to replace.';
-<<<<<<< HEAD
-=======
-$text['description-number_translation_detail_regex']['en-gb'] = 'Enter the regular expression that identifies the number to replace.';
->>>>>>> pr/2
 $text['description-number_translation_detail_regex']['ar-eg'] = '';
 $text['description-number_translation_detail_regex']['de-at'] = '';
 $text['description-number_translation_detail_regex']['de-ch'] = '';
@@ -122,10 +102,6 @@ $text['description-number_translation_detail_regex']['sv-se'] = '';
 $text['description-number_translation_detail_regex']['uk-ua'] = '';
 
 $text['label-number_translation_detail_replace']['en-us'] = "Replace";
-<<<<<<< HEAD
-=======
-$text['label-number_translation_detail_replace']['en-gb'] = "Replace";
->>>>>>> pr/2
 $text['label-number_translation_detail_replace']['ar-eg'] = "يحل محل";
 $text['label-number_translation_detail_replace']['de-at'] = "Ersetzen"; //copied from de-de
 $text['label-number_translation_detail_replace']['de-ch'] = "Ersetzen"; //copied from de-de
@@ -146,10 +122,6 @@ $text['label-number_translation_detail_replace']['sv-se'] = "Byta ut";
 $text['label-number_translation_detail_replace']['uk-ua'] = "заміщати";
 
 $text['description-number_translation_detail_replace']['en-us'] = 'Enter the number translation detail replace.';
-<<<<<<< HEAD
-=======
-$text['description-number_translation_detail_replace']['en-gb'] = 'Enter the number translation detail replace.';
->>>>>>> pr/2
 $text['description-number_translation_detail_replace']['ar-eg'] = '';
 $text['description-number_translation_detail_replace']['de-at'] = '';
 $text['description-number_translation_detail_replace']['de-ch'] = '';
@@ -170,10 +142,6 @@ $text['description-number_translation_detail_replace']['sv-se'] = '';
 $text['description-number_translation_detail_replace']['uk-ua'] = '';
 
 $text['label-number_translation_detail_order']['en-us'] = 'Order';
-<<<<<<< HEAD
-=======
-$text['label-number_translation_detail_order']['en-gb'] = 'Order';
->>>>>>> pr/2
 $text['label-number_translation_detail_order']['ar-eg'] = '';
 $text['label-number_translation_detail_order']['de-at'] = '';
 $text['label-number_translation_detail_order']['de-ch'] = '';
@@ -194,10 +162,6 @@ $text['label-number_translation_detail_order']['sv-se'] = '';
 $text['label-number_translation_detail_order']['uk-ua'] = '';
 
 $text['description-number_translation_detail_order']['en-us'] = 'Select the rule order.';
-<<<<<<< HEAD
-=======
-$text['description-number_translation_detail_order']['en-gb'] = 'Select the rule order.';
->>>>>>> pr/2
 $text['description-number_translation_detail_order']['ar-eg'] = '';
 $text['description-number_translation_detail_order']['de-at'] = '';
 $text['description-number_translation_detail_order']['de-ch'] = '';
@@ -218,10 +182,6 @@ $text['description-number_translation_detail_order']['sv-se'] = '';
 $text['description-number_translation_detail_order']['uk-ua'] = '';
 
 $text['label-number_translation_name']['en-us'] = 'Name';
-<<<<<<< HEAD
-=======
-$text['label-number_translation_name']['en-gb'] = 'Name';
->>>>>>> pr/2
 $text['label-number_translation_name']['ar-eg'] = '';
 $text['label-number_translation_name']['de-at'] = '';
 $text['label-number_translation_name']['de-ch'] = '';
@@ -242,10 +202,6 @@ $text['label-number_translation_name']['sv-se'] = '';
 $text['label-number_translation_name']['uk-ua'] = '';
 
 $text['description-number_translation_name']['en-us'] = 'Enter the number translation name.';
-<<<<<<< HEAD
-=======
-$text['description-number_translation_name']['en-gb'] = 'Enter the number translation name.';
->>>>>>> pr/2
 $text['description-number_translation_name']['ar-eg'] = '';
 $text['description-number_translation_name']['de-at'] = '';
 $text['description-number_translation_name']['de-ch'] = '';
@@ -266,10 +222,6 @@ $text['description-number_translation_name']['sv-se'] = '';
 $text['description-number_translation_name']['uk-ua'] = '';
 
 $text['label-number_translation_details']['en-us'] = 'Details';
-<<<<<<< HEAD
-=======
-$text['label-number_translation_details']['en-gb'] = 'Details';
->>>>>>> pr/2
 $text['label-number_translation_details']['ar-eg'] = '';
 $text['label-number_translation_details']['de-at'] = '';
 $text['label-number_translation_details']['de-ch'] = '';
@@ -290,10 +242,6 @@ $text['label-number_translation_details']['sv-se'] = '';
 $text['label-number_translation_details']['uk-ua'] = '';
 
 $text['description-number_translation_details']['en-us'] = '';
-<<<<<<< HEAD
-=======
-$text['description-number_translation_details']['en-gb'] = '';
->>>>>>> pr/2
 $text['description-number_translation_details']['ar-eg'] = '';
 $text['description-number_translation_details']['de-at'] = '';
 $text['description-number_translation_details']['de-ch'] = '';
@@ -314,10 +262,6 @@ $text['description-number_translation_details']['sv-se'] = '';
 $text['description-number_translation_details']['uk-ua'] = '';
 
 $text['label-number_translation_enabled']['en-us'] = 'Enabled';
-<<<<<<< HEAD
-=======
-$text['label-number_translation_enabled']['en-gb'] = 'Enabled';
->>>>>>> pr/2
 $text['label-number_translation_enabled']['ar-eg'] = '';
 $text['label-number_translation_enabled']['de-at'] = '';
 $text['label-number_translation_enabled']['de-ch'] = '';
@@ -338,10 +282,6 @@ $text['label-number_translation_enabled']['sv-se'] = '';
 $text['label-number_translation_enabled']['uk-ua'] = '';
 
 $text['description-number_translation_enabled']['en-us'] = 'Enter the number translation enabled.';
-<<<<<<< HEAD
-=======
-$text['description-number_translation_enabled']['en-gb'] = 'Enter the number translation enabled.';
->>>>>>> pr/2
 $text['description-number_translation_enabled']['ar-eg'] = '';
 $text['description-number_translation_enabled']['de-at'] = '';
 $text['description-number_translation_enabled']['de-ch'] = '';
@@ -362,10 +302,6 @@ $text['description-number_translation_enabled']['sv-se'] = '';
 $text['description-number_translation_enabled']['uk-ua'] = '';
 
 $text['label-number_translation_description']['en-us'] = 'Description';
-<<<<<<< HEAD
-=======
-$text['label-number_translation_description']['en-gb'] = 'Description';
->>>>>>> pr/2
 $text['label-number_translation_description']['ar-eg'] = '';
 $text['label-number_translation_description']['de-at'] = '';
 $text['label-number_translation_description']['de-ch'] = '';
@@ -386,10 +322,6 @@ $text['label-number_translation_description']['sv-se'] = '';
 $text['label-number_translation_description']['uk-ua'] = '';
 
 $text['description-number_translation_description']['en-us'] = 'Enter the number translation description.';
-<<<<<<< HEAD
-=======
-$text['description-number_translation_description']['en-gb'] = 'Enter the number translation description.';
->>>>>>> pr/2
 $text['description-number_translation_description']['ar-eg'] = '';
 $text['description-number_translation_description']['de-at'] = '';
 $text['description-number_translation_description']['de-ch'] = '';

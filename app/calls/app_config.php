@@ -9,10 +9,6 @@
 		$apps[$x]['license'] = "Mozilla Public License 1.1";
 		$apps[$x]['url'] = "http://www.fusionpbx.com";
 		$apps[$x]['description']['en-us'] = "Call Forward, Follow Me and Do Not Disturb.";
-<<<<<<< HEAD
-=======
-		$apps[$x]['description']['en-gb'] = "Call Forward, Follow Me and Do Not Disturb.";
->>>>>>> pr/2
 		$apps[$x]['description']['ar-eg'] = "";
 		$apps[$x]['description']['de-at'] = "Anrufweiterleitung, Follow Me und Nicht-Stören.";
 		$apps[$x]['description']['de-ch'] = "";

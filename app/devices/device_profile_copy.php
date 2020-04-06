@@ -86,11 +86,7 @@
 
 //add copy to the device description
 	//$device_profiles[0]["device_profile_name"] = $device_profiles[0]["device_profile_name"]."-".strtolower($text['button-copy']);
-<<<<<<< HEAD
 	$device_profiles[0]["device_profile_description"] = $text['button-copy']." ".$device_profiles[0]["device_profile_description"];
-=======
-	$device_profiles[0]["device_profile_description"] = $device_profiles[0]["device_profile_description"].' ('.$text['button-copy'].')';
->>>>>>> pr/2
 
 //prepare the device_keys array
 	$x = 0;

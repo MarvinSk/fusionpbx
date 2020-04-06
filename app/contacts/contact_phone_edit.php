@@ -235,11 +235,7 @@
 	echo "</script>";
 
 //show the content
-<<<<<<< HEAD
 	echo "<form method='post' name='frm'>\n";
-=======
-	echo "<form method='post' name='frm' id='frm'>\n";
->>>>>>> pr/2
 
 	echo "<div class='action_bar' id='action_bar'>\n";
 	echo "	<div class='heading'>";

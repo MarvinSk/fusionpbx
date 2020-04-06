@@ -1,10 +1,6 @@
 <?php
 
 $apps[$x]['menu'][0]['title']['en-us'] = 'Streams';
-<<<<<<< HEAD
-=======
-$apps[$x]['menu'][0]['title']['en-gb'] = 'Streams';
->>>>>>> pr/2
 $apps[$x]['menu'][0]['title']['es-cl'] = '';
 $apps[$x]['menu'][0]['title']['fr-fr'] = '';
 $apps[$x]['menu'][0]['title']['fr-ca'] = '';

@@ -146,7 +146,6 @@ function build_db_child_menu_list ($db, $menu_item_level, $menu_item_uuid) {
 						echo "		<input type='checkbox' name='menu_items[$x][checked]' id='checkbox_".$x."' value='true' onclick=\"if (!this.checked) { document.getElementById('checkbox_all').checked = false; }\">\n";
 						echo "		<input type='hidden' name='menu_items[$x][uuid]' value='".escape($menu_item_uuid)."' />\n";
 						echo "	</td>\n";
-<<<<<<< HEAD
 					}
 					echo "<td class='no-wrap".($menu_item_category != 'internal' ? "no-link" : null)."' style='padding-left: ".($menu_item_level * 25)."px;'>\n";
 					if (permission_exists('menu_item_edit')) {
@@ -167,28 +166,6 @@ function build_db_child_menu_list ($db, $menu_item_level, $menu_item_uuid) {
 						echo "	<td class='center'>\n";
 						echo $text['label-'.($menu_item_protected == 'true' ? 'true' : 'false')];
 					}
-=======
-					}
-					echo "<td class='no-wrap".($menu_item_category != 'internal' ? "no-link" : null)."' style='padding-left: ".($menu_item_level * 25)."px;'>\n";
-					if (permission_exists('menu_item_edit')) {
-						echo "	<a href='".$list_row_url."' title=\"".$text['button-edit']."\">".escape($menu_item_title)."</a>\n";
-					}
-					else {
-						echo "	".escape($menu_item_title);
-					}
-					echo "</td>\n";
-					echo "<td class='no-wrap overflow no-link hide-sm-dn'>".$menu_item_link."&nbsp;</td>\n";
-					echo "<td class='no-wrap overflow hide-xs'>".$group_list."&nbsp;</td>";
-					echo "<td class='center'>".$menu_item_category."&nbsp;</td>";
-					if (permission_exists('menu_item_edit')) {
-						echo "	<td class='no-link center'>\n";
-						echo button::create(['type'=>'submit','class'=>'link','label'=>$text['label-'.($menu_item_protected == 'true' ? 'true' : 'false')],'title'=>$text['button-toggle'],'onclick'=>"list_self_check('checkbox_".$x."'); list_action_set('toggle'); list_form_submit('form_list')"]);
-					}
-					else {
-						echo "	<td class='center'>\n";
-						echo $text['label-'.($menu_item_protected == 'true' ? 'true' : 'false')];
-					}
->>>>>>> pr/2
 					echo "	</td>\n";
 					echo "<td class='center no-wrap'>&nbsp;</td>";
 
@@ -262,31 +239,14 @@ function build_db_child_menu_list ($db, $menu_item_level, $menu_item_uuid) {
 		echo button::create(['type'=>'button','label'=>$text['button-add'],'icon'=>$_SESSION['theme']['button_icon_add'],'id'=>'btn_add','collapse'=>'hide-xs','link'=>'menu_item_edit.php?id='.urlencode($menu_uuid)]);
 	}
 	if (permission_exists('menu_item_edit') && $result) {
-<<<<<<< HEAD
 		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'id'=>'btn_toggle','onclick'=>"if (confirm('".$text['confirm-toggle']."')) { list_action_set('toggle'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
 	}
 	if (permission_exists('menu_item_delete') && $result) {
 		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'id'=>'btn_delete','collapse'=>'hide-xs','onclick'=>"if (confirm('".$text['confirm-delete']."')) { list_action_set('delete'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
-=======
-		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'name'=>'btn_toggle','onclick'=>"modal_open('modal-toggle','btn_toggle');"]);
-	}
-	if (permission_exists('menu_item_delete') && $result) {
-		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','collapse'=>'hide-xs','onclick'=>"modal_open('modal-delete','btn_delete');"]);
->>>>>>> pr/2
 	}
 	echo "	</div>\n";
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
-<<<<<<< HEAD
-=======
-
-	if (permission_exists('menu_item_edit') && $result) {
-		echo modal::create(['id'=>'modal-toggle','type'=>'toggle','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_toggle','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('toggle'); list_form_submit('form_list');"])]);
-	}
-	if (permission_exists('menu_item_delete') && $result) {
-		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
-	}
->>>>>>> pr/2
 
 	echo "<table class='list'>\n";
 	echo "	<tr class='list-header'>";

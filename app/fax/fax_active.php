@@ -101,10 +101,7 @@ else {
 		function hangup(uuid) {
 			if (confirm("<?php echo $text['confirm-hangup']?>")) {
 				send_cmd('fax_active_exec.php?cmd=delete&id='+uuid);
-<<<<<<< HEAD
 
-=======
->>>>>>> pr/2
 			}
 		}
 

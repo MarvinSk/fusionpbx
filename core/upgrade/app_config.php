@@ -8,10 +8,6 @@
 		$apps[$x]['version'] = "1.0";
 		$apps[$x]['url'] = "http://www.fusionpbx.com";
 		$apps[$x]['description']['en-us'] = "Update or restore various system settings.";
-<<<<<<< HEAD
-=======
-		$apps[$x]['description']['en-gb'] = "Update or restore various system settings.";
->>>>>>> pr/2
 		$apps[$x]['description']['ar-eg'] = "";
 		$apps[$x]['description']['de-at'] = "Verschiedene Systemeinstellungen aktualisieren oder zurücksetzen.";
 		$apps[$x]['description']['de-ch'] = "";

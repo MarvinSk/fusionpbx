@@ -1,10 +1,6 @@
 <?php
 	$y=0;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Menu Manager";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Menu Manager";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Menü Einstellungen";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Menü Einstellungen";
@@ -30,10 +26,6 @@
 	$apps[$x]['menu'][$y]['groups'][] = "superadmin";
 	$y++;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Home";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Home";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Home";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Home";
@@ -64,10 +56,6 @@
 	$apps[$x]['menu'][$y]['groups'][] = "agent";
 	$y++;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Accounts";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Accounts";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Konten";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Konten";
@@ -96,10 +84,6 @@
 	$apps[$x]['menu'][$y]['groups'][] = "superadmin";
 	$y++;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Applications";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Applications";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Applikationen";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Applikationen";
@@ -129,10 +113,6 @@
 	$apps[$x]['menu'][$y]['groups'][] = "agent";
 	$y++;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Status";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Status";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Status";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Status";
@@ -162,10 +142,6 @@
 	$apps[$x]['menu'][$y]['groups'][] = "superadmin";
 	$y++;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Advanced";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Advanced";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Erweitert";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Erweitert";
@@ -193,10 +169,6 @@
 	$apps[$x]['menu'][$y]['groups'][] = "superadmin";
 	$y++;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Login";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Login";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Anmelden";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Anmelden";
@@ -224,10 +196,6 @@
 	$apps[$x]['menu'][$y]['order'] = "99";
 	$y++;
 	$apps[$x]['menu'][$y]['title']['en-us'] = 'Logout';
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = 'Logout';
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = 'Abmelden';
 	$apps[$x]['menu'][$y]['title']['de-de'] = 'Abmelden';

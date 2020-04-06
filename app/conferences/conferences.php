@@ -92,7 +92,6 @@
 		$sql_search .= ") ";
 		$parameters['search'] = '%'.$search.'%';
 	}
-<<<<<<< HEAD
 
 //prepare to page the results
 	if (if_group("superadmin") || if_group("admin")) {
@@ -169,94 +168,6 @@
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
 
-=======
-
-//prepare to page the results
-	if (if_group("superadmin") || if_group("admin")) {
-		//show all extensions
-		$sql = "select count(*) from v_conferences ";
-		$sql .= "where domain_uuid = :domain_uuid ";
-	}
-	else {
-		//show only assigned extensions
-		$sql = "select count(*) from v_conferences as c, v_conference_users as u ";
-		$sql .= "where c.conference_uuid = u.conference_uuid ";
-		$sql .= "and c.domain_uuid = :domain_uuid ";
-		$sql .= "and u.user_uuid = :user_uuid ";
-		$parameters['user_uuid'] = $_SESSION['user_uuid'];
-	}
-	$sql .= $sql_search;
-	$parameters['domain_uuid'] = $_SESSION['domain_uuid'];
-	$database = new database;
-	$num_rows = $database->select($sql, $parameters, 'column');
-
-//prepare to page the results
-	$rows_per_page = ($_SESSION['domain']['paging']['numeric'] != '') ? $_SESSION['domain']['paging']['numeric'] : 50;
-	$param = "&search=".$search;
-	$page = $_GET['page'];
-	if (strlen($page) == 0) { $page = 0; $_GET['page'] = 0; }
-	list($paging_controls, $rows_per_page) = paging($num_rows, $param, $rows_per_page);
-	list($paging_controls_mini, $rows_per_page) = paging($num_rows, $param, $rows_per_page, true);
-	$offset = $rows_per_page * $page;
-
-//get the list
-	$sql = str_replace('count(*)', '*', $sql);
-	$sql .= order_by($order_by, $order);
-	$sql .= limit_offset($rows_per_page, $offset);
-	$database = new database;
-	$conferences = $database->select($sql, $parameters, 'all');
-	unset($sql, $parameters);
-
-//create token
-	$object = new token;
-	$token = $object->create($_SERVER['PHP_SELF']);
-
-//include the header
-	$document['title'] = $text['title-conferences'];
-	require_once "resources/header.php";
-
-//show the content
-	echo "<div class='action_bar' id='action_bar'>\n";
-	echo "	<div class='heading'><b>".$text['title-conferences']." (".$num_rows.")</b></div>\n";
-	echo "	<div class='actions'>\n";
-	if (permission_exists('conference_active_view')) {
-		echo button::create(['type'=>'button','label'=>$text['button-view_active'],'icon'=>'comments','style'=>'margin-right: 15px;','link'=>PROJECT_PATH.'/app/conferences_active/conferences_active.php']);
-	}
-	if (permission_exists('conference_add')) {
-		echo button::create(['type'=>'button','label'=>$text['button-add'],'icon'=>$_SESSION['theme']['button_icon_add'],'id'=>'btn_add','link'=>'conference_edit.php']);
-	}
-	if (permission_exists('conference_add') && $conferences) {
-		echo button::create(['type'=>'button','label'=>$text['button-copy'],'icon'=>$_SESSION['theme']['button_icon_copy'],'name'=>'btn_copy','onclick'=>"modal_open('modal-copy','btn_copy');"]);
-	}
-	if (permission_exists('conference_edit') && $conferences) {
-		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'name'=>'btn_toggle','onclick'=>"modal_open('modal-toggle','btn_toggle');"]);
-	}
-	if (permission_exists('conference_delete') && $conferences) {
-		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','onclick'=>"modal_open('modal-delete','btn_delete');"]);
-	}
-	echo 		"<form id='form_search' class='inline' method='get'>\n";
-	echo 		"<input type='text' class='txt list-search' name='search' id='search' value=\"".escape($search)."\" placeholder=\"".$text['label-search']."\" onkeydown='list_search_reset();'>";
-	echo button::create(['label'=>$text['button-search'],'icon'=>$_SESSION['theme']['button_icon_search'],'type'=>'submit','id'=>'btn_search','style'=>($search != '' ? 'display: none;' : null)]);
-	echo button::create(['label'=>$text['button-reset'],'icon'=>$_SESSION['theme']['button_icon_reset'],'type'=>'button','id'=>'btn_reset','link'=>'conferences.php','style'=>($search == '' ? 'display: none;' : null)]);
-	if ($paging_controls_mini != '') {
-		echo 	"<span style='margin-left: 15px;'>".$paging_controls_mini."</span>";
-	}
-	echo "		</form>\n";
-	echo "	</div>\n";
-	echo "	<div style='clear: both;'></div>\n";
-	echo "</div>\n";
-
-	if (permission_exists('conference_add') && $conferences) {
-		echo modal::create(['id'=>'modal-copy','type'=>'copy','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_copy','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('copy'); list_form_submit('form_list');"])]);
-	}
-	if (permission_exists('conference_edit') && $conferences) {
-		echo modal::create(['id'=>'modal-toggle','type'=>'toggle','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_toggle','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('toggle'); list_form_submit('form_list');"])]);
-	}
-	if (permission_exists('conference_delete') && $conferences) {
-		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
-	}
-
->>>>>>> pr/2
 	echo $text['description']."\n";
 	echo "<br /><br />\n";
 
@@ -285,7 +196,6 @@
 	if (is_array($conferences) && @sizeof($conferences) != 0) {
 		$x = 0;
 		foreach($conferences as $row) {
-<<<<<<< HEAD
 			if (permission_exists('conference_edit')) {
 				$list_row_url = "conference_edit.php?id=".urlencode($row['conference_uuid']);
 			}
@@ -308,30 +218,6 @@
 				echo "	<td class='center'>";
 				echo $text['label-'.$row['conference_enabled']];
 			}
-=======
-			if (permission_exists('conference_edit')) {
-				$list_row_url = "conference_edit.php?id=".urlencode($row['conference_uuid']);
-			}
-			echo "<tr class='list-row' href='".$list_row_url."'>\n";
-			if (permission_exists('conference_add') || permission_exists('conference_edit') || permission_exists('conference_delete')) {
-				echo "	<td class='checkbox'>\n";
-				echo "		<input type='checkbox' name='conferences[$x][checked]' id='checkbox_".$x."' value='true' onclick=\"if (!this.checked) { document.getElementById('checkbox_all').checked = false; }\">\n";
-				echo "		<input type='hidden' name='conferences[$x][uuid]' value='".escape($row['conference_uuid'])."' />\n";
-				echo "	</td>\n";
-			}
-			echo "	<td><a href='".$list_row_url."'>".str_replace('-', ' ', $row['conference_name'])."</a>&nbsp;</td>\n";
-			echo "	<td>".escape($row['conference_extension'])."&nbsp;</td>\n";
-			echo "	<td>".escape($row['conference_profile'])."&nbsp;</td>\n";
-			echo "	<td class='center'>".escape($row['conference_order'])."&nbsp;</td>\n";
-			if (permission_exists('conference_edit')) {
-				echo "	<td class='no-link center'>";
-				echo button::create(['type'=>'submit','class'=>'link','label'=>$text['label-'.$row['conference_enabled']],'title'=>$text['button-toggle'],'onclick'=>"list_self_check('checkbox_".$x."'); list_action_set('toggle'); list_form_submit('form_list')"]);
-			}
-			else {
-				echo "	<td class='center'>";
-				echo $text['label-'.$row['conference_enabled']];
-			}
->>>>>>> pr/2
 			echo "	<td class='description overflow hide-sm-dn'>".escape($row['conference_description'])."&nbsp;</td>\n";
 			if (permission_exists('conference_edit') && $_SESSION['theme']['list_row_edit_button']['boolean'] == 'true') {
 				echo "	<td class='action-button'>";

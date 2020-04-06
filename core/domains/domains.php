@@ -187,17 +187,10 @@
 		echo button::create(['type'=>'button','label'=>$text['button-add'],'icon'=>$_SESSION['theme']['button_icon_add'],'id'=>'btn_add','link'=>'domain_edit.php']);
 	}
 	if (permission_exists('domain_edit') && $domains) {
-<<<<<<< HEAD
 		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'id'=>'btn_toggle','onclick'=>"if (confirm('".$text['confirm-toggle']."')) { list_action_set('toggle'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
 	}
  	if (permission_exists('domain_delete') && $domains) {
  		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'id'=>'btn_delete','onclick'=>"if (confirm('".$text['confirm-delete']."')) { list_action_set('delete'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
-=======
-		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$_SESSION['theme']['button_icon_toggle'],'name'=>'btn_toggle','onclick'=>"modal_open('modal-toggle','btn_toggle');"]);
-	}
- 	if (permission_exists('domain_delete') && $domains) {
- 		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete_domain','onclick'=>"modal_open('modal-delete','btn_delete_domain');"]);
->>>>>>> pr/2
  	}
 	echo 		"<form id='form_search' class='inline' method='get'>\n";
 	echo 		"<input type='text' class='txt list-search' name='search' id='search' value=\"".escape($search)."\" placeholder=\"".$text['label-search']."\" onkeydown='list_search_reset();'>";
@@ -205,26 +198,11 @@
 	echo button::create(['label'=>$text['button-reset'],'icon'=>$_SESSION['theme']['button_icon_reset'],'type'=>'button','id'=>'btn_reset','link'=>'domains.php','style'=>($search == '' ? 'display: none;' : null)]);
 	if ($paging_controls_mini != '') {
 		echo 	"<span style='margin-left: 15px;'>".$paging_controls_mini."</span>\n";
-<<<<<<< HEAD
 	}
 	echo "		</form>\n";
 	echo "	</div>\n";
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
-=======
-	}
-	echo "		</form>\n";
-	echo "	</div>\n";
-	echo "	<div style='clear: both;'></div>\n";
-	echo "</div>\n";
-
-	if (permission_exists('domain_edit') && $domains) {
-		echo modal::create(['id'=>'modal-toggle','type'=>'toggle','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_toggle','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('toggle'); list_form_submit('form_list');"])]);
-	}
- 	if (permission_exists('domain_delete') && $domains) {
-		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete_domain','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
- 	}
->>>>>>> pr/2
 
 	echo $text['description-domains']."\n";
 	echo "<br /><br />\n";
@@ -254,7 +232,6 @@
 	if (is_array($domains) && @sizeof($domains) != 0) {
 		$x = 0;
 		foreach ($domains as $row) {
-<<<<<<< HEAD
 			if (permission_exists('domain_edit')) {
 				$list_row_url = "domain_edit.php?id=".urlencode($row['domain_uuid']);
 			}
@@ -272,25 +249,6 @@
 			if (permission_exists('domain_edit')) {
 				echo "	<a href='".$list_row_url."' title=\"".$text['button-edit']."\">".escape($row['domain_name'])."</a>\n";
 			}
-=======
-			if (permission_exists('domain_edit')) {
-				$list_row_url = "domain_edit.php?id=".urlencode($row['domain_uuid']);
-			}
-			echo "<tr class='list-row' href='".$list_row_url."'>\n";
-			if (permission_exists('domain_edit') || permission_exists('domain_delete')) {
-				echo "	<td class='checkbox'>\n";
-				echo "		<input type='checkbox' name='domains[$x][checked]' id='checkbox_".$x."' value='true' onclick=\"if (!this.checked) { document.getElementById('checkbox_all').checked = false; }\">\n";
-				echo "		<input type='hidden' name='domains[$x][uuid]' value='".escape($row['domain_uuid'])."' />\n";
-				echo "	</td>\n";
-			}
-			if ($_GET['show'] == 'all' && permission_exists('domain_all')) {
-				echo "	<td>".escape($_SESSION['domains'][$row['domain_uuid']]['domain_name'])."</td>\n";
-			}
-			echo "	<td>\n";
-			if (permission_exists('domain_edit')) {
-				echo "	<a href='".$list_row_url."' title=\"".$text['button-edit']."\">".escape($row['domain_name'])."</a>\n";
-			}
->>>>>>> pr/2
 			else {
 				echo "	".escape($row['domain_name']);
 			}

@@ -2,10 +2,6 @@
 #This file was last reorganized on 19th of September 2017 08:54:24 AM UTC
 
 $text['title-sip_profiles']['en-us'] = "SIP Profiles";
-<<<<<<< HEAD
-=======
-$text['title-sip_profiles']['en-gb'] = "SIP Profiles";
->>>>>>> pr/2
 $text['title-sip_profiles']['ar-eg'] = "";
 $text['title-sip_profiles']['de-at'] = "SIP Profile"; //copied from de-de
 $text['title-sip_profiles']['de-ch'] = "SIP Profile"; //copied from de-de
@@ -26,10 +22,6 @@ $text['title-sip_profiles']['sv-se'] = "SIP Profiler";
 $text['title-sip_profiles']['uk-ua'] = "SIP профілі";
 
 $text['title-sip_profile']['en-us'] = "SIP Profile";
-<<<<<<< HEAD
-=======
-$text['title-sip_profile']['en-gb'] = "SIP Profile";
->>>>>>> pr/2
 $text['title-sip_profile']['ar-eg'] = "";
 $text['title-sip_profile']['de-at'] = "SIP Profil"; //copied from de-de
 $text['title-sip_profile']['de-ch'] = "SIP Profil"; //copied from de-de
@@ -50,10 +42,6 @@ $text['title-sip_profile']['sv-se'] = "SIP Profil";
 $text['title-sip_profile']['uk-ua'] = "SIP профіль";
 
 $text['title-sip_profile_domains']['en-us'] = "Domains";
-<<<<<<< HEAD
-=======
-$text['title-sip_profile_domains']['en-gb'] = "Domains";
->>>>>>> pr/2
 $text['title-sip_profile_domains']['ar-eg'] = "";
 $text['title-sip_profile_domains']['de-at'] = "Domänen"; //copied from de-de
 $text['title-sip_profile_domains']['de-ch'] = "Domänen"; //copied from de-de
@@ -74,10 +62,6 @@ $text['title-sip_profile_domains']['sv-se'] = "Domäner";
 $text['title-sip_profile_domains']['uk-ua'] = "";
 
 $text['title-sip_profile_domain']['en-us'] = "Domain";
-<<<<<<< HEAD
-=======
-$text['title-sip_profile_domain']['en-gb'] = "Domain";
->>>>>>> pr/2
 $text['title-sip_profile_domain']['ar-eg'] = "";
 $text['title-sip_profile_domain']['de-at'] = "Domäne"; //copied from de-de
 $text['title-sip_profile_domain']['de-ch'] = "Domäne"; //copied from de-de
@@ -98,10 +82,6 @@ $text['title-sip_profile_domain']['sv-se'] = "Domän";
 $text['title-sip_profile_domain']['uk-ua'] = "";
 
 $text['title-sip_profile_setting']['en-us'] = "Profile Setting";
-<<<<<<< HEAD
-=======
-$text['title-sip_profile_setting']['en-gb'] = "Profile Setting";
->>>>>>> pr/2
 $text['title-sip_profile_setting']['ar-eg'] = "";
 $text['title-sip_profile_setting']['de-at'] = "Profil Einstellungen"; //copied from de-de
 $text['title-sip_profile_setting']['de-ch'] = "Profil Einstellungen"; //copied from de-de
@@ -122,10 +102,6 @@ $text['title-sip_profile_setting']['sv-se'] = "Profilinställning";
 $text['title-sip_profile_setting']['uk-ua'] = "Налаштування профілю";
 
 $text['label-sip_profile_name']['en-us'] = "Name";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_name']['en-gb'] = "Name";
->>>>>>> pr/2
 $text['label-sip_profile_name']['ar-eg'] = "";
 $text['label-sip_profile_name']['de-at'] = "Name"; //copied from de-de
 $text['label-sip_profile_name']['de-ch'] = "Name"; //copied from de-de
@@ -146,10 +122,6 @@ $text['label-sip_profile_name']['sv-se'] = "Namn";
 $text['label-sip_profile_name']['uk-ua'] = "Назва";
 
 $text['label-sip_profile_value']['en-us'] = "Value";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_value']['en-gb'] = "Value";
->>>>>>> pr/2
 $text['label-sip_profile_value']['ar-eg'] = "";
 $text['label-sip_profile_value']['de-at'] = "Wert"; //copied from de-de
 $text['label-sip_profile_value']['de-ch'] = "Wert"; //copied from de-de
@@ -170,10 +142,6 @@ $text['label-sip_profile_value']['sv-se'] = "Värde";
 $text['label-sip_profile_value']['uk-ua'] = "Значення";
 
 $text['label-sip_profile_enabled']['en-us'] = "Enabled";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_enabled']['en-gb'] = "Enabled";
->>>>>>> pr/2
 $text['label-sip_profile_enabled']['ar-eg'] = "";
 $text['label-sip_profile_enabled']['de-at'] = "Aktiv"; //copied from de-de
 $text['label-sip_profile_enabled']['de-ch'] = "Aktiv"; //copied from de-de
@@ -194,10 +162,6 @@ $text['label-sip_profile_enabled']['sv-se'] = "Aktiverad";
 $text['label-sip_profile_enabled']['uk-ua'] = "Включено";
 
 $text['label-sip_profile_description']['en-us'] = "Description";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_description']['en-gb'] = "Description";
->>>>>>> pr/2
 $text['label-sip_profile_description']['ar-eg'] = "";
 $text['label-sip_profile_description']['de-at'] = "Beschreibung"; //copied from de-de
 $text['label-sip_profile_description']['de-ch'] = "Beschreibung"; //copied from de-de
@@ -218,10 +182,6 @@ $text['label-sip_profile_description']['sv-se'] = "Beskrivning";
 $text['label-sip_profile_description']['uk-ua'] = "Опис";
 
 $text['label-sip_profile_domain_name']['en-us'] = "Name";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_domain_name']['en-gb'] = "Name";
->>>>>>> pr/2
 $text['label-sip_profile_domain_name']['ar-eg'] = "";
 $text['label-sip_profile_domain_name']['de-at'] = "Name"; //copied from de-de
 $text['label-sip_profile_domain_name']['de-ch'] = "Name"; //copied from de-de
@@ -242,10 +202,6 @@ $text['label-sip_profile_domain_name']['sv-se'] = "Namn";
 $text['label-sip_profile_domain_name']['uk-ua'] = "Назва";
 
 $text['label-sip_profile_domain_alias']['en-us'] = "Alias";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_domain_alias']['en-gb'] = "Alias";
->>>>>>> pr/2
 $text['label-sip_profile_domain_alias']['ar-eg'] = "";
 $text['label-sip_profile_domain_alias']['de-at'] = "Alias"; //copied from de-de
 $text['label-sip_profile_domain_alias']['de-ch'] = "Alias"; //copied from de-de
@@ -266,10 +222,6 @@ $text['label-sip_profile_domain_alias']['sv-se'] = "Alias";
 $text['label-sip_profile_domain_alias']['uk-ua'] = "";
 
 $text['label-sip_profile_domain_parse']['en-us'] = "Parse";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_domain_parse']['en-gb'] = "Parse";
->>>>>>> pr/2
 $text['label-sip_profile_domain_parse']['ar-eg'] = "";
 $text['label-sip_profile_domain_parse']['de-at'] = "Analysieren"; //copied from de-de
 $text['label-sip_profile_domain_parse']['de-ch'] = "Analysieren"; //copied from de-de
@@ -290,10 +242,6 @@ $text['label-sip_profile_domain_parse']['sv-se'] = "Parse";
 $text['label-sip_profile_domain_parse']['uk-ua'] = "";
 
 $text['label-sip_profile_setting_name']['en-us'] = "Name";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_setting_name']['en-gb'] = "Name";
->>>>>>> pr/2
 $text['label-sip_profile_setting_name']['ar-eg'] = "";
 $text['label-sip_profile_setting_name']['de-at'] = "Name"; //copied from de-de
 $text['label-sip_profile_setting_name']['de-ch'] = "Name"; //copied from de-de
@@ -314,10 +262,6 @@ $text['label-sip_profile_setting_name']['sv-se'] = "Namn";
 $text['label-sip_profile_setting_name']['uk-ua'] = "Назва";
 
 $text['label-sip_profile_setting_value']['en-us'] = "Value";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_setting_value']['en-gb'] = "Value";
->>>>>>> pr/2
 $text['label-sip_profile_setting_value']['ar-eg'] = "";
 $text['label-sip_profile_setting_value']['de-at'] = "Wert"; //copied from de-de
 $text['label-sip_profile_setting_value']['de-ch'] = "Wert"; //copied from de-de
@@ -338,10 +282,6 @@ $text['label-sip_profile_setting_value']['sv-se'] = "Värde";
 $text['label-sip_profile_setting_value']['uk-ua'] = "Значення";
 
 $text['label-sip_profile_setting_enabled']['en-us'] = "Enabled";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_setting_enabled']['en-gb'] = "Enabled";
->>>>>>> pr/2
 $text['label-sip_profile_setting_enabled']['ar-eg'] = "";
 $text['label-sip_profile_setting_enabled']['de-at'] = "Aktiv"; //copied from de-de
 $text['label-sip_profile_setting_enabled']['de-ch'] = "Aktiv"; //copied from de-de
@@ -362,10 +302,6 @@ $text['label-sip_profile_setting_enabled']['sv-se'] = "Aktiverad";
 $text['label-sip_profile_setting_enabled']['uk-ua'] = "Включено";
 
 $text['label-sip_profile_setting_description']['en-us'] = "Description";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_setting_description']['en-gb'] = "Description";
->>>>>>> pr/2
 $text['label-sip_profile_setting_description']['ar-eg'] = "";
 $text['label-sip_profile_setting_description']['de-at'] = "Beschreibung"; //copied from de-de
 $text['label-sip_profile_setting_description']['de-ch'] = "Beschreibung"; //copied from de-de
@@ -386,10 +322,6 @@ $text['label-sip_profile_setting_description']['sv-se'] = "Beskrivning";
 $text['label-sip_profile_setting_description']['uk-ua'] = "Опис";
 
 $text['label-sip_profile_hostname']['en-us'] = "Hostname";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_hostname']['en-gb'] = "Hostname";
->>>>>>> pr/2
 $text['label-sip_profile_hostname']['ar-eg'] = "";
 $text['label-sip_profile_hostname']['de-at'] = "Hostname"; //copied from de-de
 $text['label-sip_profile_hostname']['de-ch'] = "Hostname"; //copied from de-de
@@ -410,10 +342,6 @@ $text['label-sip_profile_hostname']['sv-se'] = "Hostname";
 $text['label-sip_profile_hostname']['uk-ua'] = "Назва хоста";
 
 $text['label-sip_profile_settings']['en-us'] = "Settings";
-<<<<<<< HEAD
-=======
-$text['label-sip_profile_settings']['en-gb'] = "Settings";
->>>>>>> pr/2
 $text['label-sip_profile_settings']['ar-eg'] = "";
 $text['label-sip_profile_settings']['de-at'] = "Einstellungen"; //copied from de-de
 $text['label-sip_profile_settings']['de-ch'] = "Einstellungen"; //copied from de-de
@@ -434,10 +362,6 @@ $text['label-sip_profile_settings']['sv-se'] = "Inställningar";
 $text['label-sip_profile_settings']['uk-ua'] = "Параметри";
 
 $text['label-new_sip_profile_name']['en-us'] = "Enter new SIP Profile Name";
-<<<<<<< HEAD
-=======
-$text['label-new_sip_profile_name']['en-gb'] = "Enter new SIP Profile Name";
->>>>>>> pr/2
 $text['label-new_sip_profile_name']['ar-eg'] = "Enter new SIP Profile Name";
 $text['label-new_sip_profile_name']['de-at'] = "Enter new SIP Profile Name";
 $text['label-new_sip_profile_name']['de-ch'] = "Enter new SIP Profile Name";
@@ -458,10 +382,6 @@ $text['label-new_sip_profile_name']['sv-se'] = "Enter new SIP Profile Name";
 $text['label-new_sip_profile_name']['uk-ua'] = "Enter new SIP Profile Name";
 
 $text['header-sip_profiles']['en-us'] = "SIP Profiles";
-<<<<<<< HEAD
-=======
-$text['header-sip_profiles']['en-gb'] = "SIP Profiles";
->>>>>>> pr/2
 $text['header-sip_profiles']['ar-eg'] = "";
 $text['header-sip_profiles']['de-at'] = "SIP Profile"; //copied from de-de
 $text['header-sip_profiles']['de-ch'] = "SIP Profile"; //copied from de-de
@@ -482,10 +402,6 @@ $text['header-sip_profiles']['sv-se'] = "SIP Profiler";
 $text['header-sip_profiles']['uk-ua'] = "SIP профілі";
 
 $text['header-sip_profile']['en-us'] = "SIP Profile";
-<<<<<<< HEAD
-=======
-$text['header-sip_profile']['en-gb'] = "SIP Profile";
->>>>>>> pr/2
 $text['header-sip_profile']['ar-eg'] = "";
 $text['header-sip_profile']['de-at'] = "SIP Profile"; //copied from de-de
 $text['header-sip_profile']['de-ch'] = "SIP Profile"; //copied from de-de
@@ -506,10 +422,6 @@ $text['header-sip_profile']['sv-se'] = "SIP Profil";
 $text['header-sip_profile']['uk-ua'] = "SIP профіль";
 
 $text['header-sip_profile_setting']['en-us'] = "Profile Setting";
-<<<<<<< HEAD
-=======
-$text['header-sip_profile_setting']['en-gb'] = "Profile Setting";
->>>>>>> pr/2
 $text['header-sip_profile_setting']['ar-eg'] = "";
 $text['header-sip_profile_setting']['de-at'] = "Profil Einstellungen"; //copied from de-de
 $text['header-sip_profile_setting']['de-ch'] = "Profil Einstellungen"; //copied from de-de
@@ -530,10 +442,6 @@ $text['header-sip_profile_setting']['sv-se'] = "Profilinställning";
 $text['header-sip_profile_setting']['uk-ua'] = "Налаштування профілю";
 
 $text['header-sip_profile_hostname']['en-us'] = "Hostname";
-<<<<<<< HEAD
-=======
-$text['header-sip_profile_hostname']['en-gb'] = "Hostname";
->>>>>>> pr/2
 $text['header-sip_profile_hostname']['ar-eg'] = "";
 $text['header-sip_profile_hostname']['de-at'] = "Hostname"; //copied from de-de
 $text['header-sip_profile_hostname']['de-ch'] = "Hostname"; //copied from de-de
@@ -554,10 +462,6 @@ $text['header-sip_profile_hostname']['sv-se'] = "Hostname";
 $text['header-sip_profile_hostname']['uk-ua'] = "Назва хоста";
 
 $text['description-sip_profiles']['en-us'] = "Manage settings for SIP profiles.";
-<<<<<<< HEAD
-=======
-$text['description-sip_profiles']['en-gb'] = "Manage settings for SIP profiles.";
->>>>>>> pr/2
 $text['description-sip_profiles']['ar-eg'] = "";
 $text['description-sip_profiles']['de-at'] = "SIP Profil Einstellungen verwalten."; //copied from de-de
 $text['description-sip_profiles']['de-ch'] = "SIP Profil Einstellungen verwalten."; //copied from de-de
@@ -578,10 +482,6 @@ $text['description-sip_profiles']['sv-se'] = "Hantera inställningar för SIP pr
 $text['description-sip_profiles']['uk-ua'] = "Налаштування профілю";
 
 $text['description-sip_profile']['en-us'] = "Manage settings for the SIP profile.";
-<<<<<<< HEAD
-=======
-$text['description-sip_profile']['en-gb'] = "Manage settings for the SIP profile.";
->>>>>>> pr/2
 $text['description-sip_profile']['ar-eg'] = "";
 $text['description-sip_profile']['de-at'] = "SIP Profil Einstellungen verwalten."; //copied from de-de
 $text['description-sip_profile']['de-ch'] = "SIP Profil Einstellungen verwalten."; //copied from de-de
@@ -602,10 +502,6 @@ $text['description-sip_profile']['sv-se'] = "Hantera inställningar för SIP pro
 $text['description-sip_profile']['uk-ua'] = "Налаштування SIP профілю";
 
 $text['description-sip_profile_setting_value']['en-us'] = "Enter the value.";
-<<<<<<< HEAD
-=======
-$text['description-sip_profile_setting_value']['en-gb'] = "Enter the value.";
->>>>>>> pr/2
 $text['description-sip_profile_setting_value']['ar-eg'] = "";
 $text['description-sip_profile_setting_value']['de-at'] = "Geben Sie einen Wert an."; //copied from de-de
 $text['description-sip_profile_setting_value']['de-ch'] = "Geben Sie einen Wert an."; //copied from de-de
@@ -626,10 +522,6 @@ $text['description-sip_profile_setting_value']['sv-se'] = "Ange värde.";
 $text['description-sip_profile_setting_value']['uk-ua'] = "Вкажіть значення";
 
 $text['description-sip_profile_setting_name']['en-us'] = "Enter the name.";
-<<<<<<< HEAD
-=======
-$text['description-sip_profile_setting_name']['en-gb'] = "Enter the name.";
->>>>>>> pr/2
 $text['description-sip_profile_setting_name']['ar-eg'] = "";
 $text['description-sip_profile_setting_name']['de-at'] = "Geben Sie den Namen an."; //copied from de-de
 $text['description-sip_profile_setting_name']['de-ch'] = "Geben Sie den Namen an."; //copied from de-de
@@ -650,10 +542,6 @@ $text['description-sip_profile_setting_name']['sv-se'] = "Ange Namnet.";
 $text['description-sip_profile_setting_name']['uk-ua'] = "Вкажіть назву";
 
 $text['description-sip_profile_setting_enabled']['en-us'] = "Choose to enable or disable this.";
-<<<<<<< HEAD
-=======
-$text['description-sip_profile_setting_enabled']['en-gb'] = "Choose to enable or disable this.";
->>>>>>> pr/2
 $text['description-sip_profile_setting_enabled']['ar-eg'] = "";
 $text['description-sip_profile_setting_enabled']['de-at'] = "Wählen Sie ob Sie dieses aktivieren oder deaktivieren möchten"; //copied from de-de
 $text['description-sip_profile_setting_enabled']['de-ch'] = "Wählen Sie ob Sie dieses aktivieren oder deaktivieren möchten"; //copied from de-de
@@ -674,10 +562,6 @@ $text['description-sip_profile_setting_enabled']['sv-se'] = "Välj att Aktivera 
 $text['description-sip_profile_setting_enabled']['uk-ua'] = "Ви";
 
 $text['description-sip_profile_setting_description']['en-us'] = "Enter the description.";
-<<<<<<< HEAD
-=======
-$text['description-sip_profile_setting_description']['en-gb'] = "Enter the description.";
->>>>>>> pr/2
 $text['description-sip_profile_setting_description']['ar-eg'] = "";
 $text['description-sip_profile_setting_description']['de-at'] = "Geben Sie eine Beschreibung ein."; //copied from de-de
 $text['description-sip_profile_setting_description']['de-ch'] = "Geben Sie eine Beschreibung ein."; //copied from de-de
@@ -698,10 +582,6 @@ $text['description-sip_profile_setting_description']['sv-se'] = "Ange en Beskriv
 $text['description-sip_profile_setting_description']['uk-ua'] = "Введіть опис";
 
 $text['description-sip_profile_name']['en-us'] = "Enter the SIP Profile name.";
-<<<<<<< HEAD
-=======
-$text['description-sip_profile_name']['en-gb'] = "Enter the SIP Profile name.";
->>>>>>> pr/2
 $text['description-sip_profile_name']['ar-eg'] = "";
 $text['description-sip_profile_name']['de-at'] = "Geben Sie den Namen des SIP Profils ein."; //copied from de-de
 $text['description-sip_profile_name']['de-ch'] = "Geben Sie den Namen des SIP Profils ein."; //copied from de-de
@@ -722,10 +602,6 @@ $text['description-sip_profile_name']['sv-se'] = "Skriv in namnet på SIP Profil
 $text['description-sip_profile_name']['uk-ua'] = "Введіть назву профілю";
 
 $text['description-sip_profile_hostname']['en-us'] = "Enter the hostname / switchname.";
-<<<<<<< HEAD
-=======
-$text['description-sip_profile_hostname']['en-gb'] = "Enter the hostname / switchname.";
->>>>>>> pr/2
 $text['description-sip_profile_hostname']['ar-eg'] = "";
 $text['description-sip_profile_hostname']['de-at'] = "Geben Sie den Hostnamen / Switchnamen an."; //copied from de-de
 $text['description-sip_profile_hostname']['de-ch'] = "Geben Sie den Hostnamen / Switchnamen an."; //copied from de-de
@@ -746,10 +622,6 @@ $text['description-sip_profile_hostname']['sv-se'] = "Fyll i hostname / switchna
 $text['description-sip_profile_hostname']['uk-ua'] = "Введіть назву хоста / switchname.";
 
 $text['description-sip_profile_enabled']['en-us'] = "Control the state of the profile.";
-<<<<<<< HEAD
-=======
-$text['description-sip_profile_enabled']['en-gb'] = "Control the state of the profile.";
->>>>>>> pr/2
 $text['description-sip_profile_enabled']['ar-eg'] = "";
 $text['description-sip_profile_enabled']['de-at'] = "Setzen Sie den Status dieses Profils."; //copied from de-de
 $text['description-sip_profile_enabled']['de-ch'] = "Setzen Sie den Status dieses Profils."; //copied from de-de

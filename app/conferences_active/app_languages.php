@@ -2,10 +2,6 @@
 #This file was last reorganized on 19th of September 2017 08:54:24 AM UTC
 
 $text['title-active_conferences']['en-us'] = "Active Conferences";
-<<<<<<< HEAD
-=======
-$text['title-active_conferences']['en-gb'] = "Active Conferences";
->>>>>>> pr/2
 $text['title-active_conferences']['ar-eg'] = "";
 $text['title-active_conferences']['de-at'] = "Aktive Konferenzen"; //copied from de-de
 $text['title-active_conferences']['de-ch'] = "Aktive Konferenzen"; //copied from de-de
@@ -26,10 +22,6 @@ $text['title-active_conferences']['sv-se'] = "Aktiva Konferenser";
 $text['title-active_conferences']['uk-ua'] = "Активні кноференції";
 
 $text['message-denied']['en-us'] = "access denied";
-<<<<<<< HEAD
-=======
-$text['message-denied']['en-gb'] = "access denied";
->>>>>>> pr/2
 $text['message-denied']['ar-eg'] = "";
 $text['message-denied']['de-at'] = "Zugang verweigert"; //copied from de-de
 $text['message-denied']['de-ch'] = "Zugang verweigert"; //copied from de-de
@@ -50,10 +42,6 @@ $text['message-denied']['sv-se'] = "Tillträde Nekat";
 $text['message-denied']['uk-ua'] = "в доступі відмовлено";
 
 $text['message-connection']['en-us'] = "Connection to Event Socket failed.";
-<<<<<<< HEAD
-=======
-$text['message-connection']['en-gb'] = "Connection to Event Socket failed.";
->>>>>>> pr/2
 $text['message-connection']['ar-eg'] = "";
 $text['message-connection']['de-at'] = "Verbindung zum Event Socket fehlgeschlagen."; //copied from de-de
 $text['message-connection']['de-ch'] = "Verbindung zum Event Socket fehlgeschlagen."; //copied from de-de
@@ -74,10 +62,6 @@ $text['message-connection']['sv-se'] = "Anslutning till Händelse misslyckades";
 $text['message-connection']['uk-ua'] = "Помилка підключення до сокета подій.";
 
 $text['message-click_to_unmute']['en-us'] = "Click to Unmute Member";
-<<<<<<< HEAD
-=======
-$text['message-click_to_unmute']['en-gb'] = "Click to Unmute Member";
->>>>>>> pr/2
 $text['message-click_to_unmute']['ar-eg'] = "";
 $text['message-click_to_unmute']['de-at'] = "Klicken Sie hier um die Stummschaltung zu deaktivieren"; //copied from de-de
 $text['message-click_to_unmute']['de-ch'] = "Klicken Sie hier um die Stummschaltung zu deaktivieren"; //copied from de-de
@@ -98,10 +82,6 @@ $text['message-click_to_unmute']['sv-se'] = "Klicka för att Aktivera Deltagares
 $text['message-click_to_unmute']['uk-ua'] = "Натисніть, щоб включити учасника";
 
 $text['message-click_to_mute']['en-us'] = "Click to mute Member";
-<<<<<<< HEAD
-=======
-$text['message-click_to_mute']['en-gb'] = "Click to mute Member";
->>>>>>> pr/2
 $text['message-click_to_mute']['ar-eg'] = "";
 $text['message-click_to_mute']['de-at'] = "Klicken Sie hier um den Teilnehmer stumm zu schalten"; //copied from de-de
 $text['message-click_to_mute']['de-ch'] = "Klicken Sie hier um den Teilnehmer stumm zu schalten"; //copied from de-de
@@ -122,10 +102,6 @@ $text['message-click_to_mute']['sv-se'] = "Klicka för att Stänga Av Deltagares
 $text['message-click_to_mute']['uk-ua'] = "Натисніть, щоб вилючити учасника";
 
 $text['label-yes']['en-us'] = "Yes";
-<<<<<<< HEAD
-=======
-$text['label-yes']['en-gb'] = "Yes";
->>>>>>> pr/2
 $text['label-yes']['ar-eg'] = "";
 $text['label-yes']['de-at'] = "Ja"; //copied from de-de
 $text['label-yes']['de-ch'] = "Ja"; //copied from de-de
@@ -146,10 +122,6 @@ $text['label-yes']['sv-se'] = "Ja";
 $text['label-yes']['uk-ua'] = "Так";
 
 $text['label-volume']['en-us'] = "Volume";
-<<<<<<< HEAD
-=======
-$text['label-volume']['en-gb'] = "Volume";
->>>>>>> pr/2
 $text['label-volume']['ar-eg'] = "";
 $text['label-volume']['de-at'] = "Lautstärke"; //copied from de-de
 $text['label-volume']['de-ch'] = "Lautstärke"; //copied from de-de
@@ -170,10 +142,6 @@ $text['label-volume']['sv-se'] = "Vol";
 $text['label-volume']['uk-ua'] = "";
 
 $text['label-video']['en-us'] = "Video";
-<<<<<<< HEAD
-=======
-$text['label-video']['en-gb'] = "Video";
->>>>>>> pr/2
 $text['label-video']['ar-eg'] = "";
 $text['label-video']['de-at'] = "Video"; //copied from de-de
 $text['label-video']['de-ch'] = "Video"; //copied from de-de
@@ -194,10 +162,6 @@ $text['label-video']['sv-se'] = "Video";
 $text['label-video']['uk-ua'] = "Відео";
 
 $text['label-unmute-all']['en-us'] = "Unmute All";
-<<<<<<< HEAD
-=======
-$text['label-unmute-all']['en-gb'] = "Unmute All";
->>>>>>> pr/2
 $text['label-unmute-all']['ar-eg'] = "";
 $text['label-unmute-all']['de-at'] = "Stummschaltung deaktivieren, alle"; //copied from de-de
 $text['label-unmute-all']['de-ch'] = "Stummschaltung deaktivieren, alle"; //copied from de-de
@@ -218,10 +182,6 @@ $text['label-unmute-all']['sv-se'] = "Aktivera Allas Mikrofoner";
 $text['label-unmute-all']['uk-ua'] = "Unmute All ";
 
 $text['label-unmute']['en-us'] = "Unmute";
-<<<<<<< HEAD
-=======
-$text['label-unmute']['en-gb'] = "Unmute";
->>>>>>> pr/2
 $text['label-unmute']['ar-eg'] = "";
 $text['label-unmute']['de-at'] = "Stummschaltung deaktivieren"; //copied from de-de
 $text['label-unmute']['de-ch'] = "Stummschaltung deaktivieren"; //copied from de-de
@@ -242,10 +202,6 @@ $text['label-unmute']['sv-se'] = "Mikrofon Aktiv";
 $text['label-unmute']['uk-ua'] = "Unmute ";
 
 $text['label-unlock']['en-us'] = "Unlock";
-<<<<<<< HEAD
-=======
-$text['label-unlock']['en-gb'] = "Unlock";
->>>>>>> pr/2
 $text['label-unlock']['ar-eg'] = "";
 $text['label-unlock']['de-at'] = "Entsperren"; //copied from de-de
 $text['label-unlock']['de-ch'] = "Entsperren"; //copied from de-de
@@ -266,10 +222,6 @@ $text['label-unlock']['sv-se'] = "Lås Upp";
 $text['label-unlock']['uk-ua'] = "Розблокувати";
 
 $text['label-undeaf']['en-us'] = "Undeaf";
-<<<<<<< HEAD
-=======
-$text['label-undeaf']['en-gb'] = "Undeaf";
->>>>>>> pr/2
 $text['label-undeaf']['ar-eg'] = "";
 $text['label-undeaf']['de-at'] = "Hörbarkeit"; //copied from de-de
 $text['label-undeaf']['de-ch'] = "Hörbarkeit"; //copied from de-de
@@ -290,10 +242,6 @@ $text['label-undeaf']['sv-se'] = "Hörbarhet";
 $text['label-undeaf']['uk-ua'] = "";
 
 $text['label-tools']['en-us'] = "Tools";
-<<<<<<< HEAD
-=======
-$text['label-tools']['en-gb'] = "Tools";
->>>>>>> pr/2
 $text['label-tools']['ar-eg'] = "";
 $text['label-tools']['de-at'] = "Werkzeuge"; //copied from de-de
 $text['label-tools']['de-ch'] = "Werkzeuge"; //copied from de-de
@@ -314,10 +262,6 @@ $text['label-tools']['sv-se'] = "Verktyg";
 $text['label-tools']['uk-ua'] = "Параметри";
 
 $text['label-tool']['en-us'] = "Tools";
-<<<<<<< HEAD
-=======
-$text['label-tool']['en-gb'] = "Tools";
->>>>>>> pr/2
 $text['label-tool']['ar-eg'] = "";
 $text['label-tool']['de-at'] = "Werkzeug"; //copied from de-de
 $text['label-tool']['de-ch'] = "Werkzeug"; //copied from de-de
@@ -338,10 +282,6 @@ $text['label-tool']['sv-se'] = "Verktyg";
 $text['label-tool']['uk-ua'] = "Параметри";
 
 $text['label-talking']['en-us'] = "Talking";
-<<<<<<< HEAD
-=======
-$text['label-talking']['en-gb'] = "Talking";
->>>>>>> pr/2
 $text['label-talking']['ar-eg'] = "";
 $text['label-talking']['de-at'] = "spricht"; //copied from de-de
 $text['label-talking']['de-ch'] = "spricht"; //copied from de-de
@@ -362,10 +302,6 @@ $text['label-talking']['sv-se'] = "Talande";
 $text['label-talking']['uk-ua'] = "Розмова";
 
 $text['label-speak']['en-us'] = "Speak";
-<<<<<<< HEAD
-=======
-$text['label-speak']['en-gb'] = "Speak";
->>>>>>> pr/2
 $text['label-speak']['ar-eg'] = "";
 $text['label-speak']['de-at'] = "sprechen"; //copied from de-de
 $text['label-speak']['de-ch'] = "sprechen"; //copied from de-de
@@ -386,10 +322,6 @@ $text['label-speak']['sv-se'] = "Tala";
 $text['label-speak']['uk-ua'] = "Говорити";
 
 $text['label-recording']['en-us'] = "Recording";
-<<<<<<< HEAD
-=======
-$text['label-recording']['en-gb'] = "Recording";
->>>>>>> pr/2
 $text['label-recording']['ar-eg'] = "";
 $text['label-recording']['de-at'] = "Aufnahme"; //copied from de-de
 $text['label-recording']['de-ch'] = "Aufnahme"; //copied from de-de
@@ -410,10 +342,6 @@ $text['label-recording']['sv-se'] = "Inspelning";
 $text['label-recording']['uk-ua'] = "Запис";
 
 $text['label-quiet']['en-us'] = "Quiet";
-<<<<<<< HEAD
-=======
-$text['label-quiet']['en-gb'] = "Quiet";
->>>>>>> pr/2
 $text['label-quiet']['ar-eg'] = "";
 $text['label-quiet']['de-at'] = "Leise"; //copied from de-de
 $text['label-quiet']['de-ch'] = "Leise"; //copied from de-de
@@ -434,10 +362,6 @@ $text['label-quiet']['sv-se'] = "Tyst";
 $text['label-quiet']['uk-ua'] = "";
 
 $text['label-participant-pin']['en-us'] = "Participant PIN";
-<<<<<<< HEAD
-=======
-$text['label-participant-pin']['en-gb'] = "Participant PIN";
->>>>>>> pr/2
 $text['label-participant-pin']['ar-eg'] = "";
 $text['label-participant-pin']['de-at'] = "Teilnehmer PIN"; //copied from de-de
 $text['label-participant-pin']['de-ch'] = "Teilnehmer PIN"; //copied from de-de
@@ -458,10 +382,6 @@ $text['label-participant-pin']['sv-se'] = "PIN Deltagare";
 $text['label-participant-pin']['uk-ua'] = "PIN учасника";
 
 $text['label-participant']['en-us'] = "Participant";
-<<<<<<< HEAD
-=======
-$text['label-participant']['en-gb'] = "Participant";
->>>>>>> pr/2
 $text['label-participant']['ar-eg'] = "";
 $text['label-participant']['de-at'] = "Teilnehmer"; //copied from de-de
 $text['label-participant']['de-ch'] = "Teilnehmer"; //copied from de-de
@@ -482,10 +402,6 @@ $text['label-participant']['sv-se'] = "Deltagare";
 $text['label-participant']['uk-ua'] = "Учасник";
 
 $text['label-not-recording']['en-us'] = "Not Recording";
-<<<<<<< HEAD
-=======
-$text['label-not-recording']['en-gb'] = "Not Recording";
->>>>>>> pr/2
 $text['label-not-recording']['ar-eg'] = "";
 $text['label-not-recording']['de-at'] = "Nicht Aufnehmen"; //copied from de-de
 $text['label-not-recording']['de-ch'] = "Nicht Aufnehmen"; //copied from de-de
@@ -506,10 +422,6 @@ $text['label-not-recording']['sv-se'] = "Spelar inte in";
 $text['label-not-recording']['uk-ua'] = "";
 
 $text['label-no']['en-us'] = "No";
-<<<<<<< HEAD
-=======
-$text['label-no']['en-gb'] = "No";
->>>>>>> pr/2
 $text['label-no']['ar-eg'] = "";
 $text['label-no']['de-at'] = "Nein"; //copied from de-de
 $text['label-no']['de-ch'] = "Nein"; //copied from de-de
@@ -530,10 +442,6 @@ $text['label-no']['sv-se'] = "Nej";
 $text['label-no']['uk-ua'] = "Ні";
 
 $text['label-mute-all-alt']['en-us'] = "Mute all Participants.";
-<<<<<<< HEAD
-=======
-$text['label-mute-all-alt']['en-gb'] = "Mute all Participants.";
->>>>>>> pr/2
 $text['label-mute-all-alt']['ar-eg'] = "";
 $text['label-mute-all-alt']['de-at'] = "Alle Teilnehmer stumm schalten."; //copied from de-de
 $text['label-mute-all-alt']['de-ch'] = "Alle Teilnehmer stumm schalten."; //copied from de-de
@@ -554,10 +462,6 @@ $text['label-mute-all-alt']['sv-se'] = "Stäng av Deltagares mikrofon";
 $text['label-mute-all-alt']['uk-ua'] = "";
 
 $text['label-mute-all']['en-us'] = "Mute All";
-<<<<<<< HEAD
-=======
-$text['label-mute-all']['en-gb'] = "Mute All";
->>>>>>> pr/2
 $text['label-mute-all']['ar-eg'] = "";
 $text['label-mute-all']['de-at'] = "Alle stummschalten"; //copied from de-de
 $text['label-mute-all']['de-ch'] = "Alle stummschalten"; //copied from de-de
@@ -578,10 +482,6 @@ $text['label-mute-all']['sv-se'] = "Stäng av Allas mikrofon";
 $text['label-mute-all']['uk-ua'] = "";
 
 $text['label-mute']['en-us'] = "Mute";
-<<<<<<< HEAD
-=======
-$text['label-mute']['en-gb'] = "Mute";
->>>>>>> pr/2
 $text['label-mute']['ar-eg'] = "";
 $text['label-mute']['de-at'] = "Stummschalten"; //copied from de-de
 $text['label-mute']['de-ch'] = "Stummschalten"; //copied from de-de
@@ -601,32 +501,7 @@ $text['label-mute']['ru-ru'] = "Отключить микрофон";
 $text['label-mute']['sv-se'] = "Stäng av mikrofon";
 $text['label-mute']['uk-ua'] = "";
 
-<<<<<<< HEAD
 $text['label-moderator']['en-us'] = "Moderator";
-=======
-$text['label-hand_raised']['en-us'] = "Hand Raised";
-$text['label-hand_raised']['ar-eg'] = "";
-$text['label-hand_raised']['de-at'] = ""; 
-$text['label-hand_raised']['de-ch'] = ""; 
-$text['label-hand_raised']['de-de'] = "";
-$text['label-hand_raised']['es-cl'] = "";
-$text['label-hand_raised']['es-mx'] = ""; 
-$text['label-hand_raised']['fr-ca'] = ""; 
-$text['label-hand_raised']['fr-fr'] = "";
-$text['label-hand_raised']['he-il'] = "";
-$text['label-hand_raised']['it-it'] = "";
-$text['label-hand_raised']['nl-nl'] = "";
-$text['label-hand_raised']['pl-pl'] = "";
-$text['label-hand_raised']['pt-br'] = ""; 
-$text['label-hand_raised']['pt-pt'] = "";
-$text['label-hand_raised']['ro-ro'] = "";
-$text['label-hand_raised']['ru-ru'] = "";
-$text['label-hand_raised']['sv-se'] = "";
-$text['label-hand_raised']['uk-ua'] = "";
-
-$text['label-moderator']['en-us'] = "Moderator";
-$text['label-moderator']['en-gb'] = "Moderator";
->>>>>>> pr/2
 $text['label-moderator']['ar-eg'] = "";
 $text['label-moderator']['de-at'] = "Moderator"; //copied from de-de
 $text['label-moderator']['de-ch'] = "Moderator"; //copied from de-de
@@ -647,10 +522,6 @@ $text['label-moderator']['sv-se'] = "Värd";
 $text['label-moderator']['uk-ua'] = "Модератор";
 
 $text['label-message']['en-us'] = "Message";
-<<<<<<< HEAD
-=======
-$text['label-message']['en-gb'] = "Message";
->>>>>>> pr/2
 $text['label-message']['ar-eg'] = "";
 $text['label-message']['de-at'] = "Nachricht"; //copied from de-de
 $text['label-message']['de-ch'] = "Nachricht"; //copied from de-de
@@ -671,10 +542,6 @@ $text['label-message']['sv-se'] = "Meddelande";
 $text['label-message']['uk-ua'] = "Повідомлення";
 
 $text['label-members']['en-us'] = "Members";
-<<<<<<< HEAD
-=======
-$text['label-members']['en-gb'] = "Members";
->>>>>>> pr/2
 $text['label-members']['ar-eg'] = "";
 $text['label-members']['de-at'] = "Teilnehmer"; //copied from de-de
 $text['label-members']['de-ch'] = "Teilnehmer"; //copied from de-de
@@ -695,10 +562,6 @@ $text['label-members']['sv-se'] = "Deltagare";
 $text['label-members']['uk-ua'] = "Учасники";
 
 $text['label-member-count']['en-us'] = "Member Count";
-<<<<<<< HEAD
-=======
-$text['label-member-count']['en-gb'] = "Member Count";
->>>>>>> pr/2
 $text['label-member-count']['ar-eg'] = "";
 $text['label-member-count']['de-at'] = "Anzahl Teilnehmer"; //copied from de-de
 $text['label-member-count']['de-ch'] = "Anzahl Teilnehmer"; //copied from de-de
@@ -719,10 +582,6 @@ $text['label-member-count']['sv-se'] = "Antal Deltagare";
 $text['label-member-count']['uk-ua'] = "Кількість учасиків";
 
 $text['label-lock']['en-us'] = "Lock";
-<<<<<<< HEAD
-=======
-$text['label-lock']['en-gb'] = "Lock";
->>>>>>> pr/2
 $text['label-lock']['ar-eg'] = "";
 $text['label-lock']['de-at'] = "Sperren"; //copied from de-de
 $text['label-lock']['de-ch'] = "Sperren"; //copied from de-de
@@ -743,10 +602,6 @@ $text['label-lock']['sv-se'] = "Lås";
 $text['label-lock']['uk-ua'] = "Блокувати";
 
 $text['label-kick']['en-us'] = "Kick";
-<<<<<<< HEAD
-=======
-$text['label-kick']['en-gb'] = "Kick";
->>>>>>> pr/2
 $text['label-kick']['ar-eg'] = "";
 $text['label-kick']['de-at'] = "Rauswerfen"; //copied from de-de
 $text['label-kick']['de-ch'] = "Rauswerfen"; //copied from de-de
@@ -767,10 +622,6 @@ $text['label-kick']['sv-se'] = "Sparka Ut";
 $text['label-kick']['uk-ua'] = "";
 
 $text['label-joined']['en-us'] = "Joined";
-<<<<<<< HEAD
-=======
-$text['label-joined']['en-gb'] = "Joined";
->>>>>>> pr/2
 $text['label-joined']['ar-eg'] = "";
 $text['label-joined']['de-at'] = "Verbunden"; //copied from de-de
 $text['label-joined']['de-ch'] = "Verbunden"; //copied from de-de
@@ -791,10 +642,6 @@ $text['label-joined']['sv-se'] = "Blev medlem";
 $text['label-joined']['uk-ua'] = "";
 
 $text['label-interactive']['en-us'] = "Interactive Conference";
-<<<<<<< HEAD
-=======
-$text['label-interactive']['en-gb'] = "Interactive Conference";
->>>>>>> pr/2
 $text['label-interactive']['ar-eg'] = "";
 $text['label-interactive']['de-at'] = "Inaktive Konferenz"; //copied from de-de
 $text['label-interactive']['de-ch'] = "Inaktive Konferenz"; //copied from de-de
@@ -815,10 +662,6 @@ $text['label-interactive']['sv-se'] = "Interaktiv Konferens";
 $text['label-interactive']['uk-ua'] = "";
 
 $text['label-id']['en-us'] = "ID";
-<<<<<<< HEAD
-=======
-$text['label-id']['en-gb'] = "ID";
->>>>>>> pr/2
 $text['label-id']['ar-eg'] = "";
 $text['label-id']['de-at'] = "ID"; //copied from de-de
 $text['label-id']['de-ch'] = "ID"; //copied from de-de
@@ -839,10 +682,6 @@ $text['label-id']['sv-se'] = "ID";
 $text['label-id']['uk-ua'] = "ID";
 
 $text['label-hear']['en-us'] = "Hear";
-<<<<<<< HEAD
-=======
-$text['label-hear']['en-gb'] = "Hear";
->>>>>>> pr/2
 $text['label-hear']['ar-eg'] = "";
 $text['label-hear']['de-at'] = "hören"; //copied from de-de
 $text['label-hear']['de-ch'] = "hören"; //copied from de-de
@@ -863,10 +702,6 @@ $text['label-hear']['sv-se'] = "Höra";
 $text['label-hear']['uk-ua'] = "";
 
 $text['label-gain']['en-us'] = "Gain";
-<<<<<<< HEAD
-=======
-$text['label-gain']['en-gb'] = "Gain";
->>>>>>> pr/2
 $text['label-gain']['ar-eg'] = "";
 $text['label-gain']['de-at'] = "Verstärkung"; //copied from de-de
 $text['label-gain']['de-ch'] = "Verstärkung"; //copied from de-de
@@ -887,10 +722,6 @@ $text['label-gain']['sv-se'] = "Förstärka";
 $text['label-gain']['uk-ua'] = "";
 
 $text['label-floor']['en-us'] = "Has Floor";
-<<<<<<< HEAD
-=======
-$text['label-floor']['en-gb'] = "Has Floor";
->>>>>>> pr/2
 $text['label-floor']['ar-eg'] = "";
 $text['label-floor']['de-at'] = "Hat das Wort"; //copied from de-de
 $text['label-floor']['de-ch'] = "Hat das Wort"; //copied from de-de
@@ -911,10 +742,6 @@ $text['label-floor']['sv-se'] = "Har Ordet";
 $text['label-floor']['uk-ua'] = "";
 
 $text['label-energy']['en-us'] = "Energy";
-<<<<<<< HEAD
-=======
-$text['label-energy']['en-gb'] = "Energy";
->>>>>>> pr/2
 $text['label-energy']['ar-eg'] = "";
 $text['label-energy']['de-at'] = "Energie"; //copied from de-de
 $text['label-energy']['de-ch'] = "Energie"; //copied from de-de
@@ -935,10 +762,6 @@ $text['label-energy']['sv-se'] = "Energi";
 $text['label-energy']['uk-ua'] = "";
 
 $text['label-end-conference']['en-us'] = "End Conference";
-<<<<<<< HEAD
-=======
-$text['label-end-conference']['en-gb'] = "End Conference";
->>>>>>> pr/2
 $text['label-end-conference']['ar-eg'] = "";
 $text['label-end-conference']['de-at'] = "Konferenz beenden"; //copied from de-de
 $text['label-end-conference']['de-ch'] = "Konferenz beenden"; //copied from de-de
@@ -959,10 +782,6 @@ $text['label-end-conference']['sv-se'] = "Avsluta Konferens";
 $text['label-end-conference']['uk-ua'] = "";
 
 $text['label-deaf']['en-us'] = "Deaf";
-<<<<<<< HEAD
-=======
-$text['label-deaf']['en-gb'] = "Deaf";
->>>>>>> pr/2
 $text['label-deaf']['ar-eg'] = "";
 $text['label-deaf']['de-at'] = "Taub"; //copied from de-de
 $text['label-deaf']['de-ch'] = "Taub"; //copied from de-de
@@ -983,10 +802,6 @@ $text['label-deaf']['sv-se'] = "Hör inte";
 $text['label-deaf']['uk-ua'] = "";
 
 $text['label-cid-num']['en-us'] = "CID Number";
-<<<<<<< HEAD
-=======
-$text['label-cid-num']['en-gb'] = "CID Number";
->>>>>>> pr/2
 $text['label-cid-num']['ar-eg'] = "";
 $text['label-cid-num']['de-at'] = "Anrufer Nummer"; //copied from de-de
 $text['label-cid-num']['de-ch'] = "Anrufer Nummer"; //copied from de-de
@@ -1007,10 +822,6 @@ $text['label-cid-num']['sv-se'] = "CID, nummerpresentation";
 $text['label-cid-num']['uk-ua'] = "CID Номер";
 
 $text['label-cid-name']['en-us'] = "CID Name";
-<<<<<<< HEAD
-=======
-$text['label-cid-name']['en-gb'] = "CID Name";
->>>>>>> pr/2
 $text['label-cid-name']['ar-eg'] = "";
 $text['label-cid-name']['de-at'] = "Anrufer Name"; //copied from de-de
 $text['label-cid-name']['de-ch'] = "Anrufer Name"; //copied from de-de
@@ -1031,10 +842,6 @@ $text['label-cid-name']['sv-se'] = "CID, Namnpresentation";
 $text['label-cid-name']['uk-ua'] = "CID Ім’я";
 
 $text['label-capabilities']['en-us'] = "Capabilities";
-<<<<<<< HEAD
-=======
-$text['label-capabilities']['en-gb'] = "Capabilities";
->>>>>>> pr/2
 $text['label-capabilities']['ar-eg'] = "";
 $text['label-capabilities']['de-at'] = "Möglichkeiten"; //copied from de-de
 $text['label-capabilities']['de-ch'] = "Möglichkeiten"; //copied from de-de
@@ -1055,10 +862,6 @@ $text['label-capabilities']['sv-se'] = "Möjligheter";
 $text['label-capabilities']['uk-ua'] = "Можливості";
 
 $text['description-interactive']['en-us'] = "Use this to monitor and interact with the members of the conference.";
-<<<<<<< HEAD
-=======
-$text['description-interactive']['en-gb'] = "Use this to monitor and interact with the members of the conference.";
->>>>>>> pr/2
 $text['description-interactive']['ar-eg'] = "";
 $text['description-interactive']['de-at'] = "Teilnehmer der Konferenz überwachen und aktiv eingreifen."; //copied from de-de
 $text['description-interactive']['de-ch'] = "Teilnehmer der Konferenz überwachen und aktiv eingreifen."; //copied from de-de
@@ -1079,10 +882,6 @@ $text['description-interactive']['sv-se'] = "Använd detta för att Monitorera o
 $text['description-interactive']['uk-ua'] = "";
 
 $text['description-active']['en-us'] = "List all the conferences that are currently active with one or more members.";
-<<<<<<< HEAD
-=======
-$text['description-active']['en-gb'] = "List all the conferences that are currently active with one or more members.";
->>>>>>> pr/2
 $text['description-active']['ar-eg'] = "";
 $text['description-active']['de-at'] = "Liste alle aktiven Konferenzen mit einem oder mehreren Teilnehmern."; //copied from de-de
 $text['description-active']['de-ch'] = "Liste alle aktiven Konferenzen mit einem oder mehreren Teilnehmern."; //copied from de-de
@@ -1103,10 +902,6 @@ $text['description-active']['sv-se'] = "Lista alla Konferenser som är aktiva me
 $text['description-active']['uk-ua'] = "";
 
 $text['button-stop-rec']['en-us'] = "Stop Record";
-<<<<<<< HEAD
-=======
-$text['button-stop-rec']['en-gb'] = "Stop Record";
->>>>>>> pr/2
 $text['button-stop-rec']['ar-eg'] = "";
 $text['button-stop-rec']['de-at'] = "Aufnahme beenden"; //copied from de-de
 $text['button-stop-rec']['de-ch'] = "Aufnahme beenden"; //copied from de-de
@@ -1127,10 +922,6 @@ $text['button-stop-rec']['sv-se'] = "Stoppa Inspelning";
 $text['button-stop-rec']['uk-ua'] = "Зупинити";
 
 $text['button-start-rec']['en-us'] = "Start Record";
-<<<<<<< HEAD
-=======
-$text['button-start-rec']['en-gb'] = "Start Record";
->>>>>>> pr/2
 $text['button-start-rec']['ar-eg'] = "";
 $text['button-start-rec']['de-at'] = "Aufnahme starten"; //copied from de-de
 $text['button-start-rec']['de-ch'] = "Aufnahme starten"; //copied from de-de

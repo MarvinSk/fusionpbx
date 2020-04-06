@@ -99,14 +99,6 @@
 			}
 			unset($sql, $row, $greeting_decoded);
 			if (file_exists($v_greeting_dir.'/'.$greeting_filename)) {
-<<<<<<< HEAD
-=======
-				//content-range
-				if (isset($_SERVER['HTTP_RANGE']) && $_GET['t'] != "bin") {
-					range_download($v_greeting_dir.'/'.$greeting_filename);
-				}
-
->>>>>>> pr/2
 				$fd = fopen($v_greeting_dir.'/'.$greeting_filename, "rb");
 				if ($_GET['t'] == "bin") {
 					header("Content-Type: application/force-download");
@@ -115,32 +107,18 @@
 					header("Content-Description: File Transfer");
 				}
 				else {
-<<<<<<< HEAD
 					$file_ext = substr($greeting_filename, -3);
 					if ($file_ext == "wav") {
 						header("Content-Type: audio/x-wav");
 					}
 					if ($file_ext == "mp3") {
 						header("Content-Type: audio/mpeg");
-=======
-					$file_ext = pathinfo($greeting_filename, PATHINFO_EXTENSION);
-					switch ($file_ext) {
-						case "wav" : header("Content-Type: audio/x-wav"); break;
-						case "mp3" : header("Content-Type: audio/mpeg"); break;
-						case "ogg" : header("Content-Type: audio/ogg"); break;
->>>>>>> pr/2
 					}
 				}
 				header('Content-Disposition: attachment; filename="'.$greeting_filename.'"');
 				header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 				header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-<<<<<<< HEAD
 				header("Content-Length: ".filesize($v_greeting_dir.'/'.$greeting_filename));
-=======
-				if ($_GET['t'] == "bin") {
-					header("Content-Length: ".filesize($v_greeting_dir.'/'.$greeting_filename));
-				}
->>>>>>> pr/2
 				ob_clean();
 				fpassthru($fd);
 			}
@@ -240,7 +218,6 @@
 	else {
 		echo "access denied";
 		exit;
-<<<<<<< HEAD
 	}
 
 //set the greeting
@@ -266,33 +243,6 @@
 			exit;
 	}
 
-=======
-	}
-
-//set the greeting
-	if ($_REQUEST['action'] == "set") {
-		//save the greeting_id to a variable
-			$greeting_id = $_REQUEST['greeting_id'];
-
-		//set the greeting_id
-			$sql = "update v_voicemails ";
-			$sql .= "set greeting_id = :greeting_id ";
-			$sql .= "where domain_uuid = :domain_uuid ";
-			$sql .= "and voicemail_id = :voicemail_id ";
-			$parameters['greeting_id'] = $greeting_id;
-			$parameters['domain_uuid'] = $domain_uuid;
-			$parameters['voicemail_id'] = $voicemail_id;
-			$database = new database;
-			$database->execute($sql, $parameters);
-			unset($sql, $parameters);
-		//set message
-			message::add($text['message-greeting_selected']);
-		//redirect
-			header("Location: voicemail_greetings.php?id=".$voicemail_id."&order_by=".$order_by."&order=".$order);
-			exit;
-	}
-
->>>>>>> pr/2
 //get existing greetings
 	$sql = "select voicemail_greeting_uuid, greeting_filename, greeting_base64 ";
 	$sql .= "from v_voicemail_greetings ";
@@ -425,34 +375,8 @@
 
 		header('Location: voicemail_greetings.php?id='.urlencode($voicemail_id).'&back='.urlencode(PROJECT_PATH.'/app/voicemails/voicemails.php'));
 		exit;
-<<<<<<< HEAD
-=======
 	}
 
-//get the greetings list
-	if ($_SESSION['voicemail']['storage_type']['text'] == 'base64') {
-		switch ($db_type) {
-			case 'pgsql': $sql_file_size = ", length(decode(greeting_base64,'base64')) as greeting_size "; break;
-			case 'mysql': $sql_file_size = ", length(from_base64(greeting_base64)) as greeting_size "; break;
-		}
->>>>>>> pr/2
-	}
-	$sql = "select * ".$sql_file_size." from v_voicemail_greetings ";
-	$sql .= "where domain_uuid = :domain_uuid ";
-	$sql .= "and voicemail_id = :voicemail_id ";
-	$sql .= order_by($order_by, $order);
-	$parameters['domain_uuid'] = $domain_uuid;
-	$parameters['voicemail_id'] = $voicemail_id;
-	$database = new database;
-	$greetings = $database->select($sql, $parameters, 'all');
-	$num_rows = is_array($greetings) ? @sizeof($greetings) : 0;
-	unset($sql, $parameters);
-
-//create token
-	$object = new token;
-	$token = $object->create($_SERVER['PHP_SELF']);
-
-<<<<<<< HEAD
 //get the greetings list
 	if ($_SESSION['voicemail']['storage_type']['text'] == 'base64') {
 		switch ($db_type) {
@@ -517,54 +441,6 @@
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
 
-=======
-//include the header
-	$document['title'] = $text['title'];
-	require_once "resources/header.php";
-
-//file type check script
-	echo "<script language='JavaScript' type='text/javascript'>\n";
-	echo "	function check_file_type(file_input) {\n";
-	echo "		file_ext = file_input.value.substr((~-file_input.value.lastIndexOf('.') >>> 0) + 2);\n";
-	echo "		if (file_ext != 'mp3' && file_ext != 'wav' && file_ext != 'ogg' && file_ext != '') {\n";
-	echo "			display_message(\"".$text['message-unsupported_file_type']."\", 'negative', '2750');\n";
-	echo "			document.getElementById('form_upload').reset();\n";
-	echo "		}\n";
-	echo "	}\n";
-	echo "</script>";
-
-//show the content
-	echo "<div class='action_bar' id='action_bar'>\n";
-	echo "	<div class='heading'><b>".$text['title']." (".$num_rows.")</b></div>\n";
-	echo "	<div class='actions'>\n";
-	echo button::create(['type'=>'button','label'=>$text['button-back'],'icon'=>$_SESSION['theme']['button_icon_back'],'id'=>'btn_back','style'=>'margin-right: 15px;','link'=>$_SESSION['back'][$_SERVER['PHP_SELF']]]);
-	if (permission_exists('voicemail_greeting_upload')) {
-		echo 	"<form id='form_upload' class='inline' method='post' enctype='multipart/form-data'>\n";
-		echo 	"<input name='a' type='hidden' value='upload'>\n";
-		echo 	"<input type='hidden' name='id' value='".escape($voicemail_id)."'>\n";
-		echo 	"<input type='hidden' name='type' value='rec'>\n";
-		echo 	"<input type='hidden' name='".$token['name']."' value='".$token['hash']."'>\n";
-		echo button::create(['type'=>'button','label'=>$text['button-add'],'icon'=>$_SESSION['theme']['button_icon_add'],'id'=>'btn_add','onclick'=>"$(this).fadeOut(250, function(){ $('span#form_upload').fadeIn(250); document.getElementById('ulfile').click(); });"]);
-		echo 	"<span id='form_upload' style='display: none;'>";
-		echo button::create(['label'=>$text['button-cancel'],'icon'=>$_SESSION['theme']['button_icon_cancel'],'type'=>'button','id'=>'btn_upload_cancel','onclick'=>"$('span#form_upload').fadeOut(250, function(){ document.getElementById('form_upload').reset(); $('#btn_add').fadeIn(250) });"]);
-		echo 		"<input type='text' class='txt' style='width: 100px; cursor: pointer;' id='filename' placeholder='Select...' onclick=\"document.getElementById('ulfile').click(); this.blur();\" onfocus='this.blur();'>";
-		echo 		"<input type='file' id='ulfile' name='file' style='display: none;' accept='.wav,.mp3,.ogg' onchange=\"document.getElementById('filename').value = this.files.item(0).name; check_file_type(this);\">";
-		echo button::create(['type'=>'submit','label'=>$text['button-upload'],'icon'=>$_SESSION['theme']['button_icon_upload']]);
-		echo 	"</span>\n";
-		echo 	"</form>";
-	}
-	if (permission_exists('voicemail_greeting_delete') && $greetings) {
-		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','onclick'=>"modal_open('modal-delete','btn_delete');"]);
-	}
-	echo "	</div>\n";
-	echo "	<div style='clear: both;'></div>\n";
-	echo "</div>\n";
-
-	if (permission_exists('voicemail_greeting_delete') && $greetings) {
-		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
-	}
-
->>>>>>> pr/2
 	echo $text['description']." <strong>".escape($voicemail_id)."</strong>\n";
 	echo "<br /><br />\n";
 
@@ -689,99 +565,5 @@
 
 //include the footer
 	require_once "resources/footer.php";
-<<<<<<< HEAD
-=======
-
-//define the download function (helps safari play audio sources)
-	function range_download($file) {
-		$fp = @fopen($file, 'rb');
-
-		$size   = filesize($file); // File size
-		$length = $size;           // Content length
-		$start  = 0;               // Start byte
-		$end    = $size - 1;       // End byte
-		// Now that we've gotten so far without errors we send the accept range header
-		/* At the moment we only support single ranges.
-		* Multiple ranges requires some more work to ensure it works correctly
-		* and comply with the spesifications: http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.2
-		*
-		* Multirange support annouces itself with:
-		* header('Accept-Ranges: bytes');
-		*
-		* Multirange content must be sent with multipart/byteranges mediatype,
-		* (mediatype = mimetype)
-		* as well as a boundry header to indicate the various chunks of data.
-		*/
-		header("Accept-Ranges: 0-$length");
-		// header('Accept-Ranges: bytes');
-		// multipart/byteranges
-		// http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.2
-		if (isset($_SERVER['HTTP_RANGE'])) {
-
-			$c_start = $start;
-			$c_end   = $end;
-			// Extract the range string
-			list(, $range) = explode('=', $_SERVER['HTTP_RANGE'], 2);
-			// Make sure the client hasn't sent us a multibyte range
-			if (strpos($range, ',') !== false) {
-				// (?) Shoud this be issued here, or should the first
-				// range be used? Or should the header be ignored and
-				// we output the whole content?
-				header('HTTP/1.1 416 Requested Range Not Satisfiable');
-				header("Content-Range: bytes $start-$end/$size");
-				// (?) Echo some info to the client?
-				exit;
-			}
-			// If the range starts with an '-' we start from the beginning
-			// If not, we forward the file pointer
-			// And make sure to get the end byte if spesified
-			if ($range0 == '-') {
-				// The n-number of the last bytes is requested
-				$c_start = $size - substr($range, 1);
-			}
-			else {
-				$range  = explode('-', $range);
-				$c_start = $range[0];
-				$c_end   = (isset($range[1]) && is_numeric($range[1])) ? $range[1] : $size;
-			}
-			/* Check the range and make sure it's treated according to the specs.
-			* http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-			*/
-			// End bytes can not be larger than $end.
-			$c_end = ($c_end > $end) ? $end : $c_end;
-			// Validate the requested range and return an error if it's not correct.
-			if ($c_start > $c_end || $c_start > $size - 1 || $c_end >= $size) {
-
-				header('HTTP/1.1 416 Requested Range Not Satisfiable');
-				header("Content-Range: bytes $start-$end/$size");
-				// (?) Echo some info to the client?
-				exit;
-			}
-			$start  = $c_start;
-			$end    = $c_end;
-			$length = $end - $start + 1; // Calculate new content length
-			fseek($fp, $start);
-			header('HTTP/1.1 206 Partial Content');
-		}
-		// Notify the client the byte range we'll be outputting
-		header("Content-Range: bytes $start-$end/$size");
-		header("Content-Length: $length");
-
-		// Start buffered download
-		$buffer = 1024 * 8;
-		while(!feof($fp) && ($p = ftell($fp)) <= $end) {
-			if ($p + $buffer > $end) {
-				// In case we're only outputtin a chunk, make sure we don't
-				// read past the length
-				$buffer = $end - $p + 1;
-			}
-			set_time_limit(0); // Reset time limit for big files
-			echo fread($fp, $buffer);
-			flush(); // Free up memory. Otherwise large files will trigger PHP's memory limit.
-		}
-
-		fclose($fp);
-	}
->>>>>>> pr/2
 
 ?>

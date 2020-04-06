@@ -131,17 +131,10 @@
 		echo button::create(['type'=>'button','label'=>$text['button-add'],'icon'=>$_SESSION['theme']['button_icon_add'],'id'=>'btn_add','link'=>'call_broadcast_edit.php']);
 	}
 	if (permission_exists('call_broadcast_add') && $result) {
-<<<<<<< HEAD
 		echo button::create(['type'=>'button','label'=>$text['button-copy'],'icon'=>$_SESSION['theme']['button_icon_copy'],'id'=>'btn_copy','onclick'=>"if (confirm('".$text['confirm-copy']."')) { list_action_set('copy'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
 	}
 	if (permission_exists('call_broadcast_delete') && $result) {
 		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'id'=>'btn_delete','onclick'=>"if (confirm('".$text['confirm-delete']."')) { list_action_set('delete'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
-=======
-		echo button::create(['type'=>'button','label'=>$text['button-copy'],'icon'=>$_SESSION['theme']['button_icon_copy'],'name'=>'btn_copy','onclick'=>"modal_open('modal-copy','btn_copy');"]);
-	}
-	if (permission_exists('call_broadcast_delete') && $result) {
-		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','onclick'=>"modal_open('modal-delete','btn_delete');"]);
->>>>>>> pr/2
 	}
 	echo 		"<form id='form_search' class='inline' method='get'>\n";
 	echo 		"<input type='text' class='txt list-search' name='search' id='search' value=\"".escape($search)."\" placeholder=\"".$text['label-search']."\" onkeydown='list_search_reset();'>";
@@ -155,16 +148,6 @@
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
 
-<<<<<<< HEAD
-=======
-	if (permission_exists('call_broadcast_add') && $result) {
-		echo modal::create(['id'=>'modal-copy','type'=>'copy','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_copy','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('copy'); list_form_submit('form_list');"])]);
-	}
-	if (permission_exists('call_broadcast_delete') && $result) {
-		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
-	}
-
->>>>>>> pr/2
 	echo $text['title_description-call_broadcast']."\n";
 	echo "<br /><br />\n";
 
@@ -192,7 +175,6 @@
 		foreach($result as $row) {
 			if (permission_exists('call_broadcast_edit')) {
 				$list_row_url = "call_broadcast_edit.php?id=".urlencode($row['call_broadcast_uuid']);
-<<<<<<< HEAD
 			}
 			echo "<tr class='list-row' href='".$list_row_url."'>\n";
 			if (permission_exists('call_broadcast_add') || permission_exists('call_broadcast_delete')) {
@@ -205,20 +187,6 @@
 			if (permission_exists('call_broadcast_edit')) {
 				echo "<a href='".$list_row_url."'>".escape($row['broadcast_name'])."</a>";
 			}
-=======
-			}
-			echo "<tr class='list-row' href='".$list_row_url."'>\n";
-			if (permission_exists('call_broadcast_add') || permission_exists('call_broadcast_delete')) {
-				echo "	<td class='checkbox'>\n";
-				echo "		<input type='checkbox' name='call_broadcasts[$x][checked]' id='checkbox_".$x."' value='true' onclick=\"if (!this.checked) { document.getElementById('checkbox_all').checked = false; }\">\n";
-				echo "		<input type='hidden' name='call_broadcasts[$x][uuid]' value='".escape($row['call_broadcast_uuid'])."' />\n";
-				echo "	</td>\n";
-			}
-			echo "	<td>";
-			if (permission_exists('call_broadcast_edit')) {
-				echo "<a href='".$list_row_url."'>".escape($row['broadcast_name'])."</a>";
-			}
->>>>>>> pr/2
 			else {
 				echo escape($row['broadcast_name']);
 			}

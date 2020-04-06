@@ -1,10 +1,6 @@
 <?php
 
 	//$apps[$x]['menu'][0]['title']['en-us'] = "Users";
-<<<<<<< HEAD
-=======
-	//$apps[$x]['menu'][0]['title']['en-gb'] = "Users";
->>>>>>> pr/2
 	//$apps[$x]['menu'][0]['title']['de-de'] = "Benutzer";
 	//$apps[$x]['menu'][0]['title']['de-at'] = "Benutzer";
 	//$apps[$x]['menu'][0]['title']['ru-ru'] = "Пользователи";

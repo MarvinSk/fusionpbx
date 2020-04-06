@@ -297,24 +297,13 @@
 	echo "	<div class='actions'>\n";
 	echo button::create(['type'=>'button','label'=>$text['button-back'],'icon'=>$_SESSION['theme']['button_icon_back'],'id'=>'btn_back','collapse'=>'hide-xs','style'=>'margin-right: 15px;','link'=>'call_block.php']);
 	if ($action == 'update' && permission_exists('call_block_delete')) {
-<<<<<<< HEAD
 		echo button::create(['type'=>'submit','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'id'=>'btn_delete','name'=>'action','value'=>'delete','collapse'=>'hide-xs','style'=>'margin-right: 15px;','onclick'=>"if (confirm('".$text['confirm-delete']."')) { document.getElementById('frm').submit(); } else { this.blur(); return false; }"]);
-=======
-		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','collapse'=>'hide-xs','style'=>'margin-right: 15px;','onclick'=>"modal_open('modal-delete','btn_delete');"]);
->>>>>>> pr/2
 	}
 	echo button::create(['type'=>'submit','label'=>$text['button-save'],'icon'=>$_SESSION['theme']['button_icon_save'],'id'=>'btn_save','collapse'=>'hide-xs']);
 	echo "	</div>\n";
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
 
-<<<<<<< HEAD
-=======
-	if ($action == 'update' && permission_exists('call_block_delete')) {
-		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'submit','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','name'=>'action','value'=>'delete','onclick'=>"modal_close();"])]);
-	}
-
->>>>>>> pr/2
 	if ($action == "add") {
 		echo $text['label-add-note']."\n";
 	}
@@ -536,23 +525,12 @@
 				unset($select_margin);
 			}
 			call_block_action_select(true);
-<<<<<<< HEAD
 			echo button::create(['type'=>'button','label'=>$text['button-block'],'icon'=>'ban','collapse'=>'hide-xs','onclick'=>"if (confirm('".$text['confirm-block']."')) { list_form_submit('form_list'); } else { this.blur(); return false; }"]);
-=======
-			echo button::create(['type'=>'button','label'=>$text['button-block'],'icon'=>'ban','collapse'=>'hide-xs','onclick'=>"modal_open('modal-block','btn_block');"]);
->>>>>>> pr/2
 		}
 		echo 	"</div>\n";
 		echo "	<div style='clear: both;'></div>\n";
 		echo "</div>\n";
 
-<<<<<<< HEAD
-=======
-		if ($result) {
-			echo modal::create(['id'=>'modal-block','type'=>'general','message'=>$text['confirm-block'],'actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_block','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_form_submit('form_list');"])]);
-		}
-
->>>>>>> pr/2
 		echo "<table class='list'>\n";
 		echo "<tr class='list-header'>\n";
 		echo "	<th class='checkbox'>\n";

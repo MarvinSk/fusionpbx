@@ -3,10 +3,6 @@
 	/*
 	$y=0;
 	$apps[$x]['menu'][$y]['title']['en-us'] = "Domain Settings";
-<<<<<<< HEAD
-=======
-	$apps[$x]['menu'][$y]['title']['en-gb'] = "Domain Settings";
->>>>>>> pr/2
 	$apps[$x]['menu'][$y]['title']['ar-eg'] = "";
 	$apps[$x]['menu'][$y]['title']['de-at'] = "Domänen Einstellungen";
 	$apps[$x]['menu'][$y]['title']['de-de'] = "Domänen Einstellungen";

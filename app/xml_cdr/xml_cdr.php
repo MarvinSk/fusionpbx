@@ -190,11 +190,7 @@
 	echo "			<option value='pdf'>PDF</option>";
 	echo "		</select>";
 	if (!$archive_request && permission_exists('xml_cdr_delete')) {
-<<<<<<< HEAD
 		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'onclick'=>"if (confirm('".$text['confirm-delete']."')) { list_action_set('delete'); list_form_submit('form_list'); } else { this.blur(); return false; }"]);
-=======
-		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$_SESSION['theme']['button_icon_delete'],'name'=>'btn_delete','onclick'=>"modal_open('modal-delete','btn_delete');"]);
->>>>>>> pr/2
 	}
 	if (permission_exists('xml_cdr_all') && $_REQUEST['show'] !== 'all') {
 		echo button::create(['type'=>'button','label'=>$text['button-show_all'],'icon'=>$_SESSION['theme']['button_icon_all'],'link'=>'?show=all']);
@@ -207,13 +203,6 @@
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
 
-<<<<<<< HEAD
-=======
-	if (!$archive_request && permission_exists('xml_cdr_delete')) {
-		echo modal::create(['id'=>'modal-delete','type'=>'delete','actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
-	}
-
->>>>>>> pr/2
 	echo $text['description']." \n";
 	echo $text['description2']." \n";
 	echo $text['description-3']." \n";
@@ -395,12 +384,7 @@
 				'INCOMPATIBLE_DESTINATION',
 				'USER_NOT_REGISTERED',
 				'SYSTEM_SHUTDOWN',
-<<<<<<< HEAD
 				'MANDATORY_IE_MISSING'
-=======
-				'MANDATORY_IE_MISSING',
-				'REQUESTED_CHAN_UNAVAIL'
->>>>>>> pr/2
 				);
 			sort($cdr_status_options);
 			foreach ($cdr_status_options as $cdr_status) {
@@ -456,7 +440,6 @@
 			}
 			if (permission_exists('xml_cdr_tta')) {
 				echo "			<option value='tta' ".($order_by == 'tta' ? "selected='selected'" : null).">".$text['label-tta']."</option>\n";
-<<<<<<< HEAD
 			}
 			if (permission_exists('xml_cdr_duration')) {
 				echo "			<option value='duration' ".($order_by == 'duration' ? "selected='selected'" : null).">".$text['label-duration']."</option>\n";
@@ -470,21 +453,6 @@
 			if (permission_exists('xml_cdr_hangup_cause')) {
 				echo "			<option value='hangup_cause' ".($order_by == 'desc' ? "selected='selected'" : null).">".$text['label-hangup_cause']."</option>\n";
 			}
-=======
-			}
-			if (permission_exists('xml_cdr_duration')) {
-				echo "			<option value='duration' ".($order_by == 'duration' ? "selected='selected'" : null).">".$text['label-duration']."</option>\n";
-			}
-			if (permission_exists('xml_cdr_pdd')) {
-				echo "			<option value='pdd_ms' ".($order_by == 'pdd_ms' ? "selected='selected'" : null).">".$text['label-pdd']."</option>\n";
-			}
-			if (permission_exists('xml_cdr_mos')) {
-				echo "			<option value='rtp_audio_in_mos' ".($order_by == 'rtp_audio_in_mos' ? "selected='selected'" : null).">".$text['label-mos']."</option>\n";
-			}
-			if (permission_exists('xml_cdr_hangup_cause')) {
-				echo "			<option value='hangup_cause' ".($order_by == 'desc' ? "selected='selected'" : null).">".$text['label-hangup_cause']."</option>\n";
-			}
->>>>>>> pr/2
 			if (permission_exists('xml_cdr_custom_fields')) {
 				if (is_array($_SESSION['cdr']['field'])) {
 					echo "			<option value='' disabled='disabled'></option>\n";

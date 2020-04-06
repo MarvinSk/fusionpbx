@@ -33,22 +33,11 @@
 //check permissions
 	if (permission_exists('conference_room_add') || permission_exists('conference_room_edit')) {
 		//access granted
-<<<<<<< HEAD
-=======
-	}
-	else {
-		echo "access denied";
-		exit;
->>>>>>> pr/2
 	}
 	else {
 		echo "access denied";
 		exit;
 	}
-
-//add multi-lingual support
-	$language = new text;
-	$text = $language->get();
 
 //add multi-lingual support
 	$language = new text;
@@ -77,13 +66,7 @@
 		$start_datetime = $_POST["start_datetime"];
 		$stop_datetime = $_POST["stop_datetime"];
 		$wait_mod = $_POST["wait_mod"];
-<<<<<<< HEAD
 		$announce = $_POST["announce"];
-=======
-		$announce_name = $_POST["announce_name"];
-		$announce_recording = $_POST["announce_recording"];
-		$announce_count = $_POST["announce_count"];
->>>>>>> pr/2
 		$sounds = $_POST["sounds"];
 		$mute = $_POST["mute"];
 		$created = $_POST["created"];
@@ -302,13 +285,7 @@ if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
 					if (strlen($record) == 0) { $record = 'false'; }
 					if (strlen($max_members) == 0) { $max_members = 0; }
 					if (strlen($wait_mod) == 0) { $wait_mod = 'true'; }
-<<<<<<< HEAD
 					if (strlen($announce) == 0) { $announce = 'true'; }
-=======
-					if (strlen($announce_name) == 0) { $announce_name = 'true'; }
-					if (strlen($announce_recording) == 0) { $announce_recording = 'true'; }
-					if (strlen($announce_count) == 0) { $announce_count = 'true'; }
->>>>>>> pr/2
 					if (strlen($mute) == 0) { $mute = 'false'; }
 					if (strlen($enabled) == 0) { $enabled = 'true'; }
 					if (strlen($sounds) == 0) { $sounds = 'false'; }
@@ -346,13 +323,7 @@ if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
 					$array['conference_rooms'][0]['start_datetime'] = $start_datetime;
 					$array['conference_rooms'][0]['stop_datetime'] = $stop_datetime;
 					$array['conference_rooms'][0]['wait_mod'] = $wait_mod;
-<<<<<<< HEAD
 					$array['conference_rooms'][0]['announce'] = $announce;
-=======
-					$array['conference_rooms'][0]['announce_name'] = $announce_name;
-					$array['conference_rooms'][0]['announce_recording'] = $announce_recording;
-					$array['conference_rooms'][0]['announce_count'] = $announce_count;
->>>>>>> pr/2
 					$array['conference_rooms'][0]['sounds'] = $sounds;
 					$array['conference_rooms'][0]['mute'] = $mute;
 					$array['conference_rooms'][0]['created'] = 'now()';
@@ -444,19 +415,8 @@ if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
 					if (strlen($wait_mod) > 0) {
 						$array['conference_rooms'][0]['wait_mod'] = $wait_mod;
 					}
-<<<<<<< HEAD
 					if (strlen($announce) > 0) {
 						$array['conference_rooms'][0]['announce'] = $announce;
-=======
-					if (strlen($announce_name) > 0) {
-						$array['conference_rooms'][0]['announce_name'] = $announce_name;
-					}
-					if (strlen($announce_name) > 0) {
-						$array['conference_rooms'][0]['announce_recording'] = $announce_recording;
-					}
-					if (strlen($announce_name) > 0) {
-						$array['conference_rooms'][0]['announce_count'] = $announce_count;
->>>>>>> pr/2
 					}
 					if (strlen($mute) > 0) {
 						$array['conference_rooms'][0]['mute'] = $mute;
@@ -487,7 +447,6 @@ if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
 
 					$p = new permissions;
 					$p->add('meeting_user_add', 'temp');
-<<<<<<< HEAD
 
 					$database = new database;
 					$database->app_name = 'conference_centers';
@@ -497,17 +456,6 @@ if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
 
 					$p->delete('meeting_user_add', 'temp');
 
-=======
-
-					$database = new database;
-					$database->app_name = 'conference_centers';
-					$database->app_uuid = '8d083f5a-f726-42a8-9ffa-8d28f848f10e';
-					$database->save($array);
-					unset($array);
-
-					$p->delete('meeting_user_add', 'temp');
-
->>>>>>> pr/2
 					message::add($text['message-add']);
 				}
 
@@ -542,13 +490,7 @@ if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
 				$start_datetime = $row["start_datetime"];
 				$stop_datetime = $row["stop_datetime"];
 				$wait_mod = $row["wait_mod"];
-<<<<<<< HEAD
 				$announce = $row["announce"];
-=======
-				$announce_name = $row["announce_name"];
-				$announce_recording = $row["announce_recording"];
-				$announce_count = $row["announce_count"];
->>>>>>> pr/2
 				$sounds = $row["sounds"];
 				$mute = $row["mute"];
 				$created = $row["created"];
@@ -613,13 +555,7 @@ if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
 	if (strlen($record) == 0) { $record = 'false'; }
 	if (strlen($max_members) == 0) { $max_members = 0; }
 	if (strlen($wait_mod) == 0) { $wait_mod = 'true'; }
-<<<<<<< HEAD
 	if (strlen($announce) == 0) { $announce = 'true'; }
-=======
-	if (strlen($announce_name) == 0) { $announce_name = 'true'; }
-	if (strlen($announce_recording) == 0) { $announce_recording = 'true'; }
-	if (strlen($announce_count) == 0) { $announce_count = 'true'; }
->>>>>>> pr/2
 	if (strlen($mute) == 0) { $mute = 'false'; }
 	if (strlen($sounds) == 0) { $sounds = 'false'; }
 	if (strlen($enabled) == 0) { $enabled = 'true'; }
@@ -820,7 +756,6 @@ if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
 		echo "</tr>\n";
 	}
 
-<<<<<<< HEAD
 	if (permission_exists('conference_room_announce')) {
 		echo "<tr>\n";
 		echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>".$text['label-announce']."</td>\n";
@@ -828,73 +763,12 @@ if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
 		echo "	<select class='formfld' name='announce'>\n";
 		echo "	<option value=''></option>\n";
 		if ($announce == "true") {
-=======
-	if (permission_exists('conference_room_announce_name')) {
-		echo "<tr>\n";
-		echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>".$text['label-announce_name']."</td>\n";
-		echo "<td class='vtable' align='left'>\n";
-		echo "	<select class='formfld' name='announce_name'>\n";
-		echo "	<option value=''></option>\n";
-		if ($announce_name == "true") {
->>>>>>> pr/2
 			echo "	<option value='true' selected='selected'>".$text['label-true']."</option>\n";
 		}
 		else {
 			echo "	<option value='true'>".$text['label-true']."</option>\n";
 		}
-<<<<<<< HEAD
 		if ($announce == "false") {
-=======
-		if ($announce_name == "false") {
-			echo "	<option value='false' selected='selected'>".$text['label-false']."</option>\n";
-		}
-		else {
-			echo "	<option value='false'>".$text['label-false']."</option>\n";
-		}
-		echo "	</select>\n";
-		echo "<br />\n";
-		echo "</td>\n";
-		echo "</tr>\n";
-	}
-
-	if (permission_exists('conference_room_announce_count')) {
-		echo "<tr>\n";
-		echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>".$text['label-announce_count']."</td>\n";
-		echo "<td class='vtable' align='left'>\n";
-		echo "	<select class='formfld' name='announce_count'>\n";
-		echo "	<option value=''></option>\n";
-		if ($announce_count == "true") {
-			echo "	<option value='true' selected='selected'>".$text['label-true']."</option>\n";
-		}
-		else {
-			echo "	<option value='true'>".$text['label-true']."</option>\n";
-		}
-		if ($announce_count == "false") {
-			echo "	<option value='false' selected='selected'>".$text['label-false']."</option>\n";
-		}
-		else {
-			echo "	<option value='false'>".$text['label-false']."</option>\n";
-		}
-		echo "	</select>\n";
-		echo "<br />\n";
-		echo "</td>\n";
-		echo "</tr>\n";
-	}
-
-	if (permission_exists('conference_room_announce_recording')) {
-		echo "<tr>\n";
-		echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>".$text['label-announce_recording']."</td>\n";
-		echo "<td class='vtable' align='left'>\n";
-		echo "	<select class='formfld' name='announce_recording'>\n";
-		echo "	<option value=''></option>\n";
-		if ($announce_recording == "true") {
-			echo "	<option value='true' selected='selected'>".$text['label-true']."</option>\n";
-		}
-		else {
-			echo "	<option value='true'>".$text['label-true']."</option>\n";
-		}
-		if ($announce_recording == "false") {
->>>>>>> pr/2
 			echo "	<option value='false' selected='selected'>".$text['label-false']."</option>\n";
 		}
 		else {
@@ -1016,8 +890,4 @@ if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
 //include the footer
 	require_once "resources/footer.php";
 
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> pr/2
