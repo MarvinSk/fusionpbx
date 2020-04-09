@@ -155,6 +155,7 @@ function cmd_async($cmd) {
 
 					if (is_numeric($phone_1)) {
 						//get the dialplan variables and bridge statement
+<<<<<<< HEAD
 							$dialplan = new dialplan;
 							$dialplan->domain_uuid = $_SESSION['domain_uuid'];
 							$dialplan->outbound_routes($phone_1);
@@ -162,10 +163,17 @@ function cmd_async($cmd) {
 							$bridge_array[0] = $dialplan->bridges;
 							//echo "var: ".$variables."\n";
 							//echo "bridges: ".$bridges."\n";
+=======
+							//$dialplan = new dialplan;
+							//$dialplan->domain_uuid = $_SESSION['domain_uuid'];
+							//$dialplan->outbound_routes($phone_1);
+							//$dialplan_variables = $dialplan->variables;
+							//$bridge_array[0] = $dialplan->bridges;
+>>>>>>> 7d4e13616cd682c2db657f5de8e3fe21e1487524
 
 						//prepare the string
-							$channel_variables = $dialplan_variables."ignore_early_media=true";
-							$channel_variables .= ",origination_number=$phone_1";
+							$channel_variables = "ignore_early_media=true";
+							$channel_variables .= ",origination_number=".$phone_1;
 							$channel_variables .= ",origination_caller_id_name='$broadcast_caller_id_name'";
 							$channel_variables .= ",origination_caller_id_number=$broadcast_caller_id_number";
 							$channel_variables .= ",domain_uuid=".$_SESSION['domain_uuid'];
@@ -175,7 +183,8 @@ function cmd_async($cmd) {
 							if ($broadcast_avmd == "true") {
 								$channel_variables .= ",execute_on_answer='avmd start'";
 							}
-							$origination_url = "{".$channel_variables."}".$bridge_array[0];
+							//$origination_url = "{".$channel_variables."}".$bridge_array[0];
+							$origination_url = "{".$channel_variables."}loopback/".$phone_1.'/'.$_SESSION['domain_name'];
 
 						//get the context
 							$context =  $_SESSION['domain_name'];
@@ -237,6 +246,7 @@ function cmd_async($cmd) {
 			require_once "resources/footer.php";
 	}
 
+<<<<<<< HEAD
 /*
 //reserved for future use
 
@@ -382,3 +392,6 @@ unset ($c);
 */
 
 ?>
+=======
+?>
+>>>>>>> 7d4e13616cd682c2db657f5de8e3fe21e1487524
