@@ -2,12 +2,7 @@
 
 /**
  * email_queue class
- *
- * @method null delete
- * @method null toggle
- * @method null copy
  */
-if (!class_exists('email_queue')) {
 	class email_queue {
 
 		/**
@@ -33,16 +28,6 @@ if (!class_exists('email_queue')) {
 				$this->toggle_field = '';
 				$this->toggle_values = ['true','false'];
 				$this->location = 'email_queue.php';
-		}
-
-		/**
-		 * called when there are no references to a particular object
-		 * unset the variables used in the class
-		 */
-		public function __destruct() {
-			foreach ($this as $key => $value) {
-				unset($this->$key);
-			}
 		}
 
 		/**
@@ -90,6 +75,57 @@ if (!class_exists('email_queue')) {
 
 								//set message
 									message::add($text['message-delete']);
+							}
+							unset($records);
+					}
+			}
+		}
+
+		/**
+		 * resend emails in the queue
+		 */
+		public function resend($records) {
+			if (permission_exists($this->name.'_edit')) {
+
+				//add multi-lingual support
+					$language = new text;
+					$text = $language->get();
+
+				//validate the token
+					$token = new token;
+					if (!$token->validate($_SERVER['PHP_SELF'])) {
+						message::add($text['message-invalid_token'],'negative');
+						header('Location: '.$this->location);
+						exit;
+					}
+
+				//resend multiple emails
+					if (is_array($records) && @sizeof($records) != 0) {
+						//build the message array
+							$x = 0;
+							foreach ($records as $record) {
+								//add to the array
+									if ($record['checked'] == 'true' && is_uuid($record['uuid'])) {
+										$array[$this->table][$x][$this->name.'_uuid'] = $record['uuid'];
+										$array[$this->table][$x]['email_status'] = 'waiting';
+										$array[$this->table][$x]['email_retry_count'] = null;
+									}
+
+								//increment the id
+									$x++;
+							}
+
+						//save the changes
+							if (is_array($array) && @sizeof($array) != 0) {
+								//save the array
+									$database = new database;
+									$database->app_name = $this->app_name;
+									$database->app_uuid = $this->app_uuid;
+									$database->save($array);
+									unset($array);
+
+								//set message
+									message::add($text['message-resending_messages']);
 							}
 							unset($records);
 					}
@@ -235,6 +271,3 @@ if (!class_exists('email_queue')) {
 		}
 
 	}
-}
-
-?>

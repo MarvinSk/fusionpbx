@@ -17,7 +17,7 @@
 
 	The Initial Developer of the Original Code is
 	Mark J Crane <markjcrane@fusionpbx.com>
-	Portions created by the Initial Developer are Copyright (C) 2008-2022
+	Portions created by the Initial Developer are Copyright (C) 2008-2024
 	the Initial Developer. All Rights Reserved.
 
 	Contributor(s):
@@ -25,12 +25,8 @@
 	Luis Daniel Lucio Quiroz <dlucio@okay.com.mx>
 */
 
-//set the include path
-	$conf = glob("{/usr/local/etc,/etc}/fusionpbx/config.conf", GLOB_BRACE);
-	set_include_path(parse_ini_file($conf[0])['document.root']);
-
 //includes files
-	require_once "resources/require.php";
+	require_once dirname(__DIR__, 2) . "/resources/require.php";
 	require_once "resources/check_auth.php";
 
 //check permissions
@@ -48,7 +44,7 @@
 
 //define the destination_select function
 	function destination_select($select_name, $select_value, $select_default) {
-		if (strlen($select_value) == 0) { $select_value = $select_default; }
+		if (empty($select_value)) { $select_value = $select_default; }
 		echo "	<select class='formfld' style='width: 55px;' name='$select_name'>\n";
 		$i = 0;
 		while($i <= 100) {
@@ -86,7 +82,7 @@
 	$parameters['extension_uuid'] = $extension_uuid;
 	$database = new database;
 	$row = $database->select($sql, $parameters, 'row');
-	if (is_array($row) && sizeof($row) != 0) {
+	if (!empty($row)) {
 		$extension = $row["extension"];
 		$number_alias = $row["number_alias"];
 		$accountcode = $row["accountcode"];
@@ -94,7 +90,7 @@
 		$effective_caller_id_number = $row["effective_caller_id_number"];
 		$outbound_caller_id_name = $row["outbound_caller_id_name"];
 		$outbound_caller_id_number = $row["outbound_caller_id_number"];
-		$do_not_disturb = $row["do_not_disturb"] != '' ? $row["do_not_disturb"] : 'false';
+		$do_not_disturb = !empty($row["do_not_disturb"]) ? $row["do_not_disturb"] : 'false';
 		$forward_all_destination = $row["forward_all_destination"];
 		$forward_all_enabled = $row["forward_all_enabled"];
 		$forward_busy_destination = $row["forward_busy_destination"];
@@ -112,21 +108,21 @@
 	unset($sql, $parameters, $row);
 
 //process post vars
-	if (count($_POST) > 0 && strlen($_POST["persistformvar"]) == 0) {
+	if (!empty($_POST) && empty($_POST["persistformvar"])) {
 
 		//get http post variables and set them to php variables
-			if (count($_POST) > 0) {
-				$forward_all_enabled = $_POST["forward_all_enabled"];
+			if (!empty($_POST)) {
+				$forward_all_enabled = !empty($_POST["forward_all_destination"]) ? $_POST["forward_all_enabled"] : 'false';
 				$forward_all_destination = $_POST["forward_all_destination"];
-				$forward_busy_enabled = $_POST["forward_busy_enabled"];
+				$forward_busy_enabled = !empty($_POST["forward_busy_destination"]) ? $_POST["forward_busy_enabled"] : 'false';
 				$forward_busy_destination = $_POST["forward_busy_destination"];
-				$forward_no_answer_enabled = $_POST["forward_no_answer_enabled"];
+				$forward_no_answer_enabled = !empty($_POST["forward_no_answer_destination"]) ? $_POST["forward_no_answer_enabled"] : 'false';
 				$forward_no_answer_destination = $_POST["forward_no_answer_destination"];
-				$forward_user_not_registered_enabled = $_POST["forward_user_not_registered_enabled"];
+				$forward_user_not_registered_enabled = !empty($_POST["forward_user_not_registered_destination"]) ? $_POST["forward_user_not_registered_enabled"] : 'false';
 				$forward_user_not_registered_destination = $_POST["forward_user_not_registered_destination"];
 
-				$cid_name_prefix = $_POST["cid_name_prefix"];
-				$cid_number_prefix = $_POST["cid_number_prefix"];
+				$cid_name_prefix = $_POST["cid_name_prefix"] ?? '';
+				$cid_number_prefix = $_POST["cid_number_prefix"] ?? '';
 				$follow_me_enabled = $_POST["follow_me_enabled"];
 				$follow_me_ignore_busy = $_POST["follow_me_ignore_busy"];
 
@@ -138,7 +134,7 @@
 					$destinations[$n]['delay'] = $field['delay'];
 					$destinations[$n]['prompt'] = $field['prompt'];
 					$destinations[$n]['timeout'] = $field['timeout'];
-					if ($field['destination'] != '') {
+					if (!empty($field['destination'])) {
 						$destination_found = true;
 					}
 					$n++;
@@ -155,8 +151,8 @@
 			}
 
 		//check for all required data
-			if (strlen($msg) > 0 && strlen($_POST["persistformvar"]) == 0) {
-				$document['title'] = $text['title-call_routing'];
+			if (!empty($msg) && empty($_POST["persistformvar"])) {
+				$document['title'] = $text['title-call_forward'];
 				require_once "resources/header.php";
 				require_once "resources/persist_form_var.php";
 				echo "<div align='center'>\n";
@@ -168,11 +164,6 @@
 				require_once "resources/footer.php";
 				return;
 			}
-
-		//include the classes
-			include "resources/classes/call_forward.php";
-			include "resources/classes/follow_me.php";
-			include "resources/classes/do_not_disturb.php";
 
 		//call forward config
 			if (permission_exists('call_forward')) {
@@ -234,7 +225,7 @@
 					$d = 0;
 					$destination_found = false;
 					foreach ($destinations as $field) {
-						if ($field['destination'] != '') {
+						if (!empty($field['destination'])) {
 							//sanitize the destination
 							$field['destination'] = preg_replace('#[^\*0-9]#', '', $field['destination']);
 
@@ -257,27 +248,26 @@
 			}
 
 		//add the dialplan permission
-			$p = new permissions;
+			$p = permissions::new();
 			$p->add("extension_edit", "temp");
 
 		//save the data
 			$database = new database;
-			$database->app_name = 'call_routing';
+			$database->app_name = 'call_forward';
 			$database->app_uuid = '19806921-e8ed-dcff-b325-dd3e5da4959d';
 			$database->save($array);
 			unset($array);
-			//$message = $database->message;
 
 		//remove the temporary permission
 			$p->delete("extension_edit", "temp");
 
 		//delete empty destination records
-			if (is_array($follow_me_delete_uuids) && sizeof($follow_me_delete_uuids) > 0) {
+			if (!empty($follow_me_delete_uuids)) {
 				foreach ($follow_me_delete_uuids as $follow_me_delete_uuid) {
 					$array['follow_me_destinations'][]['follow_me_destination_uuid'] = $follow_me_delete_uuid;
 				}
 				$database = new database;
-				$database->app_name = 'call_routing';
+				$database->app_name = 'call_forward';
 				$database->app_uuid = '19806921-e8ed-dcff-b325-dd3e5da4959d';
 				$database->delete($array);
 				unset($array);
@@ -351,7 +341,7 @@
 		*/
 
 		//send feature event notify to the phone
-			if ($_SESSION['device']['feature_sync']['boolean'] == "true") {
+			if ($settings->get('device', 'feature_sync', false)) {
 				$ring_count = ceil($call_timeout / 6);
 				$feature_event_notify = new feature_event_notify;
 				$feature_event_notify->domain_name = $_SESSION['domain_name'];
@@ -368,7 +358,7 @@
 				else {
 					$feature_event_notify->forward_all_destination = $forward_all_destination;
 				}
-				
+
 				if ($forward_busy_destination == "") {
 					$feature_event_notify->forward_busy_destination = "0";
 				}
@@ -404,9 +394,7 @@
 					$cmd .= "answer-state: confirmed\n";
 
 					//send the event
-					$fp = event_socket_create($_SESSION['event_socket_ip_address'], $_SESSION['event_socket_port'], $_SESSION['event_socket_password']);
-					$switch_result = event_socket_request($fp, $cmd);
-					unset($fp);
+					$switch_result = event_socket::command($cmd);
 				}
 				else {
 					$presence = new presence;
@@ -426,16 +414,13 @@
 						$cmd .= "answer-state: terminated\n";
 
 						//send the event
-						$fp = event_socket_create($_SESSION['event_socket_ip_address'], $_SESSION['event_socket_port'], $_SESSION['event_socket_password']);
-						$switch_result = event_socket_request($fp, $cmd);
-						unset($fp);
+						$switch_result = event_socket::command($cmd);
 					}
 				}
 			}
 
 		//synchronize configuration
-			if (is_readable($_SESSION['switch']['extensions']['dir'])) {
-				require_once "app/extensions/resources/classes/extension.php";
+			if (!empty($_SESSION['switch']['extensions']['dir']) && is_readable($_SESSION['switch']['extensions']['dir'])) {
 				$ext = new extension;
 				$ext->xml();
 				unset($ext);
@@ -444,7 +429,7 @@
 		//clear the cache
 			$cache = new cache;
 			$cache->delete("directory:".$extension."@".$_SESSION['domain_name']);
-			if (strlen($number_alias) > 0) {
+			if (!empty($number_alias)) {
 				$cache->delete("directory:".$number_alias."@".$_SESSION['domain_name']);
 			}
 
@@ -453,11 +438,11 @@
 	}
 
 //show the header
-	$document['title'] = $text['title-call_routing'];
+	$document['title'] = $text['title-call_forward'];
 	require_once "resources/header.php";
 
 //pre-populate the form
-	if (is_uuid($follow_me_uuid)) {
+	if (!empty($follow_me_uuid) && is_uuid($follow_me_uuid)) {
 		$sql = "select * from v_follow_me ";
 		$sql .= "where domain_uuid = :domain_uuid ";
 		$sql .= "and follow_me_uuid = :follow_me_uuid ";
@@ -467,7 +452,7 @@
 		$row = $database->select($sql, $parameters, 'row');
 		unset($sql, $parameters);
 
-		if (is_array($row) && sizeof($row) != 0) {
+		if (!empty($row)) {
 			$cid_name_prefix = $row["cid_name_prefix"];
 			$cid_number_prefix = $row["cid_number_prefix"];
 			$follow_me_enabled = $row["follow_me_enabled"];
@@ -482,7 +467,7 @@
 			$result = $database->select($sql, $parameters, 'all');
 
 			unset($destinations);
-			foreach ($result as $x => &$row) {
+			foreach ($result as $x => $row) {
 				$destinations[$x]['uuid'] = $row["follow_me_destination_uuid"];
 				$destinations[$x]['destination'] = $row["follow_me_destination"];
 				$destinations[$x]['delay'] = $row["follow_me_delay"];
@@ -491,6 +476,15 @@
 			}
 			unset($sql, $parameters, $result, $row);
 		}
+	}
+
+//add the pre-defined follow me destinations
+	for ($n = 0; $n <= (((!empty($_SESSION['follow_me']['max_destinations']['numeric'])) ? $_SESSION['follow_me']['max_destinations']['numeric'] : 5) - 1); $n++) {
+		if (empty($destinations[$n]['uuid'])) { $destinations[$n]['uuid'] =  null; }
+		if (empty($destinations[$n]['destination'])) { $destinations[$n]['destination'] =  null; }
+		if (empty($destinations[$n]['delay'])) { $destinations[$n]['delay'] =  null; }
+		if (empty($destinations[$n]['prompt'])) { $destinations[$n]['prompt'] =  null; }
+		if (empty($destinations[$n]['timeout'])) { $destinations[$n]['timeout'] =  30; }
 	}
 
 //get the extensions array - used with autocomplete
@@ -503,41 +497,43 @@
 	unset($sql, $parameters, $row);
 
 //set the default
-	if (!isset($dnd_enabled)) {
+	if (empty($dnd_enabled)) {
 		//set the value from the database
 		$dnd_enabled = $do_not_disturb;
 	}
 
 //prepare the autocomplete
-	if($_SESSION['follow_me']['follow_me_autocomplete']['boolean'] == 'true') {
-
-	echo "<link rel=\"stylesheet\" href=\"".PROJECT_PATH."/resources/jquery/jquery-ui.min.css\" />\n";
-	echo "<script src=\"".PROJECT_PATH."/resources/jquery/jquery-ui.min.js\"></script>\n";
-	echo "<script type=\"text/javascript\">\n";
-	echo "\$(function() {\n";
-	echo "	var extensions = [\n";
-	foreach ($extensions as &$row) {
-		if (strlen($number_alias) == 0) {
-			echo "		\"".escape($row["extension"])."\",\n";
+	if ($settings->get('follow_me', 'follow_me_autocomplete', false)) {
+		echo "<link rel=\"stylesheet\" href=\"".PROJECT_PATH."/resources/jquery/jquery-ui.min.css\" />\n";
+		echo "<script src=\"".PROJECT_PATH."/resources/jquery/jquery-ui.min.js\"></script>\n";
+		echo "<script type=\"text/javascript\">\n";
+		echo "\$(function() {\n";
+		echo "	var extensions = [\n";
+		foreach ($extensions as $row) {
+			if (empty($number_alias)) {
+				echo "		\"".escape($row["extension"])."\",\n";
+			}
+			else {
+				echo "		\"".escape($row["number_alias"])."\",\n";
+			}
 		}
-		else {
-			echo "		\"".escape($row["number_alias"])."\",\n";
+		echo "	];\n";
+		for ($n = 0; $n <= (((!empty($_SESSION['follow_me']['max_destinations']['numeric'])) ? $_SESSION['follow_me']['max_destinations']['numeric'] : 5) - 1); $n++) {
+			echo "	\$(\"#destination_".$n."\").autocomplete({\n";
+			echo "		source: extensions\n";
+			echo "	});\n";
 		}
-	}
-	echo "	];\n";
-	for ($n = 0; $n <= ((($_SESSION['follow_me']['max_destinations']['numeric'] != '') ? $_SESSION['follow_me']['max_destinations']['numeric'] : 5) - 1); $n++) {
-		echo "	\$(\"#destination_".$n."\").autocomplete({\n";
-		echo "		source: extensions\n";
-		echo "	});\n";
-	}
 
-	echo "});\n";
-	echo "</script>\n";
+		echo "});\n";
+		echo "</script>\n";
 	}
 
 //create token
 	$object = new token;
 	$token = $object->create($_SERVER['PHP_SELF']);
+
+//save the back button location using referer
+	$back_destination = "window.location.href='" . ($_SESSION['call_forward_back'] ?? "/app/call_forward/call_forward.php") . "'";
 
 //show the content
 	echo "<form method='post' name='frm' id='frm'>\n";
@@ -545,8 +541,8 @@
 	echo "<div class='action_bar' id='action_bar'>\n";
 	echo "	<div class='heading'><b>".$text['title-call_forward']."</b></div>\n";
 	echo "	<div class='actions'>\n";
-	echo button::create(['type'=>'button','label'=>$text['button-back'],'icon'=>$_SESSION['theme']['button_icon_back'],'id'=>'btn_back','link'=>'call_forward.php']);
-	echo button::create(['type'=>'submit','label'=>$text['button-save'],'icon'=>$_SESSION['theme']['button_icon_save'],'id'=>'btn_save','style'=>'margin-left: 15px;']);
+	echo button::create(['type'=>'button','label'=>$text['button-back'],'icon'=>$settings->get('theme', 'button_icon_back'),'id'=>'btn_back','onclick'=>$back_destination]);
+	echo button::create(['type'=>'submit','label'=>$text['button-save'],'icon'=>$settings->get('theme', 'button_icon_save'),'id'=>'btn_save','style'=>'margin-left: 15px;']);
 	echo "	</div>\n";
 	echo "	<div style='clear: both;'></div>\n";
 	echo "</div>\n";
@@ -554,6 +550,7 @@
 	echo $text['description']." <strong>".escape($extension)."</strong>\n";
 	echo "<br /><br />\n";
 
+	echo "<div class='card'>\n";
 	echo "<table width='100%' border='0' cellpadding='0' cellspacing='0'>\n";
 
 	echo "<tr>\n";
@@ -561,14 +558,39 @@
 	echo "	<strong>".$text['label-call_forward']."</strong>\n";
 	echo "</td>\n";
 	echo "<td width='70%' class='vtable' align='left'>\n";
-	$on_click .= "$('#tr_follow_me_settings').slideUp('fast'); ";
-	$on_click .= "document.getElementById('dnd_disabled').checked=true; ";
-	$on_click .= "document.getElementById('forward_all_destination').focus(); ";
-	$on_click2 .= "(document.getElementById('follow_me_enabled').checked) ? $('#tr_follow_me_settings').slideDown('fast') : '' ";
-	echo "	<label for='forward_all_disabled'><input type='radio' name='forward_all_enabled' id='forward_all_disabled' onclick=\"$on_click2\" value='false' ".(($forward_all_enabled == "false" || $forward_all_enabled == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
-	echo "	<label for='forward_all_enabled'><input type='radio' name='forward_all_enabled' id='forward_all_enabled' onclick=\"$on_click\" value='true' ".(($forward_all_enabled == "true") ? "checked='checked'" : null)." /> ".$text['label-enabled']."</label> \n";
-	unset($on_click);
-	echo "&nbsp;&nbsp;&nbsp;";
+
+	if (substr($settings->get('theme', 'input_toggle_style'), 0, 6) == 'switch') {
+		echo "<label class='switch'>\n";
+		echo "	<input type='checkbox' id='forward_all_enabled' name='forward_all_enabled' value='true' ".(!empty($forward_all_enabled) && $forward_all_enabled == 'true' ? "checked='checked'" : null)." onchange='changed_forward_all(this);'>\n";
+		echo "	<span class='slider'></span>\n";
+		echo "</label>\n";
+		echo "<script>\n";
+		echo "function changed_forward_all(el) {\n";
+		echo "	if (el.checked) {\n";
+		echo "		$('#div_follow_me_settings').slideUp('fast');\n";
+		echo "		document.getElementById('follow_me_enabled').checked = false;\n";
+		echo "		document.getElementById('dnd_enabled').checked = false;\n";
+		echo "		document.getElementById('forward_all_destination').focus();\n";
+		echo "	}\n";
+		echo "	else {\n";
+		echo "		if (document.getElementById('follow_me_enabled').checked) { $('#div_follow_me_settings').slideDown('fast'); }\n";
+		echo "	}\n";
+		echo "}\n";
+		echo "</script>\n";
+	}
+	else {
+		$on_click = "$('#div_follow_me_settings').slideUp('fast'); ";
+		$on_click .= "document.getElementById('follow_me_disabled').checked = true; ";
+		$on_click .= "document.getElementById('dnd_disabled').checked = true; ";
+		$on_click .= "document.getElementById('forward_all_destination').focus(); ";
+		$on_click2 = "(document.getElementById('follow_me_enabled').checked) ? $('#div_follow_me_settings').slideDown('fast') : '' ";
+		echo "	<label for='forward_all_disabled'><input type='radio' name='forward_all_enabled' id='forward_all_disabled' onclick=\"$on_click2\" value='false' ".(($forward_all_enabled == "false" || $forward_all_enabled == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
+		echo "	<label for='forward_all_enabled'><input type='radio' name='forward_all_enabled' id='forward_all_enabled' onclick=\"$on_click\" value='true' ".(($forward_all_enabled == "true") ? "checked='checked'" : null)." /> ".$text['label-enabled']."</label> \n";
+		unset($on_click);
+		echo "&nbsp;&nbsp;";
+	}
+
+	echo "&nbsp;";
 	echo "	<input class='formfld' type='text' name='forward_all_destination' id='forward_all_destination' maxlength='255' placeholder=\"".$text['label-destination']."\" value=\"".escape($forward_all_destination)."\">\n";
 	echo "	<br />".$text['description-call_forward']."\n";
 	echo "</td>\n";
@@ -579,12 +601,29 @@
 	echo "	".$text['label-on-busy']."\n";
 	echo "</td>\n";
 	echo "<td class='vtable' align='left'>\n";
-	$on_click = "document.getElementById('dnd_disabled').checked=true;";
-	$on_click .= "document.getElementById('forward_busy_destination').focus();";
-	echo "	<label for='forward_busy_disabled'><input type='radio' name='forward_busy_enabled' id='forward_busy_disabled' onclick=\"\" value='false' ".(($forward_busy_enabled == "false" || $forward_busy_enabled == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
-	echo "	<label for='forward_busy_enabled'><input type='radio' name='forward_busy_enabled' id='forward_busy_enabled' onclick=\"$on_click\" value='true' ".(($forward_busy_enabled == "true") ? "checked='checked'" : null)."/> ".$text['label-enabled']."</label> \n";
-	unset($on_click);
-	echo "&nbsp;&nbsp;&nbsp;";
+	if (substr($settings->get('theme', 'input_toggle_style'), 0, 6) == 'switch') {
+		echo "<label class='switch'>\n";
+		echo "	<input type='checkbox' id='forward_busy_enabled' name='forward_busy_enabled' value='true' ".(!empty($forward_busy_enabled) && $forward_busy_enabled == 'true' ? "checked='checked'" : null)." onchange='changed_forward_on_busy(this);'>\n";
+		echo "	<span class='slider'></span>\n";
+		echo "</label>\n";
+		echo "<script>\n";
+		echo "function changed_forward_on_busy(el) {\n";
+		echo "	if (el.checked) {\n";
+		echo "		document.getElementById('dnd_enabled').checked = false;\n";
+		echo "		document.getElementById('forward_busy_destination').focus();\n";
+		echo "	}\n";
+		echo "}\n";
+		echo "</script>\n";
+	}
+	else {
+		$on_click = "document.getElementById('dnd_disabled').checked = true;";
+		$on_click .= "document.getElementById('forward_busy_destination').focus();";
+		echo "	<label for='forward_busy_disabled'><input type='radio' name='forward_busy_enabled' id='forward_busy_disabled' onclick=\"\" value='false' ".(($forward_busy_enabled == "false" || $forward_busy_enabled == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
+		echo "	<label for='forward_busy_enabled'><input type='radio' name='forward_busy_enabled' id='forward_busy_enabled' onclick=\"$on_click\" value='true' ".(($forward_busy_enabled == "true") ? "checked='checked'" : null)."/> ".$text['label-enabled']."</label> \n";
+		unset($on_click);
+		echo "&nbsp;&nbsp;";
+	}
+	echo "&nbsp;";
 	echo "	<input class='formfld' type='text' name='forward_busy_destination' id='forward_busy_destination' maxlength='255' placeholder=\"".$text['label-destination']."\" value=\"".escape($forward_busy_destination)."\">\n";
 	echo "	<br />".$text['description-on-busy']."\n";
 	echo "</td>\n";
@@ -595,12 +634,29 @@
 	echo "	".$text['label-no_answer']."\n";
 	echo "</td>\n";
 	echo "<td class='vtable' align='left'>\n";
-	$on_click = "document.getElementById('dnd_disabled').checked=true;";
-	$on_click .= "document.getElementById('forward_no_answer_destination').focus();";
-	echo "	<label for='forward_no_answer_disabled'><input type='radio' name='forward_no_answer_enabled' id='forward_no_answer_disabled' onclick=\"\" value='false' ".(($forward_no_answer_enabled == "false" || $forward_no_answer_enabled == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
-	echo "	<label for='forward_no_answer_enabled'><input type='radio' name='forward_no_answer_enabled' id='forward_no_answer_enabled' onclick=\"$on_click\" value='true' ".(($forward_no_answer_enabled == "true") ? "checked='checked'" : null)."/> ".$text['label-enabled']."</label> \n";
-	unset($on_click);
-	echo "&nbsp;&nbsp;&nbsp;";
+	if (substr($settings->get('theme', 'input_toggle_style'), 0, 6) == 'switch') {
+		echo "<label class='switch'>\n";
+		echo "	<input type='checkbox' id='forward_no_answer_enabled' name='forward_no_answer_enabled' value='true' ".(!empty($forward_no_answer_enabled) && $forward_no_answer_enabled == 'true' ? "checked='checked'" : null)." onchange='changed_forward_no_answer(this);'>\n";
+		echo "	<span class='slider'></span>\n";
+		echo "</label>\n";
+		echo "<script>\n";
+		echo "function changed_forward_no_answer(el) {\n";
+		echo "	if (el.checked) {\n";
+		echo "		document.getElementById('dnd_enabled').checked = false;\n";
+		echo "		document.getElementById('forward_no_answer_destination').focus();\n";
+		echo "	}\n";
+		echo "}\n";
+		echo "</script>\n";
+	}
+	else {
+		$on_click = "document.getElementById('dnd_disabled').checked = true;";
+		$on_click .= "document.getElementById('forward_no_answer_destination').focus();";
+		echo "	<label for='forward_no_answer_disabled'><input type='radio' name='forward_no_answer_enabled' id='forward_no_answer_disabled' onclick=\"\" value='false' ".(($forward_no_answer_enabled == "false" || $forward_no_answer_enabled == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
+		echo "	<label for='forward_no_answer_enabled'><input type='radio' name='forward_no_answer_enabled' id='forward_no_answer_enabled' onclick=\"$on_click\" value='true' ".(($forward_no_answer_enabled == "true") ? "checked='checked'" : null)."/> ".$text['label-enabled']."</label> \n";
+		unset($on_click);
+		echo "&nbsp;&nbsp;";
+	}
+	echo "&nbsp;";
 	echo "	<input class='formfld' type='text' name='forward_no_answer_destination' id='forward_no_answer_destination' maxlength='255' placeholder=\"".$text['label-destination']."\" value=\"".escape($forward_no_answer_destination)."\">\n";
 	echo "	<br />".$text['description-no_answer']."\n";
 	echo "</td>\n";
@@ -611,121 +667,171 @@
 	echo "	".$text['label-not_registered']."\n";
 	echo "</td>\n";
 	echo "<td class='vtable' align='left'>\n";
-	$on_click = "document.getElementById('forward_user_not_registered_destination').focus();";
-	echo "	<label for='forward_user_not_registered_disabled'><input type='radio' name='forward_user_not_registered_enabled' id='forward_user_not_registered_disabled' onclick=\"\" value='false' ".(($forward_user_not_registered_enabled == "false" || $forward_user_not_registered_enabled == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
-	echo "	<label for='forward_user_not_registered_enabled'><input type='radio' name='forward_user_not_registered_enabled' id='forward_user_not_registered_enabled' onclick=\"$on_click\" value='true' ".(($forward_user_not_registered_enabled == "true") ? "checked='checked'" : null)."/> ".$text['label-enabled']."</label> \n";
-	unset($on_click);
-	echo "&nbsp;&nbsp;&nbsp;";
+	if (substr($settings->get('theme', 'input_toggle_style'), 0, 6) == 'switch') {
+		echo "<label class='switch'>\n";
+		echo "	<input type='checkbox' id='forward_user_not_registered_enabled' name='forward_user_not_registered_enabled' value='true' ".(!empty($forward_user_not_registered_enabled) && $forward_user_not_registered_enabled == 'true' ? "checked='checked'" : null)." onchange='changed_forward_not_registered(this);'>\n";
+		echo "	<span class='slider'></span>\n";
+		echo "</label>\n";
+		echo "<script>\n";
+		echo "function changed_forward_not_registered(el) {\n";
+		echo "	if (el.checked) {\n";
+		echo "		document.getElementById('forward_user_not_registered_destination').focus();\n";
+		echo "	}\n";
+		echo "}\n";
+		echo "</script>\n";
+	}
+	else {
+		$on_click = "document.getElementById('forward_user_not_registered_destination').focus();";
+		echo "	<label for='forward_user_not_registered_disabled'><input type='radio' name='forward_user_not_registered_enabled' id='forward_user_not_registered_disabled' onclick=\"\" value='false' ".(($forward_user_not_registered_enabled == "false" || $forward_user_not_registered_enabled == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
+		echo "	<label for='forward_user_not_registered_enabled'><input type='radio' name='forward_user_not_registered_enabled' id='forward_user_not_registered_enabled' onclick=\"$on_click\" value='true' ".(($forward_user_not_registered_enabled == "true") ? "checked='checked'" : null)."/> ".$text['label-enabled']."</label> \n";
+		unset($on_click);
+		echo "&nbsp;&nbsp;";
+	}
+	echo "&nbsp;";
 	echo "	<input class='formfld' type='text' name='forward_user_not_registered_destination' id='forward_user_not_registered_destination' maxlength='255' placeholder=\"".$text['label-destination']."\" value=\"".escape($forward_user_not_registered_destination)."\">\n";
 	echo "	<br />".$text['description-not_registered']."\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 
 	echo "<tr><td colspan='2'><br /></td></tr>\n";
-
-	echo "<tr>\n";
-	echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
-	echo "	<strong>".$text['label-follow_me']."</strong>\n";
-	echo "</td>\n";
-	echo "<td class='vtable' align='left'>\n";
-	$on_click = "document.getElementById('forward_all_disabled').checked=true; ";
-	$on_click .= "document.getElementById('dnd_disabled').checked=true; ";
-	echo "	<label for='follow_me_disabled'><input type='radio' name='follow_me_enabled' id='follow_me_disabled' onclick=\"$('#tr_follow_me_settings').slideUp('fast');\" value='false' ".(($follow_me_enabled == "false" || $follow_me_enabled == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
-	echo "	<label for='follow_me_enabled'><input type='radio' name='follow_me_enabled' id='follow_me_enabled' onclick=\"$('#tr_follow_me_settings').slideDown('fast'); $on_click\" value='true' ".(($follow_me_enabled == "true") ? "checked='checked'" : null)."/> ".$text['label-enabled']."</label> \n";
-	unset($on_click);
-	echo "</td>\n";
-	echo "</tr>\n";
 	echo "</table>\n";
 
-	if ($follow_me_enabled == "true" && $dnd_enabled  != "true" && $forward_all_enabled != "true") { $style = ''; } else { $style = 'display: none;'; }
-	echo "<div id='tr_follow_me_settings' style='$style'>\n";
-
-	echo "<table width='100%' border='0' cellpadding='0' cellspacing='0'>\n";
-	echo "<tr>\n";
-	echo "<td width='30%' class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
-	echo "	".$text['label-destinations']."\n";
-	echo "</td>\n";
-	echo "<td width='70%' class='vtable' align='left'>\n";
-
-	echo "	<table border='0' cellpadding='2' cellspacing='0'>\n";
-	echo "		<tr>\n";
-	echo "			<td class='vtable'>".$text['label-destination_number']."</td>\n";
-	echo "			<td class='vtable'>".$text['label-destination_delay']."</td>\n";
-	echo "			<td class='vtable'>".$text['label-destination_timeout']."</td>\n";
-	if (permission_exists('follow_me_prompt')) {
-		echo "		<td class='vtable'>".$text['label-destination_prompt']."</td>\n";
-	}
-	echo "		</tr>\n";
-
-	//output destinations
-	for ($n = 0; $n <= ((($_SESSION['follow_me']['max_destinations']['numeric'] != '') ? $_SESSION['follow_me']['max_destinations']['numeric'] : 5) - 1); $n++) {
-		echo "		<input type='hidden' name='destinations[".$n."][uuid]' value='".(($destinations[$n]['uuid'] != '') ? $destinations[$n]['uuid'] : uuid())."'>\n";
-		echo "		<tr>\n";
-		echo "			<td><input class='formfld' style='min-width: 135px;' type='text' name='destinations[".$n."][destination]' id='destination_".$n."' maxlength='255' value=\"".escape($destinations[$n]['destination'])."\"></td>\n";
-		echo "			<td>\n";
-								destination_select('destinations['.$n.'][delay]', $destinations[$n]['delay'], '0');
-		echo "			</td>\n";
-		echo "			<td>\n";
-								destination_select('destinations['.$n.'][timeout]', $destinations[$n]['timeout'], (($_SESSION['follow_me']['timeout']['numeric'] != '') ? $_SESSION['follow_me']['timeout']['numeric'] : 30));
-		echo "			</td>\n";
-		if (permission_exists('follow_me_prompt')) {
-			echo "		<td>\n";
-			echo "			<select class='formfld' style='width: 90px;' name='destinations[".$n."][prompt]'>\n";
-			echo "				<option value=''></option>\n";
-			echo "				<option value='1' ".(($destinations[$n]['prompt'])?"selected='selected'":null).">".$text['label-destination_prompt_confirm']."</option>\n";
-			//echo "			<option value='2'>".$text['label-destination_prompt_announce]."</option>\n";
-			echo "			</select>\n";
-			echo "		</td>\n";
+		echo "<table width='100%' border='0' cellpadding='0' cellspacing='0'>\n";
+		echo "<tr>\n";
+		echo "<td width='30%' class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
+		echo "	<strong>".$text['label-follow_me']."</strong>\n";
+		echo "</td>\n";
+		echo "<td width='70%' class='vtable' align='left'>\n";
+		if (substr($settings->get('theme', 'input_toggle_style'), 0, 6) == 'switch') {
+			echo "<label class='switch'>\n";
+			echo "	<input type='checkbox' id='follow_me_enabled' name='follow_me_enabled' value='true' ".(!empty($follow_me_enabled) && $follow_me_enabled == 'true' ? "checked='checked'" : null)." onchange='changed_follow_me(this);'>\n";
+			echo "	<span class='slider'></span>\n";
+			echo "</label>\n";
+			echo "<script>\n";
+			echo "function changed_follow_me(el) {\n";
+			echo "	if (el.checked) {\n";
+			echo "		$('#div_follow_me_settings').slideDown('fast');\n";
+			echo "		document.getElementById('forward_all_enabled').checked = false;\n";
+			echo "		document.getElementById('dnd_enabled').checked = false;\n";
+			echo "	}\n";
+			echo "	else {\n";
+			echo "		$('#div_follow_me_settings').slideUp('fast');\n";
+			echo "	}\n";
+			echo "}\n";
+			echo "</script>\n";
 		}
-		echo "		</tr>\n";
-	}
-
-	echo "	</table>\n";
-	echo "</td>\n";
-	echo "</tr>\n";
-
-	if (permission_exists('follow_me_ignore_busy')) {
-		echo "		<tr>\n";
-		echo "			<td class='vncell' valign='top' align='left' nowrap='nowrap'>";
-		echo 				$text['label-ignore_busy'];
-		echo "			</td>\n";
-		echo "			<td class='vtable' align='left'>\n";
-		echo "				<label for='follow_me_ignore_busy_false'><input type='radio' name='follow_me_ignore_busy' id='follow_me_ignore_busy_false' value='false' onclick=\"\" ".(($follow_me_ignore_busy == "false" || $follow_me_ignore_busy == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
-		echo "				<label for='follow_me_ignore_busy_true'><input type='radio' name='follow_me_ignore_busy' id='follow_me_ignore_busy_true' value='true' onclick=\"$on_click\" ".(($follow_me_ignore_busy == "true") ? "checked='checked'" : null)." /> ".$text['label-enabled']."</label> \n";
-		echo "				<br />\n";
-		echo 				$text['description-ignore_busy']."\n";
-		echo "			</td>\n";
-		echo "		</tr>\n";
-	}
-
-	if (permission_exists('follow_me_cid_name_prefix')) {
-		echo "<tr>\n";
-		echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
-		echo "	".$text['label-cid-name-prefix']."\n";
-		echo "</td>\n";
-		echo "<td class='vtable' align='left'>\n";
-		echo "  <input class='formfld' type='text' name='cid_name_prefix' maxlength='255' value='".escape($cid_name_prefix)."'>\n";
-		echo "<br />\n";
-		echo $text['description-cid-name-prefix']."\n";
+		else {
+			$on_click = "document.getElementById('forward_all_disabled').checked = true; ";
+			$on_click .= "document.getElementById('dnd_disabled').checked = true; ";
+			echo "	<label for='follow_me_disabled'><input type='radio' name='follow_me_enabled' id='follow_me_disabled' onclick=\"$('#div_follow_me_settings').slideUp('fast');\" value='false' ".((!empty($follow_me_enabled) && $follow_me_enabled == "false" || empty($follow_me_enabled)) ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
+			echo "	<label for='follow_me_enabled'><input type='radio' name='follow_me_enabled' id='follow_me_enabled' onclick=\"$('#div_follow_me_settings').slideDown('fast'); $on_click\" value='true' ".((!empty($follow_me_enabled) && $follow_me_enabled == "true") ? "checked='checked'" : null)."/> ".$text['label-enabled']."</label> \n";
+			unset($on_click);
+		}
 		echo "</td>\n";
 		echo "</tr>\n";
-	}
+		echo "</table>\n";
 
-	if (permission_exists('follow_me_cid_number_prefix')) {
-		echo "<tr>\n";
-		echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
-		echo "	".$text['label-cid-number-prefix']."\n";
-		echo "</td>\n";
-		echo "<td class='vtable' align='left'>\n";
-		echo "  <input class='formfld' type='text' name='cid_number_prefix' maxlength='255' value='".escape($cid_number_prefix)."'>\n";
-		echo "<br />\n";
-		echo $text['description-cid-number-prefix']."\n";
-		echo "</td>\n";
-		echo "</tr>\n";
-	}
+		if (!empty($follow_me_enabled) && $follow_me_enabled == "true" && $dnd_enabled  != "true" && $forward_all_enabled != "true") { $style = ''; } else { $style = 'display: none;'; }
+		echo "<div id='div_follow_me_settings' style='$style'>\n";
 
-	echo "</table>\n";
-	echo "</div>\n";
+			echo "<table width='100%' border='0' cellpadding='0' cellspacing='0'>\n";
+			echo "<tr>\n";
+			echo "<td width='30%' class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
+			echo "	".$text['label-destinations']."\n";
+			echo "</td>\n";
+			echo "<td width='70%' class='vtable' align='left'>\n";
+
+			echo "	<table border='0' cellpadding='2' cellspacing='0'>\n";
+			echo "		<tr>\n";
+			echo "			<td class='vtable'>".$text['label-destination_number']."</td>\n";
+			echo "			<td class='vtable'>".$text['label-destination_delay']."</td>\n";
+			echo "			<td class='vtable'>".$text['label-destination_timeout']."</td>\n";
+			if (permission_exists('follow_me_prompt')) {
+				echo "		<td class='vtable'>".$text['label-destination_prompt']."</td>\n";
+			}
+			echo "		</tr>\n";
+
+			//output destinations
+			$on_click = "";
+			foreach ($destinations as $n => $destination) {
+				echo "		<input type='hidden' name='destinations[".$n."][uuid]' value='".((!empty($destination['uuid'])) ? $destination['uuid'] : uuid())."'>\n";
+				echo "		<tr>\n";
+				echo "			<td><input class='formfld' style='min-width: 135px;' type='text' name='destinations[".$n."][destination]' id='destination_".$n."' maxlength='255' value=\"".escape($destination['destination'])."\"></td>\n";
+				echo "			<td>\n";
+										destination_select('destinations['.$n.'][delay]', $destination['delay'], '0');
+				echo "			</td>\n";
+				echo "			<td>\n";
+										destination_select('destinations['.$n.'][timeout]', $destination['timeout'], ((!empty($_SESSION['follow_me']['timeout']['numeric'])) ? $_SESSION['follow_me']['timeout']['numeric'] : 30));
+				echo "			</td>\n";
+				if (permission_exists('follow_me_prompt')) {
+					echo "		<td>\n";
+					echo "			<select class='formfld' style='width: 90px;' name='destinations[".$n."][prompt]'>\n";
+					echo "				<option value=''></option>\n";
+					echo "				<option value='1' ".(($destination['prompt']) ? "selected='selected'" : null).">".$text['label-destination_prompt_confirm']."</option>\n";
+					//echo "			<option value='2'>".$text['label-destination_prompt_announce]."</option>\n";
+					echo "			</select>\n";
+					echo "		</td>\n";
+				}
+				echo "		</tr>\n";
+			}
+
+			echo "	</table>\n";
+			echo "</td>\n";
+			echo "</tr>\n";
+
+			if (permission_exists('follow_me_ignore_busy')) {
+				echo "		<tr>\n";
+				echo "			<td class='vncell' valign='top' align='left' nowrap='nowrap'>";
+				echo 				$text['label-ignore_busy'];
+				echo "			</td>\n";
+				echo "			<td class='vtable' align='left'>\n";
+				if (substr($settings->get('theme', 'input_toggle_style'), 0, 6) == 'switch') {
+					echo "			<label class='switch'>\n";
+					echo "				<input type='checkbox' id='follow_me_ignore_busy' name='follow_me_ignore_busy' value='true' ".(!empty($follow_me_ignore_busy) && $follow_me_ignore_busy == 'true' ? "checked='checked'" : null).">\n";
+					echo "				<span class='slider'></span>\n";
+					echo "			</label>\n";
+
+				}
+				else {
+					echo "			<label for='follow_me_ignore_busy_false'><input type='radio' name='follow_me_ignore_busy' id='follow_me_ignore_busy_false' value='false' onclick=\"\" ".(empty($follow_me_ignore_busy) || $follow_me_ignore_busy == "false" ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
+					echo "			<label for='follow_me_ignore_busy_true'><input type='radio' name='follow_me_ignore_busy' id='follow_me_ignore_busy_true' value='true' onclick=\"".$on_click."\" ".(!empty($follow_me_ignore_busy) && $follow_me_ignore_busy == "true" ? "checked='checked'" : null)." /> ".$text['label-enabled']."</label> \n";
+				}
+				echo "				<br />\n";
+				echo 				$text['description-ignore_busy']."\n";
+				echo "			</td>\n";
+				echo "		</tr>\n";
+			}
+
+			if (permission_exists('follow_me_cid_name_prefix')) {
+				echo "<tr>\n";
+				echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
+				echo "	".$text['label-cid-name-prefix']."\n";
+				echo "</td>\n";
+				echo "<td class='vtable' align='left'>\n";
+				echo "  <input class='formfld' type='text' name='cid_name_prefix' maxlength='255' value='".escape($cid_name_prefix)."'>\n";
+				echo "<br />\n";
+				echo $text['description-cid-name-prefix']."\n";
+				echo "</td>\n";
+				echo "</tr>\n";
+			}
+
+			if (permission_exists('follow_me_cid_number_prefix')) {
+				echo "<tr>\n";
+				echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
+				echo "	".$text['label-cid-number-prefix']."\n";
+				echo "</td>\n";
+				echo "<td class='vtable' align='left'>\n";
+				echo "  <input class='formfld' type='text' name='cid_number_prefix' maxlength='255' value='".escape($cid_number_prefix)."'>\n";
+				echo "<br />\n";
+				echo $text['description-cid-number-prefix']."\n";
+				echo "</td>\n";
+				echo "</tr>\n";
+			}
+
+			// echo "<tr><td colspan='2'><br /></td></tr>\n";
+			echo "</table>\n";
+
+		echo "</div>\n";
 
 	echo "<table width='100%' border='0' cellpadding='0' cellspacing='0'>\n";
 	echo "<tr><td colspan='2'><br /></td></tr>\n";
@@ -734,19 +840,34 @@
 	echo "	<strong>".$text['label-dnd']."</strong>\n";
 	echo "</td>\n";
 	echo "<td width='70%' class='vtable' align='left'>\n";
-	$on_click = "document.getElementById('forward_all_disabled').checked=true;";
-	$on_click .= "$('#tr_follow_me_settings').slideUp('fast'); ";
-	$on_click2 .= "(document.getElementById('follow_me_enabled').checked) ? $('#tr_follow_me_settings').slideDown('fast') : '' ";
-	echo "	<label for='dnd_disabled'><input type='radio' name='dnd_enabled' id='dnd_disabled' value='false' onclick=\"$on_click2\" ".(($dnd_enabled == "false" || $dnd_enabled == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
-	echo "	<label for='dnd_enabled'><input type='radio' name='dnd_enabled' id='dnd_enabled' value='true' onclick=\"$on_click\" ".(($dnd_enabled == "true") ? "checked='checked'" : null)." /> ".$text['label-enabled']."</label> \n";
+	if (substr($settings->get('theme', 'input_toggle_style'), 0, 6) == 'switch') {
+		echo "<label class='switch'>\n";
+		echo "	<input type='checkbox' id='dnd_enabled' name='dnd_enabled' value='true' ".(!empty($dnd_enabled) && $dnd_enabled == 'true' ? "checked='checked'" : null)." onchange='changed_do_not_disturb(this);'>\n";
+		echo "	<span class='slider'></span>\n";
+		echo "</label>\n";
+		echo "<script>\n";
+		echo "function changed_do_not_disturb(el) {\n";
+		echo "	if (el.checked) {\n";
+		echo "		document.getElementById('forward_all_enabled').checked = false;\n";
+		echo "	}\n";
+		echo "}\n";
+		echo "</script>\n";
+	}
+	else {
+		$on_click = "document.getElementById('forward_all_disabled').checked = true;";
+		$on_click2 = "if (document.getElementById('follow_me_enabled').checked) { $('#div_follow_me_settings').slideDown('fast'); }";
+		echo "	<label for='dnd_disabled'><input type='radio' name='dnd_enabled' id='dnd_disabled' value='false' onclick=\"$on_click2\" ".(($dnd_enabled == "false" || $dnd_enabled == "") ? "checked='checked'" : null)." /> ".$text['label-disabled']."</label> \n";
+		echo "	<label for='dnd_enabled'><input type='radio' name='dnd_enabled' id='dnd_enabled' value='true' onclick=\"$on_click\" ".(($dnd_enabled == "true") ? "checked='checked'" : null)." /> ".$text['label-enabled']."</label> \n";
+	}
 	echo "	<br />\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 
 	echo "</table>";
+	echo "</div>\n";
 	echo "<br /><br />";
 
-	if ($action == "update") {
+	if (!empty($action) && $action == "update") {
 		echo "<input type='hidden' name='id' value='".escape($extension_uuid)."'>\n";
 	}
 	echo "<input type='hidden' name='".$token['name']."' value='".$token['hash']."'>\n";

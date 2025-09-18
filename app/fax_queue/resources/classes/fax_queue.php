@@ -26,12 +26,7 @@
 
 /**
  * fax_queue class
- *
- * @method null delete
- * @method null toggle
- * @method null copy
  */
-if (!class_exists('fax_queue')) {
 	class fax_queue {
 
 		/**
@@ -57,16 +52,6 @@ if (!class_exists('fax_queue')) {
 				$this->toggle_field = '';
 				$this->toggle_values = ['true','false'];
 				$this->location = 'fax_queue.php';
-		}
-
-		/**
-		 * called when there are no references to a particular object
-		 * unset the variables used in the class
-		 */
-		public function __destruct() {
-			foreach ($this as $key => $value) {
-				unset($this->$key);
-			}
 		}
 
 		/**
@@ -116,6 +101,60 @@ if (!class_exists('fax_queue')) {
 							}
 							unset($records);
 					}
+			}
+		}
+
+		/**
+		 * resend selected faxes in the fax queue
+		 */
+		public function resend($records) {
+			if (permission_exists($this->name.'_edit')) {
+
+				//add multi-lingual support
+					$language = new text;
+					$text = $language->get();
+
+				//validate the token
+					$token = new token;
+					if (!$token->validate($_SERVER['PHP_SELF'])) {
+						message::add($text['message-invalid_token'],'negative');
+						header('Location: '.$this->location);
+						exit;
+					}
+
+				//resend multiple faxes
+					if (is_array($records) && @sizeof($records) != 0) {
+						//build the fax array
+							$x = 0;
+							foreach ($records as $record) {
+								//add to the array
+									if ($record['checked'] == 'true' && is_uuid($record['fax_queue_uuid'])) {
+										$array[$this->table][$x][$this->name.'_uuid'] = $record['fax_queue_uuid'];
+										$array[$this->table][$x]['fax_status'] = 'waiting';
+										$array[$this->table][$x]['fax_retry_date'] = null;
+										$array[$this->table][$x]['fax_notify_date'] = null;
+										$array[$this->table][$x]['fax_retry_count'] = '0';
+									}
+
+								//increment the id
+									$x++;
+							}
+
+						//save the changes
+							if (is_array($array) && @sizeof($array) != 0) {
+								//save the array
+									$database = new database;
+									$database->app_name = $this->app_name;
+									$database->app_uuid = $this->app_uuid;
+									$database->save($array);
+									unset($array);
+
+								//set message
+									message::add($text['message-resending_faxes']);
+							}
+							unset($records);
+					}
+
 			}
 		}
 
@@ -257,7 +296,30 @@ if (!class_exists('fax_queue')) {
 			}
 		}
 
+		/**
+		 * Removes records from the v_fax_files and v_fax_logs tables. Called by the maintenance application.
+		 * @param settings $settings Settings object
+		 * @return void
+		 */
+		public static function database_maintenance(settings $settings): void {
+			$database = $settings->database();
+			$domains = maintenance_service::get_domains($database);
+			foreach ($domains as $domain_uuid => $domain_name) {
+				$domain_settings = new settings(['database'=>$database, 'domain_uuid'=>$domain_uuid]);
+				$retention_days = $domain_settings->get('fax_queue', 'database_retention_days', '');
+				//delete from v_fax_queue where fax_status = 'sent' and fax_date < NOW() - INTERVAL '$days_keep_fax_queue days'
+				if (!empty($retention_days) && is_numeric($retention_days)) {
+					$sql = "delete from v_fax_queue where fax_status = 'sent' and fax_date < NOW() - INTERVAL '$retention_days days'";
+					$sql .= " and domain_uuid = '$domain_uuid'";
+					$database->execute($sql);
+					$code = $database->message['code'] ?? 0;
+					if ($code == 200) {
+						maintenance_service::log_write(self::class, "Successfully removed entries older than $retention_days", $domain_uuid);
+					} else {
+						$message = $database->message['message'] ?? "An unknown error has occurred";
+						maintenance_service::log_write(self::class, "Unable to remove old database records. Error message: $message ($code)", $domain_uuid, maintenance_service::LOG_ERROR);
+					}
+				}
+			}
+		}
 	}
-}
-
-?>
