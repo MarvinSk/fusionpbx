@@ -50,8 +50,8 @@
 
 --get the cache
 	local cache = require "resources.functions.cache"
-	hostname = trim(api:execute("switchname", ""));
-	local cc_cache_key = "configuration:callcenter.conf:" .. hostname
+	hostname = trim(api:execute("hostname", ""));
+	local cc_cache_key = hostname .. ":configuration:callcenter.conf";
 	XML_STRING, err = cache.get(cc_cache_key)
 
 --set the cache
@@ -67,9 +67,6 @@
 		--get the variables
 			dsn = freeswitch.getGlobalVariable("dsn") or ''
 			dsn_callcenter = freeswitch.getGlobalVariable("dsn_callcenter") or ''
-			if #dsn_callcenter > 0 then
-				dsn_callcenter = freeswitch.getGlobalVariable("dsn_call_center") or ''
-			end
 
 		--start the xml array
 			local xml = Xml:new();
@@ -81,15 +78,40 @@
 			if #dsn_callcenter > 0 then
 				xml:append([[                            <param name="odbc-dsn" value="]] .. xml.sanitize(dsn_callcenter) .. [["/>]]);
 			elseif #dsn > 0 then
-				xml:append([[                            <param name="odbc-dsn" value="]] .. xml.sanitize(database["switch"]) .. [["/>]]);
+				xml:append([[                            <param name="odbc-dsn" value="]] .. xml.sanitize(dsn) .. [["/>]]);
 			end
-			xml:append([[                          <param name="cc-instance-id" value="]] .. xml.sanitize(hostname) .. [["/>]]);
+			xml:append([[                            <param name="cc-instance-id" value="]] .. xml.sanitize(hostname) .. [["/>]]);
 			-- xml:append([[                          <param name="dbname" value="]] .. xml.sanitize(database_dir) .. [[/call_center.db"/>]]);
 			xml:append([[                    </settings>]]);
 
 		--write the queues
 			xml:append([[                    <queues>]]);
-			sql = "select * from v_call_center_queues as q, v_domains as d ";
+			sql = "select ";
+			sql = sql .. " call_center_queue_uuid, ";
+			sql = sql .. " q.domain_uuid, ";
+			sql = sql .. " d.domain_name, ";
+			sql = sql .. " q.queue_name, ";
+			sql = sql .. " q.queue_extension, ";
+			sql = sql .. " q.queue_language, ";
+			sql = sql .. " q.queue_dialect, ";
+			sql = sql .. " q.queue_voice, ";
+			sql = sql .. " q.queue_strategy, ";
+			sql = sql .. " q.queue_moh_sound, ";
+			sql = sql .. " q.queue_record_template, ";
+			sql = sql .. " q.queue_time_base_score, ";
+			sql = sql .. " q.queue_max_wait_time, ";
+			sql = sql .. " q.queue_max_wait_time_with_no_agent, ";
+			sql = sql .. " q.queue_max_wait_time_with_no_agent_time_reached, ";
+			sql = sql .. " cast(q.queue_tier_rules_apply as text), ";
+			sql = sql .. " q.queue_tier_rule_wait_second, ";
+			sql = sql .. " cast(q.queue_tier_rule_wait_multiply_level as text), ";
+			sql = sql .. " cast(q.queue_tier_rule_no_agent_no_wait as text), ";
+			sql = sql .. " q.queue_discard_abandoned_after, ";
+			sql = sql .. " cast(q.queue_abandoned_resume_allowed as text), ";
+			sql = sql .. " q.queue_announce_sound, ";
+			sql = sql .. " q.queue_announce_frequency, ";
+			sql = sql .. " q.queue_description ";
+			sql = sql .. "from v_call_center_queues as q, v_domains as d ";
 			sql = sql .. "where d.domain_uuid = q.domain_uuid; ";
 			if (debug["sql"]) then
 				freeswitch.consoleLog("notice", "[xml_handler] SQL: " .. sql .. "\n");
@@ -102,9 +124,6 @@
 					domain_name = row.domain_name;
 					queue_name = row.queue_name;
 					queue_extension = row.queue_extension;
-					queue_language = row.queue_language;
-					queue_dialect = row.queue_dialect;
-					queue_voice = row.queue_voice;
 					queue_strategy = row.queue_strategy;
 					queue_moh_sound = row.queue_moh_sound;
 					queue_record_template = row.queue_record_template;
@@ -193,7 +212,11 @@
 			sql = "select SPLIT_PART(SPLIT_PART(a.agent_contact, '/', 2), '@', 1) as extension,  ";
 			sql = sql .. "(select extension_uuid from v_extensions where domain_uuid = a.domain_uuid ";
 			sql = sql .. "and extension = SPLIT_PART(SPLIT_PART(a.agent_contact, '/', 2), '@', 1) limit 1) as extension_uuid, ";
-			sql = sql .. "a.*, d.domain_name  ";
+			sql = sql .. "a.call_center_agent_uuid, a.domain_uuid, a.agent_name, a.agent_type, a.agent_call_timeout, ";
+			sql = sql .. "a.agent_contact, a.agent_status, a.agent_no_answer_delay_time, ";
+			sql = sql .. "a.agent_max_no_answer, a.agent_wrap_up_time, a.agent_reject_delay_time, ";
+			sql = sql .. "a.agent_busy_delay_time, cast(a.agent_record as text), ";
+			sql = sql .. "d.domain_name ";
 			sql = sql .. "from v_call_center_agents as a, v_domains as d ";
 			sql = sql .. "where d.domain_uuid = a.domain_uuid; ";
 			--sql = "select * from v_call_center_agents as a, v_domains as d ";
@@ -220,17 +243,10 @@
 					agent_busy_delay_time = row.agent_busy_delay_time;
 					agent_record = row.agent_record;
 
-				--set the language, voice and dialect
-					if (queue_language ~= nil and queue_dialect ~= nil and queue_voice ~= nil) then
-						sound_prefix = "sound_prefix="..sounds_dir.."/"..queue_language.."/"..queue_dialect .."/"..queue_voice;
-					else
-						sound_prefix = sounds_dir.."/en/us/callie";
-					end
-
 				--get and then set the complete agent_contact with the call_timeout and when necessary confirm
 						--confirm = "group_confirm_file=custom/press_1_to_accept_this_call.wav,group_confirm_key=1";
 						--if you change this variable also change app/call_center/call_center_agent_edit.php
-						confirm = ""..sound_prefix..",group_confirm_file=ivr/ivr-accept_reject_voicemail.wav,group_confirm_key=1,group_confirm_read_timeout=2000,leg_timeout="..agent_call_timeout;
+						confirm = "group_confirm_file=ivr/ivr-accept_reject_voicemail.wav,group_confirm_key=1,group_confirm_read_timeout=2000,leg_timeout="..agent_call_timeout;
 						local record = "";
 						if (agent_record == "true") then
 							record = string.format(",execute_on_pre_bridge='record_session %s/%s/archive/${strftime(%%Y)}/${strftime(%%b)}/${strftime(%%d)}/${uuid}.${record_ext}'", recordings_dir, domain_name)

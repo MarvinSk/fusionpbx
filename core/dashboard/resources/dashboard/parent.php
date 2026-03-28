@@ -9,7 +9,7 @@
 
 //add multi-lingual support
 	$language = new text;
-	$text = $language->get($_SESSION['domain']['language']['code'], dirname($widget_url));
+	$text = $language->get($settings->get('domain', 'language', 'en-us'), dirname($widget_url));
 
 //get the dashboard label
 	$widget_label = $text['title-'.$widget_key] ?? '';
@@ -69,7 +69,7 @@
 
 <style>
 
-div.parent_widget {
+.parent_widget > .hud_box > .hud_content {
 	max-width: 100%;
 	margin: 0 auto;
 	display: grid;
@@ -100,6 +100,10 @@ div.child_widget div.hud_chart  {
 	padding: 7px;
 }
 
+div.child_widget .hud_expander  {
+	display: none;
+}
+
 /* dashboard settings */
 <?php
 foreach ($child_widgets as $row) {
@@ -120,9 +124,9 @@ foreach ($child_widgets as $row) {
 
 <?php
 
-//include the dashboards
+//include the widgets
 	echo "<div class='hud_box'>\n";
-	echo "	<div class='hud_content parent_widget'>\n";
+	echo "	<div class='hud_content'>\n";
 
 	$x = 0;
 	foreach ($child_widgets as $row) {

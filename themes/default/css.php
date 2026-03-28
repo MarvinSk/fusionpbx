@@ -23,7 +23,6 @@ $menu_main_background_color = $settings->get('theme', 'menu_main_background_colo
 $menu_main_shadow_color = !empty($settings->get('theme', 'menu_main_shadow_color', '')) ? '0 0 5px '.$settings->get('theme', 'menu_main_shadow_color') : 'none';
 $menu_main_border_color = $settings->get('theme', 'menu_main_border_color', 'transparent');
 $menu_main_border_size = $settings->get('theme', 'menu_main_border_size', 0);
-$menu_position = $settings->get('theme', 'menu_position', 'top');
 $menu_style = $settings->get('theme', 'menu_style', 'fixed');
 switch ($menu_style) {
 	case 'inline': $menu_main_border_radius_default = '4px'; break;
@@ -246,6 +245,9 @@ $message_alert_background_color = $settings->get('theme', 'message_alert_backgro
 $operator_panel_border_color = $settings->get('theme', 'operator_panel_border_color', '#b9c5d8');
 $operator_panel_sub_background_color = $settings->get('theme', 'operator_panel_sub_background_color', '#e5eaf5');
 $operator_panel_main_background_color = $settings->get('theme', 'operator_panel_main_background_color', '#fff');
+$operator_panel_user_info = $settings->get('theme', 'operator_panel_user_info', '#444');
+$operator_panel_caller_info = $settings->get('theme', 'operator_panel_caller_info', '#444');
+$operator_panel_call_info = $settings->get('theme', 'operator_panel_call_info', '#444');
 $dashboard_background_color = $settings->get('theme', 'dashboard_background_color', '');
 $dashboard_background_gradient_style = $settings->get('theme', 'dashboard_background_gradient_style', '');
 $dashboard_background_gradient_angle = $settings->get('theme', 'dashboard_background_gradient_angle', '');
@@ -443,9 +445,9 @@ if ($background_images_enabled) {
 	}
 
 	if ($image_source == 'folder') {
-		if (file_exists($_SERVER["DOCUMENT_ROOT"].$source_path)) {
+		if (file_exists(dirname(__DIR__, 2).$source_path)) {
 			//retrieve a random background image
-			$dir_list = opendir($_SERVER["DOCUMENT_ROOT"].$source_path);
+			$dir_list = opendir(dirname(__DIR__, 2).$source_path);
 			$v_background_array = array();
 			$x = 0;
 			while (false !== ($file = readdir($dir_list))) {
@@ -652,6 +654,15 @@ else { //default: white
 		-khtml-border-radius: <?=$menu_main_border_radius?>;
 		border-radius: <?=$menu_main_border_radius?>;
 		padding: 0;
+		z-index: 1030;
+		<?php if ($menu_style == 'fixed') { ?>
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		<?php } else { ?>
+		position: relative;
+		<?php } ?>
 		}
 
 	/* main menu logo */
@@ -717,6 +728,8 @@ else { //default: white
 		-webkit-box-shadow: <?=$menu_sub_shadow_color?>;
 		-moz-box-shadow: <?=$menu_sub_shadow_color?>;
 		box-shadow: <?=$menu_sub_shadow_color?>;
+		z-index: 1040;
+		position: absolute;
 		<?php $br = format_border_radius($menu_sub_border_radius, '0 0 4px 4px'); ?>
 		-moz-border-radius: <?php echo $br['tl']['n'].$br['tl']['u']; ?> <?php echo $br['tr']['n'].$br['tr']['u']; ?> <?php echo $br['br']['n'].$br['br']['u']; ?> <?php echo $br['bl']['n'].$br['bl']['u']; ?>;
 		-webkit-border-radius: <?php echo $br['tl']['n'].$br['tl']['u']; ?> <?php echo $br['tr']['n'].$br['tr']['u']; ?> <?php echo $br['br']['n'].$br['br']['u']; ?> <?php echo $br['bl']['n'].$br['bl']['u']; ?>;
@@ -1093,6 +1106,7 @@ else { //default: white
 		div#body_header {
 			position: relative;
 			z-index: 1;
+			isolation: isolate;
 			padding: 17px 10px 13px 10px;
 			height: 60px;
 			background-color: <?=$body_header_background_color?>;
@@ -1695,12 +1709,7 @@ else { //default: white
 		switch ($menu_style) {
 			case 'inline': $body_top_style = "margin-top: -8px;"; break;
 			case 'static': $body_top_style = "margin-top: -5px;"; break;
-			case 'fixed':
-				switch ($menu_position) {
-					case 'bottom': $body_top_style = "margin-top: 30px;"; break;
-					case 'top':
-					default: $body_top_style = "margin-top: 65px;"; break;
-				}
+			case 'fixed': $body_top_style = "margin-top: 65px;"; break;
 		}
 	?>
 
@@ -1727,7 +1736,7 @@ else { //default: white
 		else {
 			?>padding: 5px 10px 10px 10px;<?php
 		}
-		echo $body_top_style;
+		echo $body_top_style ?? '';
 		?>
 		text-align: left;
 		color: <?=$body_text_color?>;
@@ -1738,6 +1747,9 @@ else { //default: white
 	/* default body padding */
 	.container-fluid {
 		width: <?=$body_width?>;
+		<?php if ($menu_style == 'fixed') { ?>
+		padding-top: 49px;
+		<?php } ?>
 		}
 
 	/* maximize viewport usage on xs displays */
@@ -2329,7 +2341,7 @@ else { //default: white
 		<?php unset($br); ?>
 		}
 
-	.switch > input {
+	.switch > select {
 		display: none;
 		}
 
@@ -2399,14 +2411,14 @@ else { //default: white
 		transition: all 0.25s ease;
 		}
 
-	input:checked + .slider { /* when enabled */
+	select:has(option[value="true"]:checked) + .slider { /* when enabled */
 		background: <?=$input_toggle_switch_background_color_true?>;
 		}
 
-	input:focus + .slider { /* when focused, required for switch movement */
+	select:focus + .slider { /* when focused, required for switch movement */
 		}
 
-	input:checked + .slider:before { /* distance switch moves horizontally */
+	select:has(option[value="true"]:checked) + .slider:before { /* distance switch moves horizontally */
 		<?php if ($input_toggle_switch_handle_symbol === 'true') { ?>
 			text-align: center;
 			<?php if ($input_toggle_style == 'switch_square') { ?>
@@ -2549,6 +2561,7 @@ else { //default: white
 		border-bottom: 1px solid <?=$form_table_field_border_color?>;
 		padding: <?=$form_table_field_padding?>;
 		text-align: left;
+		text-wrap: wrap;
 		vertical-align: middle;
 		color: <?=$form_table_field_text_color?>;
 		font-family: <?=$form_table_field_text_font?>;
@@ -2854,6 +2867,7 @@ else { //default: white
 		font-family: arial;
 		font-size: 10px;
 		display: inline-block;
+		color: <?=$operator_panel_user_info?>;
 		}
 
 	.op_user_info strong {
@@ -2865,6 +2879,7 @@ else { //default: white
 		margin-top: 4px;
 		font-family: arial;
 		font-size: 10px;
+		color: <?=$operator_panel_caller_info?>;
 		}
 
 	.op_call_info {
@@ -2872,6 +2887,7 @@ else { //default: white
 		padding: 0px;
 		font-family: arial;
 		font-size: 10px;
+		color: <?=$operator_panel_call_info?>;
 		}
 
 	#op_btn_status_available {
@@ -2951,7 +2967,8 @@ else { //default: white
 		?>
 		}
 
-		div.card:has(.datetimepicker) {
+		div.card:has(.datetimepicker),
+		div.card:has(.datetimesecpicker) {
 			overflow-x: visible;
 		}
 
@@ -2987,14 +3004,17 @@ else { //default: white
 		border: 1px solid <?=$dashboard_border_color_hover?>;
 		}
 
-	div.widget div.hud_box:first-of-type {
+	div.widget div.hud_box:first-of-type,
+	div.parent_widget div.hud_box:first-of-type {
 		<?php
 		echo "background: ".($dashboard_background_color[0] ?? '#ffffff').";\n";
-		if ($dashboard_background_gradient_style == 'mirror') {
-			echo "background-image: linear-gradient(".(empty($dashboard_background_gradient_angle) ? '0deg' : $dashboard_background_gradient_angle.'deg').", ".$dashboard_background_color[1]." 0%, ".$dashboard_background_color[0]." 30%, ".$dashboard_background_color[0]." 70%, ".$dashboard_background_color[1]." 100%);\n";
-		}
-		else { //simple
-			echo "background-image: linear-gradient(".(empty($dashboard_background_gradient_angle) ? '0deg' : $dashboard_background_gradient_angle.'deg').", ".$dashboard_background_color[0]." 0%, ".$dashboard_background_color[1]." 100%);\n";
+		if (!empty($dashboard_background_color) && is_array($dashboard_background_color) && sizeof($dashboard_background_color) > 1) {
+			if (!empty($dashboard_background_gradient_style) && $dashboard_background_gradient_style == 'mirror') {
+				echo "background-image: linear-gradient(".(empty($dashboard_background_gradient_angle) ? '0deg' : $dashboard_background_gradient_angle.'deg').", ".$dashboard_background_color[1]." 0%, ".$dashboard_background_color[0]." 30%, ".$dashboard_background_color[0]." 70%, ".$dashboard_background_color[1]." 100%);\n";
+			}
+			else { //simple
+				echo "background-image: linear-gradient(".(empty($dashboard_background_gradient_angle) ? '0deg' : $dashboard_background_gradient_angle.'deg').", ".$dashboard_background_color[0]." 0%, ".$dashboard_background_color[1]." 100%);\n";
+			}
 		}
 
 		if (!empty($dashboard_shadow_color)) {
@@ -3136,11 +3156,13 @@ else { //default: white
 			display: block;
 			<?php
 			echo "background: ".($dashboard_detail_background_color[0] ?? '#ffffff').";\n";
-			if ($dashboard_background_gradient_style == 'mirror') {
-				echo "background-image: linear-gradient(".(empty($dashboard_background_gradient_angle) ? '0deg' : $dashboard_background_gradient_angle.'deg').", ".$dashboard_detail_background_color[1]." 0%, ".$dashboard_detail_background_color[0]." 30%, ".$dashboard_detail_background_color[0]." 70%, ".$dashboard_detail_background_color[1]." 100%);\n";
-			}
-			else { //simple
-				echo "background-image: linear-gradient(".(empty($dashboard_background_gradient_angle) ? '0deg' : $dashboard_background_gradient_angle.'deg').", ".$dashboard_detail_background_color[0]." 0%, ".$dashboard_detail_background_color[1]." 100%);\n";
+			if (!empty($dashboard_detail_background_color) && is_array($dashboard_detail_background_color) && sizeof($dashboard_detail_background_color) > 1) {
+				if ($dashboard_background_gradient_style == 'mirror') {
+					echo "background-image: linear-gradient(".(empty($dashboard_background_gradient_angle) ? '0deg' : $dashboard_background_gradient_angle.'deg').", ".$dashboard_detail_background_color[1]." 0%, ".$dashboard_detail_background_color[0]." 30%, ".$dashboard_detail_background_color[0]." 70%, ".$dashboard_detail_background_color[1]." 100%);\n";
+				}
+				else { //simple
+					echo "background-image: linear-gradient(".(empty($dashboard_background_gradient_angle) ? '0deg' : $dashboard_background_gradient_angle.'deg').", ".$dashboard_detail_background_color[0]." 0%, ".$dashboard_detail_background_color[1]." 100%);\n";
+				}
 			}
 			?>
 			}
@@ -3428,6 +3450,7 @@ else { //default: white
 
 	div.action_bar {
 		z-index: 5;
+		isolation: isolate;
 		<?php
 		switch ($menu_style) {
 			case 'side':
@@ -3965,6 +3988,208 @@ else { //default: white
 	i.ace_control:hover {
 		opacity: 1.0;
 		}
+
+/* MULTI SELECT DROPDOWN ********************************************************/
+
+	.multiselect_container {
+		position: relative;
+		width: 200px;
+		user-select: none;
+	}
+
+	.selected_values {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		cursor: pointer;
+		font-family: <?=$input_text_font?>;
+		font-size: <?=$input_text_size?>;
+		color: <?=$input_text_color?>;
+		text-align: left;
+		min-height: <?=$input_height?>;
+		min-width: <?=$input_width?>;
+		padding: 4px 6px;
+		margin: 1px;
+		border-width: <?=$input_border_size?>;
+		border-style: <?=$input_border_style?>;
+		border-color: <?=$input_border_color?>;
+		outline-width: <?=$input_outline_size?>;
+		<?php if (!empty($input_outline_style)) { ?>
+			outline-style: <?=$input_outline_style?>;
+		<?php } ?>
+		<?php if (!empty($input_outline_color)) { ?>
+			outline-color: <?=$input_outline_color?>;
+		<?php } ?>
+		background: <?=$input_background_color?>;
+		<?php
+		if (!empty($input_shadow_inner_color)) { $shadows[] = $input_shadow_inner_color; }
+		if (!empty($input_shadow_outer_color)) { $shadows[] = $input_shadow_outer_color; }
+		if (!empty($shadows)) {
+			?>
+			-webkit-box-shadow: <?php echo implode(',', $shadows); ?>;
+			-moz-box-shadow:  <?php echo implode(',', $shadows); ?>;
+			box-shadow:  <?php echo implode(',', $shadows); ?>;
+			<?php
+		}
+		unset($shadows);
+		?>
+		<?php $br = format_border_radius($input_border_radius, '3px'); ?>
+		-moz-border-radius: <?php echo $br['tl']['n'].$br['tl']['u']; ?> <?php echo $br['tr']['n'].$br['tr']['u']; ?> <?php echo $br['br']['n'].$br['br']['u']; ?> <?php echo $br['bl']['n'].$br['bl']['u']; ?>;
+		-webkit-border-radius: <?php echo $br['tl']['n'].$br['tl']['u']; ?> <?php echo $br['tr']['n'].$br['tr']['u']; ?> <?php echo $br['br']['n'].$br['br']['u']; ?> <?php echo $br['bl']['n'].$br['bl']['u']; ?>;
+		-khtml-border-radius: <?php echo $br['tl']['n'].$br['tl']['u']; ?> <?php echo $br['tr']['n'].$br['tr']['u']; ?> <?php echo $br['br']['n'].$br['br']['u']; ?> <?php echo $br['bl']['n'].$br['bl']['u']; ?>;
+		border-radius: <?php echo $br['tl']['n'].$br['tl']['u']; ?> <?php echo $br['tr']['n'].$br['tr']['u']; ?> <?php echo $br['br']['n'].$br['br']['u']; ?> <?php echo $br['bl']['n'].$br['bl']['u']; ?>;
+		<?php unset($br); ?>
+		<?php if (!empty($input_outline_radius)) { ?>
+			outline-radius: <?=$input_outline_radius?>
+		<?php } ?>
+		vertical-align: middle;
+	}
+
+	.selected_values:hover {
+		border-color: <?=$input_border_color_hover?>;
+	}
+
+	.tag {
+		background: #007bff25;
+		color: #007bff;
+		padding: 2px 8px;
+		margin: 2px;
+		border-radius: 15px;
+		font-size: 13px;
+		display: flex;
+		align-items: center;
+	}
+
+	.tag span {
+		margin-left: 5px;
+		cursor: pointer;
+		font-weight: bold;
+		color: #007bff;
+	}
+
+	.tag span:hover {
+		color: #d32f2f;
+	}
+
+	.placeholder_text {
+		color: <?=$input_text_placeholder_color?>;
+	}
+
+	.dropdown_list {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: <?=$input_background_color?>;
+		border-width: <?=$input_border_size?>;
+		border-style: <?=$input_border_style?>;
+		border-color: <?=$input_border_color?>;
+		border-top: none;
+		border-radius: 0 0 5px 5px;
+		box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+		z-index: 1000;
+		max-height: 300px;
+		overflow-y: auto;
+		box-sizing: border-box;
+		margin: 0 1px;
+	}
+
+	.dropdown_list.open {
+		display: block;
+	}
+
+	.search_box {
+		background-color: <?=$input_background_color?>;
+		color: <?=$input_text_color?>;
+		width: 100%;
+		padding: 10px;
+		border: none;
+		border-bottom: 1px solid #00000010;
+		box-sizing: border-box;
+		font-size: 14px;
+		outline: none;
+	}
+
+	.option_item {
+		display: flex;
+		align-items: center;
+		padding: 10px;
+		cursor: pointer;
+		border-bottom: 1px solid #00000010;
+		margin: 0;
+	}
+
+	.option_item:hover {
+		background-color: <?=$table_row_background_color_hover?>;
+	}
+
+	.option_item input[type="checkbox"] {
+		margin-right: 10px;
+		transform: scale(1.2);
+		cursor: pointer;
+	}
+
+	.no_results {
+		display: none;
+		padding: 15px;
+		text-align: center;
+		color: <?=$input_text_placeholder_color?>;
+	}
+
+/* DOMAIN SEARCH DROPDOWN ********************************************************/
+
+	.domain-search-picker {
+		position: relative;
+		display: inline-block;
+		max-width: 100%;
+	}
+
+	.domain-search-picker .domain-search-input { max-width: 100%; }
+
+	.domain-search-results {
+		display: none;
+		position: fixed;
+		left: 0;
+		top: 0;
+		background: <?=$input_background_color?>;
+		border-width: <?=$input_border_size?>;
+		border-style: <?=$input_border_style?>;
+		border-color: <?=$input_border_color?>;
+		border-radius: 4px;
+		box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+		z-index: 10050;
+		max-height: 300px;
+		overflow-y: auto;
+		box-sizing: border-box;
+		text-align: left;
+	}
+
+	.domain-search-result-item {
+		padding: 6px 10px;
+		cursor: pointer;
+		line-height: 1.3;
+	}
+
+	.domain-search-result-item:hover {
+		background-color: <?=$table_row_background_color_hover?>;
+	}
+
+	.domain-search-result-name {
+		display: block;
+	}
+
+	.domain-search-result-description {
+		display: block;
+		opacity: 0.75;
+		font-size: 0.92em;
+		margin-top: 1px;
+	}
+
+	.domain-search-empty {
+		padding: 8px 10px;
+		color: <?=$input_text_placeholder_color?>;
+	};
 
 <?php
 

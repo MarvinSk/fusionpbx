@@ -18,9 +18,6 @@
 	//ini_set('max_execution_time',1800); //30 minutes
 	ini_set('memory_limit', '512M');
 
-//connect to the database
-	$database = database::new();
-
 //save the arguments to variables
 	$script_name = $argv[0];
 	if (!empty($argv[1])) {
@@ -174,14 +171,14 @@
 		//$voicemail_sms_to  = $row["voicemail_sms_to "];
 		$voicemail_transcription_enabled = $row["voicemail_transcription_enabled"];
 		//$voicemail_attach_file = $row["voicemail_attach_file"];
-		//$voicemail_file = $row["voicemail_file"];
+		$voicemail_file = $row["voicemail_file"];
 		//$voicemail_local_after_email = $row["voicemail_local_after_email"];
 		//$voicemail_enabled = $row["voicemail_enabled"];
 		//$voicemail_description = $row["voicemail_description"];
 		//$voicemail_name_base64 = $row["voicemail_name_base64"];
 		//$voicemail_tutorial = $row["voicemail_tutorial"];
 		if (gettype($voicemail_transcription_enabled) === 'string') {
-			$voicemail_transcription_enabled = ($voicemail_transcription_enabled === 'true') ? true : false;
+			$voicemail_transcription_enabled = ($voicemail_transcription_enabled === true) ? true : false;
 		}
 	}
 	unset($parameters);
@@ -240,7 +237,7 @@
 						$transcribe->audio_filename = $email_attachment_name;
 						$transcribe->audio_mime_type = $email_attachment_mime_type;
 						$transcribe->audio_string = (!empty($field['email_attachment_base64'])) ? base64_decode($field['email_attachment_base64']) : '';
-						$transcribe_message = $transcribe->transcribe();
+						$transcribe_message = $transcribe->transcribe('text');
 					}
 				}
 				else {
@@ -331,6 +328,11 @@
 		}
 	}
 
+//clear the array if this is a voicemail and file attachment is not enabled
+	if (!empty($email_uuid) && !empty($voicemail_file) && $voicemail_file !== 'attach') {
+	    $email_attachments = '';
+	}
+
 //send the email
 	$email = new email;
 	$email->domain_uuid = $domain_uuid;
@@ -341,7 +343,9 @@
 	$email->recipients = $email_to;
 	$email->subject = $email_subject;
 	$email->body = $email_body;
-	$email->attachments = $email_attachments;
+	if (!empty($email_attachments)) {
+		$email->attachments = $email_attachments;
+	}
 	$email->debug_level = 3;
 	$email->method = 'direct';
 	$email_status = $email->send();
@@ -434,7 +438,6 @@
 			}
 		}
 
-
 		/*
 		//build insert array
 			$array['email_queue'][0]['email_queue_uuid'] = $email_queue_uuid;
@@ -446,9 +449,6 @@
 			$p->add('email_queue_add', 'temp');
 			$p->add('email_queue_update', 'temp');
 		//execute insert
-			$database->app_name = 'email_queue';
-			$database->app_uuid = '5befdf60-a242-445f-91b3-2e9ee3e0ddf7';
-			print_r($array);
 			$message = $database->save($array);
 			print_r($message);
 			unset($array);
@@ -477,8 +477,6 @@
 		$p->add('email_queue_add', 'temp');
 
 		//execute insert
-		$database->app_name = 'email_queue';
-		$database->app_uuid = 'ba41954e-9d21-4b10-bbc2-fa5ceabeb184';
 		$database->save($array);
 		unset($array);
 
@@ -530,8 +528,6 @@
 					$p = permissions::new();
 					$p->add('email_log_add', 'temp');
 				//execute insert
-					$database->app_name = 'v_mailto';
-					$database->app_uuid = 'ba41954e-9d21-4b10-bbc2-fa5ceabeb184';
 					$database->save($array);
 					unset($array);
 				//revoke temporary permissions

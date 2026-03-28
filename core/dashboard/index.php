@@ -17,7 +17,7 @@
 
 	The Initial Developer of the Original Code is
 	Mark J Crane <markjcrane@fusionpbx.com>
-	Portions created by the Initial Developer are Copyright (C) 2022-2025
+	Portions created by the Initial Developer are Copyright (C) 2022-2026
 	the Initial Developer. All Rights Reserved.
 
 	Contributor(s):
@@ -45,15 +45,12 @@
 //additional includes
 	require_once "resources/check_auth.php";
 
-//initialize the database
-	$database = new database;
-
 //disable login message
 	if (isset($_GET['msg']) && $_GET['msg'] == 'dismiss') {
-		unset($_SESSION['login']['message']['text']);
+		unset($_SESSION['login']['message']);
 
 		$sql = "update v_default_settings ";
-		$sql .= "set default_setting_enabled = 'false' ";
+		$sql .= "set default_setting_enabled = false ";
 		$sql .= "where ";
 		$sql .= "default_setting_category = 'login' ";
 		$sql .= "and default_setting_subcategory = 'message' ";
@@ -75,7 +72,7 @@
 //get the dashboard uuid
 	$sql = "select dashboard_uuid ";
 	$sql .= "from v_dashboards ";
-	$sql .= "where dashboard_enabled = 'true' ";
+	$sql .= "where dashboard_enabled = true ";
 	$sql .= "and (";
 	$sql .= "	domain_uuid = :domain_uuid ";
 	$sql .= "	or domain_uuid is null ";
@@ -106,7 +103,7 @@
 	$sql .= "widget_content_text_align, ";
 	$sql .= "widget_content_details, ";
 	$sql .= "widget_chart_type, ";
-	$sql .= "cast(widget_label_enabled as text), ";
+	$sql .= "widget_label_enabled, ";
 	$sql .= "widget_label_text_color, ";
 	$sql .= "widget_label_text_color_hover, ";
 	$sql .= "widget_label_background_color, ";
@@ -127,7 +124,7 @@
 	$sql .= "cast(widget_enabled as text), ";
 	$sql .= "widget_description ";
 	$sql .= "from v_dashboard_widgets as d ";
-	$sql .= "where widget_enabled = 'true' ";
+	$sql .= "where widget_enabled = true ";
 	$sql .= "and dashboard_widget_uuid in ( ";
 	$sql .= "	select dashboard_widget_uuid from v_dashboard_widget_groups where group_uuid in ( ";
 	$sql .= "		".$group_uuids_in." ";
@@ -189,8 +186,6 @@
 
 			//save the data
 			if (is_array($array)) {
-				$database->app_name = 'dashboard';
-				$database->app_uuid = '55533bef-4f04-434a-92af-999c1e9927f7';
 				$database->save($array);
 			}
 
@@ -221,6 +216,8 @@
 
 //include chart.js
 	echo "<script src='/resources/chartjs/chart.min.js'></script>";
+	echo "<script src='/resources/chartjs/chartjs-adapter-date-fns.bundle.min.js'></script>";
+	echo "<script src='/resources/chartjs/chartjs-plugin-streaming.js'></script>";
 
 //chart variables
 	echo "<script>\n";
@@ -246,7 +243,7 @@
 	echo "	<div class='actions'>\n";
 	echo "		<form id='dashboard' method='post' _onsubmit='setFormSubmitting()'>\n";
 	if ($settings->get('theme', 'menu_style', '') != 'side') {
-		echo "		".$text['label-welcome']." <a href='".PROJECT_PATH."/core/users/user_edit.php?id=user'>".$_SESSION["username"]."</a>&nbsp; &nbsp;";
+		echo "		".$text['label-welcome']." <a href='".PROJECT_PATH."/core/users/user_profile.php'>".$_SESSION["username"]."</a>&nbsp; &nbsp;";
 	}
 	if (permission_exists('dashboard_edit')) {
 		echo button::create(['type'=>'button','label'=>$text['button-back'],'icon'=>$settings->get('theme', 'button_icon_back'),'id'=>'btn_back','name'=>'btn_back','style'=>'display: none;','onclick'=>"edit_mode('off');"]);
@@ -267,8 +264,8 @@
 	echo "</div>\n";
 
 //display login message
-	//if (if_group("superadmin") && isset($_SESSION['login']['message']['text']) && $_SESSION['login']['message']['text'] != '') {
-	//	echo "<div class='login_message' width='100%'><b>".$text['login-message_attention']."</b>&nbsp;&nbsp;".$_SESSION['login']['message']['text']."&nbsp;&nbsp;(<a href='?msg=dismiss'>".$text['login-message_dismiss']."</a>)</div>\n";
+	//if (if_group("superadmin") && !empty($settings->get('login', 'message')) && $settings->get('login', 'message') != '') {
+	//	echo "<div class='login_message' width='100%'><b>".$text['login-message_attention']."</b>&nbsp;&nbsp;".$settings->get('login', 'message')."&nbsp;&nbsp;(<a href='?msg=dismiss'>".$text['login-message_dismiss']."</a>)</div>\n";
 	//}
 
 ?>
@@ -313,7 +310,7 @@ div.hud_chart {
 	padding-top: 7px;
 }
 
-/* dashboard settings */
+/* Dashboard Settings */
 <?php
 foreach ($widgets as $row) {
 	$widget_id = 'id_'.md5(preg_replace('/[^-A-Fa-f0-9]/', '', $row['dashboard_widget_uuid']));
@@ -322,7 +319,7 @@ foreach ($widgets as $row) {
 		echo "	color: ".$row['widget_icon_color'].";\n";
 		echo "}\n";
 	}
-	if ($row['widget_label_enabled'] == 'false' && $row['widget_path'] != 'dashboard/parent') {
+	if ($row['widget_label_enabled'] === false && $row['widget_path'] != 'dashboard/parent') {
 		echo "#".$widget_id." .hud_title:first-of-type {\n";
 		echo "	display: none;\n";
 		echo "}\n";
@@ -331,6 +328,16 @@ foreach ($widgets as $row) {
 		echo "}\n";
 		echo "#".$widget_id." .hud_chart {\n";
 		echo "	padding-top: 0;\n";
+		echo "}\n";
+	}
+	if ($row['widget_details_state'] != "expanded") {
+		echo "#".$widget_id." .hud_details {\n";
+		echo "	display: none;\n";
+		echo "}\n";
+	}
+	if ($row['widget_details_state'] == "hidden" || $row['widget_details_state'] == "disabled") {
+		echo "#".$widget_id." .hud_expander {\n";
+		echo "	display: none;\n";
 		echo "}\n";
 	}
 	if (!empty($row['widget_label_text_color']) || !empty($row['widget_label_background_color'])) {
@@ -356,7 +363,10 @@ foreach ($widgets as $row) {
 		echo "}\n";
 	}
 	if (!empty($row['widget_background_color'])) {
-		$background_color = json_decode($row['widget_background_color'], true);
+		$background_color = json_validate($row['widget_background_color']) ? json_decode($row['widget_background_color'], true) : $row['widget_background_color'];
+		if (!isset($background_color[1])) {
+			$background_color[1] = '';
+		}
 		echo "#".$widget_id." > .hud_box:first-of-type {\n";
 		echo "	background: ".$background_color[0].";\n";
 		if (empty($row['widget_background_gradient_style']) || $row['widget_background_gradient_style'] == 'mirror') {
@@ -368,7 +378,10 @@ foreach ($widgets as $row) {
 		echo "}\n";
 	}
 	if (!empty($row['widget_background_color_hover'])) {
-		$background_color_hover = json_decode($row['widget_background_color_hover'], true);
+		$background_color_hover = json_validate($row['widget_background_color_hover']) ? json_decode($row['widget_background_color_hover'], true) : $row['widget_background_color_hover'];
+		if (!isset($background_color_hover[1])) {
+			$background_color_hover[1] = '';
+		}
 		echo "#".$widget_id.":hover > .hud_box:first-of-type {\n";
 		echo "	background: ".$background_color_hover[0].";\n";
 		if (empty($row['widget_background_gradient_style']) || $row['widget_background_gradient_style'] == 'mirror') {
@@ -380,7 +393,10 @@ foreach ($widgets as $row) {
 		echo "}\n";
 	}
 	if (!empty($row['widget_detail_background_color'])) {
-		$detail_background_color = json_decode($row['widget_detail_background_color'], true);
+		$detail_background_color = json_validate($row['widget_detail_background_color']) ? json_decode($row['widget_detail_background_color'], true) : $row['widget_detail_background_color'];
+		if (!isset($detail_background_color[1])) {
+			$detail_background_color[1] = '';
+		}
 		echo "#".$widget_id." > .hud_box > .hud_details {\n";
 		echo "	background: ".$detail_background_color[0].";\n";
 		if (empty($row['widget_background_gradient_style']) || $row['widget_background_gradient_style'] == 'mirror') {
@@ -439,6 +455,7 @@ foreach ($widgets as $row) {
 	}
 	$row_span = $row['widget_row_span'] * 4;
 	$expanded_row_span = $row_span + 13;
+	//has detail expand button
 	if ($row['widget_details_state'] === "expanded" || $row['widget_details_state'] === "contracted") {
 		$row_span += 1;
 		$expanded_row_span += 1;
@@ -450,7 +467,7 @@ foreach ($widgets as $row) {
 		echo "#".$widget_id." {\n";
 		echo "	grid-row: span ".$row_span.";\n";
 		echo "}\n";
-		echo "#".$widget_id.".expanded {\n";
+		echo "#".$widget_id.".details_expanded {\n";
 		echo "	grid-row: span ".$expanded_row_span.";\n";
 		echo "}\n";
 	}
@@ -467,7 +484,7 @@ foreach ($widgets as $row) {
 }
 ?>
 
-/* Screen smaller than 575px? 1 columns */
+/* Screen smaller than 575px? 1 column */
 @media (max-width: 575px) {
 	.widgets { grid-template-columns: repeat(1, minmax(100px, 1fr)); }
 	.col-num { grid-column: span 1; }
@@ -477,12 +494,6 @@ foreach ($widgets as $row) {
 			if (!empty($row['widget_column_span'])) {
 				echo "#".$widget_id." {\n";
 				echo "	grid-column: span 1;\n";
-				echo "}\n";
-			}
-			if ($row['widget_details_state'] == "hidden" || $row['widget_details_state'] == "disabled") {
-				echo "#".$widget_id." .hud_box .hud_expander, \n";
-				echo "#".$widget_id." .hud_box .hud_details {\n";
-				echo "	display: none;\n";
 				echo "}\n";
 			}
 		}
@@ -499,22 +510,6 @@ foreach ($widgets as $row) {
 			if ($row['widget_column_span'] > 2) {
 				echo "#".$widget_id." {\n";
 				echo "	grid-column: span 2;\n";
-				echo "}\n";
-			}
-			if ($row['widget_details_state'] == "expanded") {
-				echo "#".$widget_id." .hud_box .hud_details {\n";
-				echo "	display: block;\n";
-				echo "}\n";
-			}
-			if ($row['widget_details_state'] == "contracted") {
-				echo "#".$widget_id." .widget .hud_box .hud_details {\n";
-				echo "	display: none;\n";
-				echo "}\n";
-			}
-			if ($row['widget_details_state'] == "hidden" || $row['widget_details_state'] == "disabled") {
-				echo "#".$widget_id." .hud_box .hud_expander, \n";
-				echo "#".$widget_id." .hud_box .hud_details {\n";
-				echo "	display: none;\n";
 				echo "}\n";
 			}
 		}
@@ -563,6 +558,7 @@ foreach ($widgets as $row) {
 
 <script>
 
+// Widget details expand button
 document.addEventListener('click', function(event) {
 	let hud_content = event.target.closest('.hud_content');
 	let hud_expander = event.target.closest('.hud_expander');
@@ -570,7 +566,7 @@ document.addEventListener('click', function(event) {
 	if (hud_content || hud_expander) {
 		let widget = event.target.closest('div.widget, div.child_widget');
 
-		if (widget.classList.contains('disabled')) {
+		if (widget.classList.contains('details_disabled')) {
 			return;
 		}
 
@@ -583,34 +579,34 @@ document.addEventListener('click', function(event) {
 function toggle_grid_row_span(widget_id) {
 	let widget = document.getElementById(widget_id);
 
-	if (widget.classList.contains('expanded')) {
-		widget.classList.remove('expanded');
+	if (widget.classList.contains('details_expanded')) {
+		widget.classList.remove('details_expanded');
 	}
 	else {
-		widget.classList.add('expanded');
+		widget.classList.add('details_expanded');
 	}
 }
 
 let first_toggle = false;
 
 function toggle_grid_row_span_all() {
-	const widgets = document.querySelectorAll('div.widget, div.child_widget');
+	const widgets = document.querySelectorAll('div.widget');
 
 	widgets.forEach(widget => {
-		if (widget.classList.contains('disabled')) {
+		if (widget.classList.contains('details_disabled')) {
 			return;
 		}
 
-		if (!first_toggle && widget.classList.contains('expanded')) {
+		if (!first_toggle && widget.classList.contains('details_expanded')) {
 			return;
 		}
 
-		if (widget.classList.contains('expanded') || widget.getAttribute('data-expanded-all') === 'true') {
-			widget.classList.remove('expanded');
+		if (widget.classList.contains('details_expanded') || widget.getAttribute('data-expanded-all') === 'true') {
+			widget.classList.remove('details_expanded');
 			widget.setAttribute('data-expanded-all', 'false');
 		}
 		else {
-			widget.classList.add('expanded');
+			widget.classList.add('details_expanded');
 			widget.setAttribute('data-expanded-all', 'true');
 		}
 	});
@@ -618,14 +614,15 @@ function toggle_grid_row_span_all() {
 	first_toggle = true;
 }
 
+// Automatically update parent widget height and row span based on content and window size
 function update_parent_height() {
-	const parent_widgets = document.querySelectorAll('.parent_widget');
+	const parent_widgets = document.querySelectorAll('.parent_widget > .hud_box > .hud_content');
 
 	parent_widgets.forEach(parent_widget => {
 		if (!parent_widget.dataset.originalHeight) {
 			parent_widget.dataset.originalHeight = parseFloat(window.getComputedStyle(parent_widget).height.replace('px', ''));
 		}
-		const widget = parent_widget.closest('.widget');
+		const widget = parent_widget.closest('.parent_widget');
 		const row_gap = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--grid-gap').replace('px', ''));
 		const row_height = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--row-height').replace('px', ''));
 		const original_row_span = parseInt(window.getComputedStyle(widget).getPropertyValue('--row-span').replace('span ', ''));
@@ -652,7 +649,7 @@ window.addEventListener('resize', update_parent_height);
 
 <?php
 
-//include the dashboards
+//include the widgets
 	echo "<div class='widgets' id='widgets' style='padding: 0 5px;'>\n";
 	$x = 0;
 	foreach ($widgets as $row) {
@@ -676,7 +673,7 @@ window.addEventListener('resize', update_parent_height);
 		$widget_label_text_color = $row['widget_label_text_color'] ?? $settings->get('theme', 'dashboard_label_text_color', '');
 		$widget_number_text_color = $row['widget_number_text_color'] ?? $settings->get('theme', 'dashboard_number_text_color', '');
 		$widget_number_background_color = $row['widget_number_background_color'] ?? $settings->get('theme', 'dashboard_number_background_color', '');
-		$widget_details_state = $row['widget_details_state'] ?? 'hidden';
+		$widget_details_state = $row['widget_details_state'] ?? 'disabled';
 		$widget_row_span = $row['widget_row_span'] ?? '';
 
 		//define the regex patterns
@@ -712,7 +709,10 @@ window.addEventListener('resize', update_parent_height);
 		$widget_path_name = $widget_path_array[1];
 		$path_array = glob(dirname(__DIR__, 2).'/*/'.$application_name.'/resources/dashboard/'.$widget_path_name.'.php');
 
-		echo "<div class='widget ".$widget_details_state."' id='".$widget_id."' ".($widget_path == 'dashboard/parent' ? "data-is-parent='true'" : null)." draggable='false'>\n";
+		// Widget class
+		$widget_class = ($widget_path == 'dashboard/parent' ? 'parent_widget' : 'widget');
+
+		echo "<div class='".$widget_class." details_".$widget_details_state." draggable' id='".$widget_id."' draggable='false'>\n";
 		if (file_exists($path_array[0])) {
 			include $path_array[0];
 		}
@@ -735,20 +735,24 @@ window.addEventListener('resize', update_parent_height);
 			user-select: none;
 		}
 
-		div.widget.editable {
-			cursor: move;
+		.editable {
+  			position: relative;
+			cursor: grab;
 		}
 
 		.hud_box.editable {
 			transition: 0.2s;
-			border: 1px dashed rgba(0,0,0,0.4);
+			border: 1px dashed rgba(0,0,0,0.3);
 		}
 
 		.hud_box.editable:hover {
 			box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-			border: 1px dashed rgba(0,0,0,0.4);
-			transform: scale(1.03, 1.03);
+			border: 1px dashed rgba(0,0,0,0.3);
 			transition: 0.2s;
+		}
+
+		.widget > .hud_box.editable:hover {
+			transform: scale(1.03, 1.03);
 		}
 
 		.hud_box .hud_box.editable:hover {
@@ -758,12 +762,30 @@ window.addEventListener('resize', update_parent_height);
 
 		.ghost {
 			border: 2px dashed rgba(0,0,0,1);
-			<?php $br = format_border_radius($_SESSION['theme']['dashboard_border_radius']['text'] ?? null, '5px'); ?>
+			<?php $br = format_border_radius($settings->get('theme', 'dashboard_border_radius') ?? null, '5px'); ?>
 			-webkit-border-radius: <?php echo $br['tl']['n'].$br['tl']['u']; ?> <?php echo $br['tr']['n'].$br['tr']['u']; ?> <?php echo $br['br']['n'].$br['br']['u']; ?> <?php echo $br['bl']['n'].$br['bl']['u']; ?>;
 			-moz-border-radius: <?php echo $br['tl']['n'].$br['tl']['u']; ?> <?php echo $br['tr']['n'].$br['tr']['u']; ?> <?php echo $br['br']['n'].$br['br']['u']; ?> <?php echo $br['bl']['n'].$br['bl']['u']; ?>;
 			border-radius: <?php echo $br['tl']['n'].$br['tl']['u']; ?> <?php echo $br['tr']['n'].$br['tr']['u']; ?> <?php echo $br['br']['n'].$br['br']['u']; ?> <?php echo $br['bl']['n'].$br['bl']['u']; ?>;
 			<?php unset($br); ?>
 			opacity: 0.2;
+		}
+
+		.widget_edit_actions {
+			z-index: 999;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: #ffffff75;
+			backdrop-filter: blur(5px);
+			border-bottom-left-radius: 5px;
+			overflow: hidden;
+			color: #000000aa;
+		}
+
+		.widget_edit_actions i {
+			padding: 8px 12px;
+			background: #00000020;
+			font-size: 16px;
 		}
 		</style>
 
@@ -771,51 +793,39 @@ window.addEventListener('resize', update_parent_height);
 		const widgets = document.getElementById('widgets');
 		let sortable;
 
-		//make widgets draggable
 		function edit_mode(state) {
 
 			if (state == 'on') {
 				$('span#expand_contract, #btn_edit, #btn_add').hide();
 				$('.hud_box').addClass('editable');
 				$('#btn_back, #btn_save').show();
-				$('div.widget').attr('draggable',true).addClass('editable');
+				$('div.widget, div.parent_widget').attr('draggable',true).addClass('editable');
 				$('div.child_widget').attr('draggable',true).addClass('editable');
 
-				function update_widget_order() {
-					let widget_ids_list = [];
-					let order = 10;
+				// Widget edit actions
+				document.querySelectorAll('.parent_widget > .hud_box').forEach(widget => {
+					const container = document.createElement('div');
+					container.className = 'widget_edit_actions';
 
-					widgets.querySelectorAll(':scope > div.widget[id]').forEach(widget => {
-						const widget_id = widget.id;
+					// Drag handle
+					const grip_icon = document.createElement('i');
+					grip_icon.className = 'fa-solid fa-grip-lines';
 
-						//add the widgets to the list
-						widget_ids_list.push(`${widget_id}|null|${order}`);
-						order += 10;
+					container.appendChild(grip_icon);
+					widget.prepend(container);
+				});
 
-						//add the nested widgets to the list
-						const nested_container = widget.querySelector('.parent_widget');
-						if (nested_container) {
-							nested_container.querySelectorAll(':scope > div.child_widget[id]').forEach(nested => {
-								const child_id = nested.id;
-								widget_ids_list.push(`${child_id}|${widget_id}|${order}`);
-								order += 10;
-							});
-						}
-					});
-
-					document.getElementById('widget_order').value = widget_ids_list;
-				}
-
+				// Make widgets draggable
 				sortable = Sortable.create(widgets, {
 					group: {
 						name: 'shared',
 						pull: function(to, from, dragEl) {
-							return !dragEl.hasAttribute('data-is-parent');
+							return !dragEl.classList.contains('parent_widget');
 						},
 						put: true,
 					},
 					animation: 150,
-					draggable: '.widget',
+					draggable: '.draggable',
 					preventOnFilter: true,
 					ghostClass: 'ghost',
 					onSort: update_widget_order,
@@ -836,7 +846,7 @@ window.addEventListener('resize', update_parent_height);
 					},
 				});
 
-				document.querySelectorAll('.parent_widget').forEach(function(container) {
+				document.querySelectorAll('.parent_widget > .hud_box > .hud_content').forEach(function(container) {
 					Sortable.create(container, {
 						group: {
 							name: 'shared',
@@ -844,7 +854,7 @@ window.addEventListener('resize', update_parent_height);
 								return true;
 							},
 							put: function(to, from, dragEl) {
-								return !dragEl.hasAttribute('data-is-parent');
+								return !dragEl.classList.contains('parent_widget');
 							},
 						},
 						animation: 150,
@@ -875,18 +885,43 @@ window.addEventListener('resize', update_parent_height);
 					});
 				});
 
+				function update_widget_order() {
+					let widget_ids_list = [];
+					let order = 10;
+
+					widgets.querySelectorAll(':scope > div.widget[id]').forEach(widget => {
+						const widget_id = widget.id;
+
+						//add the widgets to the list
+						widget_ids_list.push(`${widget_id}|null|${order}`);
+						order += 10;
+
+						//add the nested widgets to the list
+						const nested_container = widget.querySelector('.parent_widget > .hud_box > .hud_content');
+						if (nested_container) {
+							nested_container.querySelectorAll(':scope > div.child_widget[id]').forEach(nested => {
+								const child_id = nested.id;
+								widget_ids_list.push(`${child_id}|${widget_id}|${order}`);
+								order += 10;
+							});
+						}
+					});
+
+					document.getElementById('widget_order').value = widget_ids_list;
+				}
 			}
 			else { // off
-
-				$('div.widget').attr('draggable',false).removeClass('editable');
-				$('div.child_widget').attr('draggable',false).removeClass('editable');
+				$('div.widget, div.parent_widget, div.child_widget').attr('draggable',false).removeClass('editable');
 				$('.hud_box').removeClass('editable');
 				$('#btn_back, #btn_save').hide();
 				$('span#expand_contract, #btn_edit, #btn_add').show();
 
+				document.querySelectorAll('.widget_edit_actions').forEach(element => element.remove());
+
 				sortable.option('disabled', true);
-				document.querySelectorAll('.parent_widget').forEach(el => {
-				const nested_sortable = Sortable.get(el);
+				document.querySelectorAll('.parent_widget > .hud_box > .hud_content').forEach(element => {
+					const nested_sortable = Sortable.get(element);
+
 					if (nested_sortable) {
 						nested_sortable.option('disabled', true);
 					}

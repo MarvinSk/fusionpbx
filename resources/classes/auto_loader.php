@@ -35,55 +35,37 @@
 class auto_loader {
 
 	const CLASSES_KEY = 'autoloader_classes';
-	const CLASSES_FILE = 'autoloader_cache.php';
 	const INTERFACES_KEY = "autoloader_interfaces";
+	const CLASSES_FILE = 'autoloader_cache.php';
 	const INTERFACES_FILE = "autoloader_interface_cache.php";
-
 	private $classes;
-
 	/**
 	 * Tracks the APCu extension for caching to RAM drive across requests
+	 *
 	 * @var bool
 	 */
 	private $apcu_enabled;
-
-	/**
-	 * Cache path and file name for classes
-	 * @var string
-	 */
-	private static $classes_file = null;
-
 	/**
 	 * Maps interfaces to classes
+	 *
 	 * @var array
 	 */
 	private $interfaces;
-
 	/**
+	 * Stores trait definitions (currently unused but kept for future expansion)
 	 * @var array
 	 */
 	private $traits;
 
 	/**
-	 * Cache path and file name for interfaces
-	 * @var string
+	 * Initializes the class and sets up caching mechanisms.
+	 *
+	 * @param bool $disable_cache If true, disables cache usage. Defaults to false.
 	 */
-	private static $interfaces_file = null;
-
 	public function __construct($disable_cache = false) {
 
 		//set if we can use RAM cache
 		$this->apcu_enabled = function_exists('apcu_enabled') && apcu_enabled();
-
-		//set classes cache location
-		if (empty(self::$classes_file)) {
-			self::$classes_file = sys_get_temp_dir() . DIRECTORY_SEPARATOR . self::CLASSES_FILE;
-		}
-
-		//set interface cache location
-		if (empty(self::$interfaces_file)) {
-			self::$interfaces_file = sys_get_temp_dir() . DIRECTORY_SEPARATOR . self::INTERFACES_FILE;
-		}
 
 		//classes must be loaded before this object is registered
 		if ($disable_cache || !$this->load_cache()) {
@@ -93,164 +75,50 @@ class auto_loader {
 			$this->update_cache();
 		}
 		//register this object to load any unknown classes
-		spl_autoload_register(array($this, 'loader'));
+		spl_autoload_register([$this, 'loader']);
 	}
 
 	/**
-	 * The loader is set to private because only the PHP engine should be calling this method
-	 * @param string $class_name The class name that needs to be loaded
-	 * @return bool True if the class is loaded or false when the class is not found
-	 * @access private
+	 * Loads the class cache from APCu if available.
+	 *
+	 * @return bool True if the cache is loaded successfully, false otherwise.
 	 */
-	private function loader($class_name): bool {
+	public function load_cache(): bool {
+		$this->classes = [];
+		$this->interfaces = [];
+		$this->traits = []; // Reset traits array
 
-		//sanitize the class name
-		$class_name = preg_replace('[^a-zA-Z0-9_]', '', $class_name);
+		//use apcu when available - validate BOTH keys exist
+		if ($this->apcu_enabled && apcu_exists(self::CLASSES_KEY) && apcu_exists(self::INTERFACES_KEY)) {
+			$this->classes = apcu_fetch(self::CLASSES_KEY, $classes_cached);
+			$this->interfaces = apcu_fetch(self::INTERFACES_KEY, $interfaces_cached);
 
-		//find the path using the class_name as the key in the classes array
-		if (isset($this->classes[$class_name])) {
-			//include the class or interface
-			include_once $this->classes[$class_name];
+			//validate fetched data is arrays and not corrupted
+			if ($classes_cached && $interfaces_cached &&
+				is_array($this->classes) && is_array($this->interfaces) &&
+				!empty($this->classes)) {
+				return true;
+			}
 
-			//return boolean
-			return true;
+			//log when cache validation fails
+			if ($classes_cached || $interfaces_cached) {
+				self::log(LOG_WARNING, "APCu cache validation failed - classes_cached: " . ($classes_cached ? 'true' : 'false') . ", interfaces_cached: " . ($interfaces_cached ? 'true' : 'false') . ", is_array(classes): " . (is_array($this->classes) ? 'true' : 'false') . ", is_array(interfaces): " . (is_array($this->interfaces) ? 'true' : 'false'));
+			}
 		}
 
-		//Smarty has it's own autoloader so reject the request
-		if ($class_name === 'Smarty_Autoloader') {
-			return false;
-		}
-
-		//cache miss
-		self::log(LOG_WARNING, "class '$class_name' not found in cache");
-
-		//set project path using magic dir constant
-		$project_path = dirname(__DIR__, 2);
-
-		//build the search path array
-		$search_path[] = glob($project_path . "/resources/interfaces/" . $class_name . ".php");
-		$search_path[] = glob($project_path . "/resources/traits/" . $class_name . ".php");
-		$search_path[] = glob($project_path . "/resources/classes/" . $class_name . ".php");
-		$search_path[] = glob($project_path . "/*/*/resources/interfaces/" . $class_name . ".php");
-		$search_path[] = glob($project_path . "/*/*/resources/traits/" . $class_name . ".php");
-		$search_path[] = glob($project_path . "/*/*/resources/classes/" . $class_name . ".php");
-
-		//fix class names in the plugins directory prefixed with 'plugin_'
-		if (str_starts_with($class_name, 'plugin_')) {
-			$class_name = substr($class_name, 7);
-		}
-		$search_path[] = glob($project_path . "/core/authentication/resources/classes/plugins/" . $class_name . ".php");
-
-		//collapse all entries to only the matched entry
-		$matches = array_filter($search_path);
-		if (!empty($matches)) {
-			$path = array_pop($matches)[0];
-
-			//include the class, interface, or trait
-			include_once $path;
-
-			//inject the class in to the array
-			$this->classes[$class_name] = $path;
-
-			//update the cache with new classes
-			$this->update_cache();
-
-			//return boolean
-			return true;
-		}
-
-		//send to syslog when debugging
-		self::log(LOG_ERR, "class '$class_name' not found name");
-
-		//return boolean
+		//return false when we don't have classes in memory
 		return false;
 	}
 
 	/**
-	 * Update the auto loader
+	 * Reloads classes and interfaces from the project's resources.
+	 *
+	 * This method scans all PHP files in the specified locations, parses their contents,
+	 * and updates the internal storage of classes and interfaces. It also processes
+	 * implementation relationships between classes and interfaces.
+	 *
+	 * @return void
 	 */
-	public function update() {
-		self::clear_cache();
-		$this->reload_classes();
-		$this->update_cache();
-	}
-
-	public function update_cache(): bool {
-		//guard against writing an empty file
-		if (empty($this->classes)) {
-			return false;
-		}
-
-		//update RAM cache when available
-		if ($this->apcu_enabled) {
-			$classes_cached = apcu_store(self::CLASSES_KEY, $this->classes);
-			$interfaces_cached = apcu_store(self::INTERFACES_KEY, $this->interfaces);
-			//do not save to drive when we are using apcu
-			if ($classes_cached && $interfaces_cached)
-				return true;
-		}
-
-		//export the classes array using PHP engine
-		$classes_array = var_export($this->classes, true);
-
-		//put the array in a form that it can be loaded directly to an array
-		$class_result = file_put_contents(self::$classes_file, "<?php\n return " . $classes_array . ";\n");
-		if ($class_result === false) {
-			//file failed to save - send error to syslog when debugging
-			$error_array = error_get_last();
-			self::log(LOG_WARNING, $error_array['message'] ?? '');
-		}
-
-		//export the interfaces array using PHP engine
-		$interfaces_array = var_export($this->interfaces, true);
-
-		//put the array in a form that it can be loaded directly to an array
-		$interface_result = file_put_contents(self::$interfaces_file, "<?php\n return " . $interfaces_array . ";\n");
-		if ($interface_result === false) {
-			//file failed to save - send error to syslog when debugging
-			$error_array = error_get_last();
-			self::log(LOG_WARNING, $error_array['message'] ?? '');
-		}
-
-		$result = ($class_result && $interface_result);
-
-		return $result;
-	}
-
-	public function load_cache(): bool {
-		$this->classes = [];
-		$this->interfaces = [];
-		$this->traits = [];
-
-		//use apcu when available
-		if ($this->apcu_enabled && apcu_exists(self::CLASSES_KEY)) {
-			$this->classes = apcu_fetch(self::CLASSES_KEY, $classes_cached);
-			$this->interfaces = apcu_fetch(self::INTERFACES_KEY, $interfaces_cached);
-			//don't use files when we are using apcu caching
-			if ($classes_cached && $interfaces_cached)
-				return true;
-		}
-
-		//use PHP engine to parse it
-		if (file_exists(self::$classes_file)) {
-			$this->classes = include self::$classes_file;
-		}
-
-		//do the same for interface to class mappings
-		if (file_exists(self::$interfaces_file)) {
-			$this->interfaces = include self::$interfaces_file;
-		}
-
-		//catch edge case of first time using apcu cache
-		if ($this->apcu_enabled) {
-			apcu_store(self::CLASSES_KEY, $this->classes);
-			apcu_store(self::INTERFACES_KEY, $this->interfaces);
-		}
-
-		//return true when we have classes and false if the array is still empty
-		return (!empty($this->classes) && !empty($this->interfaces));
-	}
-
 	public function reload_classes() {
 		//set project path using magic dir constant
 		$project_path = dirname(__DIR__, 2);
@@ -271,9 +139,6 @@ class auto_loader {
 		foreach ($search_path as $path) {
 			$files = array_merge($files, glob($path));
 		}
-
-		//reset the current array
-		$class_list = [];
 
 		//store the class name (key) and the path (value)
 		foreach ($files as $file) {
@@ -350,19 +215,119 @@ class auto_loader {
 	}
 
 	/**
+	 * Updates the cache by storing classes and interfaces in APCu if available.
+	 *
+	 * @return bool True if the update was successful, false otherwise
+	 */
+	public function update_cache(): bool {
+		//guard against empty cache
+		if (empty($this->classes)) {
+			return false;
+		}
+
+		//update APCu cache when available
+		if ($this->apcu_enabled) {
+			$classes_stored = apcu_store(self::CLASSES_KEY, $this->classes, 0);
+			$interfaces_stored = apcu_store(self::INTERFACES_KEY, $this->interfaces, 0);
+
+			//log failures to help diagnose APCu issues
+			if (!$classes_stored) {
+				self::log(LOG_WARNING, "Failed to store classes to APCu");
+			}
+			if (!$interfaces_stored) {
+				self::log(LOG_WARNING, "Failed to store interfaces to APCu");
+			}
+
+			//both must succeed for consistency
+			if ($classes_stored && $interfaces_stored) {
+				return true;
+			}
+
+			//if one failed, clear APCu to prevent inconsistent state
+			if ($classes_stored || $interfaces_stored) {
+				apcu_delete(self::CLASSES_KEY);
+				apcu_delete(self::INTERFACES_KEY);
+				self::log(LOG_WARNING, "Cleared APCu cache due to partial store failure");
+			}
+
+			return false;
+		}
+
+		//APCu not available, cache remains in memory only
+		return true;
+	}
+
+	/**
+	 * Logs a message at the specified level
+	 *
+	 * @param int    $level   The log level (e.g. E_ERROR)
+	 * @param string $message The log message
+	 */
+	private static function log(int $level, string $message): void {
+		if (filter_var($_REQUEST['debug'] ?? false, FILTER_VALIDATE_BOOLEAN) || filter_var(getenv('DEBUG') ?? false, FILTER_VALIDATE_BOOLEAN)) {
+			openlog("PHP", LOG_PID | LOG_PERROR, LOG_LOCAL0);
+			syslog($level, "[auto_loader] " . $message);
+			closelog();
+		}
+	}
+
+	/**
+	 * Main method used to update internal state by clearing cache, reloading classes and updating cache.
+	 *
+	 * @return void
+	 * @see \auto_loader::clear_cache()
+	 * @see \auto_loader::reload_classes()
+	 * @see \auto_loader::update_cache()
+	 */
+	public function update() {
+		self::clear_cache();
+		$this->reload_classes();
+		$this->update_cache();
+	}
+
+	/**
+	 * Clears the cache of stored classes and interfaces from APCu.
+	 *
+	 * @return void
+	 */
+	public static function clear_cache() {
+
+		//check for apcu cache and clear it
+		if (function_exists('apcu_enabled') && apcu_enabled()) {
+			apcu_delete(self::CLASSES_KEY);
+			apcu_delete(self::INTERFACES_KEY);
+		}
+	}
+
+	/**
 	 * Returns a list of classes loaded by the auto_loader. If no classes have been loaded an empty array is returned.
+	 *
+	 * @param string $parent Optional parent class name to filter the list of classes that has the given parent class.
+	 *
 	 * @return array List of classes loaded by the auto_loader or empty array
 	 */
-	public function get_class_list(): array {
+	public function get_class_list(string $parent = ''): array {
+		$classes = [];
+		//make sure we can return values if no classes have been loaded
 		if (!empty($this->classes)) {
-			return $this->classes;
+			if ($parent !== '') {
+				foreach ($this->classes as $class_name => $path) {
+					if (is_subclass_of($class_name, $parent)) {
+						$classes[$class_name] = $path;
+					}
+				}
+			} else {
+				$classes = $this->classes;
+			}
 		}
-		return [];
+		return $classes;
 	}
 
 	/**
 	 * Returns a list of classes implementing the interface
+	 *
 	 * @param string $interface_name
+	 *
 	 * @return array
 	 */
 	public function get_interface_list(string $interface_name): array {
@@ -379,6 +344,11 @@ class auto_loader {
 		return [];
 	}
 
+	/**
+	 * Returns a list of all user defined interfaces that have been registered.
+	 *
+	 * @return array
+	 */
 	public function get_interfaces(): array {
 		if (!empty($this->interfaces)) {
 			return $this->interfaces;
@@ -386,51 +356,91 @@ class auto_loader {
 		return [];
 	}
 
-	public static function clear_cache() {
+	/**
+	 * The loader is set to private because only the PHP engine should be calling this method
+	 *
+	 * @param string $class_name The class name that needs to be loaded
+	 *
+	 * @return bool True if the class is loaded or false when the class is not found
+	 * @access private
+	 */
+	private function loader($class_name): bool {
 
-		//check for apcu cache
-		if (function_exists('apcu_enabled') && apcu_enabled()) {
-			apcu_delete(self::CLASSES_KEY);
-			apcu_delete(self::INTERFACES_KEY);
+		//sanitize the class name
+		$class_name = preg_replace('/[^a-zA-Z0-9_\\\\]/', '', $class_name);
+
+		//find the path using the class_name as the key in the classes array
+		if (isset($this->classes[$class_name])) {
+			//include the class or interface
+			$result = @include_once $this->classes[$class_name];
+
+			//check for edge case where the file was deleted after cache creation
+			if ($result === false) {
+				//send to syslog when debugging
+				self::log(LOG_ERR, "class '$class_name' registered but include failed (file deleted?). Removed from cache.");
+
+				//remove the class from the array
+				unset($this->classes[$class_name]);
+
+				//update the cache with new classes
+				$this->update_cache();
+
+				//return failure
+				return false;
+			}
+
+			//return success
+			return true;
 		}
 
-		//set default file
-		if (empty(self::$classes_file)) {
-			self::$classes_file = sys_get_temp_dir() . DIRECTORY_SEPARATOR . self::CLASSES_FILE;
+		//Smarty has it's own autoloader so reject the request
+		if ($class_name === 'Smarty_Autoloader') {
+			return false;
 		}
 
-		//set file to clear
-		$classes_file = self::$classes_file;
+		//cache miss
+		self::log(LOG_WARNING, "class '$class_name' not found in cache");
 
-		//remove the file when it exists
-		if (file_exists($classes_file)) {
-			@unlink($classes_file);
-			$error_array = error_get_last();
-			//send to syslog when debugging with either environment variable or debug in the url
-			self::log(LOG_WARNING, $error_array['message'] ?? '');
+		//set project path using magic dir constant
+		$project_path = dirname(__DIR__, 2);
+
+		//build the search path array
+		$search_path = [];
+		$search_path[] = glob($project_path . "/resources/interfaces/" . $class_name . ".php");
+		$search_path[] = glob($project_path . "/resources/traits/" . $class_name . ".php");
+		$search_path[] = glob($project_path . "/resources/classes/" . $class_name . ".php");
+		$search_path[] = glob($project_path . "/*/*/resources/interfaces/" . $class_name . ".php");
+		$search_path[] = glob($project_path . "/*/*/resources/traits/" . $class_name . ".php");
+		$search_path[] = glob($project_path . "/*/*/resources/classes/" . $class_name . ".php");
+
+		//fix class names in the plugins directory prefixed with 'plugin_'
+		if (str_starts_with($class_name, 'plugin_')) {
+			$class_name = substr($class_name, 7);
+		}
+		$search_path[] = glob($project_path . "/core/authentication/resources/classes/plugins/" . $class_name . ".php");
+
+		//collapse all entries to only the matched entry
+		$matches = array_filter($search_path);
+		if (!empty($matches)) {
+			$path = array_pop($matches)[0];
+
+			//include the class, interface, or trait
+			include_once $path;
+
+			//inject the class in to the array
+			$this->classes[$class_name] = $path;
+
+			//update the cache with new classes
+			$this->update_cache();
+
+			//return boolean
+			return true;
 		}
 
-		if (empty(self::$interfaces_file)) {
-			self::$interfaces_file = sys_get_temp_dir() . DIRECTORY_SEPARATOR . self::INTERFACES_FILE;
-		}
+		//send to syslog when debugging
+		self::log(LOG_ERR, "class '$class_name' not found name");
 
-		//set interfaces file to clear
-		$interfaces_file = self::$interfaces_file;
-
-		//remove the file when it exists
-		if (file_exists($interfaces_file)) {
-			@unlink($interfaces_file);
-			$error_array = error_get_last();
-			//send to syslog when debugging with either environment variable or debug in the url
-			self::log(LOG_WARNING, $error_array['message'] ?? '');
-		}
-	}
-
-	private static function log(int $level, string $message): void {
-		if (filter_var($_REQUEST['debug'] ?? false, FILTER_VALIDATE_BOOL) || filter_var(getenv('DEBUG') ?? false, FILTER_VALIDATE_BOOL)) {
-			openlog("PHP", LOG_PID | LOG_PERROR, LOG_LOCAL0);
-			syslog($level, "[auto_loader] " . $message);
-			closelog();
-		}
+		//return boolean
+		return false;
 	}
 }

@@ -111,7 +111,7 @@
 			event:addHeader('event-string', 'check-sync;reboot=true');
 		end
 		if (command == "check_sync") then
-			event:addHeader('event-string', 'resync');
+			event:addHeader('event-string', 'check-sync');
 		end
 	end
 
@@ -167,6 +167,16 @@
 
 --polycom
 	if (vendor == "polycom") then
+		if (command == "reboot") then
+			event:addHeader('event-string', 'check-sync');
+		end
+		if (command == "check_sync") then
+			event:addHeader('event-string', 'check-sync');
+		end
+	end
+
+--poly
+	if (vendor == "poly") then
 		if (command == "reboot") then
 			event:addHeader('event-string', 'check-sync');
 		end

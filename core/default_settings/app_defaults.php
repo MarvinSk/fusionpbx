@@ -17,7 +17,7 @@
 
 	The Initial Developer of the Original Code is
 	Mark J Crane <markjcrane@fusionpbx.com>
-	Portions created by the Initial Developer are Copyright (C) 2008-2019
+	Portions created by the Initial Developer are Copyright (C) 2008-2026
 	the Initial Developer. All Rights Reserved.
 
 	Contributor(s):
@@ -111,6 +111,7 @@
 				$sql .= "('".uuid()."', 'FYRO Macedonia', 'mk'), ";
 				$sql .= "('".uuid()."', 'Gaelic - Ireland', 'gd-ie'), ";
 				$sql .= "('".uuid()."', 'Gaelic - Scotland', 'gd'), ";
+				$sql .= "('".uuid()."', 'Georgian', 'ka-ge'), ";
 				$sql .= "('".uuid()."', 'German - Austria', 'de-at'), ";
 				$sql .= "('".uuid()."', 'German - Germany', 'de-de'), ";
 				$sql .= "('".uuid()."', 'German - Liechtenstein', 'de-li'), ";
@@ -495,7 +496,7 @@
 			$database->execute($sql);
 			unset($sql);
 
-		//update login destination 
+		//update login destination
 			$sql = "update v_default_settings set ";
 			$sql .= "default_setting_uuid = 'e2b9406f-37cf-4226-8111-e5d11d0bfd73', ";
 			$sql .= "default_setting_name = 'text' ";
@@ -512,6 +513,13 @@
 			$sql .= "and default_setting_subcategory in ('invisibles', 'indent_guides', 'line_numbers') ";
 			$sql .= "and default_setting_name = 'boolean' ";
 			$database->execute($sql);
+			unset($sql);
+
+		// Delete setting_value_input_type
+			$sql = "delete from v_default_settings ";
+			$sql .= "where default_setting_category = 'domain' ";
+			$sql .= "and default_setting_subcategory = 'setting_value_input_type' ";
+			$database->execute($sql, null);
 			unset($sql);
 
 	}

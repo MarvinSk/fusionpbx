@@ -24,7 +24,10 @@
 --	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 --	POSSIBILITY OF SUCH DAMAGE.
 
---load libraries
+--load the functions
+require "resources.functions.shell_esc"
+
+--load the libraries
 local send_mail = require 'resources.functions.send_mail'
 local Database = require "resources.functions.database"
 local Settings = require "resources.functions.lazy_settings"
@@ -38,7 +41,14 @@ function send_email(id, uuid)
 		local email_queue_enabled = "true";
 
 	--get voicemail message details
-		local sql = [[SELECT * FROM v_voicemails
+		local sql = [[SELECT 
+			 voicemail_uuid,
+			 voicemail_mail_to,
+			 cast(voicemail_transcription_enabled as text),
+			 voicemail_file,
+			 cast(voicemail_local_after_email as text),
+			 voicemail_description
+			FROM v_voicemails
 			WHERE domain_uuid = :domain_uuid
 			AND voicemail_id = :voicemail_id]]
 		local params = {domain_uuid = domain_uuid, voicemail_id = id};
@@ -59,9 +69,6 @@ function send_email(id, uuid)
 	--set default values
 		if (voicemail_file == nil or voicemail_file == '') then
 			voicemail_file = "listen";
-		end
-		if (voicemail_local_after_email == nil or voicemail_local_after_email == '') then
-			voicemail_local_after_email = "true";
 		end
 
 	--require the email address to send the email
@@ -92,7 +99,7 @@ function send_email(id, uuid)
 						us.user_setting_category = 'domain' and
 						us.user_setting_subcategory = 'time_zone' and
 						us.user_setting_name = 'name' and
-						us.user_setting_enabled = 'true'
+						us.user_setting_enabled = true
 					order by
 						eu.insert_date asc
 					limit 1
@@ -190,7 +197,8 @@ function send_email(id, uuid)
 				else
 					sql = sql .. "AND template_subcategory = 'default' "
 				end
-				sql = sql .. "AND template_enabled = 'true' "
+				sql = sql .. "AND template_type = 'html' "
+				sql = sql .. "AND template_enabled = true "
 				sql = sql .. "ORDER BY domain_uuid DESC "
 				local params = {domain_uuid = domain_uuid, template_language = default_language.."-"..default_dialect};
 				if (debug["sql"]) then
@@ -239,7 +247,7 @@ function send_email(id, uuid)
 				intro = voicemail_dir.."/"..id.."/intro_"..uuid.."."..vm_message_ext;
 				combined = voicemail_dir.."/"..id.."/intro_msg_"..uuid.."."..vm_message_ext;
 				if (file_exists(intro) and file_exists(file)) then
-					os.execute("sox "..intro.." "..file.." "..combined);
+					os.execute("sox "..intro.." "..shell_esc(file).." "..shell_esc(combined));
 				end
 
 			--prepare the subject
@@ -333,7 +341,7 @@ function send_email(id, uuid)
 					smtp_from,
 					voicemail_mail_to,
 					{subject, body},
-					(voicemail_file == "attach") and voicemail_path,
+					voicemail_path,
 					voicemail_base64
 				);
 
@@ -383,3 +391,4 @@ function send_email(id, uuid)
 		end
 
 end
+

@@ -17,7 +17,7 @@
 
 	The Initial Developer of the Original Code is
 	Mark J Crane <markjcrane@fusionpbx.com>
-	Portions created by the Initial Developer are Copyright (C) 2018-2024
+	Portions created by the Initial Developer are Copyright (C) 2018-2026
 	the Initial Developer. All Rights Reserved.
 */
 
@@ -27,10 +27,7 @@
 	require_once "resources/paging.php";
 
 //check permissions
-	if (permission_exists('user_log_view')) {
-		//access granted
-	}
-	else {
+	if (!permission_exists('user_log_view')) {
 		echo "access denied";
 		exit;
 	}
@@ -41,7 +38,7 @@
 
 //set config object
 	global $config;
-	if (!($confing instanceof config)) {
+	if (!($config instanceof config)) {
 		$config = config::load();
 	}
 
@@ -57,7 +54,7 @@
 //get the http post data
 	if (!empty($_POST['user_logs']) && is_array($_POST['user_logs'])) {
 		$action = $_POST['action'];
-		$search = $_POST['search'];
+		$search = $_POST['search'] ?? '';
 		$user_logs = $_POST['user_logs'];
 	}
 
@@ -81,17 +78,13 @@
 			}
 		}
 
-		//prepare the database object
-		$database->app_name = 'user_logs';
-		$database->app_uuid = '582a13cf-7d75-4ea3-b2d9-60914352d76e';
-
 		//send the array to the database class
 		if (!empty($action) && $action == 'delete' && permission_exists('user_log_delete')) {
 			$database->delete($array);
 		}
 
 		//redirect the user
-		header('Location: user_logs.php'.($search != '' ? '?search='.urlencode($search) : null));
+		header('Location: user_logs.php'.($search != '' ? '?search='.urlencode($search) : ''));
 		exit;
 	}
 
@@ -144,16 +137,40 @@
 
 //prepare to page the results
 	$rows_per_page = $settings->get('domain', 'paging', 50);
-	$param = !empty($search) ? "&search=".$search : null;
-	$param .= (!empty($_GET['page']) && $show == 'all' && permission_exists('user_log_all')) ? "&show=all" : null;
+	$param = '';
+	if (!empty($search)) {
+		$param .= "&search=".$search;
+	}
+	if (!empty($_GET['page']) && $show == 'all' && permission_exists('user_log_all')) {
+		$param .= "&show=all";
+	}
+	if (!empty($order_by)) {
+		$param .= "&order_by=".$order_by;
+	}
+	if (!empty($order)) {
+		$param .= "&order=".$order;
+	}
 	$page = !empty($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 0;
 	list($paging_controls, $rows_per_page) = paging($num_rows, $param, $rows_per_page);
 	list($paging_controls_mini, $rows_per_page) = paging($num_rows, $param, $rows_per_page, true);
 	$offset = $rows_per_page * $page;
+	if (!empty($order_by)) {
+		$param = str_replace("&order_by=".$order_by, '', $param);
+	}
+	if (!empty($order)) {
+		$param = str_replace("&order=".$order, '', $param);
+	}
 
 //set the time zone
 	$time_zone = $settings->get('domain', 'time_zone', date_default_timezone_get());
-	$parameters['time_zone'] = $time_zone;
+
+//set the time format options: 12h, 24h
+	if ($settings->get('domain', 'time_format') == '24h') {
+		$time_format = 'HH24:MI:SS';
+	}
+	else {
+		$time_format = 'HH12:MI:SS am';
+	}
 
 //get the list
 	$sql = "select ";
@@ -162,7 +179,7 @@
 	$sql .= "u.domain_uuid, ";
 	$sql .= "d.domain_name, ";
 	$sql .= "to_char(timezone(:time_zone, timestamp), 'DD Mon YYYY') as date_formatted, ";
-	$sql .= "to_char(timezone(:time_zone, timestamp), 'HH12:MI:SS am') as time_formatted, ";
+	$sql .= "to_char(timezone(:time_zone, timestamp), '".$time_format."') as time_formatted, ";
 	$sql .= "user_uuid, ";
 	$sql .= "username, ";
 	$sql .= "type, ";
@@ -194,6 +211,7 @@
 	$sql .= "and u.domain_uuid = d.domain_uuid ";
 	$sql .= order_by($order_by, $order, 'timestamp', 'desc');
 	$sql .= limit_offset($rows_per_page, $offset);
+	$parameters['time_zone'] = $time_zone;
 	$user_logs = $database->select($sql, $parameters ?? null, 'all');
 	unset($sql, $parameters);
 
@@ -251,20 +269,20 @@
 		echo "	</th>\n";
 	}
 	if ($show == 'all' && permission_exists('user_log_all')) {
-		echo th_order_by('domain_name', $text['label-domain'], $order_by, $order);
+		echo th_order_by('domain_name', $text['label-domain'], $order_by, $order, null, null, $param);
 	}
 	echo "<th class='left'>".$text['label-date']."</th>\n";
 	echo "<th class='left hide-md-dn'>".$text['label-time']."</th>\n";
 	echo "<th class='shrink hide-md-dn'>".$text['label-hostname']."</th>\n";
 	echo "<th class='right'>".$text['label-status']."</th>\n";
-	echo th_order_by('username', $text['label-username'], $order_by, $order);
-	echo th_order_by('type', $text['label-type'], $order_by, $order);
-	echo th_order_by('result', $text['label-result'], $order_by, $order);
+	echo th_order_by('username', $text['label-username'], $order_by, $order, null, null, $param);
+	echo th_order_by('type', $text['label-type'], $order_by, $order, null, null, $param);
+	echo th_order_by('result', $text['label-result'], $order_by, $order, null, null, $param);
 	if ($has_column_detail) {
-		echo th_order_by('detail', $text['label-detail'], $order_by, $order);
+		echo th_order_by('detail', $text['label-detail'], $order_by, $order, null, null, $param);
 	}
-	echo th_order_by('remote_address', $text['label-remote_address'], $order_by, $order);
-	echo th_order_by('user_agent', $text['label-user_agent'], $order_by, $order);
+	echo th_order_by('remote_address', $text['label-remote_address'], $order_by, $order, null, null, $param);
+	echo th_order_by('user_agent', $text['label-user_agent'], $order_by, $order, null, null, $param);
 	echo "</tr>\n";
 
 	if (!empty($user_logs) && is_array($user_logs) && @sizeof($user_logs) != 0) {
@@ -292,7 +310,7 @@
 			echo "	<td>".escape($row['date_formatted'])."</td>\n";
 			echo "	<td class='left hide-md-dn'>".escape($row['time_formatted'])."</td>\n";
 			echo "	<td class='hide-md-dn'>".escape($row['hostname'])."</td>\n";
-			echo "	<td><div class='list-status-".$session_status."'></div></td>\n";
+			echo "	<td style='text-align: right; padding-right: 20px;'><div class='list-status-".$session_status."'></div></td>\n";
 			echo "	<td>".escape($row['username'])."</td>\n";
 			echo "	<td>".escape($row['type'])."</td>\n";
 			echo "	<td>".escape($row['result'])."</td>\n";
