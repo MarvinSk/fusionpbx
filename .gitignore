@@ -9,4 +9,4 @@ secure/*.sqlite
 
 *.php~
 
-app/yealink/resources/firmware/*
+Thumbs.db
